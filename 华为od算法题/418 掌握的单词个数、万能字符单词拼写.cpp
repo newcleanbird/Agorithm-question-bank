@@ -1,60 +1,60 @@
 /*
-418¡¢ÕÆÎÕµÄµ¥´Ê¸öÊý¡¢ÍòÄÜ×Ö·ûµ¥´ÊÆ´Ð´
-ÌâÄ¿ÃèÊö£º
-ÓÐÒ»¸ö×Ö·û´®Êý×éwordsºÍÒ»¸ö×Ö·û´®chars¡£
-¼ÙÈç¿ÉÒÔÓÃcharsÖÐµÄ×ÖÄ¸Æ´Ð´³öwordsÖÐµÄÄ³¸ö¡°µ¥´Ê¡±£¨×Ö·û´®£©£¬ÄÇÃ´ÎÒÃÇ¾ÍÈÏÎªÄãÕÆÎÕÁËÕâ¸öµ¥´Ê¡£
-wordsµÄ×Ö·û½öÓÉ a-z Ó¢ÎÄÐ¡Ð´×ÖÄ¸×é³É¡£ ÀýÈç: abc
-chars ÓÉ a-z Ó¢ÎÄÐ¡Ð´×ÖÄ¸ºÍ ¡°?¡±×é³É¡£ÆäÖÐÓ¢ÎÄÎÊºÅ¡°?¡±±íÊ¾ÍòÄÜ×Ö·û£¬ÄÜ¹»ÔÚÆ´Ð´Ê±µ±×öÈÎÒâÒ»¸öÓ¢ÎÄ×ÖÄ¸¡£ ÀýÈç£º "?" ¿ÉÒÔµ±×ö "a"µÈ×ÖÄ¸¡£
-×¢Òâ£ºÃ¿´ÎÆ´Ð´Ê±£¬charsÖÐµÄÃ¿¸ö×ÖÄ¸ºÍÍòÄÜ×Ö·û¶¼Ö»ÄÜÊ¹ÓÃÒ»´Î¡£
-Êä³ö´Ê»ã±íwordsÖÐÄãÕÆÎÕµÄËùÓÐµ¥´ÊµÄ¸öÊý¡£ Ã»ÓÐÕÆÎÕÈÎºÎµ¥´Ê£¬ÔòÊä³ö0¡£
-ÊäÈëÃèÊö£º
-µÚ1ÐÐÊäÈëÊý×éwordsµÄ¸öÊý£¬¼ÇÎªN¡£
-´ÓµÚ2ÐÐ¿ªÊ¼µ½µÚN+1ÐÐÒÀ´ÎÊäÈëÊý×éwordsµÄÃ¿¸ö×Ö·û´®ÔªËØ¡£
-µÚN+2ÐÐÊäÈë×Ö·û´®chars¡£
-Êä³öÃèÊö£º
-Êä³öÒ»¸öÕûÊý£¬±íÊ¾´Ê»ã±íwordsÖÐÄãÕÆÎÕµÄµ¥´Ê¸öÊý¡£
-×¢Òâ£º
+418ã€æŽŒæ¡çš„å•è¯ä¸ªæ•°ã€ä¸‡èƒ½å­—ç¬¦å•è¯æ‹¼å†™
+é¢˜ç›®æè¿°ï¼š
+æœ‰ä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„wordså’Œä¸€ä¸ªå­—ç¬¦ä¸²charsã€‚
+å‡å¦‚å¯ä»¥ç”¨charsä¸­çš„å­—æ¯æ‹¼å†™å‡ºwordsä¸­çš„æŸä¸ªâ€œå•è¯â€ï¼ˆå­—ç¬¦ä¸²ï¼‰ï¼Œé‚£ä¹ˆæˆ‘ä»¬å°±è®¤ä¸ºä½ æŽŒæ¡äº†è¿™ä¸ªå•è¯ã€‚
+wordsçš„å­—ç¬¦ä»…ç”± a-z è‹±æ–‡å°å†™å­—æ¯ç»„æˆã€‚ ä¾‹å¦‚: abc
+chars ç”± a-z è‹±æ–‡å°å†™å­—æ¯å’Œ â€œ?â€ç»„æˆã€‚å…¶ä¸­è‹±æ–‡é—®å·â€œ?â€è¡¨ç¤ºä¸‡èƒ½å­—ç¬¦ï¼Œèƒ½å¤Ÿåœ¨æ‹¼å†™æ—¶å½“åšä»»æ„ä¸€ä¸ªè‹±æ–‡å­—æ¯ã€‚ ä¾‹å¦‚ï¼š "?" å¯ä»¥å½“åš "a"ç­‰å­—æ¯ã€‚
+æ³¨æ„ï¼šæ¯æ¬¡æ‹¼å†™æ—¶ï¼Œcharsä¸­çš„æ¯ä¸ªå­—æ¯å’Œä¸‡èƒ½å­—ç¬¦éƒ½åªèƒ½ä½¿ç”¨ä¸€æ¬¡ã€‚
+è¾“å‡ºè¯æ±‡è¡¨wordsä¸­ä½ æŽŒæ¡çš„æ‰€æœ‰å•è¯çš„ä¸ªæ•°ã€‚ æ²¡æœ‰æŽŒæ¡ä»»ä½•å•è¯ï¼Œåˆ™è¾“å‡º0ã€‚
+è¾“å…¥æè¿°ï¼š
+ç¬¬1è¡Œè¾“å…¥æ•°ç»„wordsçš„ä¸ªæ•°ï¼Œè®°ä¸ºNã€‚
+ä»Žç¬¬2è¡Œå¼€å§‹åˆ°ç¬¬N+1è¡Œä¾æ¬¡è¾“å…¥æ•°ç»„wordsçš„æ¯ä¸ªå­—ç¬¦ä¸²å…ƒç´ ã€‚
+ç¬¬N+2è¡Œè¾“å…¥å­—ç¬¦ä¸²charsã€‚
+è¾“å‡ºæè¿°ï¼š
+è¾“å‡ºä¸€ä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºè¯æ±‡è¡¨wordsä¸­ä½ æŽŒæ¡çš„å•è¯ä¸ªæ•°ã€‚
+æ³¨æ„ï¼š
 1 <= words.length <= 100
 1 <= words[i].length, chars.length <= 100
-ËùÓÐ×Ö·û´®ÖÐ¶¼½ö°üº¬Ð¡Ð´Ó¢ÎÄ×ÖÄ¸¡¢Ó¢ÎÄÎÊºÅ
+æ‰€æœ‰å­—ç¬¦ä¸²ä¸­éƒ½ä»…åŒ…å«å°å†™è‹±æ–‡å­—æ¯ã€è‹±æ–‡é—®å·
 
 
-Ê¾Àý1
-ÊäÈë£º
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
 4
 cat
 bt
 hat
 tree
 atach??
-Êä³ö£º
+è¾“å‡ºï¼š
 3
-ËµÃ÷£º
-¿ÉÒÔÆ´Ð´×Ö·û´®"cat"¡¢"bt"ºÍ"hat"
+è¯´æ˜Žï¼š
+å¯ä»¥æ‹¼å†™å­—ç¬¦ä¸²"cat"ã€"bt"å’Œ"hat"
 
-Ê¾Àý2
-ÊäÈë£º
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
 3
 hello
 world
 cloud
 welldonehoneyr
-Êä³ö£º
+è¾“å‡ºï¼š
 2
-ËµÃ÷£º
-¿ÉÒÔÆ´Ð´×Ö·û´®"hello"ºÍ"world"
+è¯´æ˜Žï¼š
+å¯ä»¥æ‹¼å†™å­—ç¬¦ä¸²"hello"å’Œ"world"
 
-Ê¾Àý3
-ÊäÈë£º
+ç¤ºä¾‹3
+è¾“å…¥ï¼š
 3
 apple
 car
 window
 welldoneapplec?
-Êä³ö£º
+è¾“å‡ºï¼š
 2
-ËµÃ÷£º
-¿ÉÒÔÆ´Ð´×Ö·û´®"apple"ºÍ"car"
+è¯´æ˜Žï¼š
+å¯ä»¥æ‹¼å†™å­—ç¬¦ä¸²"apple"å’Œ"car"
 */
 #include<iostream>
 #include<string>
@@ -99,7 +99,7 @@ int main()
 	string chars;
 	cin >> chars;
 	int god_char = 0;
-	// Í³¼ÆcharsµÄÊý¾Ý
+	// ç»Ÿè®¡charsçš„æ•°æ®
 	map<char, int> mchars;
 	for (auto i : chars)
 	{
@@ -110,7 +110,7 @@ int main()
 		}
 		mchars[i]++;
 	}
-	// Æ¥Åä
+	// åŒ¹é…
 	int count = 0;
 	for (auto i : words)
 	{

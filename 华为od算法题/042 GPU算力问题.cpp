@@ -1,34 +1,34 @@
 /*
-42 GPUËãÁ¦ÎÊÌâ
-ÌâÄ¿ÃèÊö
-ÎªÁË³ä·Ö·¢»ÓGPUËãÁ¦£¬ÐèÒª¾¡¿ÉÄÜ¶àµÄ½«ÈÎÎñ½»¸øGPUÖ´ÐÐ£¬ÏÖÓÐÒ»¸öÈÎÎñÊý×é£¬Êý×éÔªËØ±íÊ¾ÔÚÕâ1sÄÚÐÂÔöµÄÈÎÎñ¸öÊý£¬ÇÒÃ¿Ãë¶¼ÓÐÐÂÔöÈÎÎñ¡£¼ÙÉèGPU×î¶àÒ»´ÎÖ´ÐÐn¸öÈÎÎñ£¬Ò»´ÎÖ´ÐÐºÄÊ±1s£¬ÔÚ±£Ö¤GPU²»¿ÕÏÐµÄÇé¿öÏÂ£¬×îÉÙÐèÒª¶à³¤Ê±¼äÖ´ÐÐÍê³É¡£
+42 GPUç®—åŠ›é—®é¢˜
+é¢˜ç›®æè¿°
+ä¸ºäº†å……åˆ†å‘æŒ¥GPUç®—åŠ›ï¼Œéœ€è¦å°½å¯èƒ½å¤šçš„å°†ä»»åŠ¡äº¤ç»™GPUæ‰§è¡Œï¼ŒçŽ°æœ‰ä¸€ä¸ªä»»åŠ¡æ•°ç»„ï¼Œæ•°ç»„å…ƒç´ è¡¨ç¤ºåœ¨è¿™1så†…æ–°å¢žçš„ä»»åŠ¡ä¸ªæ•°ï¼Œä¸”æ¯ç§’éƒ½æœ‰æ–°å¢žä»»åŠ¡ã€‚å‡è®¾GPUæœ€å¤šä¸€æ¬¡æ‰§è¡Œnä¸ªä»»åŠ¡ï¼Œä¸€æ¬¡æ‰§è¡Œè€—æ—¶1sï¼Œåœ¨ä¿è¯GPUä¸ç©ºé—²çš„æƒ…å†µä¸‹ï¼Œæœ€å°‘éœ€è¦å¤šé•¿æ—¶é—´æ‰§è¡Œå®Œæˆã€‚
 
-ÊäÈëÃèÊö
-µÚÒ»¸ö²ÎÊýÎªGPU×î¶àÖ´ÐÐµÄÈÎÎñ¸öÊý£¬È¡Öµ·¶Î§[1,1 0000]
-µÚ¶þ¸ö²ÎÊýÎªÈÎÎñÊý×éµÄ³¤¶È£¬È¡Öµ·¶Î§[1,1 0000]
-µÚÈý¸ö²ÎÊýÎªÈÎÎñÊý×é£¬Êý×Ö·¶Î§[1,1 0000]
+è¾“å…¥æè¿°
+ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºGPUæœ€å¤šæ‰§è¡Œçš„ä»»åŠ¡ä¸ªæ•°ï¼Œå–å€¼èŒƒå›´[1,1 0000]
+ç¬¬äºŒä¸ªå‚æ•°ä¸ºä»»åŠ¡æ•°ç»„çš„é•¿åº¦ï¼Œå–å€¼èŒƒå›´[1,1 0000]
+ç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºä»»åŠ¡æ•°ç»„ï¼Œæ•°å­—èŒƒå›´[1,1 0000]
 
-Êä³öÃèÊö
-Ö´ÐÐÍêËùÓÐÈÎÎñ×îÉÙÐèÒª¶àÉÙÃë
+è¾“å‡ºæè¿°
+æ‰§è¡Œå®Œæ‰€æœ‰ä»»åŠ¡æœ€å°‘éœ€è¦å¤šå°‘ç§’
 
-Ê¾Àý1
-ÊäÈë
+ç¤ºä¾‹1
+è¾“å…¥
 3
 5
 1 2 3 4 5
-Êä³ö
+è¾“å‡º
 6
 
-Ê¾Àý2
-ÊäÈë
+ç¤ºä¾‹2
+è¾“å…¥
 4
 5
 5 4 1 1 1
-Êä³ö
+è¾“å‡º
 5
 
-Ë¼¿¼£º
-°´ÕÕÃ¿Ãë¸øgpuµÄÈÎÎñÊýÄ£Äâ¹ý³Ì£¬Ã¿Ãë±éÀúÈÎÎñÊý×é£¬±éÀúÍêºó¼ÆËãÊ£Óà¼ÆËãÊ±¼ä¡£
+æ€è€ƒï¼š
+æŒ‰ç…§æ¯ç§’ç»™gpuçš„ä»»åŠ¡æ•°æ¨¡æ‹Ÿè¿‡ç¨‹ï¼Œæ¯ç§’éåŽ†ä»»åŠ¡æ•°ç»„ï¼ŒéåŽ†å®ŒåŽè®¡ç®—å‰©ä½™è®¡ç®—æ—¶é—´ã€‚
 
 */
 #include<iostream>
@@ -39,8 +39,8 @@ using namespace std;
 
 int main()
 {
-	int m_work;	// Ã¿Ãëgpu×î´óÈÎÎñÁ¿
-	int w_len;	// ÈÎÎñÊý×é³¤¶È
+	int m_work;	// æ¯ç§’gpuæœ€å¤§ä»»åŠ¡é‡
+	int w_len;	// ä»»åŠ¡æ•°ç»„é•¿åº¦
 	cin >> m_work >> w_len;
 	vector<int> vec(w_len);
 	for (auto& i : vec)
@@ -48,8 +48,8 @@ int main()
 		cin >> i;
 	}
 
-	int time = 0;	// ×ÜÊ±¼ä
-	int remain = 0;	// Ê£ÓàµÄÊ±¼ä
+	int time = 0;	// æ€»æ—¶é—´
+	int remain = 0;	// å‰©ä½™çš„æ—¶é—´
 	for (auto i : vec)
 	{
 		if (remain + i > m_work)
@@ -61,7 +61,7 @@ int main()
 		}
 		time++;
 	}
-	// ÐÞÕýÊ±¼ä
+	// ä¿®æ­£æ—¶é—´
 	time += ceil((double)remain / m_work);
 	cout << time;
 

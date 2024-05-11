@@ -1,43 +1,43 @@
 /*
-087 Ó¢ÎÄÊäÈë·¨
-ÌâÄ¿ÃèÊö£º
-Ö÷¹ÜÆÚÍûÄãÀ´ÊµÏÖÓ¢ÎÄÊäÈë·¨µ¥´ÊÁªÏë¹¦ÄÜ¡£ÐèÇóÈçÏÂ£º
-ÒÀ¾ÝÓÃ»§ÊäÈëµÄµ¥´ÊÇ°×º£¬´ÓÒÑÊäÈëµÄÓ¢ÎÄÓï¾äÖÐÁªÏë³öÓÃ»§ÏëÊäÈëµÄµ¥´Ê£¬°´×ÖµäÐòÊä³öÁªÏëµ½µÄµ¥´ÊÐòÁÐ£¬Èç¹ûÁªÏë²»µ½£¬ÇëÊä³öÓÃ»§ÊäÈëµÄµ¥´ÊÇ°×º¡£
+087 è‹±æ–‡è¾“å…¥æ³•
+é¢˜ç›®æè¿°ï¼š
+ä¸»ç®¡æœŸæœ›ä½ æ¥å®žçŽ°è‹±æ–‡è¾“å…¥æ³•å•è¯è”æƒ³åŠŸèƒ½ã€‚éœ€æ±‚å¦‚ä¸‹ï¼š
+ä¾æ®ç”¨æˆ·è¾“å…¥çš„å•è¯å‰ç¼€ï¼Œä»Žå·²è¾“å…¥çš„è‹±æ–‡è¯­å¥ä¸­è”æƒ³å‡ºç”¨æˆ·æƒ³è¾“å…¥çš„å•è¯ï¼ŒæŒ‰å­—å…¸åºè¾“å‡ºè”æƒ³åˆ°çš„å•è¯åºåˆ—ï¼Œå¦‚æžœè”æƒ³ä¸åˆ°ï¼Œè¯·è¾“å‡ºç”¨æˆ·è¾“å…¥çš„å•è¯å‰ç¼€ã€‚
 
-×¢Òâ£º
-1.  Ó¢ÎÄµ¥´ÊÁªÏëÊ±£¬Çø·Ö´óÐ¡Ð´
-2.  ËõÂÔÐÎÊ½Èç¡±don't¡±£¬ÅÐ¶¨ÎªÁ½¸öµ¥´Ê£¬¡±don¡±ºÍ¡±t¡±
-3.  Êä³öµÄµ¥´ÊÐòÁÐ£¬²»ÄÜÓÐÖØ¸´µ¥´Ê£¬ÇÒÖ»ÄÜÊÇÓ¢ÎÄµ¥´Ê£¬²»ÄÜÓÐ±êµã·ûºÅ
+æ³¨æ„ï¼š
+1.  è‹±æ–‡å•è¯è”æƒ³æ—¶ï¼ŒåŒºåˆ†å¤§å°å†™
+2.  ç¼©ç•¥å½¢å¼å¦‚â€don'tâ€ï¼Œåˆ¤å®šä¸ºä¸¤ä¸ªå•è¯ï¼Œâ€donâ€å’Œâ€tâ€
+3.  è¾“å‡ºçš„å•è¯åºåˆ—ï¼Œä¸èƒ½æœ‰é‡å¤å•è¯ï¼Œä¸”åªèƒ½æ˜¯è‹±æ–‡å•è¯ï¼Œä¸èƒ½æœ‰æ ‡ç‚¹ç¬¦å·
 
-ÊäÈëÃèÊö£º
-ÊäÈëÎªÁ½ÐÐ¡£
-Ê×ÐÐÊäÈëÒ»¶ÎÓÉÓ¢ÎÄµ¥´ÊwordºÍ±êµã·ûºÅ×é³ÉµÄÓï¾ästr£»
-½ÓÏÂÀ´Ò»ÐÐÎªÒ»¸öÓ¢ÎÄµ¥´ÊÇ°×ºpre¡£
+è¾“å…¥æè¿°ï¼š
+è¾“å…¥ä¸ºä¸¤è¡Œã€‚
+é¦–è¡Œè¾“å…¥ä¸€æ®µç”±è‹±æ–‡å•è¯wordå’Œæ ‡ç‚¹ç¬¦å·ç»„æˆçš„è¯­å¥strï¼›
+æŽ¥ä¸‹æ¥ä¸€è¡Œä¸ºä¸€ä¸ªè‹±æ–‡å•è¯å‰ç¼€preã€‚
 
 0 < word.length() <= 20
 0 < str.length <= 10000
 0 < pre <= 20
 
-Êä³öÃèÊö£º
-Êä³ö·ûºÏÒªÇóµÄµ¥´ÊÐòÁÐ»òµ¥´ÊÇ°×º£¬´æÔÚ¶à¸öÊ±£¬µ¥´ÊÖ®¼äÒÔµ¥¸ö¿Õ¸ñ·Ö¸î
+è¾“å‡ºæè¿°ï¼š
+è¾“å‡ºç¬¦åˆè¦æ±‚çš„å•è¯åºåˆ—æˆ–å•è¯å‰ç¼€ï¼Œå­˜åœ¨å¤šä¸ªæ—¶ï¼Œå•è¯ä¹‹é—´ä»¥å•ä¸ªç©ºæ ¼åˆ†å‰²
 
-Ê¾Àý1
-ÊäÈë£º
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
 I love you
 He
-Êä³ö£º
+è¾“å‡ºï¼š
 He
-ËµÃ÷£º
-´ÓÓÃ»§ÒÑÊäÈëÓ¢ÎÄÓï¾ä¡±I love you¡±ÖÐÌáÁ¶³ö¡°I¡±¡¢¡°love¡±¡¢¡°you¡±Èý¸öµ¥´Ê£¬½ÓÏÂÀ´ÓÃ»§ÊäÈë¡°He¡±£¬´ÓÒÑÊäÈëÐÅÏ¢ÖÐÎÞ·¨ÁªÏëµ½ÈÎºÎ·ûºÏÒªÇóµÄµ¥´Ê£¬Òò´ËÊä³öÓÃ»§ÊäÈëµÄµ¥´ÊÇ°×º¡£
+è¯´æ˜Žï¼š
+ä»Žç”¨æˆ·å·²è¾“å…¥è‹±æ–‡è¯­å¥â€I love youâ€ä¸­æç‚¼å‡ºâ€œIâ€ã€â€œloveâ€ã€â€œyouâ€ä¸‰ä¸ªå•è¯ï¼ŒæŽ¥ä¸‹æ¥ç”¨æˆ·è¾“å…¥â€œHeâ€ï¼Œä»Žå·²è¾“å…¥ä¿¡æ¯ä¸­æ— æ³•è”æƒ³åˆ°ä»»ä½•ç¬¦åˆè¦æ±‚çš„å•è¯ï¼Œå› æ­¤è¾“å‡ºç”¨æˆ·è¾“å…¥çš„å•è¯å‰ç¼€ã€‚
 
-Ê¾Àý2
-ÊäÈë£º
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
 The furthest distance in the world, Is not between life and death, But when I stand in front of you, Yet you don't know that I love you.
 f
-Êä³ö£º
+è¾“å‡ºï¼š
 front furthest
-ËµÃ÷£º
-´ÓÓÃ»§ÒÑÊäÈëÓ¢ÎÄÓï¾ä¡±The furthestdistance in the world, Is not between life and death, But when I stand in frontof you, Yet you dont know that I love you.¡±ÖÐÌáÁ¶³öµÄµ¥´Ê£¬·ûºÏ¡°f¡±×÷ÎªÇ°×ºµÄ£¬ÓÐ¡°furthest¡±ºÍ¡°front¡±£¬°´×ÖµäÐòÅÅÐò²¢ÔÚµ¥´Ê¼äÌí¼Ó¿Õ¸ñºóÊä³ö£¬½á¹ûÎª¡°frontfurthest¡±¡£
+è¯´æ˜Žï¼š
+ä»Žç”¨æˆ·å·²è¾“å…¥è‹±æ–‡è¯­å¥â€The furthestdistance in the world, Is not between life and death, But when I stand in frontof you, Yet you dont know that I love you.â€ä¸­æç‚¼å‡ºçš„å•è¯ï¼Œç¬¦åˆâ€œfâ€ä½œä¸ºå‰ç¼€çš„ï¼Œæœ‰â€œfurthestâ€å’Œâ€œfrontâ€ï¼ŒæŒ‰å­—å…¸åºæŽ’åºå¹¶åœ¨å•è¯é—´æ·»åŠ ç©ºæ ¼åŽè¾“å‡ºï¼Œç»“æžœä¸ºâ€œfrontfurthestâ€ã€‚
 */
 
 
@@ -51,11 +51,11 @@ using namespace std;
 
 int main()
 {
-	// ÊäÈë
+	// è¾“å…¥
 	string str;
 	getline(cin, str);
 	set<string> mset;
-	string t_str; // ÁÙÊ±±äÁ¿
+	string t_str; // ä¸´æ—¶å˜é‡
 	for (auto i : str)
 	{
 		if (isalpha(i))
@@ -78,7 +78,7 @@ int main()
 	string target;
 	cin >> target;
 
-	// ²éÕÒ²¢Æ¥Åä
+	// æŸ¥æ‰¾å¹¶åŒ¹é…
 	vector<string> res;
 	for (auto &i : mset)
 	{

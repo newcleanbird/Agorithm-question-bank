@@ -1,51 +1,51 @@
 /*
-282¡¢ÇóÂú×ãÌõ¼þµÄ×î³¤×Ó´®µÄ³¤¶È
-ÌâÄ¿ÃèÊö£º
-¸ø¶¨Ò»¸ö×Ö·û´®£¬Ö»°üº¬×ÖÄ¸ºÍÊý×Ö£¬°´ÒªÇóÕÒ³ö×Ö·û´®ÖÐµÄ×î³¤£¨Á¬Ðø£©×Ó´®µÄ³¤¶È£¬×Ö·û´®±¾ÉíÊÇÆä×î³¤µÄ×Ó´®£¬×Ó´®ÒªÇó£º
-1¡¢ Ö»°üº¬1¸ö×ÖÄ¸(a~z, A~Z)£¬ÆäÓà±ØÐëÊÇÊý×Ö£»
-2¡¢ ×ÖÄ¸¿ÉÒÔÔÚ×Ó´®ÖÐµÄÈÎÒâÎ»ÖÃ£»
+282ã€æ±‚æ»¡è¶³æ¡ä»¶çš„æœ€é•¿å­ä¸²çš„é•¿åº¦
+é¢˜ç›®æè¿°ï¼š
+ç»™å®šä¸€ä¸ªå­—ç¬¦ä¸²ï¼ŒåªåŒ…å«å­—æ¯å’Œæ•°å­—ï¼ŒæŒ‰è¦æ±‚æ‰¾å‡ºå­—ç¬¦ä¸²ä¸­çš„æœ€é•¿ï¼ˆè¿žç»­ï¼‰å­ä¸²çš„é•¿åº¦ï¼Œå­—ç¬¦ä¸²æœ¬èº«æ˜¯å…¶æœ€é•¿çš„å­ä¸²ï¼Œå­ä¸²è¦æ±‚ï¼š
+1ã€ åªåŒ…å«1ä¸ªå­—æ¯(a~z, A~Z)ï¼Œå…¶ä½™å¿…é¡»æ˜¯æ•°å­—ï¼›
+2ã€ å­—æ¯å¯ä»¥åœ¨å­ä¸²ä¸­çš„ä»»æ„ä½ç½®ï¼›
 
-Èç¹ûÕÒ²»µ½Âú×ãÒªÇóµÄ×Ó´®£¬ÈçÈ«ÊÇ×ÖÄ¸»òÈ«ÊÇÊý×Ö£¬Ôò·µ»Ø-1¡£
-ÊäÈëÃèÊö£º
-×Ö·û´®(Ö»°üº¬×ÖÄ¸ºÍÊý×Ö)
+å¦‚æžœæ‰¾ä¸åˆ°æ»¡è¶³è¦æ±‚çš„å­ä¸²ï¼Œå¦‚å…¨æ˜¯å­—æ¯æˆ–å…¨æ˜¯æ•°å­—ï¼Œåˆ™è¿”å›ž-1ã€‚
+è¾“å…¥æè¿°ï¼š
+å­—ç¬¦ä¸²(åªåŒ…å«å­—æ¯å’Œæ•°å­—)
 
-Êä³öÃèÊö£º
-×Ó´®µÄ³¤¶È
-²¹³äËµÃ÷£º
-Ê¾Àý1
-ÊäÈë£º
+è¾“å‡ºæè¿°ï¼š
+å­ä¸²çš„é•¿åº¦
+è¡¥å……è¯´æ˜Žï¼š
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
 abC124ACb
-Êä³ö£º
+è¾“å‡ºï¼š
 4
-ËµÃ÷£º
-Âú×ãÌõ¼þµÄ×î³¤×Ó´®ÊÇC124»òÕß124A£¬³¤¶È¶¼ÊÇ4
-Ê¾Àý2
-ÊäÈë£º
+è¯´æ˜Žï¼š
+æ»¡è¶³æ¡ä»¶çš„æœ€é•¿å­ä¸²æ˜¯C124æˆ–è€…124Aï¼Œé•¿åº¦éƒ½æ˜¯4
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
 a5
-Êä³ö£º
+è¾“å‡ºï¼š
 2
-ËµÃ÷£º
-×Ö·û´®×ÔÉí¾ÍÊÇÂú×ãÌõ¼þµÄ×Ó´®£¬³¤¶ÈÎª2
-Ê¾Àý3
-ÊäÈë£º
+è¯´æ˜Žï¼š
+å­—ç¬¦ä¸²è‡ªèº«å°±æ˜¯æ»¡è¶³æ¡ä»¶çš„å­ä¸²ï¼Œé•¿åº¦ä¸º2
+ç¤ºä¾‹3
+è¾“å…¥ï¼š
 aBB9
-Êä³ö£º
+è¾“å‡ºï¼š
 2
-ËµÃ÷£º
-Âú×ãÌõ¼þµÄ×Ó´®ÎªB9£¬³¤¶ÈÎª2
-Ê¾Àý4
-ÊäÈë£º
+è¯´æ˜Žï¼š
+æ»¡è¶³æ¡ä»¶çš„å­ä¸²ä¸ºB9ï¼Œé•¿åº¦ä¸º2
+ç¤ºä¾‹4
+è¾“å…¥ï¼š
 abcdef
-Êä³ö£º
+è¾“å‡ºï¼š
 -1
-ËµÃ÷£º
-Ã»ÓÐÂú×ãÒªÇóµÄ×Ó´®£¬·µ»Ø-1
+è¯´æ˜Žï¼š
+æ²¡æœ‰æ»¡è¶³è¦æ±‚çš„å­ä¸²ï¼Œè¿”å›ž-1
 
-Âß¼­£º½öÓÐÒ»¸ö×ÖÄ¸ÆäÓà¶¼ÊÇÊý×ÖµÄ×Ó´®×î³¤
+é€»è¾‘ï¼šä»…æœ‰ä¸€ä¸ªå­—æ¯å…¶ä½™éƒ½æ˜¯æ•°å­—çš„å­ä¸²æœ€é•¿
 
-ÓÅ»¯£ºÊ¹ÓÃif else
+ä¼˜åŒ–ï¼šä½¿ç”¨if else
 
-Ê¹ÓÃ£º»¬¶¯´°¿Ú
+ä½¿ç”¨ï¼šæ»‘åŠ¨çª—å£
 */
 
 #include<iostream>
@@ -64,30 +64,30 @@ int main()
 	bool has_digit = false;
 	for (int i = 0; i < str.size(); i++)
 	{
-		has_alpha = false;	// ±êÖ¾Î»£¬ÊÇ·ñÓÐ¸ººÅ
-		has_digit = false;	// ±êÖ¾Î»£¬ÊÇ·ñÓÐÊý×Ö
+		has_alpha = false;	// æ ‡å¿—ä½ï¼Œæ˜¯å¦æœ‰è´Ÿå·
+		has_digit = false;	// æ ‡å¿—ä½ï¼Œæ˜¯å¦æœ‰æ•°å­—
 		temp.clear();
 		for (int j = i; j < str.size(); j++)
 		{
-			if (isalpha(str[j]))	// ×ÖÄ¸
+			if (isalpha(str[j]))	// å­—æ¯
 			{
-				if (!has_alpha) // Ê×´ÎÓöµ½×ÖÄ¸
+				if (!has_alpha) // é¦–æ¬¡é‡åˆ°å­—æ¯
 				{
 					has_alpha = true;
 					temp += str[j];
 				}
-				else if (has_digit)	// µÚ¶þ´ÎÓöµ½×ÖÄ¸ÇÒÓÐÊý×Ö
+				else if (has_digit)	// ç¬¬äºŒæ¬¡é‡åˆ°å­—æ¯ä¸”æœ‰æ•°å­—
 				{
 					max = max > temp.size() ? max : temp.size();
 					break;
 				}
-				else {	 // µÚ¶þ´ÎÓöµ½×ÖÄ¸µ«Ã»ÓÐÊý×Ö,¼´Á¬ÐøÓöµ½Á½¸ö×ÖÄ¸
+				else {	 // ç¬¬äºŒæ¬¡é‡åˆ°å­—æ¯ä½†æ²¡æœ‰æ•°å­—,å³è¿žç»­é‡åˆ°ä¸¤ä¸ªå­—æ¯
 					break;
 				}
 			}
-			else if (isdigit(str[j]))	// Óöµ½Êý×Ö
+			else if (isdigit(str[j]))	// é‡åˆ°æ•°å­—
 			{
-				if (has_alpha)	// ÓÐÊý×ÖÓÐ×ÖÄ¸
+				if (has_alpha)	// æœ‰æ•°å­—æœ‰å­—æ¯
 				{
 					temp += str[j];
 					max = max > temp.size() ? max : temp.size();

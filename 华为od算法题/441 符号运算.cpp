@@ -1,58 +1,58 @@
 ///*
-//441¡¢·ûºÅÔËËã
-//ÌâÄ¿ÃèÊö£º
-//¸ø¶¨Ò»¸ö±í´ïÊ½£¬ÇóÆä·ÖÊý¼ÆËã½á¹û
-//±í´ïÊ½µÄÏÞÖÆÈçÏÂ£º
-//1. ËùÓÐµÄÊäÈëÊý×Ö½ÔÎªÕýÕûÊý(°üÀ¨0)
-//2. ½öÖ§³ÖËÄÔòÔËËã(+-* /)ºÍÀ¨ºÅ
-//3. ½á¹ûÎªÕûÊý»ò·ÖÊý, ·ÖÊý±ØÐë»¯Îª×î¼ò¸ñÊ½(±ÈÈç6, 3 / 4, 7 / 8, 90 / 7)
-//4. ³ýÊý¿ÉÄÜÎª0£¬Èç¹ûÓöµ½ÕâÖÖÇé¿ö£¬Ö±½ÓÊä³ö"ERROR"
-//5. ÊäÈëºÍ×îÖÕ¼ÆËã½á¹ûÖÐµÄÊý×Ö¶¼²»»á³¬³öÕûÐÍ·¶Î§
+//441ã€ç¬¦å·è¿ç®—
+//é¢˜ç›®æè¿°ï¼š
+//ç»™å®šä¸€ä¸ªè¡¨è¾¾å¼ï¼Œæ±‚å…¶åˆ†æ•°è®¡ç®—ç»“æžœ
+//è¡¨è¾¾å¼çš„é™åˆ¶å¦‚ä¸‹ï¼š
+//1. æ‰€æœ‰çš„è¾“å…¥æ•°å­—çš†ä¸ºæ­£æ•´æ•°(åŒ…æ‹¬0)
+//2. ä»…æ”¯æŒå››åˆ™è¿ç®—(+-* /)å’Œæ‹¬å·
+//3. ç»“æžœä¸ºæ•´æ•°æˆ–åˆ†æ•°, åˆ†æ•°å¿…é¡»åŒ–ä¸ºæœ€ç®€æ ¼å¼(æ¯”å¦‚6, 3 / 4, 7 / 8, 90 / 7)
+//4. é™¤æ•°å¯èƒ½ä¸º0ï¼Œå¦‚æžœé‡åˆ°è¿™ç§æƒ…å†µï¼Œç›´æŽ¥è¾“å‡º"ERROR"
+//5. è¾“å…¥å’Œæœ€ç»ˆè®¡ç®—ç»“æžœä¸­çš„æ•°å­—éƒ½ä¸ä¼šè¶…å‡ºæ•´åž‹èŒƒå›´
 //
-//ÓÃÀýµÄÊäÈëÒ»¶¨ºÏ·¨, ²»»á³öÏÖÀ¨ºÅ²»Æ¥ÅäµÄÇé¿ö
-//ÊäÈëÃèÊö£º
-//×Ö·û´®¸ñÊ½µÄ±í´ïÊ½£¬½öÖ§³Ö + - * / £¬Êý×Ö¿ÉÄÜ³¬¹ýÁ½Î»£¬¿ÉÄÜ´øÓÐ¿Õ¸ñ£¬Ã»ÓÐ¸ºÊý
-//³¤¶ÈÐ¡ÓÚ200¸ö×Ö·û
+//ç”¨ä¾‹çš„è¾“å…¥ä¸€å®šåˆæ³•, ä¸ä¼šå‡ºçŽ°æ‹¬å·ä¸åŒ¹é…çš„æƒ…å†µ
+//è¾“å…¥æè¿°ï¼š
+//å­—ç¬¦ä¸²æ ¼å¼çš„è¡¨è¾¾å¼ï¼Œä»…æ”¯æŒ + - * / ï¼Œæ•°å­—å¯èƒ½è¶…è¿‡ä¸¤ä½ï¼Œå¯èƒ½å¸¦æœ‰ç©ºæ ¼ï¼Œæ²¡æœ‰è´Ÿæ•°
+//é•¿åº¦å°äºŽ200ä¸ªå­—ç¬¦
 //
-//Êä³öÃèÊö£º
-//±í´ïÊ½½á¹û£¬ÒÔ×î¼ò¸ñÊ½±í´ï
-//Èç¹û½á¹ûÎªÕûÊý£¬ÄÇÃ´Ö±½ÓÊä³öÕûÊý
-//Èç¹û½á¹ûÎª·ÖÊý£¬ÄÇÃ´·Ö×Ó·ÖÄ¸²»¿ÉÔÙÔ¼·Ö£¬¿ÉÒÔÎª¼Ù·ÖÊý£¬²»¿É±í´ïÎª´ø·ÖÊý
-//½á¹û¿ÉÄÜÊÇ¸ºÊý, ¸ººÅ·ÅÔÚ×îÇ°Ãæ
+//è¾“å‡ºæè¿°ï¼š
+//è¡¨è¾¾å¼ç»“æžœï¼Œä»¥æœ€ç®€æ ¼å¼è¡¨è¾¾
+//å¦‚æžœç»“æžœä¸ºæ•´æ•°ï¼Œé‚£ä¹ˆç›´æŽ¥è¾“å‡ºæ•´æ•°
+//å¦‚æžœç»“æžœä¸ºåˆ†æ•°ï¼Œé‚£ä¹ˆåˆ†å­åˆ†æ¯ä¸å¯å†çº¦åˆ†ï¼Œå¯ä»¥ä¸ºå‡åˆ†æ•°ï¼Œä¸å¯è¡¨è¾¾ä¸ºå¸¦åˆ†æ•°
+//ç»“æžœå¯èƒ½æ˜¯è´Ÿæ•°, è´Ÿå·æ”¾åœ¨æœ€å‰é¢
 //
-//Ê¾Àý1
-//ÊäÈë£º
+//ç¤ºä¾‹1
+//è¾“å…¥ï¼š
 //1 + 5 * 7 / 8
-//Êä³ö£º
+//è¾“å‡ºï¼š
 //43 / 8
-//ËµÃ÷£º
+//è¯´æ˜Žï¼š
 //
-//Ê¾Àý2
-//ÊäÈë£º
+//ç¤ºä¾‹2
+//è¾“å…¥ï¼š
 //1 / (0 - 5)
-//Êä³ö£º
+//è¾“å‡ºï¼š
 //- 1 / 5
-//ËµÃ÷£º
-//¸ººÅÐèÒªÌáµ½×îÇ°Ãæ
+//è¯´æ˜Žï¼š
+//è´Ÿå·éœ€è¦æåˆ°æœ€å‰é¢
 //
-//Ê¾Àý3
-//ÊäÈë£º
+//ç¤ºä¾‹3
+//è¾“å…¥ï¼š
 //1 * (3 * 4 / (8 - (7 + 0)))
-//Êä³ö£º
+//è¾“å‡ºï¼š
 //12
-//ËµÃ÷£º
-//×¢ÒâÀ¨ºÅ¿ÉÒÔ¶àÖØÇ¶Ì×
+//è¯´æ˜Žï¼š
+//æ³¨æ„æ‹¬å·å¯ä»¥å¤šé‡åµŒå¥—
 //
-//Ë¼Â·£º¼ÆËãÖÐ×º±í´ïÊ½
-//1. ÀûÓÃÕ»À´ÊµÏÖ×ª»»
-//×ª»»¹ý³ÌÐèÒªÓÃµ½Õ»£¬ÕâÀïÊ¹ÓÃÁ½¸öÕ»£ºstack Õ»ÓÃÀ´´æ·ÅÔËËã·û£¬post Õ»ÓÃÀ´´æ·Å×îºóµÄºó×º±í´ïÊ½¡£¾ßÌå¹æÔòÈçÏÂ£º
-//´Ó×óµ½ÓÒÉ¨ÃèÖÐ×º±í´ïÊ½£º
-//ÈôÊÇ²Ù×÷Êý£¬Ö±½Ó´æÈë post Õ»£»
-//ÈôÊÇÔËËã·û£º
-//£¨1£©¸ÃÔËËã·ûÊÇ×óÀ¨ºÅ ( , ÔòÖ±½Ó´æÈë stack Õ»¡£
-//£¨2£©¸ÃÔËËã·ûÊÇÓÒÀ¨ºÅ )£¬Ôò½« stack Õ»ÖÐ ( Ç°µÄËùÓÐÔËËã·û³öÕ»£¬´æÈë post Õ»¡£
-//£¨3£©Èô¸ÃÔËËã·ûÎª·ÇÀ¨ºÅ£¬Ôò½«¸ÃÔËËã·ûºÍ stack Õ»¶¥ÔËËã·û×÷±È½Ï£ºÈô¸ßÓÚÕ»¶¥ÔËËã·û£¬ÔòÖ±½Ó´æÈë stack Õ»£¬·ñÔò½«Õ»¶¥ÔËËã·û³öÕ»£¨´ÓÕ»ÖÐµ¯³öÔªËØÖ±µ½Óöµ½·¢ÏÖ¸üµÍÓÅÏÈ¼¶µÄÔªËØ(»òÕßÕ»Îª¿Õ)ÎªÖ¹£©£¬´æÈë post Õ»¡£
-//£¨4£©µ±É¨ÃèÍêºó£¬stack Õ»ÖÐ»¹ÓÐÔËËã·ûÊ±£¬Ôò½«ËùÓÐÔËËã·û³öÕ»£¬´æÈë post Õ»¡£
+//æ€è·¯ï¼šè®¡ç®—ä¸­ç¼€è¡¨è¾¾å¼
+//1. åˆ©ç”¨æ ˆæ¥å®žçŽ°è½¬æ¢
+//è½¬æ¢è¿‡ç¨‹éœ€è¦ç”¨åˆ°æ ˆï¼Œè¿™é‡Œä½¿ç”¨ä¸¤ä¸ªæ ˆï¼šstack æ ˆç”¨æ¥å­˜æ”¾è¿ç®—ç¬¦ï¼Œpost æ ˆç”¨æ¥å­˜æ”¾æœ€åŽçš„åŽç¼€è¡¨è¾¾å¼ã€‚å…·ä½“è§„åˆ™å¦‚ä¸‹ï¼š
+//ä»Žå·¦åˆ°å³æ‰«æä¸­ç¼€è¡¨è¾¾å¼ï¼š
+//è‹¥æ˜¯æ“ä½œæ•°ï¼Œç›´æŽ¥å­˜å…¥ post æ ˆï¼›
+//è‹¥æ˜¯è¿ç®—ç¬¦ï¼š
+//ï¼ˆ1ï¼‰è¯¥è¿ç®—ç¬¦æ˜¯å·¦æ‹¬å· ( , åˆ™ç›´æŽ¥å­˜å…¥ stack æ ˆã€‚
+//ï¼ˆ2ï¼‰è¯¥è¿ç®—ç¬¦æ˜¯å³æ‹¬å· )ï¼Œåˆ™å°† stack æ ˆä¸­ ( å‰çš„æ‰€æœ‰è¿ç®—ç¬¦å‡ºæ ˆï¼Œå­˜å…¥ post æ ˆã€‚
+//ï¼ˆ3ï¼‰è‹¥è¯¥è¿ç®—ç¬¦ä¸ºéžæ‹¬å·ï¼Œåˆ™å°†è¯¥è¿ç®—ç¬¦å’Œ stack æ ˆé¡¶è¿ç®—ç¬¦ä½œæ¯”è¾ƒï¼šè‹¥é«˜äºŽæ ˆé¡¶è¿ç®—ç¬¦ï¼Œåˆ™ç›´æŽ¥å­˜å…¥ stack æ ˆï¼Œå¦åˆ™å°†æ ˆé¡¶è¿ç®—ç¬¦å‡ºæ ˆï¼ˆä»Žæ ˆä¸­å¼¹å‡ºå…ƒç´ ç›´åˆ°é‡åˆ°å‘çŽ°æ›´ä½Žä¼˜å…ˆçº§çš„å…ƒç´ (æˆ–è€…æ ˆä¸ºç©º)ä¸ºæ­¢ï¼‰ï¼Œå­˜å…¥ post æ ˆã€‚
+//ï¼ˆ4ï¼‰å½“æ‰«æå®ŒåŽï¼Œstack æ ˆä¸­è¿˜æœ‰è¿ç®—ç¬¦æ—¶ï¼Œåˆ™å°†æ‰€æœ‰è¿ç®—ç¬¦å‡ºæ ˆï¼Œå­˜å…¥ post æ ˆã€‚
 //
 //*/
 //
@@ -80,13 +80,13 @@ string infixToPostfix(const string& infix) {
     string postfix;
     for (size_t i = 0; i < infix.length(); ++i) {
         if (isdigit(infix[i])) {
-            // ´¦Àí¶àÎ»ÊýµÄÇé¿ö
+            // å¤„ç†å¤šä½æ•°çš„æƒ…å†µ
             while (i + 1 < infix.length() && isdigit(infix[i + 1])) {
                 postfix += infix[i];
                 ++i;
             }
-            postfix += infix[i]; // Ìí¼Ó×îºóÒ»¸öÊý×Ö
-            postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+            postfix += infix[i]; // æ·»åŠ æœ€åŽä¸€ä¸ªæ•°å­—
+            postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
         }
         else if (infix[i] == '(') {
             operators.push(infix[i]);
@@ -94,15 +94,15 @@ string infixToPostfix(const string& infix) {
         else if (infix[i] == ')') {
             while (!operators.empty() && operators.top() != '(') {
                 postfix += operators.top();
-                postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+                postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
                 operators.pop();
             }
-            operators.pop(); // µ¯³ö×óÀ¨ºÅ
+            operators.pop(); // å¼¹å‡ºå·¦æ‹¬å·
         }
         else {
             while (!operators.empty() && getPrecedence(infix[i]) <= getPrecedence(operators.top())) {
                 postfix += operators.top();
-                postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+                postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
                 operators.pop();
             }
             operators.push(infix[i]);
@@ -110,13 +110,13 @@ string infixToPostfix(const string& infix) {
     }
     while (!operators.empty()) {
         postfix += operators.top();
-        postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+        postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
         operators.pop();
     }
     return postfix;
 }
 
-/*¼ÆËãºó×º±í´ïÊ½£¬ÆäÖÐºó×º±í´ïÊ½µÄÊý×Ö¿ÉÄÜÓÐ¶àÎ»£¬Êý×ÖºÍ·ûºÅÖ®¼äÓÃ¿Õ¸ñ¼ä¸ô*/
+/*è®¡ç®—åŽç¼€è¡¨è¾¾å¼ï¼Œå…¶ä¸­åŽç¼€è¡¨è¾¾å¼çš„æ•°å­—å¯èƒ½æœ‰å¤šä½ï¼Œæ•°å­—å’Œç¬¦å·ä¹‹é—´ç”¨ç©ºæ ¼é—´éš”*/
 int calculatePostfixExpression(const std::string& expression) {
     std::stack<int> numStack;
     std::istringstream iss(expression);
@@ -150,7 +150,7 @@ int calculatePostfixExpression(const std::string& expression) {
     return numStack.top();
 }
 
-/*¼ÆËãºó×º±í´ïÊ½£¬ÆäÖÐºó×º±í´ïÊ½µÄÊý×Ö¿ÉÄÜÓÐ¶àÎ»£¬Êý×ÖºÍ·ûºÅÖ®¼äÓÃ¿Õ¸ñ¼ä¸ô£¬³ý·¨½á¹ûÓÃ×î¼ò·ÖÊýµÄÐÎÊ½±íÊ¾*/
+/*è®¡ç®—åŽç¼€è¡¨è¾¾å¼ï¼Œå…¶ä¸­åŽç¼€è¡¨è¾¾å¼çš„æ•°å­—å¯èƒ½æœ‰å¤šä½ï¼Œæ•°å­—å’Œç¬¦å·ä¹‹é—´ç”¨ç©ºæ ¼é—´éš”ï¼Œé™¤æ³•ç»“æžœç”¨æœ€ç®€åˆ†æ•°çš„å½¢å¼è¡¨ç¤º*/
 int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a % b);
 }
@@ -206,8 +206,8 @@ int main() {
     string postfixExpression = infixToPostfix(infixExpression);
     cout << "Infix expression: " << infixExpression << endl;
     cout << "Postfix expression: " << postfixExpression << endl;
-    //cout << "±í´ïÊ½ÇóÖµ£º" << calculatePostfixExpression(postfixExpression) << endl;
-    cout << "±í´ïÊ½ÇóÖµ£º" << calculatePostfixExpression_1(postfixExpression) << endl;
+    //cout << "è¡¨è¾¾å¼æ±‚å€¼ï¼š" << calculatePostfixExpression(postfixExpression) << endl;
+    cout << "è¡¨è¾¾å¼æ±‚å€¼ï¼š" << calculatePostfixExpression_1(postfixExpression) << endl;
     return 0;
 }
 

@@ -1,45 +1,45 @@
 /*
-464¡¢ ¿í¶È×îÐ¡µÄ×Ó¾ØÕó¡¢×îÐ¡¾ØÕó¿í¶È
-ÌâÄ¿ÃèÊö£º
-¸ø¶¨Ò»¸ö¾ØÕó£¬°üº¬N*M¸öÕûÊý£¬ºÍÒ»¸ö°üº¬K¸öÕûÊýµÄÊý×é¡£
-ÏÖÔÚÒªÇóÔÚÕâ¸ö¾ØÕóÖÐÕÒÒ»¸ö¿í¶È×îÐ¡µÄ×Ó¾ØÕó£¬ÒªÇó×Ó¾ØÕó°üº¬Êý×éÖÐËùÓÐµÄÕûÊý¡£
+464ã€ å®½åº¦æœ€å°çš„å­çŸ©é˜µã€æœ€å°çŸ©é˜µå®½åº¦
+é¢˜ç›®æè¿°ï¼š
+ç»™å®šä¸€ä¸ªçŸ©é˜µï¼ŒåŒ…å«N*Mä¸ªæ•´æ•°ï¼Œå’Œä¸€ä¸ªåŒ…å«Kä¸ªæ•´æ•°çš„æ•°ç»„ã€‚
+çŽ°åœ¨è¦æ±‚åœ¨è¿™ä¸ªçŸ©é˜µä¸­æ‰¾ä¸€ä¸ªå®½åº¦æœ€å°çš„å­çŸ©é˜µï¼Œè¦æ±‚å­çŸ©é˜µåŒ…å«æ•°ç»„ä¸­æ‰€æœ‰çš„æ•´æ•°ã€‚
 
-ÊäÈëÃèÊö£º
-µÚÒ»ÐÐÊäÈëÁ½¸öÕýÕûÊýN£¬M£¬±íÊ¾¾ØÕó´óÐ¡¡£
-½ÓÏÂÀ´NÐÐMÁÐ±íÊ¾¾ØÕóÄÚÈÝ¡£
-ÏÂÒ»ÐÐ°üº¬Ò»¸öÕýÕûÊýK¡£
-ÏÂÒ»ÐÐ°üº¬K¸öÕûÊý£¬±íÊ¾ËùÐè°üº¬µÄÊý×é£¬K¸öÕûÊý¿ÉÄÜ´æÔÚÖØ¸´Êý×Ö
-ËùÓÐÊäÈëÊý¾ÝÐ¡ÓÚ1000¡£
+è¾“å…¥æè¿°ï¼š
+ç¬¬ä¸€è¡Œè¾“å…¥ä¸¤ä¸ªæ­£æ•´æ•°Nï¼ŒMï¼Œè¡¨ç¤ºçŸ©é˜µå¤§å°ã€‚
+æŽ¥ä¸‹æ¥Nè¡ŒMåˆ—è¡¨ç¤ºçŸ©é˜µå†…å®¹ã€‚
+ä¸‹ä¸€è¡ŒåŒ…å«ä¸€ä¸ªæ­£æ•´æ•°Kã€‚
+ä¸‹ä¸€è¡ŒåŒ…å«Kä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºæ‰€éœ€åŒ…å«çš„æ•°ç»„ï¼ŒKä¸ªæ•´æ•°å¯èƒ½å­˜åœ¨é‡å¤æ•°å­—
+æ‰€æœ‰è¾“å…¥æ•°æ®å°äºŽ1000ã€‚
 
-Êä³öÃèÊö£º
-Êä³ö°üº¬Ò»¸öÕûÊý£¬±íÊ¾Âú×ãÒªÇó×Ó¾ØÕóµÄ×îÐ¡¿í¶È£¬ÈôÕÒ²»µ½£¬Êä³ö-1.
+è¾“å‡ºæè¿°ï¼š
+è¾“å‡ºåŒ…å«ä¸€ä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºæ»¡è¶³è¦æ±‚å­çŸ©é˜µçš„æœ€å°å®½åº¦ï¼Œè‹¥æ‰¾ä¸åˆ°ï¼Œè¾“å‡º-1.
 
-²¹³äËµÃ÷£º
-Ê¾Àý1
-ÊäÈë£º
+è¡¥å……è¯´æ˜Žï¼š
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
 2 5
 1 2 2 3 1
 2 3 2 3 2
 3
 1 2 3
-Êä³ö£º
+è¾“å‡ºï¼š
 2
-ËµÃ÷£º
-¾ØÕóµÚ0¡¢3ÁÐ°üº¬ÁË1¡¢2¡¢3£¬¾ØÕóµÚ3¡¢4ÁÐ°üº¬ÁË1¡¢2¡¢3
+è¯´æ˜Žï¼š
+çŸ©é˜µç¬¬0ã€3åˆ—åŒ…å«äº†1ã€2ã€3ï¼ŒçŸ©é˜µç¬¬3ã€4åˆ—åŒ…å«äº†1ã€2ã€3
 
-Ê¾Àý2
-ÊäÈë£º
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
 2 5
 1 2 2 3 1
 1 3 2 3 4
 3
 1 1 4
-Êä³ö£º
+è¾“å‡ºï¼š
 5
-ËµÃ÷£º
-¾ØÕóµÚ1¡¢2¡¢3¡¢4¡¢5ÁÐ°üº¬ÁË1¡¢1¡¢4
+è¯´æ˜Žï¼š
+çŸ©é˜µç¬¬1ã€2ã€3ã€4ã€5åˆ—åŒ…å«äº†1ã€1ã€4
 
-Ë¼Â·£º¿í¶È×îÐ¡,²¢·ÇÈÎÒâµÄ¾ØÐÎ
+æ€è·¯ï¼šå®½åº¦æœ€å°,å¹¶éžä»»æ„çš„çŸ©å½¢
 */
 #include<iostream>
 #include<vector>
@@ -51,7 +51,7 @@ bool check(map<int, int>& cur_map, map<int, int>& target)
 {
 	for (auto& i : target)
 	{
-		if (cur_map[i.first] < i.second)	// Èç¹ûÓÐÏîÐ¡ÓÚÄ¿±êÖµ
+		if (cur_map[i.first] < i.second)	// å¦‚æžœæœ‰é¡¹å°äºŽç›®æ ‡å€¼
 		{
 			return false;
 		}
@@ -61,8 +61,8 @@ bool check(map<int, int>& cur_map, map<int, int>& target)
 
 int main()
 {
-	// ÊäÈë
-	int n, m;	// NÐÐMÁÐ
+	// è¾“å…¥
+	int n, m;	// Nè¡ŒMåˆ—
 	cin >> n >> m;
 	vector<vector<int>> vec(n, vector<int>(m));
 	for (int i = 0; i < n; i++)
@@ -81,38 +81,38 @@ int main()
 		cin >> tmp;
 		target[tmp]++;
 	}
-	map<int, int> cur_map;	// ¹þÏ£¼ÇÂ¼µ±Ç°ÐèÒªµÄÊý¾Ý
+	map<int, int> cur_map;	// å“ˆå¸Œè®°å½•å½“å‰éœ€è¦çš„æ•°æ®
 	for (auto& i : target)
 	{
 		cur_map[i.first] = 0;
 	}
 
-	// »¬¶¯´°¿ÚÇó½â
+	// æ»‘åŠ¨çª—å£æ±‚è§£
 	int min_length = m + 1;
 	int l = 0;
 	for(int r = 0; r < m; r++)
 	{
-		// ¸üÐÂÊý¾Ý
+		// æ›´æ–°æ•°æ®
 		for (int i = 0; i < n; i++)
 		{
 			if (target.find(vec[i][r]) != target.end())
 			{
-				cur_map[vec[i][r]]++;	// ¼ÇÂ¼Êý¾Ý
+				cur_map[vec[i][r]]++;	// è®°å½•æ•°æ®
 			}
 		}
-		// ÅÐ¶ÏÊÇ·ñ·ûºÏÐèÒª¸üÐÂ×ó±ß½ç²¢ÊÕ¼¯Êý¾Ý
+		// åˆ¤æ–­æ˜¯å¦ç¬¦åˆéœ€è¦æ›´æ–°å·¦è¾¹ç•Œå¹¶æ”¶é›†æ•°æ®
 		while (check(cur_map, target))
 		{
-			// ÏÈ¸üÐÂ×îÐ¡Êý¾Ý
+			// å…ˆæ›´æ–°æœ€å°æ•°æ®
 			min_length = min(min_length, r - l + 1);
-			cout << "·ûºÏÌõ¼þµÄlºÍr:" << l << " " << r << endl;
+			cout << "ç¬¦åˆæ¡ä»¶çš„lå’Œr:" << l << " " << r << endl;
 
-			// ¸üÐÂ×ó±ß½ç
+			// æ›´æ–°å·¦è¾¹ç•Œ
 			for (int i = 0; i < n; i++)
 			{
 				if (target.find(vec[i][l]) != target.end())
 				{
-					cur_map[vec[i][l]]--;	// ¼ÇÂ¼Êý¾Ý
+					cur_map[vec[i][l]]--;	// è®°å½•æ•°æ®
 				}
 			}
 			l++;

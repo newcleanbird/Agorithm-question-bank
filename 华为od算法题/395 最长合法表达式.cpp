@@ -1,37 +1,37 @@
 /*
-395����Ϸ�����ʽ / ��ȡ�ַ����е����ѧ����ʽ������
-��ȡ�ַ����е���Ϸ�����ѧ����ʽ���ַ���������ģ����������ʽ��ֵ�����û�У��򷵻�0
-����ѧ����ʽֻ�ܰ�����������
-0-9���֣����� +-*
-˵����
-1. �������֣���������������long
-2. ����ж������һ���ģ��뷵�ص�һ������ʽ�Ľ��
-3. ��ѧ����ʽ����������ģ��Ϸ���
-4. �����������������֣��� +--+1 �ǲ��Ϸ���
+395、最长合法表达式 / 提取字符串中的最长数学表达式并计算
+提取字符串中的最长合法简单数学表达式，字符串长度最长的，并计算表达式的值。如果没有，则返回0
+简单数学表达式只能包含以下内容
+0-9数字，符号 +-*
+说明：
+1. 所有数字，计算结果都不超过long
+2. 如果有多个长度一样的，请返回第一个表达式的结果
+3. 数学表达式，必须是最长的，合法的
+4. 操作符不能连续出现，如 +--+1 是不合法的
 
-����������
-�ַ���
+输入描述：
+字符串
 
-���������
-����ʽֵ
+输出描述：
+表达式值
 
-����˵����
+补充说明：
 
-ʾ��1
-���룺
+示例1
+输入：
 1-2abcd
-�����
+输出：
 -1
-˵����
+说明：
 
 ab1-2+3-4+ba-1-2-3-4+5*5+99
 
-˼·��
-ʹ���������ʽ����ƥ��
+思路：
+使用正则表达式进行匹配
 
-�ѵ㣺�����ַ�������ʽ��ֵ
-1. ʹ��ջ(��Ϊ����û�����ţ���˿���ֱ�ӽ�)
-2. ��׺ת��׺����׺��ֵ��(����˼·)
+难点：计算字符串表达式的值
+1. 使用栈(因为本题没有括号，因此可以直接解)
+2. 中缀转后缀，后缀求值。(正常思路)
 
 
 */
@@ -52,15 +52,15 @@ using namespace std;
 //	bool is_sign = false;
 //	for (int i = start; i <= end; i++)
 //	{
-//		if (find(chars.begin(), chars.end(), str[i]) != chars.end())	// ���Ų����ڣ����ǺϷ�����ʽ
+//		if (find(chars.begin(), chars.end(), str[i]) != chars.end())	// 负号不存在，不是合法表达式
 //		{
 //			return false;
 //		}
-//		else if (isdigit(str[i]) && is_sign)		// ��ǰ�ַ������֣���һ���Ƿ���
+//		else if (isdigit(str[i]) && is_sign)		// 当前字符是数字，上一个是符号
 //		{
 //			is_sign = false;
 //		}
-//		else if (!isdigit(str[i]) && is_sign)		// ��ǰ�Ƿ��ţ���һ��������
+//		else if (!isdigit(str[i]) && is_sign)		// 当前是符号，上一个是数字
 //		{
 //			is_sign = true;
 //		}
@@ -74,7 +74,7 @@ using namespace std;
 //		}
 //	}
 //}
-// �޽��ַ������Ƴ��ո�
+// 修建字符串，移除空格
 void trim(string& s)
 {
     int index = 0;
@@ -87,7 +87,7 @@ void trim(string& s)
     }
 }
 
-// �����ַ�������ʽ��ֵ
+// 计算字符串表达式的值
 int calculate(const std::string& expression) {
     std::stack<int> nums;
     std::stack<char> ops;
@@ -129,11 +129,11 @@ int calculate(const std::string& expression) {
 
 int main()
 {
-    //����
-	string s;    // �洢������ַ���
+    //输入
+	string s;    // 存储输入的字符串
 	getline(cin, s);
     
-    // ����
+    // 搜索
     int maxExpLen = 0;
     long ans = 0;
     string maxstr;
@@ -142,7 +142,7 @@ int main()
         for (int j = i; j < s.length(); j++) 
         {
             string sub = s.substr(i, j - i + 1);
-            regex reg(R"(^[+-]?(\d+[+\-*])+\d+$)");    // +- ���� +-* ����
+            regex reg(R"(^[+-]?(\d+[+\-*])+\d+$)");    // +- 数字 +-* 数字
             if (regex_match(sub, reg) && sub.length() > maxExpLen) {
                 maxExpLen = j - i + 1;
                 //ans = calculate(sub);

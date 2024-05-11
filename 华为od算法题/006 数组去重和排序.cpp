@@ -1,22 +1,22 @@
 /*
-006 Êı×éÈ¥ÖØºÍÅÅĞò
-¸ø¶¨Ò»¸öÂÒĞòµÄÊı×é£¬É¾³ıËùÓĞµÄÖØ¸´ÔªËØ£¬Ê¹µÃÃ¿¸öÔªËØÖ»³öÏÖÒ»´Î£¬²¢ÇÒ°´ÕÕ³öÏÖµÄ´ÎÊı´Ó¸ßµ½µÍ½øĞĞÅÅĞò£¬ÏàÍ¬³öÏÖ´ÎÊı°´ÕÕµÚÒ»´Î³öÏÖË³Ğò½øĞĞÏÈºóÅÅĞò
+006 æ•°ç»„å»é‡å’Œæ’åº
+ç»™å®šä¸€ä¸ªä¹±åºçš„æ•°ç»„ï¼Œåˆ é™¤æ‰€æœ‰çš„é‡å¤å…ƒç´ ï¼Œä½¿å¾—æ¯ä¸ªå…ƒç´ åªå‡ºç°ä¸€æ¬¡ï¼Œå¹¶ä¸”æŒ‰ç…§å‡ºç°çš„æ¬¡æ•°ä»é«˜åˆ°ä½è¿›è¡Œæ’åºï¼Œç›¸åŒå‡ºç°æ¬¡æ•°æŒ‰ç…§ç¬¬ä¸€æ¬¡å‡ºç°é¡ºåºè¿›è¡Œå…ˆåæ’åº
 
-ÊäÈë
-Ò»¸öÊı×é
+è¾“å…¥
+ä¸€ä¸ªæ•°ç»„
 
-Êä³ö
-È¥ÖØÅÅĞòºóµÄÊı×é
+è¾“å‡º
+å»é‡æ’åºåçš„æ•°ç»„
 
 
-ÊäÈë
+è¾“å…¥
 1,3,3,3,2,4,4,4,5
 
-Êä³ö
+è¾“å‡º
 3,4,1,2,5
 
-ËµÃ÷:
-Êı×é´óĞ¡²»³¬¹ı100 Êı×éÔªËØÖµ´óĞ¡²»³¬¹ı100¡£
+è¯´æ˜:
+æ•°ç»„å¤§å°ä¸è¶…è¿‡100 æ•°ç»„å…ƒç´ å€¼å¤§å°ä¸è¶…è¿‡100ã€‚
 */
 
 
@@ -26,13 +26,13 @@
 #include <unordered_map>
 #include <algorithm>
 
-// ¶¨ÒåÒ»¸ö¸¨Öú½á¹¹Ìå£¬ÓÃÓÚ´æ´¢ÔªËØµÄÖµºÍ³öÏÖ´ÎÊı
+// å®šä¹‰ä¸€ä¸ªè¾…åŠ©ç»“æ„ä½“ï¼Œç”¨äºå­˜å‚¨å…ƒç´ çš„å€¼å’Œå‡ºç°æ¬¡æ•°
 struct Element {
     int value;
     int count;
 };
 
-// ×Ô¶¨Òå±È½Ïº¯Êı£¬°´ÕÕÌâÄ¿ÒªÇó½øĞĞÅÅĞò
+// è‡ªå®šä¹‰æ¯”è¾ƒå‡½æ•°ï¼ŒæŒ‰ç…§é¢˜ç›®è¦æ±‚è¿›è¡Œæ’åº
 bool compare(const Element& a, const Element& b) {
     if (a.count == b.count) {
         return a.value < b.value;
@@ -41,19 +41,19 @@ bool compare(const Element& a, const Element& b) {
 }
 
 std::vector<int> removeDuplicatesAndSort(std::vector<int>& nums) {
-    std::unordered_map<int, int> countMap; // ÓÃÓÚ¼ÇÂ¼Ã¿¸öÔªËØµÄ³öÏÖ´ÎÊı
+    std::unordered_map<int, int> countMap; // ç”¨äºè®°å½•æ¯ä¸ªå…ƒç´ çš„å‡ºç°æ¬¡æ•°
     for (int num : nums) {
         countMap[num]++;
     }
 
-    std::vector<Element> elements; // ÓÃÓÚ´æ´¢ÔªËØ¼°Æä³öÏÖ´ÎÊıµÄ½á¹¹ÌåÊı×é
+    std::vector<Element> elements; // ç”¨äºå­˜å‚¨å…ƒç´ åŠå…¶å‡ºç°æ¬¡æ•°çš„ç»“æ„ä½“æ•°ç»„
     for (auto& entry : countMap) {
         elements.push_back({ entry.first, entry.second });
     }
 
-    std::sort(elements.begin(), elements.end(), compare); // °´ÕÕ³öÏÖ´ÎÊıºÍÖµ½øĞĞÅÅĞò
+    std::sort(elements.begin(), elements.end(), compare); // æŒ‰ç…§å‡ºç°æ¬¡æ•°å’Œå€¼è¿›è¡Œæ’åº
 
-    std::vector<int> result; // ´æ´¢×îÖÕ½á¹ûµÄÊı×é
+    std::vector<int> result; // å­˜å‚¨æœ€ç»ˆç»“æœçš„æ•°ç»„
     for (const Element& element : elements) {
         result.push_back(element.value);
     }
@@ -77,7 +77,7 @@ int main() {
         commaPos = input.find(',', startPos);
     }
 
-    // ´¦Àí×îºóÒ»¸ö¶ººÅºóµÄÊı×Ö
+    // å¤„ç†æœ€åä¸€ä¸ªé€—å·åçš„æ•°å­—
     std::string numStr = input.substr(startPos);
     int num = std::stoi(numStr);
     nums.push_back(num);

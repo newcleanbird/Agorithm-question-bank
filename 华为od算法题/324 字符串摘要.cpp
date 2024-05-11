@@ -1,61 +1,61 @@
 /*
-324 ×Ö·û´®ÕªÒª
-Ò»¡¢ÌâÄ¿ÃèÊö
-¸ø¶¨Ò»¸ö×Ö·û´®µÄÕªÒªËã·¨£¬ÇëÊä³ö¸ø¶¨×Ö·û´®µÄÕªÒªÖµ£º
+324 å­—ç¬¦ä¸²æ‘˜è¦
+ä¸€ã€é¢˜ç›®æè¿°
+ç»™å®šä¸€ä¸ªå­—ç¬¦ä¸²çš„æ‘˜è¦ç®—æ³•ï¼Œè¯·è¾“å‡ºç»™å®šå­—ç¬¦ä¸²çš„æ‘˜è¦å€¼ï¼š
 
-È¥³ý×Ö·û´®ÖÐ·Ç×ÖÄ¸µÄ·ûºÅ£»
-Èç¹û³öÏÖÁ¬Ðø×Ö·û£¨²»Çø·Ö´óÐ¡Ð´£©£¬ÔòÊä³ö¸Ã×Ö·û£¨Ð¡Ð´£©+ Á¬Ðø³öÏÖµÄ´ÎÊý£»
-Èç¹ûÊÇ·ÇÁ¬ÐøµÄ×Ö·û£¨²»Çø·Ö´óÐ¡Ð´£©£¬ÔòÊä³ö¸Ã×Ö·û£¨Ð¡Ð´£©+ ¸Ã×ÖÄ¸Ö®ºó×Ö·û´®ÖÐ³öÏÖ¸Ã×Ö·ûµÄ´ÎÊý£»
-¶Ô°´ÕÕÒÔÉÏ·½Ê½±íÊ¾ºóµÄ×Ö·û´®½øÐÐÅÅÐò£¬×ÖÄ¸ºÍ½ôËæµÄÊý×Ö×÷ÎªÒ»×é½øÐÐÅÅÐò£¬Êý×Ö´óµÄÔÚÇ°£¬Êý×ÖÏàÍ¬Ê±£¬°´×ÖÄ¸½øÐÐÅÅÐò£¬×ÖÄ¸Ð¡µÄÔÚÇ°£»
+åŽ»é™¤å­—ç¬¦ä¸²ä¸­éžå­—æ¯çš„ç¬¦å·ï¼›
+å¦‚æžœå‡ºçŽ°è¿žç»­å­—ç¬¦ï¼ˆä¸åŒºåˆ†å¤§å°å†™ï¼‰ï¼Œåˆ™è¾“å‡ºè¯¥å­—ç¬¦ï¼ˆå°å†™ï¼‰+ è¿žç»­å‡ºçŽ°çš„æ¬¡æ•°ï¼›
+å¦‚æžœæ˜¯éžè¿žç»­çš„å­—ç¬¦ï¼ˆä¸åŒºåˆ†å¤§å°å†™ï¼‰ï¼Œåˆ™è¾“å‡ºè¯¥å­—ç¬¦ï¼ˆå°å†™ï¼‰+ è¯¥å­—æ¯ä¹‹åŽå­—ç¬¦ä¸²ä¸­å‡ºçŽ°è¯¥å­—ç¬¦çš„æ¬¡æ•°ï¼›
+å¯¹æŒ‰ç…§ä»¥ä¸Šæ–¹å¼è¡¨ç¤ºåŽçš„å­—ç¬¦ä¸²è¿›è¡ŒæŽ’åºï¼Œå­—æ¯å’Œç´§éšçš„æ•°å­—ä½œä¸ºä¸€ç»„è¿›è¡ŒæŽ’åºï¼Œæ•°å­—å¤§çš„åœ¨å‰ï¼Œæ•°å­—ç›¸åŒæ—¶ï¼ŒæŒ‰å­—æ¯è¿›è¡ŒæŽ’åºï¼Œå­—æ¯å°çš„åœ¨å‰ï¼›
 
-¶þ¡¢ÊäÈëÃèÊö
-Ò»ÐÐ×Ö·û´®¡£
+äºŒã€è¾“å…¥æè¿°
+ä¸€è¡Œå­—ç¬¦ä¸²ã€‚
 
-Èý¡¢Êä³öÃèÊö
-ÕªÒª×Ö·û´®¡£
+ä¸‰ã€è¾“å‡ºæè¿°
+æ‘˜è¦å­—ç¬¦ä¸²ã€‚
 
-ËÄ¡¢ÓÃÀý£º
-ÊäÈëÃèÊö:
-ÐÐ×Ö·û´®£¬³¤¶ÈÎª[1,200]
+å››ã€ç”¨ä¾‹ï¼š
+è¾“å…¥æè¿°:
+è¡Œå­—ç¬¦ä¸²ï¼Œé•¿åº¦ä¸º[1,200]
 
-Êä³öÃèÊö:
-ÕªÒª×Ö·û´®
+è¾“å‡ºæè¿°:
+æ‘˜è¦å­—ç¬¦ä¸²
 
-Ê¾ÀýÒ»£º
-ÊäÈë:
+ç¤ºä¾‹ä¸€ï¼š
+è¾“å…¥:
 aabbcc
-Êä³ö:
+è¾“å‡º:
 a2b2c2
-ËµÃ÷:
-µÚÒ»¸öb·ÇÁ¬Ðø×ÖÄ¸£¬¸Ã×ÖÄ¸Ö®ºó×Ö·û´®ÖÐ»¹³öÏÖÁË2´Î (×îºóµÄÁ½¸öBb) £¬ËùÒÔÊä³öb2aÁ¬Ðø³öÏÖ3´Î£¬Êä³öa3£¬c·ÇÁ¬Ðø£¬¸Ã×ÖÄ¸Ö®ºó×Ö·û´®ÔÙÃ»ÓÐ³öÏÖ¹ýc£¬Êä³öc0BbÁ¬Ðø2´Î£¬Êä³öb2£¬¶Ôb2a3c0b2½øÐÐÅÅÐò£¬×îÖÕÊä³öa3b2b2c0
+è¯´æ˜Ž:
+ç¬¬ä¸€ä¸ªbéžè¿žç»­å­—æ¯ï¼Œè¯¥å­—æ¯ä¹‹åŽå­—ç¬¦ä¸²ä¸­è¿˜å‡ºçŽ°äº†2æ¬¡ (æœ€åŽçš„ä¸¤ä¸ªBb) ï¼Œæ‰€ä»¥è¾“å‡ºb2aè¿žç»­å‡ºçŽ°3æ¬¡ï¼Œè¾“å‡ºa3ï¼Œcéžè¿žç»­ï¼Œè¯¥å­—æ¯ä¹‹åŽå­—ç¬¦ä¸²å†æ²¡æœ‰å‡ºçŽ°è¿‡cï¼Œè¾“å‡ºc0Bbè¿žç»­2æ¬¡ï¼Œè¾“å‡ºb2ï¼Œå¯¹b2a3c0b2è¿›è¡ŒæŽ’åºï¼Œæœ€ç»ˆè¾“å‡ºa3b2b2c0
 
-Ê¾Àý¶þ£º
-ÊäÈë£º
+ç¤ºä¾‹äºŒï¼š
+è¾“å…¥ï¼š
 bAaAcBb
-Êä³ö£º
+è¾“å‡ºï¼š
 a3b2b2c0
-ËµÃ÷£º
-bAaAcBb£º
-µÚÒ»¸ö b ·ÇÁ¬Ðø×ÖÄ¸£¬¸Ã×ÖÄ¸Ö®ºó×Ö·û´®ÖÐ»¹³öÏÖÁË 2 ´Î£¨×îºóµÄÁ½¸ö Bb£©£¬ËùÒÔÊä³ö b2£¬
-a Á¬Ðø³öÏÖ 3 ´Î£¬Êä³ö a3£¬
-c ·ÇÁ¬Ðø£¬¸Ã×ÖÄ¸Ö®ºó×Ö·û´®ÔÙÃ»ÓÐ³öÏÖ¹ý c£¬Êä³ö c0
-Bb Á¬Ðø 2 ´Î£¬Êä³ö b2
-¶Ô b2a3c0b2 ½øÐÐÅÅÐò£¬×îÖÕÊä³ö a3b2b2c0
+è¯´æ˜Žï¼š
+bAaAcBbï¼š
+ç¬¬ä¸€ä¸ª b éžè¿žç»­å­—æ¯ï¼Œè¯¥å­—æ¯ä¹‹åŽå­—ç¬¦ä¸²ä¸­è¿˜å‡ºçŽ°äº† 2 æ¬¡ï¼ˆæœ€åŽçš„ä¸¤ä¸ª Bbï¼‰ï¼Œæ‰€ä»¥è¾“å‡º b2ï¼Œ
+a è¿žç»­å‡ºçŽ° 3 æ¬¡ï¼Œè¾“å‡º a3ï¼Œ
+c éžè¿žç»­ï¼Œè¯¥å­—æ¯ä¹‹åŽå­—ç¬¦ä¸²å†æ²¡æœ‰å‡ºçŽ°è¿‡ cï¼Œè¾“å‡º c0
+Bb è¿žç»­ 2 æ¬¡ï¼Œè¾“å‡º b2
+å¯¹ b2a3c0b2 è¿›è¡ŒæŽ’åºï¼Œæœ€ç»ˆè¾“å‡º a3b2b2c0
 
-Ê¾ÀýÈý£º
+ç¤ºä¾‹ä¸‰ï¼š
 CbAaAcBbA
 a3b2b2c1a0c0
 
-Îå¡¢½âÌâË¼Â·
-1¡¢ºËÐÄË¼Â·£º
-Èç¹ûµ±Ç°×ÖÄ¸ºÍÉÏÒ»¸ö×ÖÄ¸ÏàÍ¬£¬¸Ã×ÖÄ¸Á¬Ðø´ÎÊý¼ÇÎª+1£»
-Èç¹ûµ±Ç°×ÖÄ¸ºÍÉÏÒ»¸ö×ÖÄ¸²»Í¬£»
-Èç¹ûµ±Ç°×Ö·ûµÄÁ¬Ðø´ÎÊý´óÓÚ1£¬±íÊ¾ÊÇÁ¬Ðø×Ö·û£¬Êä³ö¼´¿É£»
-Èç¹ûÖ»ÓÐ1¸ö£¬ÔòÒª»ñÈ¡ºóÃæ×Ö·û´®ÖÐ¸Ã×Ö·ûµÄ¸öÊý£»
-×ÖÄ¸ºÍ½ôËæµÄÊý×Ö×÷ÎªÒ»×é½øÐÐÅÅÐò£¬Êý×Ö´óµÄÔÚÇ°£¬Êý×ÖÏàÍ¬Ê±£¬°´×ÖÄ¸½øÐÐÅÅÐò£¬×ÖÄ¸Ð¡µÄÔÚÇ°£»
-2¡¢¾ßÌåË¼Â·ÈçÏÂ£º
-ÊäÈëÒ»ÐÐ×Ö·û´®£¬²»Çø·Ö´óÐ¡Ð´£»
-¶¨ÒåÒ»¸öÊý×éc
+äº”ã€è§£é¢˜æ€è·¯
+1ã€æ ¸å¿ƒæ€è·¯ï¼š
+å¦‚æžœå½“å‰å­—æ¯å’Œä¸Šä¸€ä¸ªå­—æ¯ç›¸åŒï¼Œè¯¥å­—æ¯è¿žç»­æ¬¡æ•°è®°ä¸º+1ï¼›
+å¦‚æžœå½“å‰å­—æ¯å’Œä¸Šä¸€ä¸ªå­—æ¯ä¸åŒï¼›
+å¦‚æžœå½“å‰å­—ç¬¦çš„è¿žç»­æ¬¡æ•°å¤§äºŽ1ï¼Œè¡¨ç¤ºæ˜¯è¿žç»­å­—ç¬¦ï¼Œè¾“å‡ºå³å¯ï¼›
+å¦‚æžœåªæœ‰1ä¸ªï¼Œåˆ™è¦èŽ·å–åŽé¢å­—ç¬¦ä¸²ä¸­è¯¥å­—ç¬¦çš„ä¸ªæ•°ï¼›
+å­—æ¯å’Œç´§éšçš„æ•°å­—ä½œä¸ºä¸€ç»„è¿›è¡ŒæŽ’åºï¼Œæ•°å­—å¤§çš„åœ¨å‰ï¼Œæ•°å­—ç›¸åŒæ—¶ï¼ŒæŒ‰å­—æ¯è¿›è¡ŒæŽ’åºï¼Œå­—æ¯å°çš„åœ¨å‰ï¼›
+2ã€å…·ä½“æ€è·¯å¦‚ä¸‹ï¼š
+è¾“å…¥ä¸€è¡Œå­—ç¬¦ä¸²ï¼Œä¸åŒºåˆ†å¤§å°å†™ï¼›
+å®šä¹‰ä¸€ä¸ªæ•°ç»„c
 */
 
 #include<iostream>
@@ -83,7 +83,7 @@ int main()
 {
 	string str;
 	getline(cin, str);
-	// È¥³ý×Ö·û´®ÖÐµÄ·Ç×ÖÄ¸
+	// åŽ»é™¤å­—ç¬¦ä¸²ä¸­çš„éžå­—æ¯
 	string str_1;
 	for (int i = 0; i < str.size(); i++)
 	{
@@ -98,32 +98,32 @@ int main()
 	int count = 1;
 	for (int i = str_1.size() - 2; i >= 0; i--)
 	{
-		if (str_1[i] == currentChar)	// Èç¹ûºÍÉÏ¸ö×ÖÄ¸ÏàÍ¬£¬ÔòÔö¼Ó×ÖÄ¸Í³¼Æ
+		if (str_1[i] == currentChar)	// å¦‚æžœå’Œä¸Šä¸ªå­—æ¯ç›¸åŒï¼Œåˆ™å¢žåŠ å­—æ¯ç»Ÿè®¡
 		{
-			count++;	// ÏàÍ¬Êý×Ö£¬¼ÆÊý+1
+			count++;	// ç›¸åŒæ•°å­—ï¼Œè®¡æ•°+1
 		}
 		else {
-			if (count == 1)	// µ±Ç°×Ö·ûºÍÏÂ¸ö×Ö·û²»Í¬£¬ÇÒÏÂ¸ö×Ö·ûÊÇµ¥¸ö×Ö·û¡£´ËÊ±Ó¦¸Ã½«ÏÂ¸ö×Ö·ûµÄ½á¹û¼ÓÈë½á¹û¼¯
+			if (count == 1)	// å½“å‰å­—ç¬¦å’Œä¸‹ä¸ªå­—ç¬¦ä¸åŒï¼Œä¸”ä¸‹ä¸ªå­—ç¬¦æ˜¯å•ä¸ªå­—ç¬¦ã€‚æ­¤æ—¶åº”è¯¥å°†ä¸‹ä¸ªå­—ç¬¦çš„ç»“æžœåŠ å…¥ç»“æžœé›†
 			{
-				count = char_conut_map[currentChar];				// ²éÑ¯Í³¼ÆÊý¾Ý
-				char_conut_map[currentChar] += count + 1;			// ¸üÐÂÍ³¼ÆÊý¾Ý
-				vec.push_back(pair<char, int>(currentChar, count));	// ¼ÓÈë½á¹û¼¯
+				count = char_conut_map[currentChar];				// æŸ¥è¯¢ç»Ÿè®¡æ•°æ®
+				char_conut_map[currentChar] += count + 1;			// æ›´æ–°ç»Ÿè®¡æ•°æ®
+				vec.push_back(pair<char, int>(currentChar, count));	// åŠ å…¥ç»“æžœé›†
 			}
-			else {	// Í³¼ÆÁ¬Ðø×ÖÄ¸µÄ¸öÊý
+			else {	// ç»Ÿè®¡è¿žç»­å­—æ¯çš„ä¸ªæ•°
 				char_conut_map[currentChar] += count;
-				vec.push_back(pair<char, int>(currentChar, count));	// ½«Ö®Ç°µÄÁ¬Ðø×ÖÄ¸¼ÓÈë½á¹û¼¯
+				vec.push_back(pair<char, int>(currentChar, count));	// å°†ä¹‹å‰çš„è¿žç»­å­—æ¯åŠ å…¥ç»“æžœé›†
 			}
-			// ³õÊ¼»¯Í³¼Æ¼ÇÂ¼
+			// åˆå§‹åŒ–ç»Ÿè®¡è®°å½•
 			currentChar = str_1[i];
 			count = 1;
 		}
-		if (i == 0)	// ½«×îºóÒ»´ÎµÄ¼ÇÂ¼¼ÓÈë½á¹û¼¯
+		if (i == 0)	// å°†æœ€åŽä¸€æ¬¡çš„è®°å½•åŠ å…¥ç»“æžœé›†
 		{
-			if (count == 1)	// ·ÇÁ¬Ðø×Ö·û
+			if (count == 1)	// éžè¿žç»­å­—ç¬¦
 			{
-				count = char_conut_map[str_1[i]];					// ²éÑ¯Í³¼ÆÊý¾Ý
+				count = char_conut_map[str_1[i]];					// æŸ¥è¯¢ç»Ÿè®¡æ•°æ®
 			}
-			vec.push_back(pair<char, int>(str_1[i], count));	// ¼ÓÈë½á¹û¼¯
+			vec.push_back(pair<char, int>(str_1[i], count));	// åŠ å…¥ç»“æžœé›†
 		}
 	}
 	sort(vec.begin(), vec.end(), compare);

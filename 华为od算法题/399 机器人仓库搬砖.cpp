@@ -1,36 +1,36 @@
 /*
-399�������˲ֿ��ש
-��Ŀ������
-�����˰�ש��һ����N��ש�����N����ͬ�Ĳֿ��У���i��ש����bricks[i]��שͷ��Ҫ����8Сʱ�ڰ��ꡣ������ÿСʱ�ܰ�ש������ȡ�����ж��������񣬻�����һ��Сʱ��ֻ����һ���ֿ��а�ש�������˵�������ÿСʱ����һ����������ֻ����һ��Сʱ��Ч��Ϊʹ�û����������С��������Сÿ�β��������������
-Ϊ�˱�����8Сʱ������ɰ�ש���������ÿСʱ�������˳��ܵ���С����������
-��ע��
-1�����迼�ǻ����˲���������ĺ�ʱ��
-2�����迼�ǻ����˰�ש�ĺ�ʱ��
-3��������ÿСʱ����������ֻ����һ��Сʱ����Ч��
-����������
-��������Ϊ��30 12 25 8 19��һ���������飬�����е�ÿ�����ִ�����i��ש�ĸ�����ÿ��ש�ĸ���������100��
-���������
-�����8Сʱ����ɰ�ש���񣬻�����ÿСʱ������Ҫ����ٸ�������
-���8��Сʱ��������ζ���ɲ��������������-1����
-����˵����
-ʾ��1
-���룺
+399、机器人仓库搬砖
+题目描述：
+机器人搬砖，一共有N堆砖存放在N个不同的仓库中，第i堆砖中有bricks[i]块砖头，要求在8小时内搬完。机器人每小时能搬砖的数量取决于有多少能量格，机器人一个小时中只能在一个仓库中搬砖，机器人的能量格每小时补充一次且能量格只在这一个小时有效，为使得机器人损耗最小化尽量减小每次补充的能量格数。
+为了保障在8小时内能完成搬砖任务，请计算每小时给机器人充能的最小能量格数。
+备注：
+1、无需考虑机器人补充能量格的耗时；
+2、无需考虑机器人搬砖的耗时；
+3、机器人每小时补充能量格只在这一个小时中有效；
+输入描述：
+程序输入为“30 12 25 8 19”一个整数数组，数组中的每个数字代表第i堆砖的个数，每堆砖的个数不超过100。
+输出描述：
+输出在8小时内完成搬砖任务，机器人每小时最少需要充多少个能量格；
+如果8个小时内无论如何都完成不了任务，则输出“-1”；
+补充说明：
+示例1
+输入：
 30 12 25 8 19
-�����
+输出：
 15
-˵����
-ʾ��2
-���룺
+说明：
+示例2
+输入：
 10 12 25 8 19 8 6 4 17 19 20 30
-�����
+输出：
 -1
-˵����
-ש�Ķ���Ϊ12�Ѵ����12���ֿ��У�������һ��Сʱ��ֻ����һ���ֿ��ש���������������
+说明：
+砖的堆数为12堆存放在12个仓库中，机器人一个小时内只能在一个仓库搬砖，不可能完成任务。
 
-����˼·��
-1. ���ַ������ٶ�
-�ٶȵ�������[1, max],ʹ�ö��������ٶ�
-	����ٶȿ��������꣬˵���ٶȴ��ˣ���Ҫ�����ٶȣ���С����ٶ�������һ�룬������ܣ����������ٶ�������һ��
+解题思路：
+1. 二分法搜索速度
+速度的区间是[1, max],使用二分搜索速度
+	如果速度可以搜索完，说明速度大了，需要降低速度，缩小最大速度至区间一半，如果不能，则提高最低速度至区间一半
 
 
 */
@@ -51,7 +51,7 @@ bool can_fin(vector<int>& work, int count, int power)
 	return hour <= count;
 }
 
-// ʹ�ö�������
+// 使用二分搜索
 int calculate(vector<int>& work, int count)
 {
 	if (work.size() > count) return -1;
@@ -60,7 +60,7 @@ int calculate(vector<int>& work, int count)
 	while (left < right)
 	{
 		int mid = (left + right) / 2;
-		if (can_fin(work, count, mid))	// �����
+		if (can_fin(work, count, mid))	// 能完成
 		{
 			right = mid;
 		}
@@ -71,7 +71,7 @@ int calculate(vector<int>& work, int count)
 	return left;
 }
 
-// ʹ�����ȶ��ж�������
+// 使用优先队列二分搜索
 int calculate_1(vector<int>& work, int count)
 {
 	priority_queue<double> mque(work.begin(), work.end());
@@ -88,7 +88,7 @@ int calculate_1(vector<int>& work, int count)
 
 int main()
 {
-	// ����
+	// 输入
 	vector<int> work;
 	int tmp;
 	while (cin >> tmp)
@@ -97,6 +97,6 @@ int main()
 		if (cin.peek() == '\n')
 			break;
 	}
-	int count = 8; // ��Ҫ8Сʱ
+	int count = 8; // 需要8小时
 	cout << calculate_1(work, count);
 }

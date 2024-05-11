@@ -1,25 +1,25 @@
 /*
-426 ²¿ÃÅÈËÁ¦·ÖÅä
-ÌâÄ¿ÃèÊö£º
-²¿ÃÅÔÚ½øÐÐÐèÇó¿ª·¢Ê±ÐèÒª½øÐÐÈËÁ¦°²ÅÅ¡£µ±Ç°²¿ÃÅÐèÒªÍê³ÉN¸öÐèÇó£¬ÐèÇóÓÃrequirements[]±íÊ¾£¬requirements[i]±íÊ¾µÚi¸öÐèÇóµÄ¹¤×÷Á¿´óÐ¡£¬µ¥Î»£ºÈËÔÂ¡£
-Õâ²¿·ÖÐèÇóÐèÒªÔÚM¸öÔÂÄÚÍê³É¿ª·¢£¬½øÐÐÈËÁ¦°²ÅÅºóÃ¿¸öÔÂµÄÈËÁ¦ÊÇ¹Ì¶¨µÄ¡£
-Ä¿Ç°ÒªÇóÃ¿¸öÔÂ×î¶àÓÐ2¸öÐèÇó¿ª·¢£¬²¢ÇÒÃ¿¸öÔÂÐèÒªÍê³ÉµÄÐèÇó²»ÄÜ³¬¹ý²¿ÃÅÈËÁ¦¡£Çë°ï²¿ÃÅÆÀ¹ÀÔÚÂú×ãÐèÇó¿ª·¢½ø¶ÈµÄÇé¿öÏÂ£¬Ã¿¸öÔÂÐèÒªµÄ×îÐ¡ÈËÁ¦ÊÇ¶àÉÙ£¿
-ÊäÈëÃèÊö£ºÊäÈëµÚÒ»ÐÐÎªMºÍrequirements£¬M±íÊ¾ÐèÒª¿ª·¢Ê±¼äÒªÇó£¬requirements±íÊ¾Ã¿¸öÐèÇó¹¤×÷Á¿´óÐ¡£¬NÎªrequirements³¤¶È
+426 éƒ¨é—¨äººåŠ›åˆ†é…
+é¢˜ç›®æè¿°ï¼š
+éƒ¨é—¨åœ¨è¿›è¡Œéœ€æ±‚å¼€å‘æ—¶éœ€è¦è¿›è¡ŒäººåŠ›å®‰æŽ’ã€‚å½“å‰éƒ¨é—¨éœ€è¦å®ŒæˆNä¸ªéœ€æ±‚ï¼Œéœ€æ±‚ç”¨requirements[]è¡¨ç¤ºï¼Œrequirements[i]è¡¨ç¤ºç¬¬iä¸ªéœ€æ±‚çš„å·¥ä½œé‡å¤§å°ï¼Œå•ä½ï¼šäººæœˆã€‚
+è¿™éƒ¨åˆ†éœ€æ±‚éœ€è¦åœ¨Mä¸ªæœˆå†…å®Œæˆå¼€å‘ï¼Œè¿›è¡ŒäººåŠ›å®‰æŽ’åŽæ¯ä¸ªæœˆçš„äººåŠ›æ˜¯å›ºå®šçš„ã€‚
+ç›®å‰è¦æ±‚æ¯ä¸ªæœˆæœ€å¤šæœ‰2ä¸ªéœ€æ±‚å¼€å‘ï¼Œå¹¶ä¸”æ¯ä¸ªæœˆéœ€è¦å®Œæˆçš„éœ€æ±‚ä¸èƒ½è¶…è¿‡éƒ¨é—¨äººåŠ›ã€‚è¯·å¸®éƒ¨é—¨è¯„ä¼°åœ¨æ»¡è¶³éœ€æ±‚å¼€å‘è¿›åº¦çš„æƒ…å†µä¸‹ï¼Œæ¯ä¸ªæœˆéœ€è¦çš„æœ€å°äººåŠ›æ˜¯å¤šå°‘ï¼Ÿ
+è¾“å…¥æè¿°ï¼šè¾“å…¥ç¬¬ä¸€è¡Œä¸ºMå’Œrequirementsï¼ŒMè¡¨ç¤ºéœ€è¦å¼€å‘æ—¶é—´è¦æ±‚ï¼Œrequirementsè¡¨ç¤ºæ¯ä¸ªéœ€æ±‚å·¥ä½œé‡å¤§å°ï¼ŒNä¸ºrequirementsé•¿åº¦
 1 <= N/2 <= M <= N <= 10^4
 1 <= requirements[i] <= 10^9
-Êä³öÃèÊö£º¶ÔÓÚÃ¿×é²âÊÔÊý¾Ý£¬Êä³ö²¿ÃÅÐèÒªÈËÁ¦ÐèÇó£¬ÐÐÄ©ÎÞ¶àÓà¿Õ¸ñ
+è¾“å‡ºæè¿°ï¼šå¯¹äºŽæ¯ç»„æµ‹è¯•æ•°æ®ï¼Œè¾“å‡ºéƒ¨é—¨éœ€è¦äººåŠ›éœ€æ±‚ï¼Œè¡Œæœ«æ— å¤šä½™ç©ºæ ¼
 
-Ê¾Àý1
-ÊäÈë£º
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
 3
 3 5 3 4
-Êä³ö£º6
-ËµÃ÷£ºÊäÈëÊý¾ÝÁ½ÐÐ£¬µÚÒ»ÐÐÊäÈëÊý¾Ý3±íÊ¾¿ª·¢Ê±¼äÒªÇó£¬µÚ¶þÐÐÊäÈëÊý¾Ý±íÊ¾ÐèÇó¹¤×÷Á¿´óÐ¡£¬Êä³öÊý¾ÝÒ»ÐÐ£¬±íÊ¾²¿ÃÅÈËÁ¦ÐèÇó
+è¾“å‡ºï¼š6
+è¯´æ˜Žï¼šè¾“å…¥æ•°æ®ä¸¤è¡Œï¼Œç¬¬ä¸€è¡Œè¾“å…¥æ•°æ®3è¡¨ç¤ºå¼€å‘æ—¶é—´è¦æ±‚ï¼Œç¬¬äºŒè¡Œè¾“å…¥æ•°æ®è¡¨ç¤ºéœ€æ±‚å·¥ä½œé‡å¤§å°ï¼Œè¾“å‡ºæ•°æ®ä¸€è¡Œï¼Œè¡¨ç¤ºéƒ¨é—¨äººåŠ›éœ€æ±‚
 
 3
 1 2 3 4
 
-// Ë¼Â·¶þ£º¶þ·Ö+Ë«Ö¸Õë
+// æ€è·¯äºŒï¼šäºŒåˆ†+åŒæŒ‡é’ˆ
 */
 #include<iostream>
 #include<vector>
@@ -29,7 +29,7 @@ using namespace std;
 
 void solution()
 {
-	int m;	// Ê±¼ä
+	int m;	// æ—¶é—´
 	cin >> m;
 	int tmp;
 	priority_queue<int, vector<int>, greater<int>> que;
@@ -39,8 +39,8 @@ void solution()
 		if (cin.peek() == '\n') break;
 	}
 
-	// ¼ÆËã
-	int count; // ÐèÒªµÄÈËÁ¦
+	// è®¡ç®—
+	int count; // éœ€è¦çš„äººåŠ›
 	int tmp1, tmp2;
 	while (que.size() > m)
 	{

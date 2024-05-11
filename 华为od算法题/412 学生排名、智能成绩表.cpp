@@ -1,43 +1,43 @@
 /*
-412¡¢Ñ§ÉúÅÅÃû¡¢ÖÇÄÜ³É¼¨±í
-ÌâÄ¿ÃèÊö£º
-Ð¡Ã÷À´µ½Ä³Ñ§Ð£µ±ÀÏÊ¦£¬ÐèÒª½«Ñ§Éú°´¿¼ÊÔ×Ü·Ö»òµ¥¿Æ·ÖÊý½øÐÐÅÅÃû£¬ÄãÄÜ°ï°ïËûÂð£¿
+412ã€å­¦ç”ŸæŽ’åã€æ™ºèƒ½æˆç»©è¡¨
+é¢˜ç›®æè¿°ï¼š
+å°æ˜Žæ¥åˆ°æŸå­¦æ ¡å½“è€å¸ˆï¼Œéœ€è¦å°†å­¦ç”ŸæŒ‰è€ƒè¯•æ€»åˆ†æˆ–å•ç§‘åˆ†æ•°è¿›è¡ŒæŽ’åï¼Œä½ èƒ½å¸®å¸®ä»–å—ï¼Ÿ
 
-ÊäÈëÃèÊö£º
-µÚ1ÐÐÊäÈëÁ½¸öÕûÊý£¬Ñ§ÉúÈËÊýnºÍ¿ÆÄ¿ÊýÁ¿m¡£0<n<100,0<m<10
-µÚ2ÐÐÊäÈëm¸ö¿ÆÄ¿Ãû³Æ£¬±Ë´ËÖ®¼äÓÃ¿Õ¸ñ¸ô¿ª¡£¿ÆÄ¿Ãû³ÆÖ»ÓÉÓ¢ÎÄ×ÖÄ¸¹¹³É£¬µ¥¸ö³¤¶È²»³¬¹ý10¸ö×Ö·û¡£¿ÆÄ¿µÄ³öÏÖË³ÐòºÍºóÐøÊäÈëµÄÑ§Éú³É¼¨Ò»Ò»¶ÔÓ¦¡£²»»á³öÏÖÖØ¸´µÄ¿ÆÄ¿Ãû³Æ¡£
-µÚ3ÐÐ¿ªÊ¼µÄnÐÐ£¬Ã¿ÐÐ°üº¬Ò»¸öÑ§ÉúµÄÐÕÃûºÍ¸ÃÉúm¸ö¿ÆÄ¿µÄ³É¼¨£¨¿Õ¸ñ¸ô¿ª£©£¬Ñ§Éú²»»áÖØÃû¡£Ñ§ÉúÐÕÃûÖ»ÓÉÓ¢ÎÄ×ÖÄ¸¹¹³É£¬³¤¶È²»³¬¹ý10¸ö×Ö·û¡£³É¼¨ÊÇ0~100µÄÕûÊý£¬ÒÀ´Î¶ÔÓ¦µÚ2ÐÐÖÐÊäÈëµÄ¿ÆÄ¿¡£
-µÚn+2ÐÐ£¬ÊäÈëÓÃ×÷ÅÅÃûµÄ¿ÆÄ¿Ãû³Æ¡£Èô¿ÆÄ¿²»´æÔÚ£¬Ôò°´×Ü·Ö½øÐÐÅÅÐò¡£
+è¾“å…¥æè¿°ï¼š
+ç¬¬1è¡Œè¾“å…¥ä¸¤ä¸ªæ•´æ•°ï¼Œå­¦ç”Ÿäººæ•°nå’Œç§‘ç›®æ•°é‡mã€‚0<n<100,0<m<10
+ç¬¬2è¡Œè¾“å…¥mä¸ªç§‘ç›®åç§°ï¼Œå½¼æ­¤ä¹‹é—´ç”¨ç©ºæ ¼éš”å¼€ã€‚ç§‘ç›®åç§°åªç”±è‹±æ–‡å­—æ¯æž„æˆï¼Œå•ä¸ªé•¿åº¦ä¸è¶…è¿‡10ä¸ªå­—ç¬¦ã€‚ç§‘ç›®çš„å‡ºçŽ°é¡ºåºå’ŒåŽç»­è¾“å…¥çš„å­¦ç”Ÿæˆç»©ä¸€ä¸€å¯¹åº”ã€‚ä¸ä¼šå‡ºçŽ°é‡å¤çš„ç§‘ç›®åç§°ã€‚
+ç¬¬3è¡Œå¼€å§‹çš„nè¡Œï¼Œæ¯è¡ŒåŒ…å«ä¸€ä¸ªå­¦ç”Ÿçš„å§“åå’Œè¯¥ç”Ÿmä¸ªç§‘ç›®çš„æˆç»©ï¼ˆç©ºæ ¼éš”å¼€ï¼‰ï¼Œå­¦ç”Ÿä¸ä¼šé‡åã€‚å­¦ç”Ÿå§“ååªç”±è‹±æ–‡å­—æ¯æž„æˆï¼Œé•¿åº¦ä¸è¶…è¿‡10ä¸ªå­—ç¬¦ã€‚æˆç»©æ˜¯0~100çš„æ•´æ•°ï¼Œä¾æ¬¡å¯¹åº”ç¬¬2è¡Œä¸­è¾“å…¥çš„ç§‘ç›®ã€‚
+ç¬¬n+2è¡Œï¼Œè¾“å…¥ç”¨ä½œæŽ’åçš„ç§‘ç›®åç§°ã€‚è‹¥ç§‘ç›®ä¸å­˜åœ¨ï¼Œåˆ™æŒ‰æ€»åˆ†è¿›è¡ŒæŽ’åºã€‚
 
-Êä³öÃèÊö£º
-Êä³öÒ»ÐÐ£¬°´³É¼¨ÅÅÐòºóµÄÑ§ÉúÃû×Ö£¬¿Õ¸ñ¸ô¿ª¡£³É¼¨ÏàÍ¬µÄ°´ÕÕÑ§ÉúÐÕÃû×ÖµäË³ÐòÅÅÐò¡£
+è¾“å‡ºæè¿°ï¼š
+è¾“å‡ºä¸€è¡Œï¼ŒæŒ‰æˆç»©æŽ’åºåŽçš„å­¦ç”Ÿåå­—ï¼Œç©ºæ ¼éš”å¼€ã€‚æˆç»©ç›¸åŒçš„æŒ‰ç…§å­¦ç”Ÿå§“åå­—å…¸é¡ºåºæŽ’åºã€‚
 
-Ê¾Àý1
-ÊäÈë£º
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
 3 2
 yuwen shuxue
 fangfang 95 90
 xiaohua 88 95
 minmin 100 82
 shuxue
-Êä³ö£º
+è¾“å‡ºï¼š
 xiaohua fangfang minmin
-ËµÃ÷£º
-°´shuxue³É¼¨ÅÅÃû£¬ÒÀ´ÎÊÇxiaohua¡¢fangfang¡¢minmin
+è¯´æ˜Žï¼š
+æŒ‰shuxueæˆç»©æŽ’åï¼Œä¾æ¬¡æ˜¯xiaohuaã€fangfangã€minmin
 
-Ê¾Àý2
-ÊäÈë£º
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
 3 2
 yuwen shuxue
 fangfang 95 90
 xiaohua 88 95
 minmin 90 95
 zongfen
-Êä³ö£º
+è¾“å‡ºï¼š
 fangfang minmin xiaohua
-ËµÃ÷£º
+è¯´æ˜Žï¼š
 
-ÅÅÐò¿ÆÄ¿²»´æÔÚ£¬°´×Ü·ÖÅÅÐò£¬fangfangºÍminmin×Ü·ÖÏàÍ¬£¬°´ÐÕÃûµÄ×ÖµäË³Ðò£¬fangfangÅÅÔÚÇ°Ãæ
+æŽ’åºç§‘ç›®ä¸å­˜åœ¨ï¼ŒæŒ‰æ€»åˆ†æŽ’åºï¼Œfangfangå’Œminminæ€»åˆ†ç›¸åŒï¼ŒæŒ‰å§“åçš„å­—å…¸é¡ºåºï¼ŒfangfangæŽ’åœ¨å‰é¢
 */
 #include<iostream>
 #include<vector>
@@ -53,7 +53,7 @@ struct student
 	int total_score;
 };
 
-int index = -1; // ÅÅÐòµÄÏÂ±ê
+int index = -1; // æŽ’åºçš„ä¸‹æ ‡
 
 bool cmp(student student1, student student2)
 {
@@ -76,9 +76,9 @@ bool cmp(student student1, student student2)
 
 int main()
 {
-	int n, m; //Ñ§ÉúÈËÊýn ¿ÆÄ¿ÊýÁ¿m
+	int n, m; //å­¦ç”Ÿäººæ•°n ç§‘ç›®æ•°é‡m
 	cin >> n >> m;
-	vector<string> subject(m);	// ³É¼¨
+	vector<string> subject(m);	// æˆç»©
 	for (int i = 0; i < m; i++)
 	{
 		cin >> subject[i];
