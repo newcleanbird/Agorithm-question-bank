@@ -1,145 +1,145 @@
-///*
-//403¡¢Ô°Çø²Î¹ÛÂ·¾¶
-//ÌâÄ¿ÃèÊö£ºÔ°ÇøÄ³²¿ÃÅ¾Ù°ìÁËFamily Day£¬ÑûÇëÔ±¹¤¼°Æä¼ÒÊô²Î¼Ó£»½«¹«Ë¾Ô°ÇøÊÓÎªÒ»¸ö¾ØĞÎ£¬ÆğÊ¼Ô°ÇøÉèÖÃÔÚ×óÉÏ½Ç£¬ÖÕµãÔ°ÇøÉèÖÃÔÚÓÒÏÂ½Ç£»¼ÒÊô²Î¹ÛÔ°ÇøÊ±£¬Ö»ÄÜÏòÓÒºÍÏòÏÂÔ°ÇøÇ°½ø£»Çó´ÓÆğÊ¼Ô°Çøµ½ÖÕµãÔ°Çø»áÓĞ¶àÉÙÌõ²»Í¬µÄ²Î¹ÛÂ·¾¶£»
-//
-//ÊäÈëÃèÊö£ºµÚÒ»ĞĞÎªÔ°Çø³¤ºÍ¿í£»ºóÃæÃ¿Ò»ĞĞ±íÊ¾¸ÃÔ°ÇøÊÇ·ñ¿ÉÒÔ²Î¹Û£¬0±íÊ¾¿ÉÒÔ²Î¹Û£¬1±íÊ¾²»ÄÜ²Î¹Û
-//Êä³öÃèÊö£ºÊä³öÎª²»Í¬µÄÂ·¾¶ÊıÁ¿
-//²¹³äËµÃ÷£º
-//    1 <= Ô°Çø³¤ <= 100
-//    1 <= Ô°Çø¿í <= 100
-//
-//Ê¾Àı
-//Ê¾Àı1
-//ÊäÈë£º
-//3 3
-//0 0 0
-//0 1 0
-//0 0 0
-//Êä³ö£º2
-//ËµÃ÷£º
-//
-//Ê¾Àı¶ş
-//4 4
-//0 0 0 1 
-//0 0 0 0 
-//1 0 0 0 
-//0 0 0 0  
-//
-//Ë¼Â·£º
-//¾­µä¶¯Ì¬¹æ»®
-//*/
-//#include<iostream>
-//#include<vector>
-//
-//using namespace std;
-//
-//void print_garden(vector<vector<int>>& garden)
-//{
-//    for (auto i : garden)
-//    {
-//        for (auto j : i)
-//        {
-//            cout << j << " ";
-//        }
-//        cout << endl;
-//    }
-//    cout << endl;
-//}
-//
-//void solution()
-//{
-//    int row, col;    // ĞĞ(¿í) ºÍ ÁĞ(³¤)
-//    cin >> col >> row;
-//    vector<vector<int>> garden(row + 1, vector<int>(col + 1, 0)); // garden[row][col];
-//    int tmp;
-//    for (int i = 1; i <= row; i++)
-//    {
-//        for (int j = 1; j <= col; j++)
-//        {
-//            cin >> tmp;
-//            garden[i][j] = tmp;
-//        }
-//    }
-//
-//    vector<vector<int>> road(row + 1, vector<int>(col + 1, 0));
-//    // ³õÊ¼»¯
-//    road[1][1] = 1;
-//    for (int i = 2; i <= row; i++)
-//    {
-//        if (garden[i][1] == 1)
-//        {
-//            continue;
-//        }
-//        else {
-//            road[i][1] = road[i - 1][1];
-//        }
-//    }
-//    //print_garden(road);
-//    for (int j = 2; j <= col; j++)
-//    {
-//        if (garden[1][j] == 1)
-//        {
-//            continue;
-//        }
-//        else {
-//            road[1][j] = road[1][j - 1];
-//        }
-//    }
-//    //print_garden(road);
-//    for (int i = 2; i <= row; i++)
-//    {
-//        for (int j = 2; j <= col; j++)
-//        {
-//            if (garden[i][j] == 1)
-//            {
-//                road[i][j] = 0;
-//            }
-//            else
-//            {
-//                road[i][j] = road[i - 1][j] + road[i][j - 1];
-//            }
-//            //print_garden(road);
-//        }
-//    }
-//    cout << road[row][col];
-//}
-//
-//void solution_1()
-//{
-//    int n, m;
-//    cin >> n >> m;
-//
-//    vector<vector<int>> grid(n, vector<int>(m));
-//    vector<vector<int>> dp(n, vector<int>(m, 0));
-//
-//    for (int i = 0; i < n; ++i) {
-//        for (int j = 0; j < m; ++j) {
-//            cin >> grid[i][j];
-//        }
-//    }
-//
-//    for (int i = 0; i < n; ++i) {
-//        if (grid[i][0] == 1) break;
-//        dp[i][0] = 1;
-//    }
-//
-//    for (int j = 0; j < m; ++j) {
-//        if (grid[0][j] == 1) break;
-//        dp[0][j] = 1;
-//    }
-//
-//    for (int i = 1; i < n; ++i) {
-//        for (int j = 1; j < m; ++j) {
-//            if (grid[i][j] == 1) continue;
-//            dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
-//        }
-//    }
-//
-//    cout << dp[n - 1][m - 1] << endl;
-//}
-//
-//int main()
-//{
-//    //solution();
-//    solution_1();
-//}
+/*
+403ã€å›­åŒºå‚è§‚è·¯å¾„
+é¢˜ç›®æè¿°ï¼šå›­åŒºæŸéƒ¨é—¨ä¸¾åŠäº†Family Dayï¼Œé‚€è¯·å‘˜å·¥åŠå…¶å®¶å±å‚åŠ ï¼›å°†å…¬å¸å›­åŒºè§†ä¸ºä¸€ä¸ªçŸ©å½¢ï¼Œèµ·å§‹å›­åŒºè®¾ç½®åœ¨å·¦ä¸Šè§’ï¼Œç»ˆç‚¹å›­åŒºè®¾ç½®åœ¨å³ä¸‹è§’ï¼›å®¶å±å‚è§‚å›­åŒºæ—¶ï¼Œåªèƒ½å‘å³å’Œå‘ä¸‹å›­åŒºå‰è¿›ï¼›æ±‚ä»èµ·å§‹å›­åŒºåˆ°ç»ˆç‚¹å›­åŒºä¼šæœ‰å¤šå°‘æ¡ä¸åŒçš„å‚è§‚è·¯å¾„ï¼›
+
+è¾“å…¥æè¿°ï¼šç¬¬ä¸€è¡Œä¸ºå›­åŒºé•¿å’Œå®½ï¼›åé¢æ¯ä¸€è¡Œè¡¨ç¤ºè¯¥å›­åŒºæ˜¯å¦å¯ä»¥å‚è§‚ï¼Œ0è¡¨ç¤ºå¯ä»¥å‚è§‚ï¼Œ1è¡¨ç¤ºä¸èƒ½å‚è§‚
+è¾“å‡ºæè¿°ï¼šè¾“å‡ºä¸ºä¸åŒçš„è·¯å¾„æ•°é‡
+è¡¥å……è¯´æ˜ï¼š
+   1 <= å›­åŒºé•¿ <= 100
+   1 <= å›­åŒºå®½ <= 100
+
+ç¤ºä¾‹
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
+3 3
+0 0 0
+0 1 0
+0 0 0
+è¾“å‡ºï¼š2
+è¯´æ˜ï¼š
+
+ç¤ºä¾‹äºŒ
+4 4
+0 0 0 1 
+0 0 0 0 
+1 0 0 0 
+0 0 0 0  
+
+æ€è·¯ï¼š
+ç»å…¸åŠ¨æ€è§„åˆ’
+*/
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+void print_garden(vector<vector<int>>& garden)
+{
+   for (auto i : garden)
+   {
+       for (auto j : i)
+       {
+           cout << j << " ";
+       }
+       cout << endl;
+   }
+   cout << endl;
+}
+
+void solution()
+{
+   int row, col;    // è¡Œ(å®½) å’Œ åˆ—(é•¿)
+   cin >> col >> row;
+   vector<vector<int>> garden(row + 1, vector<int>(col + 1, 0)); // garden[row][col];
+   int tmp;
+   for (int i = 1; i <= row; i++)
+   {
+       for (int j = 1; j <= col; j++)
+       {
+           cin >> tmp;
+           garden[i][j] = tmp;
+       }
+   }
+
+   vector<vector<int>> road(row + 1, vector<int>(col + 1, 0));
+   // åˆå§‹åŒ–
+   road[1][1] = 1;
+   for (int i = 2; i <= row; i++)
+   {
+       if (garden[i][1] == 1)
+       {
+           continue;
+       }
+       else {
+           road[i][1] = road[i - 1][1];
+       }
+   }
+   //print_garden(road);
+   for (int j = 2; j <= col; j++)
+   {
+       if (garden[1][j] == 1)
+       {
+           continue;
+       }
+       else {
+           road[1][j] = road[1][j - 1];
+       }
+   }
+   //print_garden(road);
+   for (int i = 2; i <= row; i++)
+   {
+       for (int j = 2; j <= col; j++)
+       {
+           if (garden[i][j] == 1)
+           {
+               road[i][j] = 0;
+           }
+           else
+           {
+               road[i][j] = road[i - 1][j] + road[i][j - 1];
+           }
+           //print_garden(road);
+       }
+   }
+   cout << road[row][col];
+}
+
+void solution_1()
+{
+   int n, m;
+   cin >> n >> m;
+
+   vector<vector<int>> grid(n, vector<int>(m));
+   vector<vector<int>> dp(n, vector<int>(m, 0));
+
+   for (int i = 0; i < n; ++i) {
+       for (int j = 0; j < m; ++j) {
+           cin >> grid[i][j];
+       }
+   }
+
+   for (int i = 0; i < n; ++i) {
+       if (grid[i][0] == 1) break;
+       dp[i][0] = 1;
+   }
+
+   for (int j = 0; j < m; ++j) {
+       if (grid[0][j] == 1) break;
+       dp[0][j] = 1;
+   }
+
+   for (int i = 1; i < n; ++i) {
+       for (int j = 1; j < m; ++j) {
+           if (grid[i][j] == 1) continue;
+           dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
+       }
+   }
+
+   cout << dp[n - 1][m - 1] << endl;
+}
+
+int main()
+{
+   //solution();
+   solution_1();
+}

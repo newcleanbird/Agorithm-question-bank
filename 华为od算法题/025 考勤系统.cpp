@@ -1,127 +1,128 @@
-///*
-//ÌâÄ¿ÃèÊö£º
-//
-//¹«Ë¾ÓÃÒ»¸ö×Ö·û´®À´±íÊ¾Ô±¹¤µÄ³öÇÚĞÅÏ¢£º
-//absent£ºÈ±ÇÚ
-//late£º³Ùµ½
-//leaveearly£ºÔçÍË
-//present£ºÕı³£ÉÏ°à
-//ÏÖĞè¸ù¾İÔ±¹¤³öÇÚĞÅÏ¢£¬ÅĞ¶Ï±¾´ÎÊÇ·ñÄÜ»ñµÃ³öÇÚ½±£¬ÄÜ»ñµÃ³öÇÚ½±µÄÌõ¼şÈçÏÂ£º
-//È±ÇÚ²»³¬¹ıÒ»´Î£»Ã»ÓĞÁ¬ĞøµÄ³Ùµ½/ÔçÍË£»ÈÎÒâÁ¬Ğø7´Î¿¼ÇÚ£¬È±ÇÚ/³Ùµ½/ÔçÍË²»³¬¹ı3´Î
-//ÊäÈëÃèÊö£º
-//
-//ÓÃ»§µÄ¿¼ÇÚÊı¾İ×Ö·û´®£¬¼ÇÂ¼ÌõÊı >= 1£»ÊäÈë×Ö·û´®³¤¶È<10000£»²»´æÔÚ·Ç·¨ÊäÈë
-//Èç£º
-//
-//2
-//present
-//present absent present present leaveearly present absent
-//
-//Êä³öÃèÊö£º
-//¸ù¾İ¿¼ÇÚÊı¾İ×Ö·û´®£¬Èç¹ûÄÜµÃµ½¿¼ÇÚ½±£¬Êä³ö"true"£»·ñÔòÊä³ö"false"£¬¶ÔÓÚÊäÈëÊ¾ÀıµÄ½á¹ûÓ¦Îª£º
-//
-//true false
-//
-//Ê¾Àı1
-//
-//ÊäÈë£º
-//
-//2
-//present
-//present present
-//Êä³ö£º
-//
-//true true
-//ËµÃ÷£º
-//
-//Ê¾Àı2
-//
-//ÊäÈë£º
-//
-//2
-//present
-//present absent present present leaveearly present absent
-//Êä³ö£º
-//
-//true false
-//ËµÃ÷£º
-//
-//*/
-//
-//#include<iostream>
-//#include<sstream>
-//#include<string>
-//#include<vector>
-//
-//using namespace std;
-//
-//bool isPrice(string &str1)
-//{
-//	
-//
-//	// ´æÈëvector<string> Àï
-//	vector<string> vec;
-//	istringstream is(str1);
-//	string str;
-//	while (is >> str)
-//	{
-//		vec.push_back(str);
-//	}
-//
-//	// ÅĞ¶Ï
-//	int absent = 0;		// È±ÇÚ
-//	int present = 0;	// Õı³£ÉÏ°à
-//	string preRecord = "";
-//	for (int i = 0; i < vec.size(); i++)
-//	{
-//		// µ±×Ü´ò¿¨Êı´óÓÚ7Ê±£¬ÒÆ¶¯´°¿Ú£¬¼´¶Ô×î×ó±ßµÄ´ò¿¨¼ÇÂ¼½øĞĞ´¦Àí
-//		if (i > 7)
-//		{
-//			if (vec[i - 7] == "present")
-//			{
-//				present--;
-//			}
-//		}
-//		// ÅĞ¶Ïµ±Ç°µÄ´ò¿¨Çé¿ö
-//		if (vec[i] == "absent")
-//		{
-//			if (++absent > 1) return false;
-//		}
-//		else if (vec[i] == "late" || vec[i] == "leaveearly")
-//		{
-//			if (preRecord == "late" || preRecord == "leaveearly")
-//			{
-//				return false;
-//			}
-//		}
-//		else if (vec[i] == "present")
-//		{
-//			present++;
-//		}
-//		// Á¬Ğø7´Î´ò¿¨³¬¹ı3´ÎÓĞÎÊÌâ
-//		int window_len = min(i + 1, 7);
-//		if (window_len - present > 3) return false;
-//	}
-//	return true;
-//}
-//
-//int main()
-//{
-//	int count = 0;
-//	cin >> count;
-//	string str;
-//	cin.get();
-//
-//	vector<bool> res;
-//	while (count--)
-//	{
-//		getline(cin, str);
-//		res.push_back(isPrice(str));
-//	}
-//	for (auto i : res)
-//	{
-//		if(i == true)cout << "true" << " ";
-//		else cout << "false" << " ";
-//	}
-//
-//}
+/*
+è€ƒå‹¤ç³»ç»Ÿ
+é¢˜ç›®æè¿°ï¼š
+
+å…¬å¸ç”¨ä¸€ä¸ªå­—ç¬¦ä¸²æ¥è¡¨ç¤ºå‘˜å·¥çš„å‡ºå‹¤ä¿¡æ¯ï¼š
+absentï¼šç¼ºå‹¤
+lateï¼šè¿Ÿåˆ°
+leaveearlyï¼šæ—©é€€
+presentï¼šæ­£å¸¸ä¸Šç­
+ç°éœ€æ ¹æ®å‘˜å·¥å‡ºå‹¤ä¿¡æ¯ï¼Œåˆ¤æ–­æœ¬æ¬¡æ˜¯å¦èƒ½è·å¾—å‡ºå‹¤å¥–ï¼Œèƒ½è·å¾—å‡ºå‹¤å¥–çš„æ¡ä»¶å¦‚ä¸‹ï¼š
+ç¼ºå‹¤ä¸è¶…è¿‡ä¸€æ¬¡ï¼›æ²¡æœ‰è¿ç»­çš„è¿Ÿåˆ°/æ—©é€€ï¼›ä»»æ„è¿ç»­7æ¬¡è€ƒå‹¤ï¼Œç¼ºå‹¤/è¿Ÿåˆ°/æ—©é€€ä¸è¶…è¿‡3æ¬¡
+è¾“å…¥æè¿°ï¼š
+
+ç”¨æˆ·çš„è€ƒå‹¤æ•°æ®å­—ç¬¦ä¸²ï¼Œè®°å½•æ¡æ•° >= 1ï¼›è¾“å…¥å­—ç¬¦ä¸²é•¿åº¦<10000ï¼›ä¸å­˜åœ¨éæ³•è¾“å…¥
+å¦‚ï¼š
+
+2
+present
+present absent present present leaveearly present absent
+
+è¾“å‡ºæè¿°ï¼š
+æ ¹æ®è€ƒå‹¤æ•°æ®å­—ç¬¦ä¸²ï¼Œå¦‚æœèƒ½å¾—åˆ°è€ƒå‹¤å¥–ï¼Œè¾“å‡º"true"ï¼›å¦åˆ™è¾“å‡º"false"ï¼Œå¯¹äºè¾“å…¥ç¤ºä¾‹çš„ç»“æœåº”ä¸ºï¼š
+
+true false
+
+ç¤ºä¾‹1
+
+è¾“å…¥ï¼š
+
+2
+present
+present present
+è¾“å‡ºï¼š
+
+true true
+è¯´æ˜ï¼š
+
+ç¤ºä¾‹2
+
+è¾“å…¥ï¼š
+
+2
+present
+present absent present present leaveearly present absent
+è¾“å‡ºï¼š
+
+true false
+è¯´æ˜ï¼š
+
+*/
+
+#include<iostream>
+#include<sstream>
+#include<string>
+#include<vector>
+
+using namespace std;
+
+bool isPrice(string &str1)
+{
+	
+
+	// å­˜å…¥vector<string> é‡Œ
+	vector<string> vec;
+	istringstream is(str1);
+	string str;
+	while (is >> str)
+	{
+		vec.push_back(str);
+	}
+
+	// åˆ¤æ–­
+	int absent = 0;		// ç¼ºå‹¤
+	int present = 0;	// æ­£å¸¸ä¸Šç­
+	string preRecord = "";
+	for (int i = 0; i < vec.size(); i++)
+	{
+		// å½“æ€»æ‰“å¡æ•°å¤§äº7æ—¶ï¼Œç§»åŠ¨çª—å£ï¼Œå³å¯¹æœ€å·¦è¾¹çš„æ‰“å¡è®°å½•è¿›è¡Œå¤„ç†
+		if (i > 7)
+		{
+			if (vec[i - 7] == "present")
+			{
+				present--;
+			}
+		}
+		// åˆ¤æ–­å½“å‰çš„æ‰“å¡æƒ…å†µ
+		if (vec[i] == "absent")
+		{
+			if (++absent > 1) return false;
+		}
+		else if (vec[i] == "late" || vec[i] == "leaveearly")
+		{
+			if (preRecord == "late" || preRecord == "leaveearly")
+			{
+				return false;
+			}
+		}
+		else if (vec[i] == "present")
+		{
+			present++;
+		}
+		// è¿ç»­7æ¬¡æ‰“å¡è¶…è¿‡3æ¬¡æœ‰é—®é¢˜
+		int window_len = min(i + 1, 7);
+		if (window_len - present > 3) return false;
+	}
+	return true;
+}
+
+int main()
+{
+	int count = 0;
+	cin >> count;
+	string str;
+	cin.get();
+
+	vector<bool> res;
+	while (count--)
+	{
+		getline(cin, str);
+		res.push_back(isPrice(str));
+	}
+	for (auto i : res)
+	{
+		if(i == true)cout << "true" << " ";
+		else cout << "false" << " ";
+	}
+
+}

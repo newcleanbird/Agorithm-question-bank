@@ -1,229 +1,229 @@
-///*
-//×Ö·û´®·Ö¸î
-//ÌâÄ¿ÃèÊö£º
-//¸ø¶¨·Ç¿Õ×Ö·û´®s£¬½«¸Ã×Ö·û´®·Ö¸î³ÉÒ»Ğ©×Ó´®£¬Ê¹Ã¿¸ö×Ó´®µÄASCIIÂëÖµµÄºÍ¾ùÎªË®ÏÉ»¨Êı¡£
-//1¡¢Èô·Ö¸î²»³É¹¦£¬Ôò·µ»Ø0
-//2¡¢Èô·Ö¸î³É¹¦ÇÒ·Ö¸î½á¹û²»Î¨Ò»£¬Ôò·µ»Ø-1
-//3¡¢Èô·Ö¸î³É¹¦ÇÒ·Ö¸î½á¹ûÎ¨Ò»£¬Ôò·µ»Ø·Ö¸îºó×Ó´®µÄÊıÄ¿
-//
-//ÊäÈëÃèÊö£º
-//1¡¢ÊäÈë×Ö·û´®µÄ×î´ó³¤¶ÈÎª200
-//Êä³öÃèÊö£º
-//¸ù¾İÌâÄ¿ÃèÊöÖĞÇé¿ö£¬·µ»ØÏàÓ¦µÄ½á¹û
-//²¹³äËµÃ÷£º
-//¡°Ë®ÏÉ»¨Êı¡±ÊÇÖ¸Ò»¸öÈıÎ»Êı£¬Ã¿Î»ÉÏÊı×ÖµÄÁ¢·½ºÍµÈÓÚ¸ÃÊı×Ö±¾Éí£¬Èç371ÊÇ¡°Ë®ÏÉ»¨Êı¡±£¬ÒòÎª£º371 = 3^3 + 7^3 + 1^3
-//ÊÕÆğ
-//Ê¾Àı1
-//ÊäÈë£º
-//abc
-//Êä³ö£º
-//0
-//ËµÃ÷£º
-//·Ö¸î²»³É¹¦
-//
-//Ê¾Àı2
-//ÊäÈë£º
-//f3@d5a8
-//Êä³ö£º
-//-1
-//ËµÃ÷£º
-//·Ö¸î³É¹¦µ«·Ö¸î½á¹û²»Î¨Ò»£¬¿ÉÒÔ·Ö¸îÎªÁ½×é£¬Ò»×é"f3"ºÍ"@d5a8"£¬ÁíÍâÒ»×é"f3@d5"ºÍ"a8"
-//
-//Ê¾Àı3
-//ÊäÈë£º
-//AXdddF
-//Êä³ö£º
-//2
-//ËµÃ÷£º
-//³É¹¦·Ö¸îÇÒ·Ö¸î½á¹ûÎ¨Ò»£¬¿ÉÒÔ·Ö¸î¡°AX"(153)ºÍ"dddF"(370)³ÉÁ½¸ö×Ó´®
-//
-//Ë¼Â·£º
-//ÀàËÆn¸ö×éºÏÊıÖ®ºÍµÄÎÊÌâ£º
-//	·Ö¸î´ÎÊıÎ´Öª£¬ÈçºÎÅĞ¶Ï»ØËİ½áÊøÄØ£¿Ó¦¸ÃÊÇÆğÊ¼µãµ½´ï×Ö·û´®Ä©Î²
-//
-//
-//ĞèÒª½â¾öµÄÎÊÌâ£º
-//1. ·Ö¸îµÄ×Ö·û´®ÈçºÎ±íÊ¾·Ö¸î£¬ÊÇ´æ´¢·Ö¸îºóµÄ×Ö·û´®£¬»¹ÊÇ·Ö¸îµã£¿
-//	Èç¹û´æ´¢·Ö¸îµã£¬ÄÇÃ´ÈçºÎÈ·¶¨·Ö¸îµÄ×Ö·û´®£¿ÊÇÔÙ¼ÓÒ»¸ö±äÁ¿±íÊ¾ÉÏ¸ö·Ö¸îµã£¿»¹ÊÇÓÃÒ»¸öÊı×é¼ÇÂ¼·Ö¸îµã£¿
-//2.
-//*/
-//
-//#include<iostream>
-//#include<string>
-//#include<vector>
-//#include<set>
-//
-//using namespace std;
-//
-//// µÚÒ»ÖÖ×ö·¨£¬´«Í³µÄ·Ö¸î×Ö·û´®£¬ÒÀ´ÎÅĞ¶Ï
-//bool is_narcissistic(string str)
-//{
-//	int num = 0; // ¼ÇÂ¼×Ö·û´®µÄ×Ö·ûASCIIµÄºÍ
-//	for (auto i : str)
-//	{
-//		num += i;
-//	}
-//	int sum = 0;
-//	int ori_num = num;
-//	while (num > 0)
-//	{
-//		sum += pow(num % 10, 3);
-//		num /= 10;
-//	}
-//	if (sum == ori_num) return true;
-//	else return false;
-//}
-//
-//void backtrack(string& str, vector<string>& path, vector<vector<string>>& result, int index)
-//{
-//	if (index >= str.size())	// ³É¹¦·Ö¸îÖÁ½áÊø
-//	{
-//		result.push_back(path);
-//		return;
-//	}
-//	for (int i = index; i < str.size(); i++)
-//	{
-//		string tmp = str.substr(index, i - index + 1);	// µ±Ç°ÅĞ¶ÏµÄ×Ó´®
-//		if (is_narcissistic(tmp))						// µ±Ç°×Ó´®ÊÇË®ÏÉ»¨Êı×Ö·û´®
-//		{
-//			path.push_back(tmp);
-//		}
-//		else {
-//			continue;	// ²»Âú×ã£¬ÔòÌø¹ı
-//		}
-//		backtrack(str, path, result, i + 1);
-//		path.pop_back();
-//	}
-//}
-//
-//void sulotion_1()
-//{
-//	// ÊäÈë
-//	string str;
-//	getline(cin, str);
-//	vector<string> path;	// ±£´æ·ûºÏÇé¿öµÄ×Ó´®
-//	vector<vector<string>> result; // ±£´æ×îºóµÄ½á¹û
-//	backtrack(str, path, result, 0);
-//
-//	// Êä³ö½á¹û
-//	if (result.size() == 0)
-//	{
-//		cout << 0;
-//	}
-//	else if (result.size() == 1)
-//	{
-//		cout << result[0].size();
-//	}
-//	else if (result.size() == 2)
-//	{
-//		cout << -1;
-//	}
-//}
-//
-//
-//
-//// µÚ¶şÖÖ½â·¨£¬È¡ÇÉ£¬½«Ô­±¾µÄ×Ö·û´®·Ö¸îÅĞ¶ÏË®ÏÉ»¨Êı×ª±äÎªÖ±½Ó¼ÆËãÃ¿Î»×Ö·ûµÄ ASC¢òÂë¡£È»ºó¶ÔÊı×é½øĞĞ·Ö¸î£¬Ñ°ÕÒË®ÏÉ»¨Êı¡£
-//bool is_narcissistic_2(vector<int>& vec, int index, int end)
-//{
-//	int num = 0; // ĞèÒªÅĞ¶ÏµÄË®ÏÉ»¨Êı
-//	for (int i = index; i <= end; i++)
-//	{
-//		num += vec[i];
-//	}
-//	int sum = 0; // Ë®ÏÉ»¨ºÍ
-//	int ori_num = num;
-//	while (num > 0)
-//	{
-//		sum += pow(num % 10, 3);
-//		num /= 10;
-//	}
-//	if (sum == ori_num)
-//	{
-//		return true;
-//	}
-//	else {
-//		return false;
-//	}
-//}
-//
-//void backtrack_2(vector<int>& vec, vector<int>& path, vector<vector<int>>& result, int index)	// Ã¿´Î±éÀú¹Ì¶¨index£¬È»ºóÍ¨¹ıi±éÀúÊ£Óà²¿·Ö£¬Ñ°ÕÒË®ÏÉ»¨Êı¡£
-//{
-//	if (index >= vec.size())	// ±éÀúÍê
-//	{
-//		result.push_back(path);
-//	}
-//	for (int i = index; i < vec.size(); i++)
-//	{
-//		if (is_narcissistic_2(vec, index, i)) // Èç¹ûÊÇË®ÏÉ»¨Êı,¼ÇÂ¼µ±Ç°µÄËÑË÷µÄÏÂ±ê
-//		{
-//			path.push_back(i);
-//		}
-//		else {
-//			continue;
-//		}
-//		// ËÑË÷ + »ØËİ
-//		backtrack_2(vec, path, result, i + 1);
-//		path.pop_back(); 
-//	}
-//
-//}
-//
-//void solution_2()
-//{
-//	// ÊäÈë
-//	string str;
-//	getline(cin, str);
-//	// ½«×Ö·û´®ÖĞÃ¿¸ö×Ö·û¶¼×ª»»Îª ASCIIÂë£¬È»ºó´æÈëÊı×éÖĞ
-//	vector<int> vec;
-//	for (auto i : str)
-//	{
-//		vec.push_back(i);
-//	}
-//	vector<int> path; // ¼ÇÂ¼·Ö¸îµÄ×Ó´®µÄÏÂ±ê
-//	vector<vector<int>> result;
-//	backtrack_2(vec, path, result, 0); // »ØËİËÑË÷
-//	if (result.size() == 0)
-//	{
-//		cout << 0;
-//	}
-//	else if (result.size() == 1)
-//	{
-//		cout << result[0].size();
-//	}
-//	else if (result.size() == 2)
-//	{
-//		cout << -1;
-//	}
-//
-//}
-//
-//// ÅĞ¶ÏË®ÏÉ»¨ÊıµÄÍ¨½â
-//bool is_narcissistic_common(int num, int wide = 3, int power = 3)	// ÅĞ¶ÏµÄÊı×Ö£¬ÅĞ¶ÏµÄË®ÏÉ»¨ÊıµÄÎ»Êı(¿í¶È)£¬´Î·½Êı
-//{
-//	int max = pow(10, wide);		// ·ûºÏÊı×ÖµÄÉÏÏŞ
-//	int min = pow(10, wide - 1);	// ·ûºÏÊı×ÖµÄÏÂÏŞ
-//	if (num < min || num > max)
-//	{
-//		return false;
-//	}
-//	int tnum = num;	// ĞèÒªÅĞ¶ÏÊıµÄ¿½±´£¬ÓÃÓÚ²Ù×÷
-//	int sum = 0;	// ×ÜºÍ
-//	while (tnum > 0)
-//	{
-//		sum += pow(tnum % 10, power);
-//		tnum /= 10;
-//	}
-//	if (sum == num)
-//	{
-//		return true;
-//	}
-//	else {
-//		return false;
-//	}
-//}
-//
-//int main()
-//{
-//	sulotion_1();
-//	// solution_2();
-//}
+/*
+å­—ç¬¦ä¸²åˆ†å‰²
+é¢˜ç›®æè¿°ï¼š
+ç»™å®šéç©ºå­—ç¬¦ä¸²sï¼Œå°†è¯¥å­—ç¬¦ä¸²åˆ†å‰²æˆä¸€äº›å­ä¸²ï¼Œä½¿æ¯ä¸ªå­ä¸²çš„ASCIIç å€¼çš„å’Œå‡ä¸ºæ°´ä»™èŠ±æ•°ã€‚
+1ã€è‹¥åˆ†å‰²ä¸æˆåŠŸï¼Œåˆ™è¿”å›0
+2ã€è‹¥åˆ†å‰²æˆåŠŸä¸”åˆ†å‰²ç»“æœä¸å”¯ä¸€ï¼Œåˆ™è¿”å›-1
+3ã€è‹¥åˆ†å‰²æˆåŠŸä¸”åˆ†å‰²ç»“æœå”¯ä¸€ï¼Œåˆ™è¿”å›åˆ†å‰²åå­ä¸²çš„æ•°ç›®
+
+è¾“å…¥æè¿°ï¼š
+1ã€è¾“å…¥å­—ç¬¦ä¸²çš„æœ€å¤§é•¿åº¦ä¸º200
+è¾“å‡ºæè¿°ï¼š
+æ ¹æ®é¢˜ç›®æè¿°ä¸­æƒ…å†µï¼Œè¿”å›ç›¸åº”çš„ç»“æœ
+è¡¥å……è¯´æ˜ï¼š
+â€œæ°´ä»™èŠ±æ•°â€æ˜¯æŒ‡ä¸€ä¸ªä¸‰ä½æ•°ï¼Œæ¯ä½ä¸Šæ•°å­—çš„ç«‹æ–¹å’Œç­‰äºè¯¥æ•°å­—æœ¬èº«ï¼Œå¦‚371æ˜¯â€œæ°´ä»™èŠ±æ•°â€ï¼Œå› ä¸ºï¼š371 = 3^3 + 7^3 + 1^3
+æ”¶èµ·
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
+abc
+è¾“å‡ºï¼š
+0
+è¯´æ˜ï¼š
+åˆ†å‰²ä¸æˆåŠŸ
+
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
+f3@d5a8
+è¾“å‡ºï¼š
+-1
+è¯´æ˜ï¼š
+åˆ†å‰²æˆåŠŸä½†åˆ†å‰²ç»“æœä¸å”¯ä¸€ï¼Œå¯ä»¥åˆ†å‰²ä¸ºä¸¤ç»„ï¼Œä¸€ç»„"f3"å’Œ"@d5a8"ï¼Œå¦å¤–ä¸€ç»„"f3@d5"å’Œ"a8"
+
+ç¤ºä¾‹3
+è¾“å…¥ï¼š
+AXdddF
+è¾“å‡ºï¼š
+2
+è¯´æ˜ï¼š
+æˆåŠŸåˆ†å‰²ä¸”åˆ†å‰²ç»“æœå”¯ä¸€ï¼Œå¯ä»¥åˆ†å‰²â€œAX"(153)å’Œ"dddF"(370)æˆä¸¤ä¸ªå­ä¸²
+
+æ€è·¯ï¼š
+ç±»ä¼¼nä¸ªç»„åˆæ•°ä¹‹å’Œçš„é—®é¢˜ï¼š
+	åˆ†å‰²æ¬¡æ•°æœªçŸ¥ï¼Œå¦‚ä½•åˆ¤æ–­å›æº¯ç»“æŸå‘¢ï¼Ÿåº”è¯¥æ˜¯èµ·å§‹ç‚¹åˆ°è¾¾å­—ç¬¦ä¸²æœ«å°¾
+
+
+éœ€è¦è§£å†³çš„é—®é¢˜ï¼š
+1. åˆ†å‰²çš„å­—ç¬¦ä¸²å¦‚ä½•è¡¨ç¤ºåˆ†å‰²ï¼Œæ˜¯å­˜å‚¨åˆ†å‰²åçš„å­—ç¬¦ä¸²ï¼Œè¿˜æ˜¯åˆ†å‰²ç‚¹ï¼Ÿ
+	å¦‚æœå­˜å‚¨åˆ†å‰²ç‚¹ï¼Œé‚£ä¹ˆå¦‚ä½•ç¡®å®šåˆ†å‰²çš„å­—ç¬¦ä¸²ï¼Ÿæ˜¯å†åŠ ä¸€ä¸ªå˜é‡è¡¨ç¤ºä¸Šä¸ªåˆ†å‰²ç‚¹ï¼Ÿè¿˜æ˜¯ç”¨ä¸€ä¸ªæ•°ç»„è®°å½•åˆ†å‰²ç‚¹ï¼Ÿ
+2.
+*/
+
+#include<iostream>
+#include<string>
+#include<vector>
+#include<set>
+
+using namespace std;
+
+// ç¬¬ä¸€ç§åšæ³•ï¼Œä¼ ç»Ÿçš„åˆ†å‰²å­—ç¬¦ä¸²ï¼Œä¾æ¬¡åˆ¤æ–­
+bool is_narcissistic(string str)
+{
+	int num = 0; // è®°å½•å­—ç¬¦ä¸²çš„å­—ç¬¦ASCIIçš„å’Œ
+	for (auto i : str)
+	{
+		num += i;
+	}
+	int sum = 0;
+	int ori_num = num;
+	while (num > 0)
+	{
+		sum += pow(num % 10, 3);
+		num /= 10;
+	}
+	if (sum == ori_num) return true;
+	else return false;
+}
+
+void backtrack(string& str, vector<string>& path, vector<vector<string>>& result, int index)
+{
+	if (index >= str.size())	// æˆåŠŸåˆ†å‰²è‡³ç»“æŸ
+	{
+		result.push_back(path);
+		return;
+	}
+	for (int i = index; i < str.size(); i++)
+	{
+		string tmp = str.substr(index, i - index + 1);	// å½“å‰åˆ¤æ–­çš„å­ä¸²
+		if (is_narcissistic(tmp))						// å½“å‰å­ä¸²æ˜¯æ°´ä»™èŠ±æ•°å­—ç¬¦ä¸²
+		{
+			path.push_back(tmp);
+		}
+		else {
+			continue;	// ä¸æ»¡è¶³ï¼Œåˆ™è·³è¿‡
+		}
+		backtrack(str, path, result, i + 1);
+		path.pop_back();
+	}
+}
+
+void sulotion_1()
+{
+	// è¾“å…¥
+	string str;
+	getline(cin, str);
+	vector<string> path;	// ä¿å­˜ç¬¦åˆæƒ…å†µçš„å­ä¸²
+	vector<vector<string>> result; // ä¿å­˜æœ€åçš„ç»“æœ
+	backtrack(str, path, result, 0);
+
+	// è¾“å‡ºç»“æœ
+	if (result.size() == 0)
+	{
+		cout << 0;
+	}
+	else if (result.size() == 1)
+	{
+		cout << result[0].size();
+	}
+	else if (result.size() == 2)
+	{
+		cout << -1;
+	}
+}
+
+
+
+// ç¬¬äºŒç§è§£æ³•ï¼Œå–å·§ï¼Œå°†åŸæœ¬çš„å­—ç¬¦ä¸²åˆ†å‰²åˆ¤æ–­æ°´ä»™èŠ±æ•°è½¬å˜ä¸ºç›´æ¥è®¡ç®—æ¯ä½å­—ç¬¦çš„ ASCâ…¡ç ã€‚ç„¶åå¯¹æ•°ç»„è¿›è¡Œåˆ†å‰²ï¼Œå¯»æ‰¾æ°´ä»™èŠ±æ•°ã€‚
+bool is_narcissistic_2(vector<int>& vec, int index, int end)
+{
+	int num = 0; // éœ€è¦åˆ¤æ–­çš„æ°´ä»™èŠ±æ•°
+	for (int i = index; i <= end; i++)
+	{
+		num += vec[i];
+	}
+	int sum = 0; // æ°´ä»™èŠ±å’Œ
+	int ori_num = num;
+	while (num > 0)
+	{
+		sum += pow(num % 10, 3);
+		num /= 10;
+	}
+	if (sum == ori_num)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+void backtrack_2(vector<int>& vec, vector<int>& path, vector<vector<int>>& result, int index)	// æ¯æ¬¡éå†å›ºå®šindexï¼Œç„¶åé€šè¿‡iéå†å‰©ä½™éƒ¨åˆ†ï¼Œå¯»æ‰¾æ°´ä»™èŠ±æ•°ã€‚
+{
+	if (index >= vec.size())	// éå†å®Œ
+	{
+		result.push_back(path);
+	}
+	for (int i = index; i < vec.size(); i++)
+	{
+		if (is_narcissistic_2(vec, index, i)) // å¦‚æœæ˜¯æ°´ä»™èŠ±æ•°,è®°å½•å½“å‰çš„æœç´¢çš„ä¸‹æ ‡
+		{
+			path.push_back(i);
+		}
+		else {
+			continue;
+		}
+		// æœç´¢ + å›æº¯
+		backtrack_2(vec, path, result, i + 1);
+		path.pop_back(); 
+	}
+
+}
+
+void solution_2()
+{
+	// è¾“å…¥
+	string str;
+	getline(cin, str);
+	// å°†å­—ç¬¦ä¸²ä¸­æ¯ä¸ªå­—ç¬¦éƒ½è½¬æ¢ä¸º ASCIIç ï¼Œç„¶åå­˜å…¥æ•°ç»„ä¸­
+	vector<int> vec;
+	for (auto i : str)
+	{
+		vec.push_back(i);
+	}
+	vector<int> path; // è®°å½•åˆ†å‰²çš„å­ä¸²çš„ä¸‹æ ‡
+	vector<vector<int>> result;
+	backtrack_2(vec, path, result, 0); // å›æº¯æœç´¢
+	if (result.size() == 0)
+	{
+		cout << 0;
+	}
+	else if (result.size() == 1)
+	{
+		cout << result[0].size();
+	}
+	else if (result.size() == 2)
+	{
+		cout << -1;
+	}
+
+}
+
+// åˆ¤æ–­æ°´ä»™èŠ±æ•°çš„é€šè§£
+bool is_narcissistic_common(int num, int wide = 3, int power = 3)	// åˆ¤æ–­çš„æ•°å­—ï¼Œåˆ¤æ–­çš„æ°´ä»™èŠ±æ•°çš„ä½æ•°(å®½åº¦)ï¼Œæ¬¡æ–¹æ•°
+{
+	int max = pow(10, wide);		// ç¬¦åˆæ•°å­—çš„ä¸Šé™
+	int min = pow(10, wide - 1);	// ç¬¦åˆæ•°å­—çš„ä¸‹é™
+	if (num < min || num > max)
+	{
+		return false;
+	}
+	int tnum = num;	// éœ€è¦åˆ¤æ–­æ•°çš„æ‹·è´ï¼Œç”¨äºæ“ä½œ
+	int sum = 0;	// æ€»å’Œ
+	while (tnum > 0)
+	{
+		sum += pow(tnum % 10, power);
+		tnum /= 10;
+	}
+	if (sum == num)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int main()
+{
+	sulotion_1();
+	// solution_2();
+}

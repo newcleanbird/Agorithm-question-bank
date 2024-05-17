@@ -1,62 +1,62 @@
-///*
-//440¡¢ÇÀÆßÓÎÏ·
-//ÌâÄ¿ÃèÊö£º
-//A¡¢BÁ½¸öÈËÍæÇÀ7ÓÎÏ·£¬ÓÎÏ·¹æÔòÎªAÏÈ±¨Ò»¸öÆğÊ¼Êı×ÖX(10<ÆğÊ¼Êı×Ö<10000)£¬B±¨ÏÂÒ»¸öÊı×ÖY(X-Y<3),AÔÙ±¨Ò»¸öÊı×ÖZ(Y-Z<3)£¬ÒÔ´ËÀàÍÆ£¬Ö±µ½ÆäÖĞÒ»¸öÇÀµ½7£¬ÇÀµ½7¼´ÎªÊ¤Õß£»ÔÚBÓ®µÃ±ÈÈüµÄÇé¿öÏÂ£¬Ò»¹²ÓĞ¶àÉÙÖÖ×éºÏ£¿
-//
-//ÊäÈëÃèÊö£º
-//ÆğÊ¼Êı×ÖM£¬Èç100£»10<=M<=10000
-//
-//Êä³öÃèÊö£º
-//BÄÜÓ®µÃ±ÈÈüµÄ×éºÏ´ÎÊı
-//
-//²¹³äËµÃ÷£º
-//Ê¾Àı1
-//ÊäÈë£º
-//10
-//Êä³ö£º
-//1
-//
-//Ë¼Â·£º
-//Ã¿´Îµş¼ÓÎª0~2
-//*/
-//#include<iostream>
-//#include<vector>
-//#include<map>
-//
-//using namespace std;
-//
-//map<pair<int, bool>, int> memo; // map´æ´¢¿ªÊ¼Î»ÖÃºÍË­µÄÂÖ´Î ÒÔ¼°¶ÔÓ¦µÄ×éºÏÊıÁ¿ĞÅÏ¢
-//
-//int countWaysToWin(int start, bool isATurn) {
-//    if (start == 7 && !isATurn) return 1;   // ´Ó7¿ªÊ¼£¬BµÄÂÖ´Î£¬´ËÊ±BÓĞÒ»ÖÖÓ®µÄ×éºÏ¡£
-//    if (start == 7 && isATurn) return 0;    // ´Ó7¿ªÊ¼£¬AµÄÂÖ´Î£¬´ËÊ±B²»¿ÉÄÜÓ®¡£
-//    if (start < 7) return 0;
-//
-//    auto key = make_pair(start, isATurn);
-//    if (memo.find(key) != memo.end()) {
-//        return memo[key];
-//    }
-//
-//    int waysToWin = 0;
-//    for (int nextMove = 1; nextMove <= 2; nextMove++) {
-//        if (isATurn) {
-//            waysToWin += countWaysToWin(start - nextMove, false);
-//        }
-//        else {
-//            waysToWin += countWaysToWin(start - nextMove, true);
-//        }
-//    }
-//
-//    memo[key] = waysToWin;
-//    return waysToWin;
-//}
-//
-//int main()
-//{
-//	int M;  // ÆğÊ¼Êı×Ö
-//	cin >> M;
-//    int res = countWaysToWin(M, true);
-//    cout << res;
-//}
-//
-//
+/*
+440ã€æŠ¢ä¸ƒæ¸¸æˆ
+é¢˜ç›®æè¿°ï¼š
+Aã€Bä¸¤ä¸ªäººç©æŠ¢7æ¸¸æˆï¼Œæ¸¸æˆè§„åˆ™ä¸ºAå…ˆæŠ¥ä¸€ä¸ªèµ·å§‹æ•°å­—X(10<èµ·å§‹æ•°å­—<10000)ï¼ŒBæŠ¥ä¸‹ä¸€ä¸ªæ•°å­—Y(X-Y<3),Aå†æŠ¥ä¸€ä¸ªæ•°å­—Z(Y-Z<3)ï¼Œä»¥æ­¤ç±»æ¨ï¼Œç›´åˆ°å…¶ä¸­ä¸€ä¸ªæŠ¢åˆ°7ï¼ŒæŠ¢åˆ°7å³ä¸ºèƒœè€…ï¼›åœ¨Bèµ¢å¾—æ¯”èµ›çš„æƒ…å†µä¸‹ï¼Œä¸€å…±æœ‰å¤šå°‘ç§ç»„åˆï¼Ÿ
+
+è¾“å…¥æè¿°ï¼š
+èµ·å§‹æ•°å­—Mï¼Œå¦‚100ï¼›10<=M<=10000
+
+è¾“å‡ºæè¿°ï¼š
+Bèƒ½èµ¢å¾—æ¯”èµ›çš„ç»„åˆæ¬¡æ•°
+
+è¡¥å……è¯´æ˜ï¼š
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
+10
+è¾“å‡ºï¼š
+1
+
+æ€è·¯ï¼š
+æ¯æ¬¡å åŠ ä¸º0~2
+*/
+#include<iostream>
+#include<vector>
+#include<map>
+
+using namespace std;
+
+map<pair<int, bool>, int> memo; // mapå­˜å‚¨å¼€å§‹ä½ç½®å’Œè°çš„è½®æ¬¡ ä»¥åŠå¯¹åº”çš„ç»„åˆæ•°é‡ä¿¡æ¯
+
+int countWaysToWin(int start, bool isATurn) {
+   if (start == 7 && !isATurn) return 1;   // ä»7å¼€å§‹ï¼ŒBçš„è½®æ¬¡ï¼Œæ­¤æ—¶Bæœ‰ä¸€ç§èµ¢çš„ç»„åˆã€‚
+   if (start == 7 && isATurn) return 0;    // ä»7å¼€å§‹ï¼ŒAçš„è½®æ¬¡ï¼Œæ­¤æ—¶Bä¸å¯èƒ½èµ¢ã€‚
+   if (start < 7) return 0;
+
+   auto key = make_pair(start, isATurn);
+   if (memo.find(key) != memo.end()) {
+       return memo[key];
+   }
+
+   int waysToWin = 0;
+   for (int nextMove = 1; nextMove <= 2; nextMove++) {
+       if (isATurn) {
+           waysToWin += countWaysToWin(start - nextMove, false);
+       }
+       else {
+           waysToWin += countWaysToWin(start - nextMove, true);
+       }
+   }
+
+   memo[key] = waysToWin;
+   return waysToWin;
+}
+
+int main()
+{
+	int M;  // èµ·å§‹æ•°å­—
+	cin >> M;
+   int res = countWaysToWin(M, true);
+   cout << res;
+}
+
+

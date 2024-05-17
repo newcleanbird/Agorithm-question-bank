@@ -1,139 +1,121 @@
-///*
-//470¡¢·¥Ä¾¹¤
-//ÌâÄ¿ÃèÊö£º
-//Ò»¸ùXÃ×³¤µÄÊ÷Ä¾£¬·¥Ä¾¹¤ÇĞ¸î³É²»Í¬³¤¶ÈµÄÄ¾²Äºó½øĞĞ½»Ò×£¬½»Ò×¼Û¸ñÎªÃ¿¸ùÄ¾Í·³¤¶ÈµÄ³Ë»ı¡£¹æ¶¨ÇĞ¸îºóµÄÃ¿¸ùÄ¾Í·³¤¶È¶¼ÎªÕıÕûÊı£»Ò²¿ÉÒÔ²»ÇĞ¸î£¬Ö±½ÓÄÃÕû¸ùÊ÷Ä¾½øĞĞ½»Ò×¡£ÇëÎÊ·¥Ä¾¹¤ÈçºÎ¾¡Á¿ÉÙµÄÇĞ¸î£¬²ÅÄÜÊ¹ÊÕÒæ×î´ó»¯£¿
-//
-//ÊäÈëÃèÊö£º
-//Ä¾²ÄµÄ³¤¶È£¨X<=50£©
-//
-//Êä³öÃèÊö£º
-//Êä³ö×îÓÅÊÕÒæÊ±µÄ¸÷¸öÊ÷Ä¾³¤¶È£¬ÒÔ¿Õ¸ñ·Ö¸î£¬°´ÉıĞòÅÅÁĞ
-//
-//²¹³äËµÃ÷£º
-//Ê¾Àı1
-//ÊäÈë£º
-//10
-//Êä³ö£º
-//3 3 4
-//ËµÃ÷£º
-//1. Ò»¸ù2Ã×³¤µÄÊ÷Ä¾£¬·¥Ä¾¹¤²»ÇĞ¸î£¬Îª2 * 1£¬ÊÕÒæ×î´óÎª2
-//2. Ò»¸ù4Ã×³¤µÄÊ÷Ä¾£¬·¥Ä¾¹¤²»ĞèÒªÇĞ¸îÎª2 * 2£¬Ê¡È¥ÇĞ¸î³É±¾£¬Ö±½ÓÕû¸ùÊ÷Ä¾½»Ò×£¬Îª4 * 1£¬ÊÕÒæ×î´óÎª4
-//3. Ò»¸ù5Ã×³¤µÄÊ÷Ä¾£¬·¥Ä¾¹¤ÇĞ¸îÎª2 * 3£¬ÊÕÒæ×î´óÎª6
-//4. Ò»¸ù10Ã×³¤µÄÊ÷Ä¾£¬·¥Ä¾¹¤¿ÉÒÔÇĞ¸îÎª·½Ê½Ò»£º3£¬4£¬3£¬Ò²¿ÉÒÔÇĞ¸îÎª·½Ê½¶ş£º3£¬2£¬2£¬3£¬µ«·½Ê½¶ş·¥Ä¾¹¤¶àÇĞ¸îÁËÒ»´Î£¬Ôö¼ÓÇĞ¸î³É±¾È´ÂôÁËÒ»ÑùµÄ¼Û¸ñ£¬Òò´Ë²¢²»ÊÇ×îÓÅÊÕÒæ¡£
-//*/
-//
-//
-//#include <iostream>
-//#include <vector>
-//#include <algorithm>
-//
-//using namespace std;
-//
-//struct Wood
-//{
-//	int price;
-//	vector<int> length;
+/*
+470ã€ä¼æœ¨å·¥
+é¢˜ç›®æè¿°ï¼š
+ä¸€æ ¹Xç±³é•¿çš„æ ‘æœ¨ï¼Œä¼æœ¨å·¥åˆ‡å‰²æˆä¸åŒé•¿åº¦çš„æœ¨æåè¿›è¡Œäº¤æ˜“ï¼Œäº¤æ˜“ä»·æ ¼ä¸ºæ¯æ ¹æœ¨å¤´é•¿åº¦çš„ä¹˜ç§¯ã€‚è§„å®šåˆ‡å‰²åçš„æ¯æ ¹æœ¨å¤´é•¿åº¦éƒ½ä¸ºæ­£æ•´æ•°ï¼›ä¹Ÿå¯ä»¥ä¸åˆ‡å‰²ï¼Œç›´æ¥æ‹¿æ•´æ ¹æ ‘æœ¨è¿›è¡Œäº¤æ˜“ã€‚è¯·é—®ä¼æœ¨å·¥å¦‚ä½•å°½é‡å°‘çš„åˆ‡å‰²ï¼Œæ‰èƒ½ä½¿æ”¶ç›Šæœ€å¤§åŒ–ï¼Ÿ
+
+è¾“å…¥æè¿°ï¼š
+æœ¨æçš„é•¿åº¦ï¼ˆX<=50ï¼‰
+
+è¾“å‡ºæè¿°ï¼š
+è¾“å‡ºæœ€ä¼˜æ”¶ç›Šæ—¶çš„å„ä¸ªæ ‘æœ¨é•¿åº¦ï¼Œä»¥ç©ºæ ¼åˆ†å‰²ï¼ŒæŒ‰å‡åºæ’åˆ—
+
+è¡¥å……è¯´æ˜ï¼š
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
+10
+è¾“å‡ºï¼š
+3 3 4
+è¯´æ˜ï¼š
+1. ä¸€æ ¹2ç±³é•¿çš„æ ‘æœ¨ï¼Œä¼æœ¨å·¥ä¸åˆ‡å‰²ï¼Œä¸º2 * 1ï¼Œæ”¶ç›Šæœ€å¤§ä¸º2
+2. ä¸€æ ¹4ç±³é•¿çš„æ ‘æœ¨ï¼Œä¼æœ¨å·¥ä¸éœ€è¦åˆ‡å‰²ä¸º2 * 2ï¼Œçœå»åˆ‡å‰²æˆæœ¬ï¼Œç›´æ¥æ•´æ ¹æ ‘æœ¨äº¤æ˜“ï¼Œä¸º4 * 1ï¼Œæ”¶ç›Šæœ€å¤§ä¸º4
+3. ä¸€æ ¹5ç±³é•¿çš„æ ‘æœ¨ï¼Œä¼æœ¨å·¥åˆ‡å‰²ä¸º2 * 3ï¼Œæ”¶ç›Šæœ€å¤§ä¸º6
+4. ä¸€æ ¹10ç±³é•¿çš„æ ‘æœ¨ï¼Œä¼æœ¨å·¥å¯ä»¥åˆ‡å‰²ä¸ºæ–¹å¼ä¸€ï¼š3ï¼Œ4ï¼Œ3ï¼Œä¹Ÿå¯ä»¥åˆ‡å‰²ä¸ºæ–¹å¼äºŒï¼š3ï¼Œ2ï¼Œ2ï¼Œ3ï¼Œä½†æ–¹å¼äºŒä¼æœ¨å·¥å¤šåˆ‡å‰²äº†ä¸€æ¬¡ï¼Œå¢åŠ åˆ‡å‰²æˆæœ¬å´å–äº†ä¸€æ ·çš„ä»·æ ¼ï¼Œå› æ­¤å¹¶ä¸æ˜¯æœ€ä¼˜æ”¶ç›Šã€‚
+*/
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+struct Wood
+{
+	int price;
+	vector<int> length;
+};
+
+int main()
+{
+	int n;	// æœ¨æçš„é•¿åº¦
+	cin >> n;
+	vector<Wood> vec(n + 1);	// ä»é•¿åº¦ä¸º0åˆ°é•¿åº¦ä¸ºn
+
+	// åˆå§‹åŒ–æ¯ä¸ªé•¿åº¦çš„æœ¨æä»·å€¼å’Œå½“å‰åˆ‡å‰²åçš„é•¿åº¦
+	for (int i = 0; i <= n; i++)
+	{
+		vec[i].price = i;
+		vec[i].length.push_back(i);
+	}
+
+	for (int i = 2; i <= n; i++)
+	{
+		for (int j = 1; j <= i; j++)
+		{
+			int price = vec[i - j].price * vec[j].price;
+			if (vec[i].price < price || (vec[i].price == price && vec[i].length.size() > vec[i - j].length.size() + vec[j].length.size()))
+			{
+				vec[i].price = price;	// æ›´æ–°ä»·æ ¼
+				// æ›´æ–°åˆ‡å‰²æ–¹æ¡ˆ
+				vec[i].length = vec[i - j].length;
+				vec[i].length.insert(vec[i].length.end(), vec[j].length.begin(), vec[j].length.end());
+			}
+		}
+	}
+	sort(vec[n].length.begin(), vec[n].length.end(), less<int>());
+	for (int i = 0; i < vec[n].length.size(); i++)
+	{
+		cout << vec[n].length[i];
+		if (i != vec[n].length.size() - 1)
+		{
+			cout << " ";
+		}
+	}
+	cout << endl;
+	cout << vec[n].price << endl;
+
+}
+
+
+//class Wood {
+//public:
+//    int profit;
+//    std::vector<int> slices;
 //};
 //
-//int main()
-//{
-//	int n;	// Ä¾²ÄµÄ³¤¶È
-//	cin >> n;
-//	vector<Wood> vec(n + 1);	// ´Ó³¤¶ÈÎª0µ½³¤¶ÈÎªn
+//int main() {
+//    int x;  // Xç±³é•¿çš„æ ‘æœ¨
+//    std::cin >> x;
 //
-//	// ³õÊ¼»¯Ã¿¸ö³¤¶ÈµÄÄ¾²Ä¼ÛÖµºÍµ±Ç°ÇĞ¸îºóµÄ³¤¶È
-//	for (int i = 0; i <= n; i++)
-//	{
-//		vec[i].price = i;
-//		vec[i].length.push_back(i);
-//	}
+//    std::vector<Wood> dp(x + 1);    // å­˜å‚¨æ¯ä¸ªé•¿åº¦çš„æœ€å¤§åˆ©æ¶¦å’Œå¯¹åº”çš„åˆ‡å‰²æ–¹æ¡ˆ
 //
-//	for (int i = 2; i <= n; i++)
-//	{
-//		for (int j = 1; j <= i; j++)
-//		{
-//			int price = vec[i - j].price * vec[j].price;
-//			if (vec[i].price < price || (vec[i].price == price && vec[i].length.size() > vec[i - j].length.size() + vec[j].length.size()))
-//			{
-//				vec[i].price = price;	// ¸üĞÂ¼Û¸ñ
-//				// ¸üĞÂÇĞ¸î·½°¸
-//				vec[i].length = vec[i - j].length;
-//				vec[i].length.insert(vec[i].length.end(), vec[j].length.begin(), vec[j].length.end());
-//			}
-//		}
-//	}
-//	sort(vec[n].length.begin(), vec[n].length.end(), less<int>());
-//	for (int i = 0; i < vec[n].length.size(); i++)
-//	{
-//		cout << vec[n].length[i];
-//		if (i != vec[n].length.size() - 1)
-//		{
-//			cout << " ";
-//		}
-//	}
-//	cout << endl;
-//	cout << vec[n].price << endl;
+//    // åˆå§‹åŒ–dp,dp[i]è¡¨ç¤ºé•¿åº¦ä¸ºiçš„æœ¨æçš„æœ€å¤§åˆ©æ¶¦å’Œåˆ‡å‰²æ–¹æ¡ˆã€‚
+//    for (int i = 0; i <= x; i++) {
+//        dp[i].profit = i;
+//        dp[i].slices.push_back(i);
+//    }
 //
+//    for (int i = 2; i <= x; i++) {
+//        for (int j = 1; j < i; j++) {
+//            int profit = dp[j].profit * dp[i - j].profit;   // è®¡ç®—å°†é•¿åº¦ä¸ºjçš„æœ¨æå’Œé•¿åº¦ä¸ºi-jçš„æœ¨æåˆ‡å‰²åçš„åˆ©æ¶¦
+//
+//            if (profit > dp[i].profit || (profit == dp[i].profit && dp[i].slices.size() > dp[j].slices.size() + dp[i - j].slices.size())) { // å¦‚æœæ–°è®¡ç®—çš„åˆ©æ¶¦å¤§äºå½“å‰æœ€å¤§åˆ©æ¶¦ï¼Œæˆ–è€…åˆ©æ¶¦ç›¸ç­‰ä½†åˆ‡å‰²åçš„æ®µæ•°æ›´å°‘ï¼Œåˆ™æ›´æ–°dp[i]çš„ä¿¡æ¯ã€‚
+//                dp[i].profit = profit;
+//                dp[i].slices.clear();// é‡ç½®dp[i]çš„åˆ‡å‰²æ–¹æ¡ˆ
+//                dp[i].slices.insert(dp[i].slices.end(), dp[j].slices.begin(), dp[j].slices.end());  // åŠ å…¥é•¿åº¦ä¸ºjçš„æœ€å¤§åˆ‡å‰²æ–¹æ¡ˆ
+//                dp[i].slices.insert(dp[i].slices.end(), dp[i - j].slices.begin(), dp[i - j].slices.end());  // åŠ å…¥é•¿åº¦ä¸ºi-jçš„æœ€å¤§åˆ‡å‰²æ–¹æ¡ˆ
+//            }
+//        }
+//    }
+//
+//    std::sort(dp[x].slices.begin(), dp[x].slices.end());
+//
+//    std::ostringstream oss;
+//    for (int slice : dp[x].slices) {
+//        oss << slice << " ";
+//    }
+//
+//    std::cout << oss.str() << std::endl;
+//
+//    return 0;
 //}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-////class Wood {
-////public:
-////    int profit;
-////    std::vector<int> slices;
-////};
-////
-////int main() {
-////    int x;  // XÃ×³¤µÄÊ÷Ä¾
-////    std::cin >> x;
-////
-////    std::vector<Wood> dp(x + 1);    // ´æ´¢Ã¿¸ö³¤¶ÈµÄ×î´óÀûÈóºÍ¶ÔÓ¦µÄÇĞ¸î·½°¸
-////
-////    // ³õÊ¼»¯dp,dp[i]±íÊ¾³¤¶ÈÎªiµÄÄ¾²ÄµÄ×î´óÀûÈóºÍÇĞ¸î·½°¸¡£
-////    for (int i = 0; i <= x; i++) {
-////        dp[i].profit = i;
-////        dp[i].slices.push_back(i);
-////    }
-////
-////    for (int i = 2; i <= x; i++) {
-////        for (int j = 1; j < i; j++) {
-////            int profit = dp[j].profit * dp[i - j].profit;   // ¼ÆËã½«³¤¶ÈÎªjµÄÄ¾²ÄºÍ³¤¶ÈÎªi-jµÄÄ¾²ÄÇĞ¸îºóµÄÀûÈó
-////
-////            if (profit > dp[i].profit || (profit == dp[i].profit && dp[i].slices.size() > dp[j].slices.size() + dp[i - j].slices.size())) { // Èç¹ûĞÂ¼ÆËãµÄÀûÈó´óÓÚµ±Ç°×î´óÀûÈó£¬»òÕßÀûÈóÏàµÈµ«ÇĞ¸îºóµÄ¶ÎÊı¸üÉÙ£¬Ôò¸üĞÂdp[i]µÄĞÅÏ¢¡£
-////                dp[i].profit = profit;
-////                dp[i].slices.clear();// ÖØÖÃdp[i]µÄÇĞ¸î·½°¸
-////                dp[i].slices.insert(dp[i].slices.end(), dp[j].slices.begin(), dp[j].slices.end());  // ¼ÓÈë³¤¶ÈÎªjµÄ×î´óÇĞ¸î·½°¸
-////                dp[i].slices.insert(dp[i].slices.end(), dp[i - j].slices.begin(), dp[i - j].slices.end());  // ¼ÓÈë³¤¶ÈÎªi-jµÄ×î´óÇĞ¸î·½°¸
-////            }
-////        }
-////    }
-////
-////    std::sort(dp[x].slices.begin(), dp[x].slices.end());
-////
-////    std::ostringstream oss;
-////    for (int slice : dp[x].slices) {
-////        oss << slice << " ";
-////    }
-////
-////    std::cout << oss.str() << std::endl;
-////
-////    return 0;
-////}

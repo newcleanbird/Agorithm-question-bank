@@ -1,64 +1,64 @@
-///*
-//453 Ìø¸ñ×Ó3¡¢Ð¡Ã÷Ìø¸ñ×Ó
-//ÌâÄ¿ÃèÊö£º
-//Ð¡Ã÷ºÍÅóÓÑÃÇÒ»ÆðÍæÌø¸ñ×ÓÓÎÏ·£¬Ã¿¸ö¸ñ×ÓÉÏÓÐÌØ¶¨µÄ·ÖÊý£¬score[] = [1 -1 -6 7 -17 7]£¬´ÓÆðµãscore[0]¿ªÊ¼£¬Ã¿´Î×î´óÌøµÄ²½³¤Îªk£¬ÇëÄã·µ»ØÐ¡Ã÷Ìøµ½ÖÕµãscore[n-1]Ê±£¬ÄÜµÃµ½µÄ×î´óµÃ·Ö¡£
-//×¢£º
-//¸ñ×ÓµÄ×Ü³¤¶ÈºÍ²½³¤µÄÇø¼äÔÚ [1,  100000]£»
-//Ã¿¸ö¸ñ×ÓµÄ·ÖÊýÔÚ[-10000, 10000]Çø¼äÖÐ£»
-//
-//ÊäÈëÃèÊö£º
-//6					// µÚÒ»ÐÐÊäÈë×ÜµÄ¸ñ×ÓÊýÁ¿
-//1 -1 -6 7 -17 7		// µÚ¶þÐÐÊäÈëÃ¿¸ö¸ñ×ÓµÄ·ÖÊýscore[]
-//2					// µÚÈýÐÐÊäÈë×î´óÌøµÄ²½³¤k
-//Êä³öÃèÊö£º
-//14					// Êä³ö×î´óµÃ·ÖÊý£¬Ð¡Ã÷´ÓÆðµãscore[0]¿ªÊ¼Ìø£¬µÚÒ»´ÎÌøscore[1], µÚ¶þ´ÎÌøµ½score[3],µÚÈý´ÎÌøµ½score[5]£¬Òò´ËµÃµ½µÄ×î´óµÄµÃ·ÖÊÇscore[0] + score[1] + score[3] + score[5] = 14
-//
-//Ê¾Àý1
-//ÊäÈë£º
-//6
-//1 -1 -6 7 -17 7
-//2
-//Êä³ö£º
-//14
-//*/
-//#include<iostream>
-//#include<vector>
-//#include<string>
-//#include<algorithm>
-//
-//using namespace std;
-//
-//int main()
-//{
-//	int n;	// ×ÜµÄ¸ñ×ÓÊýÁ¿
-//	cin >> n;
-//	vector<int> scores(n+1);
-//	for (int i = 1; i <= n; i++)
-//	{
-//		cin >> scores[i];
-//	}
-//	int k;	// ×î´óÌøµÄ²½³¤
-//	cin >> k;
-//
-//	// ¼ÆËã
-//	vector<int> dp(n+1);
-//	//for (int i = 1; i < k; i++)	// ³õÊ¼»¯
-//	//{
-//	//	dp[i] = scores[i];
-//	//}
-//	for (int i = 1; i <= n; i++)
-//	{
-//		int max_dp = -10000;
-//		for (int j = i-1; j >= i - k && j>=0; j--)
-//		{
-//			max_dp = max(max_dp, dp[j]);
-//		}
-//		dp[i] = max_dp + scores[i];
-//	}
-//	/*for (auto i : dp)
-//	{
-//		cout << i << " ";
-//	}*/
-//	cout << dp[n];
-//
-//}
+/*
+453 è·³æ ¼å­3ã€å°æ˜Žè·³æ ¼å­
+é¢˜ç›®æè¿°ï¼š
+å°æ˜Žå’Œæœ‹å‹ä»¬ä¸€èµ·çŽ©è·³æ ¼å­æ¸¸æˆï¼Œæ¯ä¸ªæ ¼å­ä¸Šæœ‰ç‰¹å®šçš„åˆ†æ•°ï¼Œscore[] = [1 -1 -6 7 -17 7]ï¼Œä»Žèµ·ç‚¹score[0]å¼€å§‹ï¼Œæ¯æ¬¡æœ€å¤§è·³çš„æ­¥é•¿ä¸ºkï¼Œè¯·ä½ è¿”å›žå°æ˜Žè·³åˆ°ç»ˆç‚¹score[n-1]æ—¶ï¼Œèƒ½å¾—åˆ°çš„æœ€å¤§å¾—åˆ†ã€‚
+æ³¨ï¼š
+æ ¼å­çš„æ€»é•¿åº¦å’Œæ­¥é•¿çš„åŒºé—´åœ¨ [1,  100000]ï¼›
+æ¯ä¸ªæ ¼å­çš„åˆ†æ•°åœ¨[-10000, 10000]åŒºé—´ä¸­ï¼›
+
+è¾“å…¥æè¿°ï¼š
+6					// ç¬¬ä¸€è¡Œè¾“å…¥æ€»çš„æ ¼å­æ•°é‡
+1 -1 -6 7 -17 7		// ç¬¬äºŒè¡Œè¾“å…¥æ¯ä¸ªæ ¼å­çš„åˆ†æ•°score[]
+2					// ç¬¬ä¸‰è¡Œè¾“å…¥æœ€å¤§è·³çš„æ­¥é•¿k
+è¾“å‡ºæè¿°ï¼š
+14					// è¾“å‡ºæœ€å¤§å¾—åˆ†æ•°ï¼Œå°æ˜Žä»Žèµ·ç‚¹score[0]å¼€å§‹è·³ï¼Œç¬¬ä¸€æ¬¡è·³score[1], ç¬¬äºŒæ¬¡è·³åˆ°score[3],ç¬¬ä¸‰æ¬¡è·³åˆ°score[5]ï¼Œå› æ­¤å¾—åˆ°çš„æœ€å¤§çš„å¾—åˆ†æ˜¯score[0] + score[1] + score[3] + score[5] = 14
+
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
+6
+1 -1 -6 7 -17 7
+2
+è¾“å‡ºï¼š
+14
+*/
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+
+using namespace std;
+
+int main()
+{
+	int n;	// æ€»çš„æ ¼å­æ•°é‡
+	cin >> n;
+	vector<int> scores(n+1);
+	for (int i = 1; i <= n; i++)
+	{
+		cin >> scores[i];
+	}
+	int k;	// æœ€å¤§è·³çš„æ­¥é•¿
+	cin >> k;
+
+	// è®¡ç®—
+	vector<int> dp(n+1);
+	//for (int i = 1; i < k; i++)	// åˆå§‹åŒ–
+	//{
+	//	dp[i] = scores[i];
+	//}
+	for (int i = 1; i <= n; i++)
+	{
+		int max_dp = -10000;
+		for (int j = i-1; j >= i - k && j>=0; j--)
+		{
+			max_dp = max(max_dp, dp[j]);
+		}
+		dp[i] = max_dp + scores[i];
+	}
+	/*for (auto i : dp)
+	{
+		cout << i << " ";
+	}*/
+	cout << dp[n];
+
+}

@@ -1,123 +1,123 @@
-///*
-//418¡¢ÕÆÎÕµÄµ¥´Ê¸öÊı¡¢ÍòÄÜ×Ö·ûµ¥´ÊÆ´Ğ´
-//ÌâÄ¿ÃèÊö£º
-//ÓĞÒ»¸ö×Ö·û´®Êı×éwordsºÍÒ»¸ö×Ö·û´®chars¡£
-//¼ÙÈç¿ÉÒÔÓÃcharsÖĞµÄ×ÖÄ¸Æ´Ğ´³öwordsÖĞµÄÄ³¸ö¡°µ¥´Ê¡±£¨×Ö·û´®£©£¬ÄÇÃ´ÎÒÃÇ¾ÍÈÏÎªÄãÕÆÎÕÁËÕâ¸öµ¥´Ê¡£
-//wordsµÄ×Ö·û½öÓÉ a-z Ó¢ÎÄĞ¡Ğ´×ÖÄ¸×é³É¡£ ÀıÈç: abc
-//chars ÓÉ a-z Ó¢ÎÄĞ¡Ğ´×ÖÄ¸ºÍ ¡°?¡±×é³É¡£ÆäÖĞÓ¢ÎÄÎÊºÅ¡°?¡±±íÊ¾ÍòÄÜ×Ö·û£¬ÄÜ¹»ÔÚÆ´Ğ´Ê±µ±×öÈÎÒâÒ»¸öÓ¢ÎÄ×ÖÄ¸¡£ ÀıÈç£º "?" ¿ÉÒÔµ±×ö "a"µÈ×ÖÄ¸¡£
-//×¢Òâ£ºÃ¿´ÎÆ´Ğ´Ê±£¬charsÖĞµÄÃ¿¸ö×ÖÄ¸ºÍÍòÄÜ×Ö·û¶¼Ö»ÄÜÊ¹ÓÃÒ»´Î¡£
-//Êä³ö´Ê»ã±íwordsÖĞÄãÕÆÎÕµÄËùÓĞµ¥´ÊµÄ¸öÊı¡£ Ã»ÓĞÕÆÎÕÈÎºÎµ¥´Ê£¬ÔòÊä³ö0¡£
-//ÊäÈëÃèÊö£º
-//µÚ1ĞĞÊäÈëÊı×éwordsµÄ¸öÊı£¬¼ÇÎªN¡£
-//´ÓµÚ2ĞĞ¿ªÊ¼µ½µÚN+1ĞĞÒÀ´ÎÊäÈëÊı×éwordsµÄÃ¿¸ö×Ö·û´®ÔªËØ¡£
-//µÚN+2ĞĞÊäÈë×Ö·û´®chars¡£
-//Êä³öÃèÊö£º
-//Êä³öÒ»¸öÕûÊı£¬±íÊ¾´Ê»ã±íwordsÖĞÄãÕÆÎÕµÄµ¥´Ê¸öÊı¡£
-//×¢Òâ£º
-//1 <= words.length <= 100
-//1 <= words[i].length, chars.length <= 100
-//ËùÓĞ×Ö·û´®ÖĞ¶¼½ö°üº¬Ğ¡Ğ´Ó¢ÎÄ×ÖÄ¸¡¢Ó¢ÎÄÎÊºÅ
-//
-//
-//Ê¾Àı1
-//ÊäÈë£º
-//4
-//cat
-//bt
-//hat
-//tree
-//atach??
-//Êä³ö£º
-//3
-//ËµÃ÷£º
-//¿ÉÒÔÆ´Ğ´×Ö·û´®"cat"¡¢"bt"ºÍ"hat"
-//
-//Ê¾Àı2
-//ÊäÈë£º
-//3
-//hello
-//world
-//cloud
-//welldonehoneyr
-//Êä³ö£º
-//2
-//ËµÃ÷£º
-//¿ÉÒÔÆ´Ğ´×Ö·û´®"hello"ºÍ"world"
-//
-//Ê¾Àı3
-//ÊäÈë£º
-//3
-//apple
-//car
-//window
-//welldoneapplec?
-//Êä³ö£º
-//2
-//ËµÃ÷£º
-//¿ÉÒÔÆ´Ğ´×Ö·û´®"apple"ºÍ"car"
-//*/
-//#include<iostream>
-//#include<string>
-//#include<vector>
-//#include<algorithm>
-//#include<map>
-//
-//using namespace std;
-//
-//bool fit_word(string str, map<char, int> mchars, int god_char)
-//{
-//	for (auto i : str)
-//	{
-//		mchars[i]--;
-//	}
-//	int unfit_count = 0;
-//	for (auto i : mchars)
-//	{
-//		if (i.second < 0)
-//		{
-//			unfit_count += abs(i.second);
-//		}
-//	}
-//	if (god_char >= unfit_count)
-//	{
-//		return true;
-//	}
-//	else {
-//		return false;
-//	}
-//}
-//
-//int main()
-//{
-//	int n;
-//	cin >> n;
-//	vector<string> words(n);
-//	for (int i = 0; i < n; i++)
-//	{
-//		cin >> words[i];
-//	}
-//	string chars;
-//	cin >> chars;
-//	int god_char = 0;
-//	// Í³¼ÆcharsµÄÊı¾İ
-//	map<char, int> mchars;
-//	for (auto i : chars)
-//	{
-//		if (i == '?')
-//		{
-//			god_char++;
-//			continue;
-//		}
-//		mchars[i]++;
-//	}
-//	// Æ¥Åä
-//	int count = 0;
-//	for (auto i : words)
-//	{
-//		if (fit_word(i, mchars, god_char))
-//		{
-//			count++;
-//		}
-//	}
-//	cout << count;
-//}
+/*
+418ã€æŒæ¡çš„å•è¯ä¸ªæ•°ã€ä¸‡èƒ½å­—ç¬¦å•è¯æ‹¼å†™
+é¢˜ç›®æè¿°ï¼š
+æœ‰ä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„wordså’Œä¸€ä¸ªå­—ç¬¦ä¸²charsã€‚
+å‡å¦‚å¯ä»¥ç”¨charsä¸­çš„å­—æ¯æ‹¼å†™å‡ºwordsä¸­çš„æŸä¸ªâ€œå•è¯â€ï¼ˆå­—ç¬¦ä¸²ï¼‰ï¼Œé‚£ä¹ˆæˆ‘ä»¬å°±è®¤ä¸ºä½ æŒæ¡äº†è¿™ä¸ªå•è¯ã€‚
+wordsçš„å­—ç¬¦ä»…ç”± a-z è‹±æ–‡å°å†™å­—æ¯ç»„æˆã€‚ ä¾‹å¦‚: abc
+chars ç”± a-z è‹±æ–‡å°å†™å­—æ¯å’Œ â€œ?â€ç»„æˆã€‚å…¶ä¸­è‹±æ–‡é—®å·â€œ?â€è¡¨ç¤ºä¸‡èƒ½å­—ç¬¦ï¼Œèƒ½å¤Ÿåœ¨æ‹¼å†™æ—¶å½“åšä»»æ„ä¸€ä¸ªè‹±æ–‡å­—æ¯ã€‚ ä¾‹å¦‚ï¼š "?" å¯ä»¥å½“åš "a"ç­‰å­—æ¯ã€‚
+æ³¨æ„ï¼šæ¯æ¬¡æ‹¼å†™æ—¶ï¼Œcharsä¸­çš„æ¯ä¸ªå­—æ¯å’Œä¸‡èƒ½å­—ç¬¦éƒ½åªèƒ½ä½¿ç”¨ä¸€æ¬¡ã€‚
+è¾“å‡ºè¯æ±‡è¡¨wordsä¸­ä½ æŒæ¡çš„æ‰€æœ‰å•è¯çš„ä¸ªæ•°ã€‚ æ²¡æœ‰æŒæ¡ä»»ä½•å•è¯ï¼Œåˆ™è¾“å‡º0ã€‚
+è¾“å…¥æè¿°ï¼š
+ç¬¬1è¡Œè¾“å…¥æ•°ç»„wordsçš„ä¸ªæ•°ï¼Œè®°ä¸ºNã€‚
+ä»ç¬¬2è¡Œå¼€å§‹åˆ°ç¬¬N+1è¡Œä¾æ¬¡è¾“å…¥æ•°ç»„wordsçš„æ¯ä¸ªå­—ç¬¦ä¸²å…ƒç´ ã€‚
+ç¬¬N+2è¡Œè¾“å…¥å­—ç¬¦ä¸²charsã€‚
+è¾“å‡ºæè¿°ï¼š
+è¾“å‡ºä¸€ä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºè¯æ±‡è¡¨wordsä¸­ä½ æŒæ¡çš„å•è¯ä¸ªæ•°ã€‚
+æ³¨æ„ï¼š
+1 <= words.length <= 100
+1 <= words[i].length, chars.length <= 100
+æ‰€æœ‰å­—ç¬¦ä¸²ä¸­éƒ½ä»…åŒ…å«å°å†™è‹±æ–‡å­—æ¯ã€è‹±æ–‡é—®å·
+
+
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
+4
+cat
+bt
+hat
+tree
+atach??
+è¾“å‡ºï¼š
+3
+è¯´æ˜ï¼š
+å¯ä»¥æ‹¼å†™å­—ç¬¦ä¸²"cat"ã€"bt"å’Œ"hat"
+
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
+3
+hello
+world
+cloud
+welldonehoneyr
+è¾“å‡ºï¼š
+2
+è¯´æ˜ï¼š
+å¯ä»¥æ‹¼å†™å­—ç¬¦ä¸²"hello"å’Œ"world"
+
+ç¤ºä¾‹3
+è¾“å…¥ï¼š
+3
+apple
+car
+window
+welldoneapplec?
+è¾“å‡ºï¼š
+2
+è¯´æ˜ï¼š
+å¯ä»¥æ‹¼å†™å­—ç¬¦ä¸²"apple"å’Œ"car"
+*/
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<map>
+
+using namespace std;
+
+bool fit_word(string str, map<char, int> mchars, int god_char)
+{
+	for (auto i : str)
+	{
+		mchars[i]--;
+	}
+	int unfit_count = 0;
+	for (auto i : mchars)
+	{
+		if (i.second < 0)
+		{
+			unfit_count += abs(i.second);
+		}
+	}
+	if (god_char >= unfit_count)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int main()
+{
+	int n;
+	cin >> n;
+	vector<string> words(n);
+	for (int i = 0; i < n; i++)
+	{
+		cin >> words[i];
+	}
+	string chars;
+	cin >> chars;
+	int god_char = 0;
+	// ç»Ÿè®¡charsçš„æ•°æ®
+	map<char, int> mchars;
+	for (auto i : chars)
+	{
+		if (i == '?')
+		{
+			god_char++;
+			continue;
+		}
+		mchars[i]++;
+	}
+	// åŒ¹é…
+	int count = 0;
+	for (auto i : words)
+	{
+		if (fit_word(i, mchars, god_char))
+		{
+			count++;
+		}
+	}
+	cout << count;
+}

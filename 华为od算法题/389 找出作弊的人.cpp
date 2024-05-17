@@ -1,98 +1,98 @@
-///*
-//389¡¢ÕÒ³ö×÷±×µÄÈË
-//¹«Ë¾×éÖ¯ÁËÒ»´Î¿¼ÊÔ,ÏÖÔÚ¿¼ÊÔ½á¹û³öÀ´ÁË£¬Ïë¿´Ò»ÏÂÓĞÃ»ÈË´æÔÚ×÷±×ĞĞÎª,µ«ÊÇÔ±¹¤Ì«¶àÁË,ĞèÒªÏÈ¶ÔÔ±¹¤½øĞĞÒ»´Î¹ıÂË,ÔÙ½øÒ»²½È·¶¨ÊÇ·ñ´æÔÚ×÷±×ĞĞÎª¡£
-//¹ıÂËµÄ¹æÔòÎª:ÕÒµ½·Ö²î×îĞ¡µÄÔ±¹¤ID¶Ô(p1,p2)ÁĞ±í,ÒªÇóp1<p2
-//Ô±¹¤¸öÊı,È¡Öµ·¶¹ú:0<n<100000
-//Ô±¹¤IDÎªÕûÊı,È¡Öµ·¶Î§:0<=n<=100000
-//¿¼ÊÔ³É¼¨ÎªÕûÊı,È¡Öµ·¶Î§:0<=score<=300
-//
-//ÊäÈëÃèÊö
-//Ô±¹¤µÄID¼°¿¼ÊÔ·ÖÊı
-//Êä³öÃèÊö
-//·Ö²î×îĞ¡µÄÔ±¹¤ID¶Ô(p1,p2)ÁĞ±í,ÒªÇóp1<p2¡£Ã¿Ò»ĞĞ´ú±íÒ»¸ö¼¯ºÏ,Ã¿¸ö¼¯ºÏÄÚµÄÔ±¹¤ID°´Ë³ĞòÅÅÁĞ,¶àĞĞ½á¹ûÒ²ÒÔÔ±¹¤¶ÔÖĞp1Öµ´óĞ¡ÉıĞòÅÅÁĞ(Èç¹ûp1ÏàÍ¬Ôòp2ÉıĞò)¡£
-//
-//Ê¾Àı1£º
-//ÊäÈë:
-//5
-//1 90
-//2 91
-//3 95
-//4 96
-//5 100
-//Êä³ö:
-//1 2
-//3 4
-//ËµÃ÷:
-//ÊäÈë: µÚÒ»ĞĞÎªÔ±¹¤¸öÊın£¬ºóĞøµÄnĞĞµÚÒ»¸öÊıÖµÎªÔ±¹¤ID,µÚ¶ş¸öÊıÖµÎªÔ±¹¤¿¼ÊÔ·ÖÊıÊä³ö:Ô±¹¤1ºÍÔ±¹¤2µÄ·Ö²îÎª1,Ô±¹¤3ºÍÔ±¹¤4µÄ·Ö²îÒ²Îª1,Òò´Ë×îÖÕ½á¹ûÎª
-//1 2
-//3 4
-//
-//Ê¾Àı2£º
-//ÊäÈë:
-//5
-//1 90
-//2 91
-//3 92
-//4 85
-//5 86
-//Êä³ö:
-//1 2
-//2 3
-//4 5
-//*/
-//#include<iostream>
-//#include<vector>
-//#include<map>
-//#include<algorithm>
-//
-//using namespace std;
-//
-//bool cmp1(pair<int, int>& p1, pair<int, int>& p2)
-//{
-//	if (p1.second == p2.second) return p1.first < p2.first;
-//	else return p1.second < p2.second;
-//}
-//
-//bool cmp2(pair<int, int>& p1, pair<int, int>& p2)
-//{
-//	if (p1.first == p2.first) return p1.second < p2.second;
-//	else return p1.first < p2.first;
-//}
-//
-//int main()
-//{
-//	int n;
-//	cin >> n;
-//	int num;
-//	int score;
-//	map<int, int> emp;
-//	while (n--)
-//	{
-//		cin >> num >> score;
-//		emp.insert(pair<int, int>(num, score));
-//	}
-//	vector<pair<int, int>> v_emp(emp.begin(), emp.end());
-//	sort(v_emp.begin(), v_emp.end(), cmp1);
-//	vector< pair<int, int>> res;
-//	int min_dif = 300;
-//	int dif;
-//	for (int i = 1; i < v_emp.size(); i++)
-//	{
-//		dif = abs(v_emp[i - 1].second - v_emp[i].second);
-//		if (dif < min_dif)	// ÕÒµ½¸üĞ¡µÄ²îÖµ
-//		{
-//			min_dif = dif;
-//			res.clear();
-//			res.push_back(pair<int, int>(v_emp[i - 1].first, v_emp[i].first));
-//		}
-//		else if (dif == min_dif)
-//		{
-//			res.push_back(pair<int, int>(v_emp[i - 1].first, v_emp[i].first));
-//		}
-//	}
-//	sort(res.begin(), res.end(), cmp2);
-//	for (auto i : res)
-//	{
-//		cout << i.first << " " << i.second << endl;
-//	}
-//}
+/*
+389ã€æ‰¾å‡ºä½œå¼Šçš„äºº
+å…¬å¸ç»„ç»‡äº†ä¸€æ¬¡è€ƒè¯•,ç°åœ¨è€ƒè¯•ç»“æœå‡ºæ¥äº†ï¼Œæƒ³çœ‹ä¸€ä¸‹æœ‰æ²¡äººå­˜åœ¨ä½œå¼Šè¡Œä¸º,ä½†æ˜¯å‘˜å·¥å¤ªå¤šäº†,éœ€è¦å…ˆå¯¹å‘˜å·¥è¿›è¡Œä¸€æ¬¡è¿‡æ»¤,å†è¿›ä¸€æ­¥ç¡®å®šæ˜¯å¦å­˜åœ¨ä½œå¼Šè¡Œä¸ºã€‚
+è¿‡æ»¤çš„è§„åˆ™ä¸º:æ‰¾åˆ°åˆ†å·®æœ€å°çš„å‘˜å·¥IDå¯¹(p1,p2)åˆ—è¡¨,è¦æ±‚p1<p2
+å‘˜å·¥ä¸ªæ•°,å–å€¼èŒƒå›½:0<n<100000
+å‘˜å·¥IDä¸ºæ•´æ•°,å–å€¼èŒƒå›´:0<=n<=100000
+è€ƒè¯•æˆç»©ä¸ºæ•´æ•°,å–å€¼èŒƒå›´:0<=score<=300
+
+è¾“å…¥æè¿°
+å‘˜å·¥çš„IDåŠè€ƒè¯•åˆ†æ•°
+è¾“å‡ºæè¿°
+åˆ†å·®æœ€å°çš„å‘˜å·¥IDå¯¹(p1,p2)åˆ—è¡¨,è¦æ±‚p1<p2ã€‚æ¯ä¸€è¡Œä»£è¡¨ä¸€ä¸ªé›†åˆ,æ¯ä¸ªé›†åˆå†…çš„å‘˜å·¥IDæŒ‰é¡ºåºæ’åˆ—,å¤šè¡Œç»“æœä¹Ÿä»¥å‘˜å·¥å¯¹ä¸­p1å€¼å¤§å°å‡åºæ’åˆ—(å¦‚æœp1ç›¸åŒåˆ™p2å‡åº)ã€‚
+
+ç¤ºä¾‹1ï¼š
+è¾“å…¥:
+5
+1 90
+2 91
+3 95
+4 96
+5 100
+è¾“å‡º:
+1 2
+3 4
+è¯´æ˜:
+è¾“å…¥: ç¬¬ä¸€è¡Œä¸ºå‘˜å·¥ä¸ªæ•°nï¼Œåç»­çš„nè¡Œç¬¬ä¸€ä¸ªæ•°å€¼ä¸ºå‘˜å·¥ID,ç¬¬äºŒä¸ªæ•°å€¼ä¸ºå‘˜å·¥è€ƒè¯•åˆ†æ•°è¾“å‡º:å‘˜å·¥1å’Œå‘˜å·¥2çš„åˆ†å·®ä¸º1,å‘˜å·¥3å’Œå‘˜å·¥4çš„åˆ†å·®ä¹Ÿä¸º1,å› æ­¤æœ€ç»ˆç»“æœä¸º
+1 2
+3 4
+
+ç¤ºä¾‹2ï¼š
+è¾“å…¥:
+5
+1 90
+2 91
+3 92
+4 85
+5 86
+è¾“å‡º:
+1 2
+2 3
+4 5
+*/
+#include<iostream>
+#include<vector>
+#include<map>
+#include<algorithm>
+
+using namespace std;
+
+bool cmp1(pair<int, int>& p1, pair<int, int>& p2)
+{
+	if (p1.second == p2.second) return p1.first < p2.first;
+	else return p1.second < p2.second;
+}
+
+bool cmp2(pair<int, int>& p1, pair<int, int>& p2)
+{
+	if (p1.first == p2.first) return p1.second < p2.second;
+	else return p1.first < p2.first;
+}
+
+int main()
+{
+	int n;
+	cin >> n;
+	int num;
+	int score;
+	map<int, int> emp;
+	while (n--)
+	{
+		cin >> num >> score;
+		emp.insert(pair<int, int>(num, score));
+	}
+	vector<pair<int, int>> v_emp(emp.begin(), emp.end());
+	sort(v_emp.begin(), v_emp.end(), cmp1);
+	vector< pair<int, int>> res;
+	int min_dif = 300;
+	int dif;
+	for (int i = 1; i < v_emp.size(); i++)
+	{
+		dif = abs(v_emp[i - 1].second - v_emp[i].second);
+		if (dif < min_dif)	// æ‰¾åˆ°æ›´å°çš„å·®å€¼
+		{
+			min_dif = dif;
+			res.clear();
+			res.push_back(pair<int, int>(v_emp[i - 1].first, v_emp[i].first));
+		}
+		else if (dif == min_dif)
+		{
+			res.push_back(pair<int, int>(v_emp[i - 1].first, v_emp[i].first));
+		}
+	}
+	sort(res.begin(), res.end(), cmp2);
+	for (auto i : res)
+	{
+		cout << i.first << " " << i.second << endl;
+	}
+}

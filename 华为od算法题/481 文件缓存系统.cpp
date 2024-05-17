@@ -1,224 +1,224 @@
-///*
-//481 ÎÄ¼ş»º´æÏµÍ³
-//ÌâÄ¿ÃèÊö£º
-//ÇëÉè¼ÆÒ»¸öÎÄ¼ş»º´æÏµÍ³£¬¸ÃÎÄ¼ş»º´æÏµÍ³¿ÉÒÔÖ¸¶¨»º´æµÄ×î´óÖµ£¨µ¥Î»Îª×Ö½Ú£©¡£
-//ÎÄ¼ş»º´æÏµÍ³ÓĞÁ½ÖÖ²Ù×÷£º´æ´¢ÎÄ¼ş(put)ºÍ¶ÁÈ¡ÎÄ¼ş(get)
-//²Ù×÷ÃüÁîÎªput fileName fileSize»òÕßget fileName
-//´æ´¢ÎÄ¼şÊÇ°ÑÎÄ¼ş·ÅÈëÎÄ¼ş»º´æÏµÍ³ÖĞ£»¶ÁÈ¡ÎÄ¼şÊÇ´ÓÎÄ¼ş»º´æÏµÍ³ÖĞ·ÃÎÊÒÑ´æÔÚµÄÎÄ¼ş£¬Èç¹ûÎÄ¼ş²»´æÔÚ£¬Ôò²»×÷ÈÎºÎ²Ù×÷¡£
-//µ±»º´æ¿Õ¼ä²»×ãÒÔ´æ·ÅĞÂµÄÎÄ¼şÊ±£¬¸ù¾İ¹æÔòÉ¾³ıÎÄ¼ş£¬Ö±µ½Ê£Óà¿Õ¼äÂú×ãĞÂµÄÎÄ¼ş´óĞ¡ÎªÖ¹£¬ÔÙ´æ·ÅĞÂÎÄ¼ş¡£
-//¾ßÌåµÄÉ¾³ı¹æÔòÎª£º
-//ÎÄ¼ş·ÃÎÊ¹ıºó£¬»á¸üĞÂÎÄ¼şµÄ×î½ü·ÃÎÊÊ±¼äºÍ×ÜµÄ·ÃÎÊ´ÎÊı£¬µ±»º´æ²»¹»Ê±£¬°´ÕÕµÚÒ»ÓÅÏÈË³ĞòÎª·ÃÎÊ´ÎÊı´ÓÉÙµ½¶à£¬µÚ¶şË³ĞòÎªÊ±¼ä´ÓÀÏµ½ĞÂµÄ·½Ê½À´É¾³ıÎÄ¼ş¡£
-//
-//ÊäÈëÃèÊö£º
-//µÚÒ»ĞĞÎª»º´æ×î´óÖµm(ÕûÊı£¬È¡Öµ·¶Î§Îª0 < m <= 52428800)£»
-//µÚ¶şĞĞÎªÎÄ¼ş²Ù×÷ĞòÁĞ¸öÊın(0 <= n <= 300000
-//´ÓµÚÈıĞĞÆğÎªÎÄ¼ş²Ù×÷ĞòÁĞ£¬Ã¿¸öĞòÁĞµ¥¶ÀÒ»ĞĞ
-//ÎÄ¼ş²Ù×÷¶¨ÒåÎª"op file_namefile_size"
-//file_nameÊÇÎÄ¼şÃû£¬file_sizeÊÇÎÄ¼ş´óĞ¡
-//
-//Êä³öÃèÊö£º
-//Êä³öµ±Ç°ÎÄ¼ş»º´æÖĞµÄÎÄ¼şÃûÁĞ±í£¬ÎÄ¼şÃûÓÃÓ¢ÎÄ¶ººÅ·Ö¸ô£¬°´×ÖµäË³ĞòÅÅĞò
-//Èç£º
-//a,c
-//Èç¹ûÎÄ¼ş»º´æÖĞÃ»ÓĞÎÄ¼ş£¬ÔòÊä³öNONE
-//²¹³äËµÃ÷£º
-//1.  Èç¹ûĞÂÎÄ¼şµÄÎÄ¼şÃûºÍÎÄ¼ş»º´æÖĞÒÑÓĞµÄÎÄ¼şÃûÏàÍ¬£¬Ôò²»»á·ÅÔÚ»º´æÖĞ
-//2.  ĞÂµÄÎÄ¼şµÚÒ»´Î´æÈëµ½ÎÄ¼ş»º´æÖĞÊ±£¬ÎÄ¼şµÄ×Ü·ÃÎÊ´ÎÊı²»»á±ä»¯£¬ÎÄ¼şµÄ×î½ü·ÃÎÊÊ±¼ä»á¸üĞÂµ½×îĞÂÊ±¼ä
-//3.  Ã¿´ÎÎÄ¼ş·ÃÎÊºó£¬×Ü·ÃÎÊ´ÎÊı¼Ó1£¬×î½ü·ÃÎÊÊ±¼ä¸üĞÂµ½×îĞÂÊ±¼ä
-//4.  ÈÎºÎÁ½¸öÎÄ¼şµÄ×î½ü·ÃÎÊÊ±¼ä²»»áÖØ¸´
-//5.  ÎÄ¼şÃû²»»áÎª¿Õ£¬¾ùÎªĞ¡Ğ´×ÖÄ¸£¬×î´ó³¤¶ÈÎª10¡£
-//6.  »º´æ¿Õ¼ä²»×ãÊ±£¬²»ÄÜ´æ·ÅĞÂÎÄ¼ş
-//7.  Ã¿¸öÎÄ¼ş´óĞ¡¶¼ÊÇ´óÓÚ0µÄÕûÊı
-//
-//Ê¾Àı1
-//ÊäÈë£º
-//50
-//6
-//put a 10
-//put b 20
-//get a
-//get a
-//get b
-//put c 30
-//Êä³ö£º
-//a,c
-//ËµÃ÷£º
-//
-//Ê¾Àı2
-//ÊäÈë£º
-//50
-//1
-//get file
-//Êä³ö£º
-//NONE
-//ËµÃ÷£º
-//*/
-//
-//#include <iostream>
-//#include <vector>
-//#include <string>
-//#include <sstream>
-//#include <unordered_map>
-//#include <chrono>
-//#include <algorithm>
-//
-//using namespace std;
-//
-//struct file
-//{
-//public:
-//	string fileName;
-//	int fileSize;
-//	int accessCount;	// ·ÃÎÊ´ÎÊı
-//	chrono::time_point<std::chrono::system_clock> lastAccessTime;	// ×î½ü·ÃÎÊÊ±¼ä
-//	// Ä¬ÈÏ¹¹Ôìº¯Êı
-//	file()
-//	{
-//
-//	}
-//	// ¹¹Ôìº¯Êı
-//	file(string name, int size, int count, chrono::time_point<std::chrono::system_clock> time) : fileName(name), fileSize(size), accessCount(count), lastAccessTime(time)
-//	{
-//
-//	}
-//	//// ¿½±´¹¹Ôìº¯Êı
-//	//file(const file& other) : fileName(other.fileName), fileSize(other.fileSize), accessCount(other.accessCount), lastAccessTime(other.lastAccessTime)
-//	//{
-//
-//	//}
-//	//// ¿½±´ÔËËã·û
-//	//file& operator=(const file& other)
-//	//{
-//	//	// ·ÀÖ¹×ÔÎÒ¸³Öµ
-//	//	if (this != &other) {
-//	//		// Éî¿½±´£¨»òÂß¼­ÉÏµÄÉî¿½±´£¬ÕâÀï¼ÙÉè³ÉÔ±¶¼ÊÇ¿ÉÒÔÇ³¿½±´µÄ£©
-//	//		fileName = other.fileName;
-//	//		fileSize = other.fileSize;
-//	//		accessCount = other.accessCount;
-//	//		lastAccessTime = other.lastAccessTime;
-//	//	}
-//	//	return *this; // ·µ»Øµ±Ç°¶ÔÏóµÄÒıÓÃ£¬ÔÊĞíÁ´Ê½¸³ÖµÈç a = b = c;
-//	//}
-//};
-//class compare {
-//public:
-//	bool operator()(const pair<string, file >& a, const pair<string, file >& b) const
-//	{
-//		if (a.second.accessCount != b.second.accessCount)
-//			return a.second.accessCount > b.second.accessCount;	// °´·ÃÎÊ´ÎÊıÅÅĞò
-//		return b.second.lastAccessTime > b.second.lastAccessTime;     // °´¸üĞÂÊ±¼äÅÅĞò
-//	}
-//};
-//
-//class FileCacheSystem
-//{
-//private:
-//	int maxSize;
-//	int currentSize = 0;
-//	unordered_map<string, file> files;
-//
-//
-//public:
-//	FileCacheSystem(int max_file) : maxSize(max_file)
-//	{
-//
-//	}
-//
-//	void put(string name, int size)
-//	{
-//		if (files.find(name) != files.end())	// Èç¹ûÎÄ¼şÒÑ¾­¼ÓÈë»º´æ£¬ÔòÌø¹ı
-//		{
-//			return;
-//		}
-//
-//		if (size > maxSize) return;	// ´æ´¢µÄÎÄ¼ş´óĞ¡³¬¹ı×Ü»º´æ,É¾³ıÆäËûÎÄ¼şÒ²Ã»ÓĞÓÃ
-//		if(size + currentSize > maxSize)
-//		{
-//			int nowSize = size + currentSize;
-//			evict(nowSize);	// É¾³ıÎÄ¼şÖ±µ½Âú×ãµ±Ç°ËùĞèµÄ»º´æ´óĞ¡
-//		}
-//		// Ôö¼ÓÎÄ¼ş
-//		std::chrono::time_point<std::chrono::system_clock> current_time  = chrono::system_clock::now();
-//		file newfile(name, size, 0, current_time);
-//		files.insert({ name, newfile });
-//		currentSize += size;
-//		//files[name] = newfile;
-//	}
-//
-//	void get(string name)
-//	{
-//		if (files.find(name) != files.end()) {
-//			files[name].accessCount++;
-//			files[name].lastAccessTime = chrono::system_clock::now();
-//		}
-//	}
-//
-//	void evict(int nowSize)
-//	{
-//		vector<pair<string, file>> sorted_files(files.begin(), files.end());
-//		sort(sorted_files.begin(), sorted_files.end(), compare());
-//		size_t pos = sorted_files.size() - 1;
-//		while (nowSize > maxSize)
-//		{
-//			nowSize -= sorted_files[pos].second.fileSize;
-//			files.erase(sorted_files[pos].first);
-//			pos--;
-//		}
-//	}
-//
-//	string listFiles() {
-//		if (files.empty()) return "NONE";
-//		vector<string> sorted_files;
-//		for (auto& [name, _] : files) sorted_files.push_back(name);
-//		sort(sorted_files.begin(), sorted_files.end(), less<string>());
-//		string result;
-//		for (int i = 0; i < sorted_files.size(); i++)
-//		{
-//			result += sorted_files[i];
-//			if (i != sorted_files.size() - 1) result += ',';
-//		}
-//		return result;
-//	}
-//
-//};
-//
-//int main()
-//{
-//	// ÊäÈë
-//	int m;	// »º´æ×î´óÖµm
-//	cin >> m;
-//	int n;
-//	cin >> n; // ÎÄ¼ş²Ù×÷ĞòÁĞ¸öÊın
-//	cin.get(); // ´¦Àíµô»»ĞĞ·û
-//	vector<string> orders(n);
-//	string str;
-//	for (int i = 0; i < n; i++)
-//	{
-//		getline(cin, orders[i]);
-//	}
-//
-//	// ½âÎöÃüÁî
-//	FileCacheSystem fc(m);
-//
-//	for (auto& i : orders)
-//	{
-//		istringstream  iss(i);
-//		string token;
-//		vector<string> order;
-//		while (getline(iss, token, ' '))
-//		{
-//			order.push_back(token);
-//		}
-//		if (order[0] == "put")
-//		{
-//			fc.put(order[1], stoi(order[2]));
-//		}
-//		else if (order[0] == "get")
-//		{
-//			fc.get(order[1]);
-//		}
-//	}
-//	string res = fc.listFiles();
-//	cout << res;
-//
-//}
+/*
+481 æ–‡ä»¶ç¼“å­˜ç³»ç»Ÿ
+é¢˜ç›®æè¿°ï¼š
+è¯·è®¾è®¡ä¸€ä¸ªæ–‡ä»¶ç¼“å­˜ç³»ç»Ÿï¼Œè¯¥æ–‡ä»¶ç¼“å­˜ç³»ç»Ÿå¯ä»¥æŒ‡å®šç¼“å­˜çš„æœ€å¤§å€¼ï¼ˆå•ä½ä¸ºå­—èŠ‚ï¼‰ã€‚
+æ–‡ä»¶ç¼“å­˜ç³»ç»Ÿæœ‰ä¸¤ç§æ“ä½œï¼šå­˜å‚¨æ–‡ä»¶(put)å’Œè¯»å–æ–‡ä»¶(get)
+æ“ä½œå‘½ä»¤ä¸ºput fileName fileSizeæˆ–è€…get fileName
+å­˜å‚¨æ–‡ä»¶æ˜¯æŠŠæ–‡ä»¶æ”¾å…¥æ–‡ä»¶ç¼“å­˜ç³»ç»Ÿä¸­ï¼›è¯»å–æ–‡ä»¶æ˜¯ä»æ–‡ä»¶ç¼“å­˜ç³»ç»Ÿä¸­è®¿é—®å·²å­˜åœ¨çš„æ–‡ä»¶ï¼Œå¦‚æœæ–‡ä»¶ä¸å­˜åœ¨ï¼Œåˆ™ä¸ä½œä»»ä½•æ“ä½œã€‚
+å½“ç¼“å­˜ç©ºé—´ä¸è¶³ä»¥å­˜æ”¾æ–°çš„æ–‡ä»¶æ—¶ï¼Œæ ¹æ®è§„åˆ™åˆ é™¤æ–‡ä»¶ï¼Œç›´åˆ°å‰©ä½™ç©ºé—´æ»¡è¶³æ–°çš„æ–‡ä»¶å¤§å°ä¸ºæ­¢ï¼Œå†å­˜æ”¾æ–°æ–‡ä»¶ã€‚
+å…·ä½“çš„åˆ é™¤è§„åˆ™ä¸ºï¼š
+æ–‡ä»¶è®¿é—®è¿‡åï¼Œä¼šæ›´æ–°æ–‡ä»¶çš„æœ€è¿‘è®¿é—®æ—¶é—´å’Œæ€»çš„è®¿é—®æ¬¡æ•°ï¼Œå½“ç¼“å­˜ä¸å¤Ÿæ—¶ï¼ŒæŒ‰ç…§ç¬¬ä¸€ä¼˜å…ˆé¡ºåºä¸ºè®¿é—®æ¬¡æ•°ä»å°‘åˆ°å¤šï¼Œç¬¬äºŒé¡ºåºä¸ºæ—¶é—´ä»è€åˆ°æ–°çš„æ–¹å¼æ¥åˆ é™¤æ–‡ä»¶ã€‚
+
+è¾“å…¥æè¿°ï¼š
+ç¬¬ä¸€è¡Œä¸ºç¼“å­˜æœ€å¤§å€¼m(æ•´æ•°ï¼Œå–å€¼èŒƒå›´ä¸º0 < m <= 52428800)ï¼›
+ç¬¬äºŒè¡Œä¸ºæ–‡ä»¶æ“ä½œåºåˆ—ä¸ªæ•°n(0 <= n <= 300000
+ä»ç¬¬ä¸‰è¡Œèµ·ä¸ºæ–‡ä»¶æ“ä½œåºåˆ—ï¼Œæ¯ä¸ªåºåˆ—å•ç‹¬ä¸€è¡Œ
+æ–‡ä»¶æ“ä½œå®šä¹‰ä¸º"op file_namefile_size"
+file_nameæ˜¯æ–‡ä»¶åï¼Œfile_sizeæ˜¯æ–‡ä»¶å¤§å°
+
+è¾“å‡ºæè¿°ï¼š
+è¾“å‡ºå½“å‰æ–‡ä»¶ç¼“å­˜ä¸­çš„æ–‡ä»¶ååˆ—è¡¨ï¼Œæ–‡ä»¶åç”¨è‹±æ–‡é€—å·åˆ†éš”ï¼ŒæŒ‰å­—å…¸é¡ºåºæ’åº
+å¦‚ï¼š
+a,c
+å¦‚æœæ–‡ä»¶ç¼“å­˜ä¸­æ²¡æœ‰æ–‡ä»¶ï¼Œåˆ™è¾“å‡ºNONE
+è¡¥å……è¯´æ˜ï¼š
+1.  å¦‚æœæ–°æ–‡ä»¶çš„æ–‡ä»¶åå’Œæ–‡ä»¶ç¼“å­˜ä¸­å·²æœ‰çš„æ–‡ä»¶åç›¸åŒï¼Œåˆ™ä¸ä¼šæ”¾åœ¨ç¼“å­˜ä¸­
+2.  æ–°çš„æ–‡ä»¶ç¬¬ä¸€æ¬¡å­˜å…¥åˆ°æ–‡ä»¶ç¼“å­˜ä¸­æ—¶ï¼Œæ–‡ä»¶çš„æ€»è®¿é—®æ¬¡æ•°ä¸ä¼šå˜åŒ–ï¼Œæ–‡ä»¶çš„æœ€è¿‘è®¿é—®æ—¶é—´ä¼šæ›´æ–°åˆ°æœ€æ–°æ—¶é—´
+3.  æ¯æ¬¡æ–‡ä»¶è®¿é—®åï¼Œæ€»è®¿é—®æ¬¡æ•°åŠ 1ï¼Œæœ€è¿‘è®¿é—®æ—¶é—´æ›´æ–°åˆ°æœ€æ–°æ—¶é—´
+4.  ä»»ä½•ä¸¤ä¸ªæ–‡ä»¶çš„æœ€è¿‘è®¿é—®æ—¶é—´ä¸ä¼šé‡å¤
+5.  æ–‡ä»¶åä¸ä¼šä¸ºç©ºï¼Œå‡ä¸ºå°å†™å­—æ¯ï¼Œæœ€å¤§é•¿åº¦ä¸º10ã€‚
+6.  ç¼“å­˜ç©ºé—´ä¸è¶³æ—¶ï¼Œä¸èƒ½å­˜æ”¾æ–°æ–‡ä»¶
+7.  æ¯ä¸ªæ–‡ä»¶å¤§å°éƒ½æ˜¯å¤§äº0çš„æ•´æ•°
+
+ç¤ºä¾‹1
+è¾“å…¥ï¼š
+50
+6
+put a 10
+put b 20
+get a
+get a
+get b
+put c 30
+è¾“å‡ºï¼š
+a,c
+è¯´æ˜ï¼š
+
+ç¤ºä¾‹2
+è¾“å…¥ï¼š
+50
+1
+get file
+è¾“å‡ºï¼š
+NONE
+è¯´æ˜ï¼š
+*/
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <unordered_map>
+#include <chrono>
+#include <algorithm>
+
+using namespace std;
+
+struct file
+{
+public:
+	string fileName;
+	int fileSize;
+	int accessCount;	// è®¿é—®æ¬¡æ•°
+	chrono::time_point<std::chrono::system_clock> lastAccessTime;	// æœ€è¿‘è®¿é—®æ—¶é—´
+	// é»˜è®¤æ„é€ å‡½æ•°
+	file()
+	{
+
+	}
+	// æ„é€ å‡½æ•°
+	file(string name, int size, int count, chrono::time_point<std::chrono::system_clock> time) : fileName(name), fileSize(size), accessCount(count), lastAccessTime(time)
+	{
+
+	}
+	//// æ‹·è´æ„é€ å‡½æ•°
+	//file(const file& other) : fileName(other.fileName), fileSize(other.fileSize), accessCount(other.accessCount), lastAccessTime(other.lastAccessTime)
+	//{
+
+	//}
+	//// æ‹·è´è¿ç®—ç¬¦
+	//file& operator=(const file& other)
+	//{
+	//	// é˜²æ­¢è‡ªæˆ‘èµ‹å€¼
+	//	if (this != &other) {
+	//		// æ·±æ‹·è´ï¼ˆæˆ–é€»è¾‘ä¸Šçš„æ·±æ‹·è´ï¼Œè¿™é‡Œå‡è®¾æˆå‘˜éƒ½æ˜¯å¯ä»¥æµ…æ‹·è´çš„ï¼‰
+	//		fileName = other.fileName;
+	//		fileSize = other.fileSize;
+	//		accessCount = other.accessCount;
+	//		lastAccessTime = other.lastAccessTime;
+	//	}
+	//	return *this; // è¿”å›å½“å‰å¯¹è±¡çš„å¼•ç”¨ï¼Œå…è®¸é“¾å¼èµ‹å€¼å¦‚ a = b = c;
+	//}
+};
+class compare {
+public:
+	bool operator()(const pair<string, file >& a, const pair<string, file >& b) const
+	{
+		if (a.second.accessCount != b.second.accessCount)
+			return a.second.accessCount > b.second.accessCount;	// æŒ‰è®¿é—®æ¬¡æ•°æ’åº
+		return b.second.lastAccessTime > b.second.lastAccessTime;     // æŒ‰æ›´æ–°æ—¶é—´æ’åº
+	}
+};
+
+class FileCacheSystem
+{
+private:
+	int maxSize;
+	int currentSize = 0;
+	unordered_map<string, file> files;
+
+
+public:
+	FileCacheSystem(int max_file) : maxSize(max_file)
+	{
+
+	}
+
+	void put(string name, int size)
+	{
+		if (files.find(name) != files.end())	// å¦‚æœæ–‡ä»¶å·²ç»åŠ å…¥ç¼“å­˜ï¼Œåˆ™è·³è¿‡
+		{
+			return;
+		}
+
+		if (size > maxSize) return;	// å­˜å‚¨çš„æ–‡ä»¶å¤§å°è¶…è¿‡æ€»ç¼“å­˜,åˆ é™¤å…¶ä»–æ–‡ä»¶ä¹Ÿæ²¡æœ‰ç”¨
+		if(size + currentSize > maxSize)
+		{
+			int nowSize = size + currentSize;
+			evict(nowSize);	// åˆ é™¤æ–‡ä»¶ç›´åˆ°æ»¡è¶³å½“å‰æ‰€éœ€çš„ç¼“å­˜å¤§å°
+		}
+		// å¢åŠ æ–‡ä»¶
+		std::chrono::time_point<std::chrono::system_clock> current_time  = chrono::system_clock::now();
+		file newfile(name, size, 0, current_time);
+		files.insert({ name, newfile });
+		currentSize += size;
+		//files[name] = newfile;
+	}
+
+	void get(string name)
+	{
+		if (files.find(name) != files.end()) {
+			files[name].accessCount++;
+			files[name].lastAccessTime = chrono::system_clock::now();
+		}
+	}
+
+	void evict(int nowSize)
+	{
+		vector<pair<string, file>> sorted_files(files.begin(), files.end());
+		sort(sorted_files.begin(), sorted_files.end(), compare());
+		size_t pos = sorted_files.size() - 1;
+		while (nowSize > maxSize)
+		{
+			nowSize -= sorted_files[pos].second.fileSize;
+			files.erase(sorted_files[pos].first);
+			pos--;
+		}
+	}
+
+	string listFiles() {
+		if (files.empty()) return "NONE";
+		vector<string> sorted_files;
+		for (auto& [name, _] : files) sorted_files.push_back(name);
+		sort(sorted_files.begin(), sorted_files.end(), less<string>());
+		string result;
+		for (int i = 0; i < sorted_files.size(); i++)
+		{
+			result += sorted_files[i];
+			if (i != sorted_files.size() - 1) result += ',';
+		}
+		return result;
+	}
+
+};
+
+int main()
+{
+	// è¾“å…¥
+	int m;	// ç¼“å­˜æœ€å¤§å€¼m
+	cin >> m;
+	int n;
+	cin >> n; // æ–‡ä»¶æ“ä½œåºåˆ—ä¸ªæ•°n
+	cin.get(); // å¤„ç†æ‰æ¢è¡Œç¬¦
+	vector<string> orders(n);
+	string str;
+	for (int i = 0; i < n; i++)
+	{
+		getline(cin, orders[i]);
+	}
+
+	// è§£æå‘½ä»¤
+	FileCacheSystem fc(m);
+
+	for (auto& i : orders)
+	{
+		istringstream  iss(i);
+		string token;
+		vector<string> order;
+		while (getline(iss, token, ' '))
+		{
+			order.push_back(token);
+		}
+		if (order[0] == "put")
+		{
+			fc.put(order[1], stoi(order[2]));
+		}
+		else if (order[0] == "get")
+		{
+			fc.get(order[1]);
+		}
+	}
+	string res = fc.listFiles();
+	cout << res;
+
+}

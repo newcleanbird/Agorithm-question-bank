@@ -1,86 +1,86 @@
-///*
-//462¡¢ ÕÒÄ¥Ëğ¶È×î¸ßºÍ×îµÍµÄÓ²ÅÌ
-//ÌâÄ¿ÃèÊö
-//´æ´¢ÕóÁĞÉÏÊ¹ÓÃµÄÒ»Åú¹ÌÌ¬Ó²ÅÌ£¬¸ù¾İÓ²ÅÌÄ¥ËğÖµ¸ø¶¨Ò»¸öÊı×éendurances,Êı×éÖĞÃ¿¸öÔªËØ±íÊ¾µ¥¿éÓ²ÅÌµÄÄ¥Ëğ¶È(0µ½10000Ö®¼ä)¡£Ä¥Ëğ¶ÈÔ½´ó£¬±íÊ¾´ËÅÌĞèÒª¸ü»»µÄ¸ÅÂÊÔ½¸ß¡£ĞèÒªÕÒ³öÄ¥Ëğ¶È×î¸ßÈı¿éÅÌÏÂ±êºÍÄ¥Ëğ¶È×îµÍµÄÈı¿éÅÌÏÂ±ê¡£
-//ÊäÈëÃèÊö
-//Ò»×éÓ²ÅÌÄ¥Ëğ¶ÈµÄÊı×é¡£
-//ËµÃ÷:
-//(1) Êı×éendurancesÖĞÎŞÖØ¸´Öµ
-//(2) Êı×éµÄ³¤¶È·¶Î§:[6,200]
-//(3) Êı×éµÄÏÂ±ê´Ó0¿ªÊ¼¡£
-//Êä³öÃèÊö
-//µÚÒ»ĞĞ:Ä¥Ëğ¶È×î¸ßÈı¿éÅÌÏÂ±ê£¬°´ÏÂ±êÉıĞòÕ¹Ê¾
-//µÚ¶şĞĞ:Ä¥Ëğ¶È×îµÍµÄÈı¿éÅÌÏÂ±ê£¬°´ÏÂ±êÉıĞòÕ¹Ê¾
-//
-//ÊäÈë£º
-//1 50 40 68 72 86 35 14 87 99 63 75
-//Êä³ö£º
-//5 8 9
-//0 6 7
-//
-//ÊäÈë£º
-//23 34 56 12 11 10
-//Êä³ö£º
-//0 1 2
-//3 4 5
-//
-//*/
-//
-//#include<iostream>
-//#include<vector>
-//#include<algorithm>
-//
-//using namespace std;
-//
-//struct disk
-//{
-//	int val;
-//	int seq;
-//};
-//
-//bool cmp(disk& a, disk& b)
-//{
-//	if (a.val != b.val)
-//	{
-//		return a.val < b.val;
-//	}
-//	else {
-//		return a.seq < b.seq;
-//	}
-//}
-//
-//int main()
-//{
-//	vector<disk> endurances;
-//	int t_value;
-//	int i = 0;
-//	while(cin >> t_value)
-//	{
-//		endurances.push_back({ t_value, i++ });
-//		if (cin.peek() == '\n')
-//		{
-//			break;
-//		}
-//	}
-//	sort(endurances.begin(), endurances.end(), cmp);
-//	vector<int> biggest;	// ÉıĞò
-//	vector<int> smallest;	// ÉıĞò
-//	for (int i = endurances.size() - 1; i >= endurances.size() - 3; i--)
-//	{
-//		biggest.push_back(endurances[i].seq);
-//	}
-//	for (int i = 0; i <= 2; i++)
-//	{
-//		smallest.push_back(endurances[i].seq);
-//	}
-//
-//	sort(biggest.begin(), biggest.end(), less<int>());	// ÉıĞò
-//	sort(smallest.begin(), smallest.end(), less<int>());
-//
-//	for (auto i : biggest) cout << i << " ";
-//	cout << endl;
-//	for (auto i : smallest) cout << i << " ";
-//	cout << endl;
-//
-//
-//}
+/*
+462ã€ æ‰¾ç£¨æŸåº¦æœ€é«˜å’Œæœ€ä½çš„ç¡¬ç›˜
+é¢˜ç›®æè¿°
+å­˜å‚¨é˜µåˆ—ä¸Šä½¿ç”¨çš„ä¸€æ‰¹å›ºæ€ç¡¬ç›˜ï¼Œæ ¹æ®ç¡¬ç›˜ç£¨æŸå€¼ç»™å®šä¸€ä¸ªæ•°ç»„endurances,æ•°ç»„ä¸­æ¯ä¸ªå…ƒç´ è¡¨ç¤ºå•å—ç¡¬ç›˜çš„ç£¨æŸåº¦(0åˆ°10000ä¹‹é—´)ã€‚ç£¨æŸåº¦è¶Šå¤§ï¼Œè¡¨ç¤ºæ­¤ç›˜éœ€è¦æ›´æ¢çš„æ¦‚ç‡è¶Šé«˜ã€‚éœ€è¦æ‰¾å‡ºç£¨æŸåº¦æœ€é«˜ä¸‰å—ç›˜ä¸‹æ ‡å’Œç£¨æŸåº¦æœ€ä½çš„ä¸‰å—ç›˜ä¸‹æ ‡ã€‚
+è¾“å…¥æè¿°
+ä¸€ç»„ç¡¬ç›˜ç£¨æŸåº¦çš„æ•°ç»„ã€‚
+è¯´æ˜:
+(1) æ•°ç»„endurancesä¸­æ— é‡å¤å€¼
+(2) æ•°ç»„çš„é•¿åº¦èŒƒå›´:[6,200]
+(3) æ•°ç»„çš„ä¸‹æ ‡ä»0å¼€å§‹ã€‚
+è¾“å‡ºæè¿°
+ç¬¬ä¸€è¡Œ:ç£¨æŸåº¦æœ€é«˜ä¸‰å—ç›˜ä¸‹æ ‡ï¼ŒæŒ‰ä¸‹æ ‡å‡åºå±•ç¤º
+ç¬¬äºŒè¡Œ:ç£¨æŸåº¦æœ€ä½çš„ä¸‰å—ç›˜ä¸‹æ ‡ï¼ŒæŒ‰ä¸‹æ ‡å‡åºå±•ç¤º
+
+è¾“å…¥ï¼š
+1 50 40 68 72 86 35 14 87 99 63 75
+è¾“å‡ºï¼š
+5 8 9
+0 6 7
+
+è¾“å…¥ï¼š
+23 34 56 12 11 10
+è¾“å‡ºï¼š
+0 1 2
+3 4 5
+
+*/
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+struct disk
+{
+	int val;
+	int seq;
+};
+
+bool cmp(disk& a, disk& b)
+{
+	if (a.val != b.val)
+	{
+		return a.val < b.val;
+	}
+	else {
+		return a.seq < b.seq;
+	}
+}
+
+int main()
+{
+	vector<disk> endurances;
+	int t_value;
+	int i = 0;
+	while(cin >> t_value)
+	{
+		endurances.push_back({ t_value, i++ });
+		if (cin.peek() == '\n')
+		{
+			break;
+		}
+	}
+	sort(endurances.begin(), endurances.end(), cmp);
+	vector<int> biggest;	// å‡åº
+	vector<int> smallest;	// å‡åº
+	for (int i = endurances.size() - 1; i >= endurances.size() - 3; i--)
+	{
+		biggest.push_back(endurances[i].seq);
+	}
+	for (int i = 0; i <= 2; i++)
+	{
+		smallest.push_back(endurances[i].seq);
+	}
+
+	sort(biggest.begin(), biggest.end(), less<int>());	// å‡åº
+	sort(smallest.begin(), smallest.end(), less<int>());
+
+	for (auto i : biggest) cout << i << " ";
+	cout << endl;
+	for (auto i : smallest) cout << i << " ";
+	cout << endl;
+
+
+}
