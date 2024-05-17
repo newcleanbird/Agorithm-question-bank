@@ -1,122 +1,122 @@
-/*
-469ã€æµ‹è¯•ç”¨ä¾‹æ‰§è¡Œè®¡åˆ’
-é¢˜ç›®æè¿°ï¼š
-æŸä¸ªäº§å“å½“å‰è¿­ä»£å‘¨æœŸå†…æœ‰Nä¸ªç‰¹æ€§ï¼ˆ F1,F2,.......FNï¼‰éœ€è¦è¿›è¡Œè¦†ç›–æµ‹è¯•ï¼Œæ¯ä¸ªç‰¹æ€§éƒ½è¢«è¯„ä¼°äº†å¯¹åº”çš„ä¼˜å…ˆçº§ï¼Œç‰¹æ€§ä½¿ç”¨å…¶IDä½œä¸ºä¸‹æ ‡è¿›è¡Œæ ‡è¯†ã€‚
-è®¾è®¡äº†Mä¸ªæµ‹è¯•ç”¨ä¾‹ï¼ˆT1,T2......,TM ï¼‰ï¼Œæ¯ä¸ªç”¨ä¾‹å¯¹åº”äº†ä¸€ä¸ªè¦†ç›–ç‰¹æ€§çš„é›†åˆï¼Œæµ‹è¯•ç”¨ä¾‹ä½¿ç”¨å…¶IDä½œä¸ºä¸‹æ ‡è¿›è¡Œæ ‡è¯†ï¼Œæµ‹è¯•ç”¨ä¾‹çš„ä¼˜å…ˆçº§å®šä¹‰ä¸ºå…¶è¦†ç›–çš„ç‰¹æ€§çš„ä¼˜å…ˆçº§ä¹‹å’Œã€‚
-åœ¨å¼€å±•æµ‹è¯•ä¹‹å‰ï¼Œéœ€è¦åˆ¶å®šæµ‹è¯•ç”¨ä¾‹çš„æ‰§è¡Œé¡ºåºï¼Œè§„åˆ™ä¸ºï¼šä¼˜å…ˆçº§å¤§çš„ç”¨ä¾‹å…ˆæ‰§è¡Œï¼Œå¦‚æžœå­˜åœ¨ä¼˜å…ˆçº§ç›¸åŒçš„ç”¨ä¾‹ï¼Œç”¨ä¾‹IDå°çš„å…ˆæ‰§è¡Œã€‚
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬ä¸€è¡Œè¾“å…¥ä¸ºNå’ŒMï¼ŒNè¡¨ç¤ºç‰¹æ€§çš„æ•°é‡ï¼ŒMè¡¨ç¤ºæµ‹è¯•ç”¨ä¾‹çš„æ•°é‡ï¼Œ 0ï¼œNâ‰¤100,
-0ï¼œMâ‰¤100 ä¹‹åŽNè¡Œè¡¨ç¤ºç‰¹æ€§ID=1åˆ°ç‰¹æ€§ID=Nçš„ä¼˜å…ˆçº§ã€‚
-å†æŽ¥ä¸‹æ¥Mè¡Œè¡¨ç¤ºæµ‹è¯•ç”¨ä¾‹ID=1åˆ°æµ‹è¯•ç”¨ä¾‹ID=Må…³è”çš„ç‰¹æ€§çš„IDçš„åˆ—è¡¨ã€‚
-
-è¾“å‡ºæè¿°ï¼š
-æŒ‰ç…§æ‰§è¡Œé¡ºåºï¼ˆä¼˜å…ˆçº§ä»Žå¤§åˆ°å°ï¼‰è¾“å‡ºæµ‹è¯•ç”¨ä¾‹çš„IDï¼Œæ¯è¡Œä¸€ä¸ªIDã€‚
-æµ‹è¯•ç”¨ä¾‹è¦†ç›–çš„IDä¸é‡å¤ã€‚
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-5 4
-1
-1
-2
-3
-5
-1 2 3
-1 4
-3 4 5
-2 3 4
-
-è¾“å‡ºï¼š
-3
-4
-1
-2
-è¯´æ˜Žï¼šæµ‹è¯•ç”¨ä¾‹çš„ä¼˜å…ˆçº§è®¡ç®—å¦‚ä¸‹ï¼š
-
-T1=Pf1+Pf2+Pf3=1+1+2=4
-T2=Pf1+Pf4=1+3=4
-T3=Pf3+Pf4+Pf5=2+3+5=10
-T4=Pf2+Pf3+Pf4=1+2+3=6
-
-æŒ‰ç…§ä¼˜å…ˆçº§ä»Žå°åˆ°å¤§ï¼Œä»¥åŠç›¸åŒä¼˜å…ˆçº§ï¼ŒIDå°çš„å…ˆæ‰§è¡Œçš„è§„åˆ™ï¼Œæ‰§è¡Œé¡ºåºä¸ºT3,T4,T1,T2
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-3 3
-3
-1
-5
-1 2 3
-1 2 3
-1 2 3
-
-è¾“å‡ºï¼š
-1
-2
-3
-
-è¯´æ˜Žï¼šæµ‹è¯•ç”¨ä¾‹çš„ä¼˜å…ˆçº§è®¡ç®—å¦‚ä¸‹ï¼š
-T1=Pf1+Pf2+PF3=3+1+5=9
-T2=Pf1+Pf2+PF3=3+1+5=9
-T3=Pf1+Pf2+PF3=3+1+5=9
-æ¯ä¸ªä¼˜å…ˆçº§ä¸€æ ·ï¼ŒæŒ‰ç…§IDä»Žå°åˆ°å¤§æ‰§è¡Œï¼Œæ‰§è¡Œé¡ºåºä¸ºT1,T2,T3
-*/
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<queue>
-
-using namespace std;
-
-struct task
-{
-	int prior_level;	// ä¼˜å…ˆçº§
-	int No;				// ç¼–å·
-};
-
-bool cmp(task& a, task& b)
-{
-	if (a.prior_level != b.prior_level)
-	{
-		return a.prior_level > b.prior_level;
-	}
-	else {
-		return a.No < b.No;
-	}
-}
-
-int main()
-{
-	int n, m;	// Nè¡¨ç¤ºç‰¹æ€§çš„æ•°é‡ï¼ŒMè¡¨ç¤ºæµ‹è¯•ç”¨ä¾‹çš„æ•°é‡
-	cin >> n >> m;
-	vector<int> prior_level(n+1);	// ç‰¹æ€§ä¼˜å…ˆçº§
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> prior_level[i];
-	}
-	vector<task> tasks(m);	// æµ‹è¯•ç”¨ä¾‹ID=1åˆ°æµ‹è¯•ç”¨ä¾‹ID=Må…³è”çš„ç‰¹æ€§çš„IDçš„åˆ—è¡¨
-	for (int i = 0; i < m; i++)
-	{
-		int tmp;
-		while (cin >> tmp)
-		{
-			tasks[i].No = i+1;
-			tasks[i].prior_level += prior_level[tmp];
-			if (cin.get() == '\n') break;
-		}
-	}
-
-	sort(tasks.begin(), tasks.end(), cmp);
-	for (auto i : tasks)
-	{
-		cout << i.No << endl;
-	}
-
-
-
-
-
-
-
-}
+///*
+//469¡¢²âÊÔÓÃÀýÖ´ÐÐ¼Æ»®
+//ÌâÄ¿ÃèÊö£º
+//Ä³¸ö²úÆ·µ±Ç°µü´úÖÜÆÚÄÚÓÐN¸öÌØÐÔ£¨ F1,F2,.......FN£©ÐèÒª½øÐÐ¸²¸Ç²âÊÔ£¬Ã¿¸öÌØÐÔ¶¼±»ÆÀ¹ÀÁË¶ÔÓ¦µÄÓÅÏÈ¼¶£¬ÌØÐÔÊ¹ÓÃÆäID×÷ÎªÏÂ±ê½øÐÐ±êÊ¶¡£
+//Éè¼ÆÁËM¸ö²âÊÔÓÃÀý£¨T1,T2......,TM £©£¬Ã¿¸öÓÃÀý¶ÔÓ¦ÁËÒ»¸ö¸²¸ÇÌØÐÔµÄ¼¯ºÏ£¬²âÊÔÓÃÀýÊ¹ÓÃÆäID×÷ÎªÏÂ±ê½øÐÐ±êÊ¶£¬²âÊÔÓÃÀýµÄÓÅÏÈ¼¶¶¨ÒåÎªÆä¸²¸ÇµÄÌØÐÔµÄÓÅÏÈ¼¶Ö®ºÍ¡£
+//ÔÚ¿ªÕ¹²âÊÔÖ®Ç°£¬ÐèÒªÖÆ¶¨²âÊÔÓÃÀýµÄÖ´ÐÐË³Ðò£¬¹æÔòÎª£ºÓÅÏÈ¼¶´óµÄÓÃÀýÏÈÖ´ÐÐ£¬Èç¹û´æÔÚÓÅÏÈ¼¶ÏàÍ¬µÄÓÃÀý£¬ÓÃÀýIDÐ¡µÄÏÈÖ´ÐÐ¡£
+//
+//ÊäÈëÃèÊö£º
+//µÚÒ»ÐÐÊäÈëÎªNºÍM£¬N±íÊ¾ÌØÐÔµÄÊýÁ¿£¬M±íÊ¾²âÊÔÓÃÀýµÄÊýÁ¿£¬ 0£¼N¡Ü100,
+//0£¼M¡Ü100 Ö®ºóNÐÐ±íÊ¾ÌØÐÔID=1µ½ÌØÐÔID=NµÄÓÅÏÈ¼¶¡£
+//ÔÙ½ÓÏÂÀ´MÐÐ±íÊ¾²âÊÔÓÃÀýID=1µ½²âÊÔÓÃÀýID=M¹ØÁªµÄÌØÐÔµÄIDµÄÁÐ±í¡£
+//
+//Êä³öÃèÊö£º
+//°´ÕÕÖ´ÐÐË³Ðò£¨ÓÅÏÈ¼¶´Ó´óµ½Ð¡£©Êä³ö²âÊÔÓÃÀýµÄID£¬Ã¿ÐÐÒ»¸öID¡£
+//²âÊÔÓÃÀý¸²¸ÇµÄID²»ÖØ¸´¡£
+//
+//Ê¾Àý1
+//ÊäÈë£º
+//5 4
+//1
+//1
+//2
+//3
+//5
+//1 2 3
+//1 4
+//3 4 5
+//2 3 4
+//
+//Êä³ö£º
+//3
+//4
+//1
+//2
+//ËµÃ÷£º²âÊÔÓÃÀýµÄÓÅÏÈ¼¶¼ÆËãÈçÏÂ£º
+//
+//T1=Pf1+Pf2+Pf3=1+1+2=4
+//T2=Pf1+Pf4=1+3=4
+//T3=Pf3+Pf4+Pf5=2+3+5=10
+//T4=Pf2+Pf3+Pf4=1+2+3=6
+//
+//°´ÕÕÓÅÏÈ¼¶´ÓÐ¡µ½´ó£¬ÒÔ¼°ÏàÍ¬ÓÅÏÈ¼¶£¬IDÐ¡µÄÏÈÖ´ÐÐµÄ¹æÔò£¬Ö´ÐÐË³ÐòÎªT3,T4,T1,T2
+//
+//Ê¾Àý2
+//ÊäÈë£º
+//3 3
+//3
+//1
+//5
+//1 2 3
+//1 2 3
+//1 2 3
+//
+//Êä³ö£º
+//1
+//2
+//3
+//
+//ËµÃ÷£º²âÊÔÓÃÀýµÄÓÅÏÈ¼¶¼ÆËãÈçÏÂ£º
+//T1=Pf1+Pf2+PF3=3+1+5=9
+//T2=Pf1+Pf2+PF3=3+1+5=9
+//T3=Pf1+Pf2+PF3=3+1+5=9
+//Ã¿¸öÓÅÏÈ¼¶Ò»Ñù£¬°´ÕÕID´ÓÐ¡µ½´óÖ´ÐÐ£¬Ö´ÐÐË³ÐòÎªT1,T2,T3
+//*/
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//#include<queue>
+//
+//using namespace std;
+//
+//struct task
+//{
+//	int prior_level;	// ÓÅÏÈ¼¶
+//	int No;				// ±àºÅ
+//};
+//
+//bool cmp(task& a, task& b)
+//{
+//	if (a.prior_level != b.prior_level)
+//	{
+//		return a.prior_level > b.prior_level;
+//	}
+//	else {
+//		return a.No < b.No;
+//	}
+//}
+//
+//int main()
+//{
+//	int n, m;	// N±íÊ¾ÌØÐÔµÄÊýÁ¿£¬M±íÊ¾²âÊÔÓÃÀýµÄÊýÁ¿
+//	cin >> n >> m;
+//	vector<int> prior_level(n+1);	// ÌØÐÔÓÅÏÈ¼¶
+//	for (int i = 1; i <= n; i++)
+//	{
+//		cin >> prior_level[i];
+//	}
+//	vector<task> tasks(m);	// ²âÊÔÓÃÀýID=1µ½²âÊÔÓÃÀýID=M¹ØÁªµÄÌØÐÔµÄIDµÄÁÐ±í
+//	for (int i = 0; i < m; i++)
+//	{
+//		int tmp;
+//		while (cin >> tmp)
+//		{
+//			tasks[i].No = i+1;
+//			tasks[i].prior_level += prior_level[tmp];
+//			if (cin.get() == '\n') break;
+//		}
+//	}
+//
+//	sort(tasks.begin(), tasks.end(), cmp);
+//	for (auto i : tasks)
+//	{
+//		cout << i.No << endl;
+//	}
+//
+//
+//
+//
+//
+//
+//
+//}

@@ -1,107 +1,107 @@
-/*
-é¢˜ç›®æè¿°ï¼š
-æå–å­—ç¬¦ä¸²ä¸­çš„æœ€é•¿åˆæ³•ç®€å•æ•°å­¦è¡¨è¾¾å¼ï¼Œå­—ç¬¦ä¸²é•¿åº¦æœ€é•¿çš„ï¼Œå¹¶è®¡ç®—è¡¨è¾¾å¼çš„å€¼ã€‚å¦‚æœæ²¡æœ‰ï¼Œåˆ™è¿”å›0
-ç®€å•æ•°å­¦è¡¨è¾¾å¼åªèƒ½åŒ…å«ä»¥ä¸‹å†…å®¹
-0-9æ•°å­—ï¼Œç¬¦å· +-*
-è¯´æ˜ï¼š
-1. æ‰€æœ‰æ•°å­—ï¼Œè®¡ç®—ç»“æœéƒ½ä¸è¶…è¿‡long
-2. å¦‚æœæœ‰å¤šä¸ªé•¿åº¦ä¸€æ ·çš„ï¼Œè¯·è¿”å›ç¬¬ä¸€ä¸ªè¡¨è¾¾å¼çš„ç»“æœ
-3. æ•°å­¦è¡¨è¾¾å¼ï¼Œå¿…é¡»æ˜¯æœ€é•¿çš„ï¼Œåˆæ³•çš„
-4. æ“ä½œç¬¦ä¸èƒ½è¿ç»­å‡ºç°ï¼Œå¦‚ +--+1 æ˜¯ä¸åˆæ³•çš„
-
-è¾“å…¥æè¿°ï¼š
-å­—ç¬¦ä¸²
-
-è¾“å‡ºæè¿°ï¼š
-è¡¨è¾¾å¼å€¼
-
-è¾“å…¥ï¼š
-1-2abcd
-
-è¾“å‡ºï¼š
--1
-
--1+2-3+4ab-1+1+1+1+1
-
-æ€è·¯ï¼š
-æ­£åˆ™è¡¨è¾¾å¼
-*/
-
-#include<iostream>
-#include<string>
-#include<vector>
-#include<regex>
-#include<stack>
-
-
-using namespace std;
-
-string findexpression(string& s)
-{
-//	regex expRagex(R"(^[+-]?(\d[+-*])+\d$)");	// æ­£åˆ™è¡¨è¾¾å¼çš„è§„åˆ™
-	regex expRagex(R"([+\-]?(\d+[+\-*])+\d+)");
-	sregex_iterator beg(s.begin(), s.end(), expRagex);
-	sregex_iterator end = sregex_iterator();
-
-	int max_length = 0;
-	string longestexpression;
-	for (sregex_iterator i = beg; i != end; i++)
-	{
-		string matchstr = i->str();		// åŒ¹é…åˆ°çš„å­—ç¬¦ä¸²
-		if (matchstr.size() > max_length)
-		{
-			max_length = matchstr.size();
-			longestexpression = matchstr;
-		} 
-	}
-	return longestexpression;
-}
-
-
-// åŠŸèƒ½ï¼šè®¡ç®—ç®€å•æ•°å­¦è¡¨è¾¾å¼çš„å€¼
-long evaluateExpression(const string& expression) {
-    if (expression.empty()) return 0; // å¦‚æœè¡¨è¾¾å¼ä¸ºç©ºï¼Œç›´æ¥è¿”å›0
-
-    stack<long> values;     // ä½¿ç”¨æ ˆæ¥å­˜å‚¨ä¸­é—´ç»“æœ
-    long currentNumber = 0; // å½“å‰è§£æçš„æ•°å­—
-    char sign = '+';        // å½“å‰æ•°å­—å‰çš„æ“ä½œç¬¦ï¼Œé»˜è®¤ä¸º'+'
-    for (int i = 0; i <= expression.size(); ++i) {
-        char c = i < expression.size() ? expression[i] : '+'; // è¯»å–å­—ç¬¦æˆ–åœ¨è¡¨è¾¾å¼æœ«å°¾è¿½åŠ '+'
-        if (isdigit(c)) { // å¦‚æœå­—ç¬¦æ˜¯æ•°å­—
-            currentNumber = currentNumber * 10 + (c - '0'); // ç´¯åŠ å½¢æˆæ•´æ•°
-        }
-        else if (c == '+' || c == '-' || c == '*' || i == expression.size()) { // å¦‚æœå­—ç¬¦æ˜¯æ“ä½œç¬¦æˆ–å·²è¾¾å­—ç¬¦ä¸²æœ«å°¾
-            if (c != '*' && !values.empty() && values.top() == -1) {
-                values.pop(); // å¦‚æœæ ˆé¡¶ä¸º-1ï¼ˆä¹‹å‰çš„ç¬¦å·ä¸ºå‡å·ï¼‰ï¼Œåˆ™å¼¹å‡º
-                sign = '-';  // å°†ç¬¦å·æ”¹ä¸ºè´Ÿå·
-            }
-            switch (sign) {
-            case '+': values.push(currentNumber); break; // åŠ æ³•ï¼šå°†å½“å‰æ•°å­—å‹å…¥æ ˆ
-            case '-': values.push(-currentNumber); break; // å‡æ³•ï¼šå°†å½“å‰æ•°å­—çš„è´Ÿå€¼å‹å…¥æ ˆ
-            case '*':
-                long top = values.top(); // å–å‡ºæ ˆé¡¶å…ƒç´ 
-                values.pop(); // å¼¹å‡ºæ ˆé¡¶å…ƒç´ 
-                values.push(top * currentNumber); // æ‰§è¡Œä¹˜æ³•å¹¶å°†ç»“æœå‹å›æ ˆ
-                break;
-            }
-            currentNumber = 0; // é‡ç½®å½“å‰æ•°å­—
-            sign = c; // æ›´æ–°æ“ä½œç¬¦
-        }
-    }
-
-    long result = 0; // åˆå§‹åŒ–ç»“æœ
-    while (!values.empty()) {
-        result += values.top(); // å°†æ ˆä¸­æ‰€æœ‰æ•°å­—ç´¯åŠ 
-        values.pop(); // å¼¹å‡ºæ ˆé¡¶å…ƒç´ 
-    }
-    return result; // è¿”å›è®¡ç®—ç»“æœ
-}
-
-int main()
-{
-	string str;
-	getline(cin, str);
-	string longestexpression = findexpression(str);
-	int res = evaluateExpression(str);
-	cout << res;
-}
+///*
+//ÌâÄ¿ÃèÊö£º
+//ÌáÈ¡×Ö·û´®ÖĞµÄ×î³¤ºÏ·¨¼òµ¥ÊıÑ§±í´ïÊ½£¬×Ö·û´®³¤¶È×î³¤µÄ£¬²¢¼ÆËã±í´ïÊ½µÄÖµ¡£Èç¹ûÃ»ÓĞ£¬Ôò·µ»Ø0
+//¼òµ¥ÊıÑ§±í´ïÊ½Ö»ÄÜ°üº¬ÒÔÏÂÄÚÈİ
+//0-9Êı×Ö£¬·ûºÅ +-*
+//ËµÃ÷£º
+//1. ËùÓĞÊı×Ö£¬¼ÆËã½á¹û¶¼²»³¬¹ılong
+//2. Èç¹ûÓĞ¶à¸ö³¤¶ÈÒ»ÑùµÄ£¬Çë·µ»ØµÚÒ»¸ö±í´ïÊ½µÄ½á¹û
+//3. ÊıÑ§±í´ïÊ½£¬±ØĞëÊÇ×î³¤µÄ£¬ºÏ·¨µÄ
+//4. ²Ù×÷·û²»ÄÜÁ¬Ğø³öÏÖ£¬Èç +--+1 ÊÇ²»ºÏ·¨µÄ
+//
+//ÊäÈëÃèÊö£º
+//×Ö·û´®
+//
+//Êä³öÃèÊö£º
+//±í´ïÊ½Öµ
+//
+//ÊäÈë£º
+//1-2abcd
+//
+//Êä³ö£º
+//-1
+//
+//-1+2-3+4ab-1+1+1+1+1
+//
+//Ë¼Â·£º
+//ÕıÔò±í´ïÊ½
+//*/
+//
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<regex>
+//#include<stack>
+//
+//
+//using namespace std;
+//
+//string findexpression(string& s)
+//{
+////	regex expRagex(R"(^[+-]?(\d[+-*])+\d$)");	// ÕıÔò±í´ïÊ½µÄ¹æÔò
+//	regex expRagex(R"([+\-]?(\d+[+\-*])+\d+)");
+//	sregex_iterator beg(s.begin(), s.end(), expRagex);
+//	sregex_iterator end = sregex_iterator();
+//
+//	int max_length = 0;
+//	string longestexpression;
+//	for (sregex_iterator i = beg; i != end; i++)
+//	{
+//		string matchstr = i->str();		// Æ¥Åäµ½µÄ×Ö·û´®
+//		if (matchstr.size() > max_length)
+//		{
+//			max_length = matchstr.size();
+//			longestexpression = matchstr;
+//		} 
+//	}
+//	return longestexpression;
+//}
+//
+//
+//// ¹¦ÄÜ£º¼ÆËã¼òµ¥ÊıÑ§±í´ïÊ½µÄÖµ
+//long evaluateExpression(const string& expression) {
+//    if (expression.empty()) return 0; // Èç¹û±í´ïÊ½Îª¿Õ£¬Ö±½Ó·µ»Ø0
+//
+//    stack<long> values;     // Ê¹ÓÃÕ»À´´æ´¢ÖĞ¼ä½á¹û
+//    long currentNumber = 0; // µ±Ç°½âÎöµÄÊı×Ö
+//    char sign = '+';        // µ±Ç°Êı×ÖÇ°µÄ²Ù×÷·û£¬Ä¬ÈÏÎª'+'
+//    for (int i = 0; i <= expression.size(); ++i) {
+//        char c = i < expression.size() ? expression[i] : '+'; // ¶ÁÈ¡×Ö·û»òÔÚ±í´ïÊ½Ä©Î²×·¼Ó'+'
+//        if (isdigit(c)) { // Èç¹û×Ö·ûÊÇÊı×Ö
+//            currentNumber = currentNumber * 10 + (c - '0'); // ÀÛ¼ÓĞÎ³ÉÕûÊı
+//        }
+//        else if (c == '+' || c == '-' || c == '*' || i == expression.size()) { // Èç¹û×Ö·ûÊÇ²Ù×÷·û»òÒÑ´ï×Ö·û´®Ä©Î²
+//            if (c != '*' && !values.empty() && values.top() == -1) {
+//                values.pop(); // Èç¹ûÕ»¶¥Îª-1£¨Ö®Ç°µÄ·ûºÅÎª¼õºÅ£©£¬Ôòµ¯³ö
+//                sign = '-';  // ½«·ûºÅ¸ÄÎª¸ººÅ
+//            }
+//            switch (sign) {
+//            case '+': values.push(currentNumber); break; // ¼Ó·¨£º½«µ±Ç°Êı×ÖÑ¹ÈëÕ»
+//            case '-': values.push(-currentNumber); break; // ¼õ·¨£º½«µ±Ç°Êı×ÖµÄ¸ºÖµÑ¹ÈëÕ»
+//            case '*':
+//                long top = values.top(); // È¡³öÕ»¶¥ÔªËØ
+//                values.pop(); // µ¯³öÕ»¶¥ÔªËØ
+//                values.push(top * currentNumber); // Ö´ĞĞ³Ë·¨²¢½«½á¹ûÑ¹»ØÕ»
+//                break;
+//            }
+//            currentNumber = 0; // ÖØÖÃµ±Ç°Êı×Ö
+//            sign = c; // ¸üĞÂ²Ù×÷·û
+//        }
+//    }
+//
+//    long result = 0; // ³õÊ¼»¯½á¹û
+//    while (!values.empty()) {
+//        result += values.top(); // ½«Õ»ÖĞËùÓĞÊı×ÖÀÛ¼Ó
+//        values.pop(); // µ¯³öÕ»¶¥ÔªËØ
+//    }
+//    return result; // ·µ»Ø¼ÆËã½á¹û
+//}
+//
+//int main()
+//{
+//	string str;
+//	getline(cin, str);
+//	string longestexpression = findexpression(str);
+//	int res = evaluateExpression(str);
+//	cout << res;
+//}

@@ -1,58 +1,58 @@
-/*
-* 024 æ‰¾è½¦ä½
-åœè½¦åœºæœ‰ä¸€æ¨ªæ’è½¦ä½ï¼Œ0ä»£è¡¨æ²¡æœ‰åœè½¦ï¼Œ1ä»£è¡¨æœ‰è½¦ã€‚è‡³å°‘åœäº†ä¸€è¾†è½¦åœ¨è½¦ä½ä¸Šï¼Œä¹Ÿè‡³å°‘æœ‰ä¸€ä¸ªç©ºä½æ²¡æœ‰åœè½¦ã€‚ä¸ºäº†é˜²å‰è¹­ï¼Œéœ€ä¸ºåœè½¦äººæ‰¾åˆ°ä¸€ä¸ªè½¦ä½ï¼Œä½¿å¾—è·åœè½¦äººçš„è½¦æœ€è¿‘çš„è½¦è¾†çš„è·ç¦»æ˜¯æœ€å¤§çš„ï¼Œè¿”å›æ­¤æ—¶çš„æœ€å¤§è·ç¦»ã€‚
-è¾“å…¥æè¿°
-1.ä¸€ä¸ªç”¨åŠè§’é€—å·åˆ†å‰²çš„åœè½¦æ ‡è¯†å­—ç¬¦ä¸²ï¼Œåœè½¦æ ‡è¯†ä¸º0æˆ–1ï¼Œ0ä¸ºç©ºä½ï¼Œ1ä¸ºå·²åœè½¦ã€‚
-2.åœè½¦ä½æœ€å¤š100ä¸ªã€‚
-è¾“å‡ºæè¿°
-è¾“å‡ºä¸€ä¸ªæ•´æ•°è®°å½•æœ€å¤§è·ç¦»
-ç¤ºä¾‹1:
-è¾“å…¥âˆ¶
-1,0,0,0,0,1,0,0,1,0,1
-è¾“å‡º:
-2
-*/
-
-#include<bits/stdc++.h>
-#include<string>
-
-using namespace std;
-
-int main()
-{
-	// ç»å…¸è¾“å…¥
-	string str_input;
-	getline(cin, str_input);
-	int str_size = str_input.size();
-	int start = 0;
-	vector<int> vec;
-	for (int i = 0; i < str_size; i++)
-	{
-		if (str_input[i] == ',')
-		{
-			vec.push_back(stoi(str_input.substr(start, i - start)));
-			start = i + 1;
-		}
-	}
-	vec.push_back(stoi(str_input.substr(start)));
-
-	// æ‰¾åˆ°æœ€å¤§çš„0çš„é•¿åº¦
-	int dist = 0;
-	int max_dist = 0;
-	int i = 0;
-	while(i < vec.size())
-	{
-		if (vec[i] == 0)
-		{
-			dist++;
-			max_dist = dist > max_dist ? dist : max_dist;
-			i++;
-		}
-		else
-		{
-			dist = 0;
-			i++;
-		}
-	}
-	cout << max_dist / 2;
-}
+///*
+//* 024 ÕÒ³µÎ»
+//Í£³µ³¡ÓĞÒ»ºáÅÅ³µÎ»£¬0´ú±íÃ»ÓĞÍ£³µ£¬1´ú±íÓĞ³µ¡£ÖÁÉÙÍ£ÁËÒ»Á¾³µÔÚ³µÎ»ÉÏ£¬Ò²ÖÁÉÙÓĞÒ»¸ö¿ÕÎ»Ã»ÓĞÍ£³µ¡£ÎªÁË·À¹Ğ²ä£¬ĞèÎªÍ£³µÈËÕÒµ½Ò»¸ö³µÎ»£¬Ê¹µÃ¾àÍ£³µÈËµÄ³µ×î½üµÄ³µÁ¾µÄ¾àÀëÊÇ×î´óµÄ£¬·µ»Ø´ËÊ±µÄ×î´ó¾àÀë¡£
+//ÊäÈëÃèÊö
+//1.Ò»¸öÓÃ°ë½Ç¶ººÅ·Ö¸îµÄÍ£³µ±êÊ¶×Ö·û´®£¬Í£³µ±êÊ¶Îª0»ò1£¬0Îª¿ÕÎ»£¬1ÎªÒÑÍ£³µ¡£
+//2.Í£³µÎ»×î¶à100¸ö¡£
+//Êä³öÃèÊö
+//Êä³öÒ»¸öÕûÊı¼ÇÂ¼×î´ó¾àÀë
+//Ê¾Àı1:
+//ÊäÈë¡Ã
+//1,0,0,0,0,1,0,0,1,0,1
+//Êä³ö:
+//2
+//*/
+//
+//#include<bits/stdc++.h>
+//#include<string>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	// ¾­µäÊäÈë
+//	string str_input;
+//	getline(cin, str_input);
+//	int str_size = str_input.size();
+//	int start = 0;
+//	vector<int> vec;
+//	for (int i = 0; i < str_size; i++)
+//	{
+//		if (str_input[i] == ',')
+//		{
+//			vec.push_back(stoi(str_input.substr(start, i - start)));
+//			start = i + 1;
+//		}
+//	}
+//	vec.push_back(stoi(str_input.substr(start)));
+//
+//	// ÕÒµ½×î´óµÄ0µÄ³¤¶È
+//	int dist = 0;
+//	int max_dist = 0;
+//	int i = 0;
+//	while(i < vec.size())
+//	{
+//		if (vec[i] == 0)
+//		{
+//			dist++;
+//			max_dist = dist > max_dist ? dist : max_dist;
+//			i++;
+//		}
+//		else
+//		{
+//			dist = 0;
+//			i++;
+//		}
+//	}
+//	cout << max_dist / 2;
+//}

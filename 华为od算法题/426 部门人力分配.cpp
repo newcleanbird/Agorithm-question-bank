@@ -1,111 +1,111 @@
-/*
-426 éƒ¨é—¨äººåŠ›åˆ†é…
-é¢˜ç›®æè¿°ï¼š
-éƒ¨é—¨åœ¨è¿›è¡Œéœ€æ±‚å¼€å‘æ—¶éœ€è¦è¿›è¡ŒäººåŠ›å®‰æ’ã€‚å½“å‰éƒ¨é—¨éœ€è¦å®ŒæˆNä¸ªéœ€æ±‚ï¼Œéœ€æ±‚ç”¨requirements[]è¡¨ç¤ºï¼Œrequirements[i]è¡¨ç¤ºç¬¬iä¸ªéœ€æ±‚çš„å·¥ä½œé‡å¤§å°ï¼Œå•ä½ï¼šäººæœˆã€‚
-è¿™éƒ¨åˆ†éœ€æ±‚éœ€è¦åœ¨Mä¸ªæœˆå†…å®Œæˆå¼€å‘ï¼Œè¿›è¡ŒäººåŠ›å®‰æ’åæ¯ä¸ªæœˆçš„äººåŠ›æ˜¯å›ºå®šçš„ã€‚
-ç›®å‰è¦æ±‚æ¯ä¸ªæœˆæœ€å¤šæœ‰2ä¸ªéœ€æ±‚å¼€å‘ï¼Œå¹¶ä¸”æ¯ä¸ªæœˆéœ€è¦å®Œæˆçš„éœ€æ±‚ä¸èƒ½è¶…è¿‡éƒ¨é—¨äººåŠ›ã€‚è¯·å¸®éƒ¨é—¨è¯„ä¼°åœ¨æ»¡è¶³éœ€æ±‚å¼€å‘è¿›åº¦çš„æƒ…å†µä¸‹ï¼Œæ¯ä¸ªæœˆéœ€è¦çš„æœ€å°äººåŠ›æ˜¯å¤šå°‘ï¼Ÿ
-è¾“å…¥æè¿°ï¼šè¾“å…¥ç¬¬ä¸€è¡Œä¸ºMå’Œrequirementsï¼ŒMè¡¨ç¤ºéœ€è¦å¼€å‘æ—¶é—´è¦æ±‚ï¼Œrequirementsè¡¨ç¤ºæ¯ä¸ªéœ€æ±‚å·¥ä½œé‡å¤§å°ï¼ŒNä¸ºrequirementsé•¿åº¦
-1 <= N/2 <= M <= N <= 10^4
-1 <= requirements[i] <= 10^9
-è¾“å‡ºæè¿°ï¼šå¯¹äºæ¯ç»„æµ‹è¯•æ•°æ®ï¼Œè¾“å‡ºéƒ¨é—¨éœ€è¦äººåŠ›éœ€æ±‚ï¼Œè¡Œæœ«æ— å¤šä½™ç©ºæ ¼
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-3
-3 5 3 4
-è¾“å‡ºï¼š6
-è¯´æ˜ï¼šè¾“å…¥æ•°æ®ä¸¤è¡Œï¼Œç¬¬ä¸€è¡Œè¾“å…¥æ•°æ®3è¡¨ç¤ºå¼€å‘æ—¶é—´è¦æ±‚ï¼Œç¬¬äºŒè¡Œè¾“å…¥æ•°æ®è¡¨ç¤ºéœ€æ±‚å·¥ä½œé‡å¤§å°ï¼Œè¾“å‡ºæ•°æ®ä¸€è¡Œï¼Œè¡¨ç¤ºéƒ¨é—¨äººåŠ›éœ€æ±‚
-
-3
-1 2 3 4
-
-// æ€è·¯äºŒï¼šäºŒåˆ†+åŒæŒ‡é’ˆ
-*/
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<queue>
-using namespace std;
-
-void solution()
-{
-	int m;	// æ—¶é—´
-	cin >> m;
-	int tmp;
-	priority_queue<int, vector<int>, greater<int>> que;
-	while (cin >> tmp)
-	{
-		que.push(tmp);
-		if (cin.peek() == '\n') break;
-	}
-
-	// è®¡ç®—
-	int count; // éœ€è¦çš„äººåŠ›
-	int tmp1, tmp2;
-	while (que.size() > m)
-	{
-		tmp1 = que.top();
-		que.pop();
-		tmp2 = que.top();
-		que.pop();
-		que.push(tmp1 + tmp2);
-	}
-	while (!que.empty())
-	{
-		count = max(count, que.top());
-		que.pop();
-	}
-	cout << count;
-}
-
-void solution_1()
-{
-    int m;
-    std::cin >> m;
-    std::vector<int> w;
-    int x;
-    while (std::cin >> x) {
-        w.push_back(x);
-    }
-
-    std::sort(w.begin(), w.end());
-    int n = w.size();
-    int l = w[n - 1];
-    int r = 1e9;
-
-    while (l < r) {
-        int mid = (l + r) / 2;
-        if (check(w, m, mid)) {
-            r = mid;
-        }
-        else {
-            l = mid + 1;
-        }
-    }
-    std::cout << l << std::endl;
-}
-
-int check(const std::vector<int>& w, int m, int x) {
-    int cnt = 0;
-    int l = 0;
-    int r = w.size() - 1;
-
-    while (l <= r) {
-        if (w[l] + w[r] <= x) {
-            l++;
-            r--;
-        } else {
-            r--;
-        }
-        cnt++;
-    }
-
-    return cnt <= m;
-}
-
-int main()
-{
-	// solution();
-    solution_1();
-
-}
+///*
+//426 ²¿ÃÅÈËÁ¦·ÖÅä
+//ÌâÄ¿ÃèÊö£º
+//²¿ÃÅÔÚ½øĞĞĞèÇó¿ª·¢Ê±ĞèÒª½øĞĞÈËÁ¦°²ÅÅ¡£µ±Ç°²¿ÃÅĞèÒªÍê³ÉN¸öĞèÇó£¬ĞèÇóÓÃrequirements[]±íÊ¾£¬requirements[i]±íÊ¾µÚi¸öĞèÇóµÄ¹¤×÷Á¿´óĞ¡£¬µ¥Î»£ºÈËÔÂ¡£
+//Õâ²¿·ÖĞèÇóĞèÒªÔÚM¸öÔÂÄÚÍê³É¿ª·¢£¬½øĞĞÈËÁ¦°²ÅÅºóÃ¿¸öÔÂµÄÈËÁ¦ÊÇ¹Ì¶¨µÄ¡£
+//Ä¿Ç°ÒªÇóÃ¿¸öÔÂ×î¶àÓĞ2¸öĞèÇó¿ª·¢£¬²¢ÇÒÃ¿¸öÔÂĞèÒªÍê³ÉµÄĞèÇó²»ÄÜ³¬¹ı²¿ÃÅÈËÁ¦¡£Çë°ï²¿ÃÅÆÀ¹ÀÔÚÂú×ãĞèÇó¿ª·¢½ø¶ÈµÄÇé¿öÏÂ£¬Ã¿¸öÔÂĞèÒªµÄ×îĞ¡ÈËÁ¦ÊÇ¶àÉÙ£¿
+//ÊäÈëÃèÊö£ºÊäÈëµÚÒ»ĞĞÎªMºÍrequirements£¬M±íÊ¾ĞèÒª¿ª·¢Ê±¼äÒªÇó£¬requirements±íÊ¾Ã¿¸öĞèÇó¹¤×÷Á¿´óĞ¡£¬NÎªrequirements³¤¶È
+//1 <= N/2 <= M <= N <= 10^4
+//1 <= requirements[i] <= 10^9
+//Êä³öÃèÊö£º¶ÔÓÚÃ¿×é²âÊÔÊı¾İ£¬Êä³ö²¿ÃÅĞèÒªÈËÁ¦ĞèÇó£¬ĞĞÄ©ÎŞ¶àÓà¿Õ¸ñ
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//3
+//3 5 3 4
+//Êä³ö£º6
+//ËµÃ÷£ºÊäÈëÊı¾İÁ½ĞĞ£¬µÚÒ»ĞĞÊäÈëÊı¾İ3±íÊ¾¿ª·¢Ê±¼äÒªÇó£¬µÚ¶şĞĞÊäÈëÊı¾İ±íÊ¾ĞèÇó¹¤×÷Á¿´óĞ¡£¬Êä³öÊı¾İÒ»ĞĞ£¬±íÊ¾²¿ÃÅÈËÁ¦ĞèÇó
+//
+//3
+//1 2 3 4
+//
+//// Ë¼Â·¶ş£º¶ş·Ö+Ë«Ö¸Õë
+//*/
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//#include<queue>
+//using namespace std;
+//
+//void solution()
+//{
+//	int m;	// Ê±¼ä
+//	cin >> m;
+//	int tmp;
+//	priority_queue<int, vector<int>, greater<int>> que;
+//	while (cin >> tmp)
+//	{
+//		que.push(tmp);
+//		if (cin.peek() == '\n') break;
+//	}
+//
+//	// ¼ÆËã
+//	int count; // ĞèÒªµÄÈËÁ¦
+//	int tmp1, tmp2;
+//	while (que.size() > m)
+//	{
+//		tmp1 = que.top();
+//		que.pop();
+//		tmp2 = que.top();
+//		que.pop();
+//		que.push(tmp1 + tmp2);
+//	}
+//	while (!que.empty())
+//	{
+//		count = max(count, que.top());
+//		que.pop();
+//	}
+//	cout << count;
+//}
+//
+//void solution_1()
+//{
+//    int m;
+//    std::cin >> m;
+//    std::vector<int> w;
+//    int x;
+//    while (std::cin >> x) {
+//        w.push_back(x);
+//    }
+//
+//    std::sort(w.begin(), w.end());
+//    int n = w.size();
+//    int l = w[n - 1];
+//    int r = 1e9;
+//
+//    while (l < r) {
+//        int mid = (l + r) / 2;
+//        if (check(w, m, mid)) {
+//            r = mid;
+//        }
+//        else {
+//            l = mid + 1;
+//        }
+//    }
+//    std::cout << l << std::endl;
+//}
+//
+//int check(const std::vector<int>& w, int m, int x) {
+//    int cnt = 0;
+//    int l = 0;
+//    int r = w.size() - 1;
+//
+//    while (l <= r) {
+//        if (w[l] + w[r] <= x) {
+//            l++;
+//            r--;
+//        } else {
+//            r--;
+//        }
+//        cnt++;
+//    }
+//
+//    return cnt <= m;
+//}
+//
+//int main()
+//{
+//	// solution();
+//    solution_1();
+//
+//}

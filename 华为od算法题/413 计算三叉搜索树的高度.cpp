@@ -1,164 +1,164 @@
-/*
-413 è®¡ç®—ä¸‰å‰æœç´¢æ ‘çš„é«˜åº¦
-é¢˜ç›®æè¿°ï¼š
-å®šä¹‰æ„é€ ä¸‰å‰æœç´¢æ ‘è§„åˆ™å¦‚ä¸‹ï¼š
-æ¯ä¸ªèŠ‚ç‚¹éƒ½å­˜æœ‰ä¸€ä¸ªæ•°ï¼Œå½“æ’å…¥ä¸€ä¸ªæ–°çš„æ•°æ—¶ï¼Œä»æ ¹èŠ‚ç‚¹å‘ä¸‹å¯»æ‰¾ï¼Œç›´åˆ°æ‰¾åˆ°ä¸€ä¸ªåˆé€‚çš„ç©ºèŠ‚ç‚¹æ’å…¥ã€‚
-    æŸ¥æ‰¾çš„è§„åˆ™æ˜¯ï¼š
-        1. å¦‚æœæ•°å°äºèŠ‚ç‚¹çš„æ•°å‡å»500ï¼Œåˆ™å°†æ•°æ’å…¥èŠ‚ç‚¹çš„å·¦å­æ ‘
-        2. å¦‚æœæ•°å¤§äºèŠ‚ç‚¹çš„æ•°åŠ ä¸Š500ï¼Œåˆ™å°†æ•°æ’å…¥èŠ‚ç‚¹çš„å³å­æ ‘
-        3. å¦åˆ™ï¼Œå°†æ•°æ’å…¥èŠ‚ç‚¹çš„ä¸­å­æ ‘
-ç»™ä½ ä¸€ç³»åˆ—æ•°ï¼Œè¯·æŒ‰ä»¥ä¸Šè§„åˆ™ï¼ŒæŒ‰é¡ºåºå°†æ•°æ’å…¥æ ‘ä¸­ï¼Œæ„å»ºå‡ºä¸€æ£µä¸‰å‰æœç´¢æ ‘ï¼Œæœ€åè¾“å‡ºæ ‘çš„é«˜åº¦ã€‚
-
-è¾“å…¥æè¿°ï¼šç¬¬ä¸€è¡Œä¸ºä¸€ä¸ªæ•°Nï¼Œè¡¨ç¤ºæœ‰Nä¸ªæ•°ï¼Œ1<=N<=10000
-ç¬¬äºŒè¡Œä¸ºNä¸ªç©ºæ ¼åˆ†éš”çš„æ•´æ•°ï¼Œæ¯ä¸ªæ•°çš„èŒƒå›´ä¸º[1,10000]
-
-è¾“å‡ºæè¿°ï¼šè¾“å‡ºæ ‘çš„é«˜åº¦(æ ¹èŠ‚ç‚¹çš„é«˜åº¦ä¸º1)
-
-è¡¥å……è¯´æ˜ï¼š
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-5
-5000 2000 5000 8000 1800
-è¾“å‡ºï¼š
-3
-è¯´æ˜ï¼š
-æœ€ç»ˆæ„é€ å‡ºçš„æ ‘å¦‚ä¸‹ï¼Œé«˜åº¦ä¸º3ï¼š
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-3
-5000 4000 3000
-è¾“å‡ºï¼š
-3
-è¯´æ˜ï¼š
-æœ€ç»ˆæ„é€ å‡ºçš„æ ‘å¦‚ä¸‹ï¼Œé«˜åº¦ä¸º3ï¼š
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-6
-500 1500 2500 3500 4500 5500
-
-*/
-#include<iostream>
-#include<vector>
-#include<queue>
-
-using namespace std;
-
-struct Node
-{
-    int val = 0;
-    Node* a = nullptr;
-    Node* b = nullptr;
-    Node* c = nullptr;
-
-public:
-    Node(int n)
-    {
-        val = n;
-    }
-};
-
-class TernarySearchTree
-{
-public:
-    Node* head = nullptr;
-};
-
-TernarySearchTree tree;
-
-int res = 0;
-
-void insertNode(int n)
-{
-    int height = 1;
-    Node* next = tree.head;
-    Node* cur;
-    if (next == nullptr)
-    {
-        tree.head = new Node(n);
-    }
-    else {
-        while (1)
-        {
-            cur = next;
-            if (n < cur->val - 500)
-            {
-                next = next->a;
-                height++;
-                if (next == nullptr)
-                {
-                    cur->a = new Node(n);
-                    break;
-                }
-            }
-            else if (n > cur->val + 500)
-            {
-                next = next->c;
-                height++;
-                if (next == nullptr)
-                {
-                    cur->c = new Node(n);
-                    break;
-                }
-            }
-            else {
-                next = next->b;
-                height++;
-                if (next == nullptr)
-                {
-                    cur->b = new Node(n);
-                    break;
-                }
-            }
-        }
-    }
-    res = max(res, height);
-}
-
-void print()
-{
-    Node* cur = tree.head;
-    queue<Node*> q;
-    if (cur != nullptr)
-    {
-        q.push(cur);
-    }
-    while (!q.empty())
-    {
-        cur = q.front(); q.pop();
-        cout << cur->val << " ";
-        if (cur->a != nullptr)
-        {
-            q.push(cur->a);
-        }
-        if (cur->b != nullptr)
-        {
-            q.push(cur->b);
-        }
-        if (cur->c != nullptr)
-        {
-            q.push(cur->c);
-        }
-    }
-}
-
-int main()
-{
-    int num;
-    cin >> num;
-    vector<int> nums(num);
-    for (int i = 0; i < num; i++)
-    {
-        cin >> nums[i];
-    }
-    // æ’å…¥
-    for (auto i : nums)
-    {
-        insertNode(i);
-        print();
-        cout << endl;
-    }
-    cout << res;
-}
+///*
+//413 ¼ÆËãÈı²æËÑË÷Ê÷µÄ¸ß¶È
+//ÌâÄ¿ÃèÊö£º
+//¶¨Òå¹¹ÔìÈı²æËÑË÷Ê÷¹æÔòÈçÏÂ£º
+//Ã¿¸ö½Úµã¶¼´æÓĞÒ»¸öÊı£¬µ±²åÈëÒ»¸öĞÂµÄÊıÊ±£¬´Ó¸ù½ÚµãÏòÏÂÑ°ÕÒ£¬Ö±µ½ÕÒµ½Ò»¸öºÏÊÊµÄ¿Õ½Úµã²åÈë¡£
+//    ²éÕÒµÄ¹æÔòÊÇ£º
+//        1. Èç¹ûÊıĞ¡ÓÚ½ÚµãµÄÊı¼õÈ¥500£¬Ôò½«Êı²åÈë½ÚµãµÄ×ó×ÓÊ÷
+//        2. Èç¹ûÊı´óÓÚ½ÚµãµÄÊı¼ÓÉÏ500£¬Ôò½«Êı²åÈë½ÚµãµÄÓÒ×ÓÊ÷
+//        3. ·ñÔò£¬½«Êı²åÈë½ÚµãµÄÖĞ×ÓÊ÷
+//¸øÄãÒ»ÏµÁĞÊı£¬Çë°´ÒÔÉÏ¹æÔò£¬°´Ë³Ğò½«Êı²åÈëÊ÷ÖĞ£¬¹¹½¨³öÒ»¿ÃÈı²æËÑË÷Ê÷£¬×îºóÊä³öÊ÷µÄ¸ß¶È¡£
+//
+//ÊäÈëÃèÊö£ºµÚÒ»ĞĞÎªÒ»¸öÊıN£¬±íÊ¾ÓĞN¸öÊı£¬1<=N<=10000
+//µÚ¶şĞĞÎªN¸ö¿Õ¸ñ·Ö¸ôµÄÕûÊı£¬Ã¿¸öÊıµÄ·¶Î§Îª[1,10000]
+//
+//Êä³öÃèÊö£ºÊä³öÊ÷µÄ¸ß¶È(¸ù½ÚµãµÄ¸ß¶ÈÎª1)
+//
+//²¹³äËµÃ÷£º
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//5
+//5000 2000 5000 8000 1800
+//Êä³ö£º
+//3
+//ËµÃ÷£º
+//×îÖÕ¹¹Ôì³öµÄÊ÷ÈçÏÂ£¬¸ß¶ÈÎª3£º
+//
+//Ê¾Àı2
+//ÊäÈë£º
+//3
+//5000 4000 3000
+//Êä³ö£º
+//3
+//ËµÃ÷£º
+//×îÖÕ¹¹Ôì³öµÄÊ÷ÈçÏÂ£¬¸ß¶ÈÎª3£º
+//
+//Ê¾Àı2
+//ÊäÈë£º
+//6
+//500 1500 2500 3500 4500 5500
+//
+//*/
+//#include<iostream>
+//#include<vector>
+//#include<queue>
+//
+//using namespace std;
+//
+//struct Node
+//{
+//    int val = 0;
+//    Node* a = nullptr;
+//    Node* b = nullptr;
+//    Node* c = nullptr;
+//
+//public:
+//    Node(int n)
+//    {
+//        val = n;
+//    }
+//};
+//
+//class TernarySearchTree
+//{
+//public:
+//    Node* head = nullptr;
+//};
+//
+//TernarySearchTree tree;
+//
+//int res = 0;
+//
+//void insertNode(int n)
+//{
+//    int height = 1;
+//    Node* next = tree.head;
+//    Node* cur;
+//    if (next == nullptr)
+//    {
+//        tree.head = new Node(n);
+//    }
+//    else {
+//        while (1)
+//        {
+//            cur = next;
+//            if (n < cur->val - 500)
+//            {
+//                next = next->a;
+//                height++;
+//                if (next == nullptr)
+//                {
+//                    cur->a = new Node(n);
+//                    break;
+//                }
+//            }
+//            else if (n > cur->val + 500)
+//            {
+//                next = next->c;
+//                height++;
+//                if (next == nullptr)
+//                {
+//                    cur->c = new Node(n);
+//                    break;
+//                }
+//            }
+//            else {
+//                next = next->b;
+//                height++;
+//                if (next == nullptr)
+//                {
+//                    cur->b = new Node(n);
+//                    break;
+//                }
+//            }
+//        }
+//    }
+//    res = max(res, height);
+//}
+//
+//void print()
+//{
+//    Node* cur = tree.head;
+//    queue<Node*> q;
+//    if (cur != nullptr)
+//    {
+//        q.push(cur);
+//    }
+//    while (!q.empty())
+//    {
+//        cur = q.front(); q.pop();
+//        cout << cur->val << " ";
+//        if (cur->a != nullptr)
+//        {
+//            q.push(cur->a);
+//        }
+//        if (cur->b != nullptr)
+//        {
+//            q.push(cur->b);
+//        }
+//        if (cur->c != nullptr)
+//        {
+//            q.push(cur->c);
+//        }
+//    }
+//}
+//
+//int main()
+//{
+//    int num;
+//    cin >> num;
+//    vector<int> nums(num);
+//    for (int i = 0; i < num; i++)
+//    {
+//        cin >> nums[i];
+//    }
+//    // ²åÈë
+//    for (auto i : nums)
+//    {
+//        insertNode(i);
+//        print();
+//        cout << endl;
+//    }
+//    cout << res;
+//}

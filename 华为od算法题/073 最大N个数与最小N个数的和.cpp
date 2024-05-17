@@ -1,115 +1,115 @@
-/*
-æœ€å¤§Nä¸ªæ•°ä¸Žæœ€å°Nä¸ªæ•°çš„å’Œ
-
-é¢˜ç›®æè¿°ï¼š
-ç»™å®šä¸€ä¸ªæ•°ç»„ï¼Œç¼–å†™ä¸€ä¸ªå‡½æ•°æ¥è®¡ç®—å®ƒçš„æœ€å¤§Nä¸ªæ•°ä¸Žæœ€å°Nä¸ªæ•°çš„å’Œã€‚ä½ éœ€è¦å¯¹æ•°ç»„è¿›è¡ŒåŽ»é‡ã€‚
-
-è¯´æ˜Žï¼š
-
-æ•°ç»„ä¸­æ•°å­—èŒƒå›´[0, 1000]
-
-æœ€å¤§Nä¸ªæ•°ä¸Žæœ€å°Nä¸ªæ•°ä¸èƒ½æœ‰é‡å ï¼Œå¦‚æœ‰é‡å ï¼Œè¾“å…¥éžæ³•è¿”å›ž-1
-
-è¾“å…¥éžæ³•è¿”å›ž-1
-
-è¾“å…¥æè¿°:
-
-ç¬¬ä¸€è¡Œè¾“å…¥Mï¼Œ Mæ ‡è¯†æ•°ç»„å¤§å°\nç¬¬äºŒè¡Œè¾“å…¥Mä¸ªæ•°ï¼Œæ ‡è¯†æ•°ç»„å†…å®¹
-
-ç¬¬ä¸‰è¡Œè¾“å…¥Nï¼ŒNè¡¨è¾¾éœ€è¦è®¡ç®—çš„æœ€å¤§ã€æœ€å°Nä¸ªæ•°
-
-è¾“å‡ºæè¿°:
-
-è¾“å‡ºæœ€å¤§Nä¸ªæ•°ä¸Žæœ€å°Nä¸ªæ•°çš„å’Œã€‚
-
-ç¤ºä¾‹1
-
-è¾“å…¥è¾“å‡ºç¤ºä¾‹ä»…ä¾›è°ƒè¯•ï¼ŒåŽå°åˆ¤é¢˜æ•°æ®ä¸€èˆ¬ä¸åŒ…å«ç¤ºä¾‹
-
-è¾“å…¥
-
-5
-
-95 88 83 64 100
-
-2
-
-è¾“å‡º
-
-342
-
-è¯´æ˜Ž
-
-æœ€å¤§2ä¸ªæ•°[100,95],æœ€å°2ä¸ªæ•°[83,64], è¾“å‡ºä¸º342ã€‚
-
-ç¤ºä¾‹2
-
-è¾“å…¥è¾“å‡ºç¤ºä¾‹ä»…ä¾›è°ƒè¯•ï¼ŒåŽå°åˆ¤é¢˜æ•°æ®ä¸€èˆ¬ä¸åŒ…å«ç¤ºä¾‹
-
-è¾“å…¥
-
-5
-3 2 3 4 2
-2
-
-è¾“å‡º
-
--1
-
-è¯´æ˜Ž
-
-æœ€å¤§2ä¸ªæ•°[4,3],æœ€å°2ä¸ªæ•°[3,2], æœ‰é‡å è¾“å‡ºä¸º-1ã€‚
-
-æ€è·¯ï¼š
-		è¾“å…¥ï¼šä¾æ¬¡è¾“å…¥åˆ°vectorä¸­ï¼Œè¾“å…¥çš„æ—¶å€™è¿›è¡ŒæŸ¥é‡
-		å¯¹vectorè¿›è¡ŒæŽ’åº
-		ç„¶åŽä¾æ¬¡è®¡ç®—å’Œï¼Œå¹¶åˆ¤æ–­æ˜¯å¦è¶Šç•Œ
-*/
-#include<iostream>
-#include<vector>
-#include<algorithm>
-
-using namespace std;
-
-int main()
-{
-	int size;
-	cin >> size;
-	vector<int> vec;
-	int tmp;
-	while (size--)
-	{
-		cin >> tmp;
-		if (find(vec.begin(), vec.end(), tmp) != vec.end())
-		{
-			continue;
-		}
-		vec.push_back(tmp);
-	}
-	int num;
-	cin >> num;
-	int min = 0;
-	int sum_min = 0;
-	int max = 0;
-	int sum_max = 0;
-	sort(vec.begin(), vec.end());
-	for (int i = 0; i < num; i++)
-	{
-		min = vec[i];
-		sum_min += vec[i];
-	}
-	int vec_size = vec.size();
-	for (int i = 0; i < num; i++)
-	{
-		max = vec[vec_size - i - 1];
-		sum_max += vec[vec_size - i - 1];
-	}
-	if (min >= max)
-	{
-		cout << -1;
-	}
-	else {
-		cout << sum_min + sum_max;
-	}
-	
-}
+///*
+//×î´óN¸öÊýÓë×îÐ¡N¸öÊýµÄºÍ
+//
+//ÌâÄ¿ÃèÊö£º
+//¸ø¶¨Ò»¸öÊý×é£¬±àÐ´Ò»¸öº¯ÊýÀ´¼ÆËãËüµÄ×î´óN¸öÊýÓë×îÐ¡N¸öÊýµÄºÍ¡£ÄãÐèÒª¶ÔÊý×é½øÐÐÈ¥ÖØ¡£
+//
+//ËµÃ÷£º
+//
+//Êý×éÖÐÊý×Ö·¶Î§[0, 1000]
+//
+//×î´óN¸öÊýÓë×îÐ¡N¸öÊý²»ÄÜÓÐÖØµþ£¬ÈçÓÐÖØµþ£¬ÊäÈë·Ç·¨·µ»Ø-1
+//
+//ÊäÈë·Ç·¨·µ»Ø-1
+//
+//ÊäÈëÃèÊö:
+//
+//µÚÒ»ÐÐÊäÈëM£¬ M±êÊ¶Êý×é´óÐ¡\nµÚ¶þÐÐÊäÈëM¸öÊý£¬±êÊ¶Êý×éÄÚÈÝ
+//
+//µÚÈýÐÐÊäÈëN£¬N±í´ïÐèÒª¼ÆËãµÄ×î´ó¡¢×îÐ¡N¸öÊý
+//
+//Êä³öÃèÊö:
+//
+//Êä³ö×î´óN¸öÊýÓë×îÐ¡N¸öÊýµÄºÍ¡£
+//
+//Ê¾Àý1
+//
+//ÊäÈëÊä³öÊ¾Àý½ö¹©µ÷ÊÔ£¬ºóÌ¨ÅÐÌâÊý¾ÝÒ»°ã²»°üº¬Ê¾Àý
+//
+//ÊäÈë
+//
+//5
+//
+//95 88 83 64 100
+//
+//2
+//
+//Êä³ö
+//
+//342
+//
+//ËµÃ÷
+//
+//×î´ó2¸öÊý[100,95],×îÐ¡2¸öÊý[83,64], Êä³öÎª342¡£
+//
+//Ê¾Àý2
+//
+//ÊäÈëÊä³öÊ¾Àý½ö¹©µ÷ÊÔ£¬ºóÌ¨ÅÐÌâÊý¾ÝÒ»°ã²»°üº¬Ê¾Àý
+//
+//ÊäÈë
+//
+//5
+//3 2 3 4 2
+//2
+//
+//Êä³ö
+//
+//-1
+//
+//ËµÃ÷
+//
+//×î´ó2¸öÊý[4,3],×îÐ¡2¸öÊý[3,2], ÓÐÖØµþÊä³öÎª-1¡£
+//
+//Ë¼Â·£º
+//		ÊäÈë£ºÒÀ´ÎÊäÈëµ½vectorÖÐ£¬ÊäÈëµÄÊ±ºò½øÐÐ²éÖØ
+//		¶Ôvector½øÐÐÅÅÐò
+//		È»ºóÒÀ´Î¼ÆËãºÍ£¬²¢ÅÐ¶ÏÊÇ·ñÔ½½ç
+//*/
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	int size;
+//	cin >> size;
+//	vector<int> vec;
+//	int tmp;
+//	while (size--)
+//	{
+//		cin >> tmp;
+//		if (find(vec.begin(), vec.end(), tmp) != vec.end())
+//		{
+//			continue;
+//		}
+//		vec.push_back(tmp);
+//	}
+//	int num;
+//	cin >> num;
+//	int min = 0;
+//	int sum_min = 0;
+//	int max = 0;
+//	int sum_max = 0;
+//	sort(vec.begin(), vec.end());
+//	for (int i = 0; i < num; i++)
+//	{
+//		min = vec[i];
+//		sum_min += vec[i];
+//	}
+//	int vec_size = vec.size();
+//	for (int i = 0; i < num; i++)
+//	{
+//		max = vec[vec_size - i - 1];
+//		sum_max += vec[vec_size - i - 1];
+//	}
+//	if (min >= max)
+//	{
+//		cout << -1;
+//	}
+//	else {
+//		cout << sum_min + sum_max;
+//	}
+//	
+//}

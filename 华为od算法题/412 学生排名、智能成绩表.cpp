@@ -1,114 +1,114 @@
-/*
-412ã€å­¦ç”Ÿæ’åã€æ™ºèƒ½æˆç»©è¡¨
-é¢˜ç›®æè¿°ï¼š
-å°æ˜æ¥åˆ°æŸå­¦æ ¡å½“è€å¸ˆï¼Œéœ€è¦å°†å­¦ç”ŸæŒ‰è€ƒè¯•æ€»åˆ†æˆ–å•ç§‘åˆ†æ•°è¿›è¡Œæ’åï¼Œä½ èƒ½å¸®å¸®ä»–å—ï¼Ÿ
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬1è¡Œè¾“å…¥ä¸¤ä¸ªæ•´æ•°ï¼Œå­¦ç”Ÿäººæ•°nå’Œç§‘ç›®æ•°é‡mã€‚0<n<100,0<m<10
-ç¬¬2è¡Œè¾“å…¥mä¸ªç§‘ç›®åç§°ï¼Œå½¼æ­¤ä¹‹é—´ç”¨ç©ºæ ¼éš”å¼€ã€‚ç§‘ç›®åç§°åªç”±è‹±æ–‡å­—æ¯æ„æˆï¼Œå•ä¸ªé•¿åº¦ä¸è¶…è¿‡10ä¸ªå­—ç¬¦ã€‚ç§‘ç›®çš„å‡ºç°é¡ºåºå’Œåç»­è¾“å…¥çš„å­¦ç”Ÿæˆç»©ä¸€ä¸€å¯¹åº”ã€‚ä¸ä¼šå‡ºç°é‡å¤çš„ç§‘ç›®åç§°ã€‚
-ç¬¬3è¡Œå¼€å§‹çš„nè¡Œï¼Œæ¯è¡ŒåŒ…å«ä¸€ä¸ªå­¦ç”Ÿçš„å§“åå’Œè¯¥ç”Ÿmä¸ªç§‘ç›®çš„æˆç»©ï¼ˆç©ºæ ¼éš”å¼€ï¼‰ï¼Œå­¦ç”Ÿä¸ä¼šé‡åã€‚å­¦ç”Ÿå§“ååªç”±è‹±æ–‡å­—æ¯æ„æˆï¼Œé•¿åº¦ä¸è¶…è¿‡10ä¸ªå­—ç¬¦ã€‚æˆç»©æ˜¯0~100çš„æ•´æ•°ï¼Œä¾æ¬¡å¯¹åº”ç¬¬2è¡Œä¸­è¾“å…¥çš„ç§‘ç›®ã€‚
-ç¬¬n+2è¡Œï¼Œè¾“å…¥ç”¨ä½œæ’åçš„ç§‘ç›®åç§°ã€‚è‹¥ç§‘ç›®ä¸å­˜åœ¨ï¼Œåˆ™æŒ‰æ€»åˆ†è¿›è¡Œæ’åºã€‚
-
-è¾“å‡ºæè¿°ï¼š
-è¾“å‡ºä¸€è¡Œï¼ŒæŒ‰æˆç»©æ’åºåçš„å­¦ç”Ÿåå­—ï¼Œç©ºæ ¼éš”å¼€ã€‚æˆç»©ç›¸åŒçš„æŒ‰ç…§å­¦ç”Ÿå§“åå­—å…¸é¡ºåºæ’åºã€‚
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-3 2
-yuwen shuxue
-fangfang 95 90
-xiaohua 88 95
-minmin 100 82
-shuxue
-è¾“å‡ºï¼š
-xiaohua fangfang minmin
-è¯´æ˜ï¼š
-æŒ‰shuxueæˆç»©æ’åï¼Œä¾æ¬¡æ˜¯xiaohuaã€fangfangã€minmin
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-3 2
-yuwen shuxue
-fangfang 95 90
-xiaohua 88 95
-minmin 90 95
-zongfen
-è¾“å‡ºï¼š
-fangfang minmin xiaohua
-è¯´æ˜ï¼š
-
-æ’åºç§‘ç›®ä¸å­˜åœ¨ï¼ŒæŒ‰æ€»åˆ†æ’åºï¼Œfangfangå’Œminminæ€»åˆ†ç›¸åŒï¼ŒæŒ‰å§“åçš„å­—å…¸é¡ºåºï¼Œfangfangæ’åœ¨å‰é¢
-*/
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<map>
-
-using namespace std;
-
-struct student
-{
-	string name;
-	vector<int> subject;
-	int total_score;
-};
-
-int index = -1; // æ’åºçš„ä¸‹æ ‡
-
-bool cmp(student student1, student student2)
-{
-	if (index != -1)
-	{
-		int score1 = student1.subject[index];
-		int score2 = student2.subject[index];
-		if (score1 != score2)
-		{
-			return score1 > score2;
-		}
-		else {
-			return student1.name < student2.name;
-		}
-	}
-	else {
-		return student1.total_score > student2.total_score;
-	}
-}
-
-int main()
-{
-	int n, m; //å­¦ç”Ÿäººæ•°n ç§‘ç›®æ•°é‡m
-	cin >> n >> m;
-	vector<string> subject(m);	// æˆç»©
-	for (int i = 0; i < m; i++)
-	{
-		cin >> subject[i];
-	}
-	vector<student> students(n);
-	for (int i = 0; i < n; i++)
-	{
-		cin >> students[i].name;
-		int tmp;
-		int score = 0;
-		for (int j = 0; j < m; j++)
-		{
-			cin >> tmp;
-			students[i].subject.push_back(tmp);
-			score += tmp;
-		}
-		students[i].total_score = score;
-	}
-	string cmp_name;
-	cin >> cmp_name;
-	for (int i = 0; i < m; i++)
-	{
-		if (subject[i] == cmp_name)
-		{
-			index = i;
-		}
-	}
-	sort(students.begin(), students.end(), cmp);
-	for (auto i : students)
-	{
-		cout << i.name << " ";
-	}
-}
+///*
+//412¡¢Ñ§ÉúÅÅÃû¡¢ÖÇÄÜ³É¼¨±í
+//ÌâÄ¿ÃèÊö£º
+//Ğ¡Ã÷À´µ½Ä³Ñ§Ğ£µ±ÀÏÊ¦£¬ĞèÒª½«Ñ§Éú°´¿¼ÊÔ×Ü·Ö»òµ¥¿Æ·ÖÊı½øĞĞÅÅÃû£¬ÄãÄÜ°ï°ïËûÂğ£¿
+//
+//ÊäÈëÃèÊö£º
+//µÚ1ĞĞÊäÈëÁ½¸öÕûÊı£¬Ñ§ÉúÈËÊınºÍ¿ÆÄ¿ÊıÁ¿m¡£0<n<100,0<m<10
+//µÚ2ĞĞÊäÈëm¸ö¿ÆÄ¿Ãû³Æ£¬±Ë´ËÖ®¼äÓÃ¿Õ¸ñ¸ô¿ª¡£¿ÆÄ¿Ãû³ÆÖ»ÓÉÓ¢ÎÄ×ÖÄ¸¹¹³É£¬µ¥¸ö³¤¶È²»³¬¹ı10¸ö×Ö·û¡£¿ÆÄ¿µÄ³öÏÖË³ĞòºÍºóĞøÊäÈëµÄÑ§Éú³É¼¨Ò»Ò»¶ÔÓ¦¡£²»»á³öÏÖÖØ¸´µÄ¿ÆÄ¿Ãû³Æ¡£
+//µÚ3ĞĞ¿ªÊ¼µÄnĞĞ£¬Ã¿ĞĞ°üº¬Ò»¸öÑ§ÉúµÄĞÕÃûºÍ¸ÃÉúm¸ö¿ÆÄ¿µÄ³É¼¨£¨¿Õ¸ñ¸ô¿ª£©£¬Ñ§Éú²»»áÖØÃû¡£Ñ§ÉúĞÕÃûÖ»ÓÉÓ¢ÎÄ×ÖÄ¸¹¹³É£¬³¤¶È²»³¬¹ı10¸ö×Ö·û¡£³É¼¨ÊÇ0~100µÄÕûÊı£¬ÒÀ´Î¶ÔÓ¦µÚ2ĞĞÖĞÊäÈëµÄ¿ÆÄ¿¡£
+//µÚn+2ĞĞ£¬ÊäÈëÓÃ×÷ÅÅÃûµÄ¿ÆÄ¿Ãû³Æ¡£Èô¿ÆÄ¿²»´æÔÚ£¬Ôò°´×Ü·Ö½øĞĞÅÅĞò¡£
+//
+//Êä³öÃèÊö£º
+//Êä³öÒ»ĞĞ£¬°´³É¼¨ÅÅĞòºóµÄÑ§ÉúÃû×Ö£¬¿Õ¸ñ¸ô¿ª¡£³É¼¨ÏàÍ¬µÄ°´ÕÕÑ§ÉúĞÕÃû×ÖµäË³ĞòÅÅĞò¡£
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//3 2
+//yuwen shuxue
+//fangfang 95 90
+//xiaohua 88 95
+//minmin 100 82
+//shuxue
+//Êä³ö£º
+//xiaohua fangfang minmin
+//ËµÃ÷£º
+//°´shuxue³É¼¨ÅÅÃû£¬ÒÀ´ÎÊÇxiaohua¡¢fangfang¡¢minmin
+//
+//Ê¾Àı2
+//ÊäÈë£º
+//3 2
+//yuwen shuxue
+//fangfang 95 90
+//xiaohua 88 95
+//minmin 90 95
+//zongfen
+//Êä³ö£º
+//fangfang minmin xiaohua
+//ËµÃ÷£º
+//
+//ÅÅĞò¿ÆÄ¿²»´æÔÚ£¬°´×Ü·ÖÅÅĞò£¬fangfangºÍminmin×Ü·ÖÏàÍ¬£¬°´ĞÕÃûµÄ×ÖµäË³Ğò£¬fangfangÅÅÔÚÇ°Ãæ
+//*/
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//#include<map>
+//
+//using namespace std;
+//
+//struct student
+//{
+//	string name;
+//	vector<int> subject;
+//	int total_score;
+//};
+//
+//int index = -1; // ÅÅĞòµÄÏÂ±ê
+//
+//bool cmp(student student1, student student2)
+//{
+//	if (index != -1)
+//	{
+//		int score1 = student1.subject[index];
+//		int score2 = student2.subject[index];
+//		if (score1 != score2)
+//		{
+//			return score1 > score2;
+//		}
+//		else {
+//			return student1.name < student2.name;
+//		}
+//	}
+//	else {
+//		return student1.total_score > student2.total_score;
+//	}
+//}
+//
+//int main()
+//{
+//	int n, m; //Ñ§ÉúÈËÊın ¿ÆÄ¿ÊıÁ¿m
+//	cin >> n >> m;
+//	vector<string> subject(m);	// ³É¼¨
+//	for (int i = 0; i < m; i++)
+//	{
+//		cin >> subject[i];
+//	}
+//	vector<student> students(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> students[i].name;
+//		int tmp;
+//		int score = 0;
+//		for (int j = 0; j < m; j++)
+//		{
+//			cin >> tmp;
+//			students[i].subject.push_back(tmp);
+//			score += tmp;
+//		}
+//		students[i].total_score = score;
+//	}
+//	string cmp_name;
+//	cin >> cmp_name;
+//	for (int i = 0; i < m; i++)
+//	{
+//		if (subject[i] == cmp_name)
+//		{
+//			index = i;
+//		}
+//	}
+//	sort(students.begin(), students.end(), cmp);
+//	for (auto i : students)
+//	{
+//		cout << i.name << " ";
+//	}
+//}

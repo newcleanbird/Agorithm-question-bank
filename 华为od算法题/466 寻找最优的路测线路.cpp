@@ -1,164 +1,164 @@
-/*
-466ã€å¯»æ‰¾æœ€ä¼˜çš„è·¯æµ‹çº¿è·¯
-é¢˜ç›®æè¿°ï¼š
-è¯„ä¼°ä¸€ä¸ªç½‘ç»œçš„ä¿¡å·è´¨é‡ï¼Œå…¶ä¸­ä¸€ä¸ªåšæ³•æ˜¯å°†ç½‘ç»œåˆ’åˆ†ä¸ºæ …æ ¼ï¼Œç„¶åå¯¹æ¯ä¸ªæ …æ ¼çš„ä¿¡å·è´¨é‡è®¡ç®—ã€‚è·¯æµ‹çš„æ—¶å€™ï¼Œå¸Œæœ›é€‰æ‹©ä¸€æ¡ä¿¡å·æœ€å¥½çš„è·¯çº¿ï¼ˆå½¼æ­¤ç›¸è¿çš„æ …æ ¼é›†åˆï¼‰è¿›è¡Œæ¼”ç¤ºã€‚ç°ç»™å‡ºRè¡ŒCåˆ—çš„æ•´æ•°æ•°ç»„Covï¼Œæ¯ä¸ªå•å…ƒæ ¼çš„æ•°å€¼Så³ä¸ºè¯¥æ …æ ¼çš„ä¿¡å·è´¨é‡ï¼ˆå·²å½’ä¸€åŒ–ï¼Œæ— å•ä½ï¼Œå€¼è¶Šå¤§ä¿¡å·è¶Šå¥½ï¼‰ã€‚
-è¦æ±‚ä»[0, 0]åˆ°[R-1, C-1]è®¾è®¡ä¸€æ¡æœ€ä¼˜è·¯æµ‹è·¯çº¿ã€‚è¿”å›è¯¥è·¯çº¿å¾—åˆ†ã€‚
-è§„åˆ™ï¼š
-1.     è·¯æµ‹è·¯çº¿å¯ä»¥ä¸Šä¸‹å·¦å³å››ä¸ªæ–¹å‘ï¼Œä¸èƒ½å¯¹è§’ã€‚
-2.     è·¯çº¿çš„è¯„åˆ†æ˜¯ä»¥è·¯çº¿ä¸Šä¿¡å·æœ€å·®çš„æ …æ ¼ä¸ºå‡†çš„ï¼Œä¾‹å¦‚è·¯å¾„8â†’4â†’5â†’9çš„å€¼ä¸º 4ï¼Œè¯¥çº¿è·¯è¯„åˆ†ä¸º4ã€‚çº¿è·¯æœ€ä¼˜è¡¨ç¤ºè¯¥æ¡çº¿è·¯çš„è¯„åˆ†æœ€é«˜ã€‚
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬ä¸€è¡Œè¡¨ç¤ºæ …æ ¼çš„è¡Œæ•°R
-ç¬¬äºŒè¡Œè¡¨ç¤ºæ …æ ¼çš„åˆ—æ•°C
-ç¬¬3è¡Œå¼€å§‹ï¼Œæ¯ä¸€è¡Œè¡¨ç¤ºæ …æ ¼åœ°å›¾ä¸€è¡Œçš„ä¿¡å·å€¼ï¼Œå¦‚5 4 5
-
-è¾“å‡ºæè¿°ï¼š
-æœ€ä¼˜è·¯çº¿çš„å¾—åˆ†
-
-è¡¥å……è¯´æ˜ï¼š
-1.    1<= R, C <= 20
-2.    0<= S <= 65535
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-3
-3
-5 4 5
-1 2 6
-7 4 6
-è¾“å‡ºï¼š
-4
-è¯´æ˜ï¼š
-è·¯çº¿ä¸ºï¼š5â†’4â†’5â†’6â†’6
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-6
-5
-3 4 6 3 4
-0 2 1 1 7
-8 8 3 2 7
-3 2 4 9 8
-4 1 2 0 0
-4 6 5 4 3
-è¾“å‡ºï¼š
-3
-è¯´æ˜ï¼š
-è·¯çº¿ä¸ºï¼š3â†’4â†’6â†’3â†’4â†’7â†’7â†’8â†’9â†’4â†’3â†’8â†’8â†’3â†’4â†’4â†’6â†’5â†’4â†’3
-
-dist:è·¯ç”±è¡¨ï¼Œç»´æŠ¤ä¸€ä¸ªå½“å‰å·²çŸ¥çš„æºç‚¹åˆ°å…¶ä»–ç‚¹çš„è·ç¦»
-q:ç»´æŠ¤ä¸€ä¸ªå¾…é€‰æ‹©çš„æœªè®¿é—®èŠ‚ç‚¹
-
-æ€æƒ³ï¼šåªé€‰æ‹©å½“å‰å¯è¾¾çš„æœ€å¤§çš„ç‚¹å³å¯
-*/
-
-#include<iostream>
-#include<vector>
-#include<queue>
-
-using namespace std;
-
-int R, C;
-
-struct Point
-{
-	int x;
-	int y;
-	int val;
-	Point(int x, int y, int val) : x(x), y(y), val(val) {}
-};
-
-vector<vector<int>> dis;	// è·¯ç”±è¡¨
-vector<vector<Point>> parents;	// å‰é©±èŠ‚ç‚¹è¡¨
-vector<vector<int>> map;
-
-vector<int> dx = { 0, 1, 0, -1 };
-vector<int> dy = { 1, 0, -1, 0 };
-
-class compare
-{
-public:
-	bool operator()(const Point p1, const Point p2)
-	{
-		return p1.val < p2.val;
-	}
-};
-
-void Dijkstra()
-{
-	// vector<vector<bool>> vis(R, vector<bool>(C, 0));	// è®¿é—®è¡¨
-	// åˆå§‹åŒ–
-	Point start = { 0, 0, map[0][0]};
-	dis[0][0] = map[0][0];
-	parents[0][0] = start;
-	priority_queue<Point, vector<Point>, compare> q;
-	q.push(start);
-	while (!q.empty())
-	{
-		// æ“ä½œå½“å‰è®¿é—®çš„èŠ‚ç‚¹
-		Point cur = q.top(); q.pop();
-		int x = cur.x;
-		int y = cur.y;
-		int val = cur.val;
-		if (dis[x][y] == INT_MAX) continue;
-		Point parent = parents[x][y];
-		/*if (parent.x == 0 && parent.y == 0)
-		{
-			dis[x][y] = dis[0][0];
-		}
-		else {
-			dis[x][y] = min(map[x][y], dis[parent.x][parent.y]);
-		}*/
-		dis[x][y] = min(map[x][y], dis[parent.x][parent.y]);
-
-		// æ›´æ–°diså’Œq
-		for (int i = 0; i < 4; i++)
-		{
-			int nx = x + dx[i];
-			int ny = y + dy[i];
-			if (nx >= 0 && nx < R && ny >= 0 && ny < C && dis[nx][ny] == INT_MAX)	// ä¸è¶Šç•Œä¸”æœªè®¿é—®
-			{
-				if (parents[nx][ny].x == -1 || dis[parents[nx][ny].x][parents[nx][ny].y] < dis[x][y])	// é¦–æ¬¡è®¿é—® æˆ– ä¹‹å‰çˆ¶èŠ‚ç‚¹è´¨é‡å°äºå½“å‰çˆ¶èŠ‚ç‚¹è´¨é‡
-				{
-					parents[nx][ny] = cur;
-					dis[nx][ny] = min(map[nx][ny], dis[parents[nx][ny].x][parents[nx][ny].y]);
-					q.push({ nx, ny, map[nx][ny] });
-					
-				}
-			}
-		}
-	}
-}
-
-void printPath(Point& j) // æ‰“å°æºç‚¹åˆ°jçš„è·¯å¾„
-{
-	if (j.x == 0 && j.y == 0) {
-		std::cout << map[0][0];
-		return;
-	}
-	printPath(parents[j.x][j.y]);
-	std::cout <<"->" << j.val;
-}
-
-int main()
-{
-	cin >> R >> C;
-	dis.resize(R, vector<int>(C, INT_MAX));
-	parents.resize(R, vector<Point>(C, {-1, -1, -1}));
-	map.resize(R, vector<int>(C, 0));
-
-
-	for (int i = 0; i < R; i++)
-	{
-		for (int j = 0; j < C; j++)
-		{
-			cin >> map[i][j];
-		}
-	}
-
-	// æ¢ç´¢è·¯çº¿
-	Dijkstra();
-	Point end{ R - 1, C - 1, map[R - 1][C - 1] };
-	cout << dis[R - 1][C - 1] << endl;
-	// printPath(end);
-}
+///*
+//466¡¢Ñ°ÕÒ×îÓÅµÄÂ·²âÏßÂ·
+//ÌâÄ¿ÃèÊö£º
+//ÆÀ¹ÀÒ»¸öÍøÂçµÄĞÅºÅÖÊÁ¿£¬ÆäÖĞÒ»¸ö×ö·¨ÊÇ½«ÍøÂç»®·ÖÎªÕ¤¸ñ£¬È»ºó¶ÔÃ¿¸öÕ¤¸ñµÄĞÅºÅÖÊÁ¿¼ÆËã¡£Â·²âµÄÊ±ºò£¬Ï£ÍûÑ¡ÔñÒ»ÌõĞÅºÅ×îºÃµÄÂ·Ïß£¨±Ë´ËÏàÁ¬µÄÕ¤¸ñ¼¯ºÏ£©½øĞĞÑİÊ¾¡£ÏÖ¸ø³öRĞĞCÁĞµÄÕûÊıÊı×éCov£¬Ã¿¸öµ¥Ôª¸ñµÄÊıÖµS¼´Îª¸ÃÕ¤¸ñµÄĞÅºÅÖÊÁ¿£¨ÒÑ¹éÒ»»¯£¬ÎŞµ¥Î»£¬ÖµÔ½´óĞÅºÅÔ½ºÃ£©¡£
+//ÒªÇó´Ó[0, 0]µ½[R-1, C-1]Éè¼ÆÒ»Ìõ×îÓÅÂ·²âÂ·Ïß¡£·µ»Ø¸ÃÂ·ÏßµÃ·Ö¡£
+//¹æÔò£º
+//1.     Â·²âÂ·Ïß¿ÉÒÔÉÏÏÂ×óÓÒËÄ¸ö·½Ïò£¬²»ÄÜ¶Ô½Ç¡£
+//2.     Â·ÏßµÄÆÀ·ÖÊÇÒÔÂ·ÏßÉÏĞÅºÅ×î²îµÄÕ¤¸ñÎª×¼µÄ£¬ÀıÈçÂ·¾¶8¡ú4¡ú5¡ú9µÄÖµÎª 4£¬¸ÃÏßÂ·ÆÀ·ÖÎª4¡£ÏßÂ·×îÓÅ±íÊ¾¸ÃÌõÏßÂ·µÄÆÀ·Ö×î¸ß¡£
+//
+//ÊäÈëÃèÊö£º
+//µÚÒ»ĞĞ±íÊ¾Õ¤¸ñµÄĞĞÊıR
+//µÚ¶şĞĞ±íÊ¾Õ¤¸ñµÄÁĞÊıC
+//µÚ3ĞĞ¿ªÊ¼£¬Ã¿Ò»ĞĞ±íÊ¾Õ¤¸ñµØÍ¼Ò»ĞĞµÄĞÅºÅÖµ£¬Èç5 4 5
+//
+//Êä³öÃèÊö£º
+//×îÓÅÂ·ÏßµÄµÃ·Ö
+//
+//²¹³äËµÃ÷£º
+//1.    1<= R, C <= 20
+//2.    0<= S <= 65535
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//3
+//3
+//5 4 5
+//1 2 6
+//7 4 6
+//Êä³ö£º
+//4
+//ËµÃ÷£º
+//Â·ÏßÎª£º5¡ú4¡ú5¡ú6¡ú6
+//
+//Ê¾Àı2
+//ÊäÈë£º
+//6
+//5
+//3 4 6 3 4
+//0 2 1 1 7
+//8 8 3 2 7
+//3 2 4 9 8
+//4 1 2 0 0
+//4 6 5 4 3
+//Êä³ö£º
+//3
+//ËµÃ÷£º
+//Â·ÏßÎª£º3¡ú4¡ú6¡ú3¡ú4¡ú7¡ú7¡ú8¡ú9¡ú4¡ú3¡ú8¡ú8¡ú3¡ú4¡ú4¡ú6¡ú5¡ú4¡ú3
+//
+//dist:Â·ÓÉ±í£¬Î¬»¤Ò»¸öµ±Ç°ÒÑÖªµÄÔ´µãµ½ÆäËûµãµÄ¾àÀë
+//q:Î¬»¤Ò»¸ö´ıÑ¡ÔñµÄÎ´·ÃÎÊ½Úµã
+//
+//Ë¼Ïë£ºÖ»Ñ¡Ôñµ±Ç°¿É´ïµÄ×î´óµÄµã¼´¿É
+//*/
+//
+//#include<iostream>
+//#include<vector>
+//#include<queue>
+//
+//using namespace std;
+//
+//int R, C;
+//
+//struct Point
+//{
+//	int x;
+//	int y;
+//	int val;
+//	Point(int x, int y, int val) : x(x), y(y), val(val) {}
+//};
+//
+//vector<vector<int>> dis;	// Â·ÓÉ±í
+//vector<vector<Point>> parents;	// Ç°Çı½Úµã±í
+//vector<vector<int>> map;
+//
+//vector<int> dx = { 0, 1, 0, -1 };
+//vector<int> dy = { 1, 0, -1, 0 };
+//
+//class compare
+//{
+//public:
+//	bool operator()(const Point p1, const Point p2)
+//	{
+//		return p1.val < p2.val;
+//	}
+//};
+//
+//void Dijkstra()
+//{
+//	// vector<vector<bool>> vis(R, vector<bool>(C, 0));	// ·ÃÎÊ±í
+//	// ³õÊ¼»¯
+//	Point start = { 0, 0, map[0][0]};
+//	dis[0][0] = map[0][0];
+//	parents[0][0] = start;
+//	priority_queue<Point, vector<Point>, compare> q;
+//	q.push(start);
+//	while (!q.empty())
+//	{
+//		// ²Ù×÷µ±Ç°·ÃÎÊµÄ½Úµã
+//		Point cur = q.top(); q.pop();
+//		int x = cur.x;
+//		int y = cur.y;
+//		int val = cur.val;
+//		if (dis[x][y] == INT_MAX) continue;
+//		Point parent = parents[x][y];
+//		/*if (parent.x == 0 && parent.y == 0)
+//		{
+//			dis[x][y] = dis[0][0];
+//		}
+//		else {
+//			dis[x][y] = min(map[x][y], dis[parent.x][parent.y]);
+//		}*/
+//		dis[x][y] = min(map[x][y], dis[parent.x][parent.y]);
+//
+//		// ¸üĞÂdisºÍq
+//		for (int i = 0; i < 4; i++)
+//		{
+//			int nx = x + dx[i];
+//			int ny = y + dy[i];
+//			if (nx >= 0 && nx < R && ny >= 0 && ny < C && dis[nx][ny] == INT_MAX)	// ²»Ô½½çÇÒÎ´·ÃÎÊ
+//			{
+//				if (parents[nx][ny].x == -1 || dis[parents[nx][ny].x][parents[nx][ny].y] < dis[x][y])	// Ê×´Î·ÃÎÊ »ò Ö®Ç°¸¸½ÚµãÖÊÁ¿Ğ¡ÓÚµ±Ç°¸¸½ÚµãÖÊÁ¿
+//				{
+//					parents[nx][ny] = cur;
+//					dis[nx][ny] = min(map[nx][ny], dis[parents[nx][ny].x][parents[nx][ny].y]);
+//					q.push({ nx, ny, map[nx][ny] });
+//					
+//				}
+//			}
+//		}
+//	}
+//}
+//
+//void printPath(Point& j) // ´òÓ¡Ô´µãµ½jµÄÂ·¾¶
+//{
+//	if (j.x == 0 && j.y == 0) {
+//		std::cout << map[0][0];
+//		return;
+//	}
+//	printPath(parents[j.x][j.y]);
+//	std::cout <<"->" << j.val;
+//}
+//
+//int main()
+//{
+//	cin >> R >> C;
+//	dis.resize(R, vector<int>(C, INT_MAX));
+//	parents.resize(R, vector<Point>(C, {-1, -1, -1}));
+//	map.resize(R, vector<int>(C, 0));
+//
+//
+//	for (int i = 0; i < R; i++)
+//	{
+//		for (int j = 0; j < C; j++)
+//		{
+//			cin >> map[i][j];
+//		}
+//	}
+//
+//	// Ì½Ë÷Â·Ïß
+//	Dijkstra();
+//	Point end{ R - 1, C - 1, map[R - 1][C - 1] };
+//	cout << dis[R - 1][C - 1] << endl;
+//	// printPath(end);
+//}

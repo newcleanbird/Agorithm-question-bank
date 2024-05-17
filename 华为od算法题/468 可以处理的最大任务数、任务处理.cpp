@@ -1,91 +1,91 @@
-/*
-468ã€å¯ä»¥å¤„ç†çš„æœ€å¤§ä»»åŠ¡æ•°ã€ä»»åŠ¡å¤„ç†
-é¢˜ç›®æè¿°ï¼š
-åœ¨æŸä¸ªé¡¹ç›®ä¸­æœ‰å¤šä¸ªä»»åŠ¡ï¼ˆç”¨ tasks æ•°ç»„è¡¨ç¤ºï¼‰éœ€è¦æ‚¨è¿›è¡Œå¤„ç†ï¼Œå…¶ä¸­ tasks[i] = [si, ei]ï¼Œä½ å¯ä»¥åœ¨ si <= day <= ei ä¸­çš„ä»»æ„ä¸€å¤©å¤„ç†è¯¥ä»»åŠ¡ã€‚è¯·è¿”å›ä½ å¯ä»¥å¤„ç†çš„æœ€å¤§ä»»åŠ¡æ•°ã€‚
-æ³¨ï¼šä¸€å¤©å¯ä»¥å®Œæˆä¸€ä¸ªä»»åŠ¡çš„å¤„ç†ã€‚
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬ä¸€è¡Œä¸ºä»»åŠ¡æ•°é‡ nï¼Œ1 <= n <= 100000ã€‚åé¢ n è¡Œè¡¨ç¤ºå„ä¸ªä»»åŠ¡çš„å¼€å§‹æ—¶é—´å’Œç»ˆæ­¢æ—¶é—´ï¼Œç”¨ si å’Œ ei è¡¨ç¤ºï¼Œ1 <= si <= ei <= 100000ã€‚
-
-è¾“å‡ºæè¿°ï¼š
-è¾“å‡ºä¸ºä¸€ä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºå¯ä»¥å¤„ç†çš„æœ€å¤§ä»»åŠ¡æ•°ã€‚
-
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-3
-1 1
-1 2
-1 3
-è¾“å‡ºï¼š
-3
-è¯´æ˜ï¼š
-ç¬¬ä¸€å¤©å¤„ç†ä»»åŠ¡ 1ï¼Œç¬¬äºŒå¤©å¤„ç†ä»»åŠ¡ 2ï¼Œç¬¬ä¸‰å¤©å¤„ç†ä»»åŠ¡ 3ã€‚
-*/
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
-
-using namespace std;
-
-struct Task
-{
-    int start;
-    int end;
-};
-
-bool cmp(Task& a, Task& b)
-{
-    if (a.end != b.end)
-    {
-        return a.end < b.end;
-    }
-    else
-    {
-        return a.start < b.start;
-    }
-    
-}
-
-int main() {
-    // è¾“å…¥æ•°æ®
-    int n;
-    cin >> n; // è¾“å…¥ä»»åŠ¡æ•°é‡
-    vector<Task> tasks;
-    int max_time = 0;   // æœ€åçš„æ´»åŠ¨ç»“æŸæ—¶é—´
-    for (int i = 0; i < n; i++) {
-        int x, y;
-        cin >> x >> y;
-        tasks.push_back({ x, y });
-        max_time = max(max_time, y);
-    }
-    sort(tasks.begin(), tasks.end(), cmp);
-
-    // æ‰§è¡Œ
-    priority_queue<int, vector<int>, greater<int>> pq;
-    int task_loc = 0;
-    int res = 0;
-    for (int i = 0; i <= max_time; i++)
-    {
-        // å°†ç¬¦åˆæ—¶é—´çš„æ´»åŠ¨åŠ å…¥é˜Ÿåˆ—
-        while (task_loc < n && tasks[task_loc].start <= i)
-        {
-            pq.push(tasks[task_loc].end);
-            task_loc++;
-        }
-        // å»é™¤ä¸ç¬¦åˆçš„æ´»åŠ¨ç§»é™¤é˜Ÿåˆ—
-        while (!pq.empty() && pq.top() < i)
-        {
-            pq.pop();
-        }
-        // æ‰§è¡Œä»»åŠ¡
-        if (!pq.empty())
-        {
-            pq.pop();
-            res++;
-        }
-    }
-    cout << res;
-    return 0;
-}
+///*
+//468¡¢¿ÉÒÔ´¦ÀíµÄ×î´óÈÎÎñÊı¡¢ÈÎÎñ´¦Àí
+//ÌâÄ¿ÃèÊö£º
+//ÔÚÄ³¸öÏîÄ¿ÖĞÓĞ¶à¸öÈÎÎñ£¨ÓÃ tasks Êı×é±íÊ¾£©ĞèÒªÄú½øĞĞ´¦Àí£¬ÆäÖĞ tasks[i] = [si, ei]£¬Äã¿ÉÒÔÔÚ si <= day <= ei ÖĞµÄÈÎÒâÒ»Ìì´¦Àí¸ÃÈÎÎñ¡£Çë·µ»ØÄã¿ÉÒÔ´¦ÀíµÄ×î´óÈÎÎñÊı¡£
+//×¢£ºÒ»Ìì¿ÉÒÔÍê³ÉÒ»¸öÈÎÎñµÄ´¦Àí¡£
+//
+//ÊäÈëÃèÊö£º
+//µÚÒ»ĞĞÎªÈÎÎñÊıÁ¿ n£¬1 <= n <= 100000¡£ºóÃæ n ĞĞ±íÊ¾¸÷¸öÈÎÎñµÄ¿ªÊ¼Ê±¼äºÍÖÕÖ¹Ê±¼ä£¬ÓÃ si ºÍ ei ±íÊ¾£¬1 <= si <= ei <= 100000¡£
+//
+//Êä³öÃèÊö£º
+//Êä³öÎªÒ»¸öÕûÊı£¬±íÊ¾¿ÉÒÔ´¦ÀíµÄ×î´óÈÎÎñÊı¡£
+//
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//3
+//1 1
+//1 2
+//1 3
+//Êä³ö£º
+//3
+//ËµÃ÷£º
+//µÚÒ»Ìì´¦ÀíÈÎÎñ 1£¬µÚ¶şÌì´¦ÀíÈÎÎñ 2£¬µÚÈıÌì´¦ÀíÈÎÎñ 3¡£
+//*/
+//#include <iostream>
+//#include <vector>
+//#include <queue>
+//#include <algorithm>
+//
+//using namespace std;
+//
+//struct Task
+//{
+//    int start;
+//    int end;
+//};
+//
+//bool cmp(Task& a, Task& b)
+//{
+//    if (a.end != b.end)
+//    {
+//        return a.end < b.end;
+//    }
+//    else
+//    {
+//        return a.start < b.start;
+//    }
+//    
+//}
+//
+//int main() {
+//    // ÊäÈëÊı¾İ
+//    int n;
+//    cin >> n; // ÊäÈëÈÎÎñÊıÁ¿
+//    vector<Task> tasks;
+//    int max_time = 0;   // ×îºóµÄ»î¶¯½áÊøÊ±¼ä
+//    for (int i = 0; i < n; i++) {
+//        int x, y;
+//        cin >> x >> y;
+//        tasks.push_back({ x, y });
+//        max_time = max(max_time, y);
+//    }
+//    sort(tasks.begin(), tasks.end(), cmp);
+//
+//    // Ö´ĞĞ
+//    priority_queue<int, vector<int>, greater<int>> pq;
+//    int task_loc = 0;
+//    int res = 0;
+//    for (int i = 0; i <= max_time; i++)
+//    {
+//        // ½«·ûºÏÊ±¼äµÄ»î¶¯¼ÓÈë¶ÓÁĞ
+//        while (task_loc < n && tasks[task_loc].start <= i)
+//        {
+//            pq.push(tasks[task_loc].end);
+//            task_loc++;
+//        }
+//        // È¥³ı²»·ûºÏµÄ»î¶¯ÒÆ³ı¶ÓÁĞ
+//        while (!pq.empty() && pq.top() < i)
+//        {
+//            pq.pop();
+//        }
+//        // Ö´ĞĞÈÎÎñ
+//        if (!pq.empty())
+//        {
+//            pq.pop();
+//            res++;
+//        }
+//    }
+//    cout << res;
+//    return 0;
+//}

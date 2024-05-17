@@ -1,100 +1,100 @@
-/*
-087 è‹±æ–‡è¾“å…¥æ³•
-é¢˜ç›®æè¿°ï¼š
-ä¸»ç®¡æœŸæœ›ä½ æ¥å®ç°è‹±æ–‡è¾“å…¥æ³•å•è¯è”æƒ³åŠŸèƒ½ã€‚éœ€æ±‚å¦‚ä¸‹ï¼š
-ä¾æ®ç”¨æˆ·è¾“å…¥çš„å•è¯å‰ç¼€ï¼Œä»å·²è¾“å…¥çš„è‹±æ–‡è¯­å¥ä¸­è”æƒ³å‡ºç”¨æˆ·æƒ³è¾“å…¥çš„å•è¯ï¼ŒæŒ‰å­—å…¸åºè¾“å‡ºè”æƒ³åˆ°çš„å•è¯åºåˆ—ï¼Œå¦‚æœè”æƒ³ä¸åˆ°ï¼Œè¯·è¾“å‡ºç”¨æˆ·è¾“å…¥çš„å•è¯å‰ç¼€ã€‚
-
-æ³¨æ„ï¼š
-1.  è‹±æ–‡å•è¯è”æƒ³æ—¶ï¼ŒåŒºåˆ†å¤§å°å†™
-2.  ç¼©ç•¥å½¢å¼å¦‚â€don'tâ€ï¼Œåˆ¤å®šä¸ºä¸¤ä¸ªå•è¯ï¼Œâ€donâ€å’Œâ€tâ€
-3.  è¾“å‡ºçš„å•è¯åºåˆ—ï¼Œä¸èƒ½æœ‰é‡å¤å•è¯ï¼Œä¸”åªèƒ½æ˜¯è‹±æ–‡å•è¯ï¼Œä¸èƒ½æœ‰æ ‡ç‚¹ç¬¦å·
-
-è¾“å…¥æè¿°ï¼š
-è¾“å…¥ä¸ºä¸¤è¡Œã€‚
-é¦–è¡Œè¾“å…¥ä¸€æ®µç”±è‹±æ–‡å•è¯wordå’Œæ ‡ç‚¹ç¬¦å·ç»„æˆçš„è¯­å¥strï¼›
-æ¥ä¸‹æ¥ä¸€è¡Œä¸ºä¸€ä¸ªè‹±æ–‡å•è¯å‰ç¼€preã€‚
-
-0 < word.length() <= 20
-0 < str.length <= 10000
-0 < pre <= 20
-
-è¾“å‡ºæè¿°ï¼š
-è¾“å‡ºç¬¦åˆè¦æ±‚çš„å•è¯åºåˆ—æˆ–å•è¯å‰ç¼€ï¼Œå­˜åœ¨å¤šä¸ªæ—¶ï¼Œå•è¯ä¹‹é—´ä»¥å•ä¸ªç©ºæ ¼åˆ†å‰²
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-I love you
-He
-è¾“å‡ºï¼š
-He
-è¯´æ˜ï¼š
-ä»ç”¨æˆ·å·²è¾“å…¥è‹±æ–‡è¯­å¥â€I love youâ€ä¸­æç‚¼å‡ºâ€œIâ€ã€â€œloveâ€ã€â€œyouâ€ä¸‰ä¸ªå•è¯ï¼Œæ¥ä¸‹æ¥ç”¨æˆ·è¾“å…¥â€œHeâ€ï¼Œä»å·²è¾“å…¥ä¿¡æ¯ä¸­æ— æ³•è”æƒ³åˆ°ä»»ä½•ç¬¦åˆè¦æ±‚çš„å•è¯ï¼Œå› æ­¤è¾“å‡ºç”¨æˆ·è¾“å…¥çš„å•è¯å‰ç¼€ã€‚
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-The furthest distance in the world, Is not between life and death, But when I stand in front of you, Yet you don't know that I love you.
-f
-è¾“å‡ºï¼š
-front furthest
-è¯´æ˜ï¼š
-ä»ç”¨æˆ·å·²è¾“å…¥è‹±æ–‡è¯­å¥â€The furthestdistance in the world, Is not between life and death, But when I stand in frontof you, Yet you dont know that I love you.â€ä¸­æç‚¼å‡ºçš„å•è¯ï¼Œç¬¦åˆâ€œfâ€ä½œä¸ºå‰ç¼€çš„ï¼Œæœ‰â€œfurthestâ€å’Œâ€œfrontâ€ï¼ŒæŒ‰å­—å…¸åºæ’åºå¹¶åœ¨å•è¯é—´æ·»åŠ ç©ºæ ¼åè¾“å‡ºï¼Œç»“æœä¸ºâ€œfrontfurthestâ€ã€‚
-*/
-
-
-#include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
-#include<set>
-
-using namespace std;
-
-int main()
-{
-	// è¾“å…¥
-	string str;
-	getline(cin, str);
-	set<string> mset;
-	string t_str; // ä¸´æ—¶å˜é‡
-	for (auto i : str)
-	{
-		if (isalpha(i))
-		{
-			t_str.append(1, i);
-		}
-		else {
-			if (t_str.size() == 0)
-			{
-				continue;
-			}
-			mset.insert(t_str);
-			t_str.clear();
-		}
-	}
-	if (!t_str.empty())
-	{
-		mset.insert(t_str);
-	}
-	string target;
-	cin >> target;
-
-	// æŸ¥æ‰¾å¹¶åŒ¹é…
-	vector<string> res;
-	for (auto &i : mset)
-	{
-		if (i.substr(0, target.size()) == target)
-		{
-			res.push_back(i);
-		}
-	}
-	if (res.size() != 0)
-	{
-		for (auto& i : res)
-		{
-			cout << i << " ";
-		}
-	}
-	else {
-		cout << target;
-	}
-}
+///*
+//087 Ó¢ÎÄÊäÈë·¨
+//ÌâÄ¿ÃèÊö£º
+//Ö÷¹ÜÆÚÍûÄãÀ´ÊµÏÖÓ¢ÎÄÊäÈë·¨µ¥´ÊÁªÏë¹¦ÄÜ¡£ĞèÇóÈçÏÂ£º
+//ÒÀ¾İÓÃ»§ÊäÈëµÄµ¥´ÊÇ°×º£¬´ÓÒÑÊäÈëµÄÓ¢ÎÄÓï¾äÖĞÁªÏë³öÓÃ»§ÏëÊäÈëµÄµ¥´Ê£¬°´×ÖµäĞòÊä³öÁªÏëµ½µÄµ¥´ÊĞòÁĞ£¬Èç¹ûÁªÏë²»µ½£¬ÇëÊä³öÓÃ»§ÊäÈëµÄµ¥´ÊÇ°×º¡£
+//
+//×¢Òâ£º
+//1.  Ó¢ÎÄµ¥´ÊÁªÏëÊ±£¬Çø·Ö´óĞ¡Ğ´
+//2.  ËõÂÔĞÎÊ½Èç¡±don't¡±£¬ÅĞ¶¨ÎªÁ½¸öµ¥´Ê£¬¡±don¡±ºÍ¡±t¡±
+//3.  Êä³öµÄµ¥´ÊĞòÁĞ£¬²»ÄÜÓĞÖØ¸´µ¥´Ê£¬ÇÒÖ»ÄÜÊÇÓ¢ÎÄµ¥´Ê£¬²»ÄÜÓĞ±êµã·ûºÅ
+//
+//ÊäÈëÃèÊö£º
+//ÊäÈëÎªÁ½ĞĞ¡£
+//Ê×ĞĞÊäÈëÒ»¶ÎÓÉÓ¢ÎÄµ¥´ÊwordºÍ±êµã·ûºÅ×é³ÉµÄÓï¾ästr£»
+//½ÓÏÂÀ´Ò»ĞĞÎªÒ»¸öÓ¢ÎÄµ¥´ÊÇ°×ºpre¡£
+//
+//0 < word.length() <= 20
+//0 < str.length <= 10000
+//0 < pre <= 20
+//
+//Êä³öÃèÊö£º
+//Êä³ö·ûºÏÒªÇóµÄµ¥´ÊĞòÁĞ»òµ¥´ÊÇ°×º£¬´æÔÚ¶à¸öÊ±£¬µ¥´ÊÖ®¼äÒÔµ¥¸ö¿Õ¸ñ·Ö¸î
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//I love you
+//He
+//Êä³ö£º
+//He
+//ËµÃ÷£º
+//´ÓÓÃ»§ÒÑÊäÈëÓ¢ÎÄÓï¾ä¡±I love you¡±ÖĞÌáÁ¶³ö¡°I¡±¡¢¡°love¡±¡¢¡°you¡±Èı¸öµ¥´Ê£¬½ÓÏÂÀ´ÓÃ»§ÊäÈë¡°He¡±£¬´ÓÒÑÊäÈëĞÅÏ¢ÖĞÎŞ·¨ÁªÏëµ½ÈÎºÎ·ûºÏÒªÇóµÄµ¥´Ê£¬Òò´ËÊä³öÓÃ»§ÊäÈëµÄµ¥´ÊÇ°×º¡£
+//
+//Ê¾Àı2
+//ÊäÈë£º
+//The furthest distance in the world, Is not between life and death, But when I stand in front of you, Yet you don't know that I love you.
+//f
+//Êä³ö£º
+//front furthest
+//ËµÃ÷£º
+//´ÓÓÃ»§ÒÑÊäÈëÓ¢ÎÄÓï¾ä¡±The furthestdistance in the world, Is not between life and death, But when I stand in frontof you, Yet you dont know that I love you.¡±ÖĞÌáÁ¶³öµÄµ¥´Ê£¬·ûºÏ¡°f¡±×÷ÎªÇ°×ºµÄ£¬ÓĞ¡°furthest¡±ºÍ¡°front¡±£¬°´×ÖµäĞòÅÅĞò²¢ÔÚµ¥´Ê¼äÌí¼Ó¿Õ¸ñºóÊä³ö£¬½á¹ûÎª¡°frontfurthest¡±¡£
+//*/
+//
+//
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<algorithm>
+//#include<set>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	// ÊäÈë
+//	string str;
+//	getline(cin, str);
+//	set<string> mset;
+//	string t_str; // ÁÙÊ±±äÁ¿
+//	for (auto i : str)
+//	{
+//		if (isalpha(i))
+//		{
+//			t_str.append(1, i);
+//		}
+//		else {
+//			if (t_str.size() == 0)
+//			{
+//				continue;
+//			}
+//			mset.insert(t_str);
+//			t_str.clear();
+//		}
+//	}
+//	if (!t_str.empty())
+//	{
+//		mset.insert(t_str);
+//	}
+//	string target;
+//	cin >> target;
+//
+//	// ²éÕÒ²¢Æ¥Åä
+//	vector<string> res;
+//	for (auto &i : mset)
+//	{
+//		if (i.substr(0, target.size()) == target)
+//		{
+//			res.push_back(i);
+//		}
+//	}
+//	if (res.size() != 0)
+//	{
+//		for (auto& i : res)
+//		{
+//			cout << i << " ";
+//		}
+//	}
+//	else {
+//		cout << target;
+//	}
+//}

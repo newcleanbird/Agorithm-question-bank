@@ -1,125 +1,125 @@
-/*
-457ã€æ ¹æ®IPæŸ¥æ‰¾åŸå¸‚
-é¢˜ç›®æè¿°ï¼š
-æŸä¸šåŠ¡éœ€è¦æ ¹æ®ç»ˆç«¯çš„IPåœ°å€è·å–è¯¥ç»ˆç«¯å½’å±çš„åŸå¸‚ï¼Œå¯ä»¥æ ¹æ®å…¬å¼€çš„IPåœ°å€æ± ä¿¡æ¯æŸ¥è¯¢å½’å±åŸå¸‚ã€‚åœ°å€æ± æ ¼å¼å¦‚ä¸‹åŸå¸‚å=èµ·å§‹IP,ç»“æŸIPï¼Œèµ·å§‹å’Œç»“æŸåœ°å€æŒ‰ç…§è‹±æ–‡é€—å·åˆ†éš”ï¼Œå¤šä¸ªåœ°å€æ®µé‡‡ç”¨è‹±æ–‡åˆ†å·åˆ†éš”ã€‚
-æ¯”å¦‚City1=1.1.1.1,1.1.1.2;City1=1.1.1.11,1.1.1.16;City2=3.3.3.3,4.4.4.4;City3=2.2.2.2,6.6.6.6ã€‚
-ä¸€ä¸ªåŸå¸‚å¯ä»¥æœ‰å¤šä¸ªIPæ®µï¼Œæ¯”å¦‚City1æœ‰2ä¸ªIPæ®µã€‚åŸå¸‚é—´ä¹Ÿå¯èƒ½å­˜åœ¨åŒ…å«å…³ç³»ï¼Œå¦‚City3çš„IPæ®µèŒƒå›´åŒ…å«City2çš„IPæ®µèŒƒå›´ã€‚ç°åœ¨è¦æ ¹æ®è¾“å…¥çš„IPåˆ—è¡¨ï¼Œè¿”å›æœ€ä½³åŒ¹é…çš„åŸå¸‚åˆ—è¡¨ã€‚
-æ³¨ï¼šæœ€ä½³åŒ¹é…å³åŒ…å«å¾…æŸ¥è¯¢IPä¸”é•¿åº¦æœ€å°çš„IPæ®µï¼Œæ¯”å¦‚ä¾‹å­ä¸­3.4.4.4æœ€ä½³åŒ¹é…æ˜¯City2=3.3.3.3,4.4.4.4ï¼Œ5.5.5.5çš„æœ€ä½³åŒ¹é…æ˜¯City3=2.2.2.2,6.6.6.6ã€‚
-
-è¾“å…¥æè¿°ï¼š
-è¾“å…¥å…±2è¡Œã€‚
-ç¬¬ä¸€è¡Œä¸ºåŸå¸‚çš„IPæ®µåˆ—è¡¨ï¼Œå¤šä¸ªIPæ®µé‡‡ç”¨è‹±æ–‡åˆ†å·';'åˆ†éš”ï¼ŒIPæ®µåˆ—è¡¨æœ€å¤§ä¸è¶…è¿‡500000ã€‚åŸå¸‚åç§°åªåŒ…å«è‹±æ–‡å­—æ¯ã€æ•°å­—å’Œä¸‹åˆ’çº¿ï¼Œæœ€å¤šä¸è¶…è¿‡100000ä¸ªã€‚IPæ®µåŒ…å«å…³ç³»å¯èƒ½æœ‰å¤šå±‚ï¼Œä½†ä¸è¶…è¿‡100å±‚ã€‚
-ç¬¬äºŒè¡Œä¸ºæŸ¥è¯¢çš„IPåˆ—è¡¨ï¼Œå¤šä¸ªIPé‡‡ç”¨è‹±æ–‡é€—å·â€˜,â€™åˆ†éš”ï¼Œæœ€å¤šä¸è¶…è¿‡10000æ¡ã€‚
-
-è¾“å‡ºæè¿°ï¼š
-æœ€ä½³åŒ¹é…çš„åŸå¸‚ååˆ—è¡¨ï¼Œé‡‡ç”¨è‹±æ–‡é€—å·â€˜,â€™åˆ†éš”ï¼ŒåŸå¸‚åˆ—è¡¨é•¿åº¦åº”è¯¥è·ŸæŸ¥è¯¢çš„IPåˆ—è¡¨é•¿åº¦ä¸€è‡´ã€‚
-è¡¥å……è¯´æ˜ï¼š
-1ï¼‰æ— è®ºæ˜¯å¦æŸ¥åˆ°åŒ¹é…æ­£å¸¸éƒ½è¦è¾“å‡ºåˆ†éš”ç¬¦ã€‚ä¸¾ä¾‹ï¼šå‡å¦‚è¾“å…¥IPåˆ—è¡¨ä¸ºIPa,IPbä¸¤ä¸ªIPå‡æœªæœ‰åŒ¹é…åŸå¸‚ï¼Œæ­¤æ—¶è¾“å‡ºä¸ºâ€œ,â€ï¼Œå³åªæœ‰ä¸€ä¸ªé€—å·åˆ†éš”ç¬¦ï¼Œä¸¤ä¸ªåŸå¸‚å‡ä¸ºç©ºï¼›
-2ï¼‰å¯ä»¥å‡å®šç”¨ä¾‹ä¸­çš„æ‰€æœ‰è¾“å…¥å‡åˆæ³•ï¼ŒIPåœ°å€å‡ä¸ºåˆæ³•çš„ipv4åœ°å€ï¼Œæ»¡è¶³ï¼ˆ1~255ï¼‰.ï¼ˆ0~255ï¼‰.ï¼ˆ0~255ï¼‰.ï¼ˆ0~255ï¼‰çš„æ ¼å¼ï¼Œä¸”å¯ä»¥å‡å®šç”¨ä¾‹ä¸­ä¸ä¼šå‡ºç°ç»„æ’­å’Œå¹¿æ’­åœ°å€ï¼›
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-City1=1.1.1.1,1.1.1.2;City1=1.1.1.11,1.1.1.16;City2=3.3.3.3,4.4.4.4;City3=2.2.2.2,6.6.6.6
-1.1.1.15,3.3.3.5,2.2.2.3
-è¾“å‡ºï¼š
-City1,City2,City3
-è¯´æ˜ï¼š
-1ï¼‰City1æœ‰2ä¸ªIPæ®µï¼ŒCity3çš„IPæ®µåŒ…å«City2çš„IPæ®µï¼›
-2ï¼‰1.1.1.15ä»…åŒ¹é…City1=1.1.1.11,1.1.1.16ï¼Œæ‰€ä»¥City1å°±æ˜¯æœ€ä½³åŒ¹é…ï¼›2.2.2.3ä»…åŒ¹é…City3=2.2.2.2,6.6.6.6ï¼Œæ‰€ä»¥City3æ˜¯æœ€ä½³åŒ¹é…ï¼›3.3.3.5åŒæ—¶åŒ¹é…ä¸ºCity2=3.3.3.3,4.4.4.4å’ŒCity3=2.2.2.2,6.6.6.6ï¼Œä½†æ˜¯City3=2.2.2.2,6.6.6.6çš„IPæ®µèŒƒå›´æ›´å°ï¼Œæ‰€ä»¥City3ä¸ºæœ€ä½³åŒ¹é…ï¼›
-*/
-#include<iostream>
-#include<vector>
-#include<string>
-#include<sstream>
-#include<limits>
-
-using namespace std;
-
-struct city
-{
-	string name;
-	unsigned long start;
-	unsigned long end;
-
-	city(string name, long start, long end) : name(name), start(start), end(end)
-	{
-
-	}
-};
-
-unsigned long ipToUl(string ip)
-{
-	istringstream iss(ip);
-	unsigned long ulip = 0;
-	string token;
-	while (getline(iss, token, '.'))
-	{
-		ulip += stoul(token);
-	}
-	return ulip;
-}
-
-int main()
-{
-	// è¾“å…¥
-	string str_city;	// åŸå¸‚çš„IPæ®µåˆ—è¡¨
-	getline(cin, str_city);
-	string str_query;   // æŸ¥è¯¢çš„IPåˆ—è¡¨
-	getline(cin, str_query);
-
-
-	vector<city> cities;
-	vector<unsigned long> quiries;
-
-	// å¤„ç†è¾“å…¥æ•°æ®
-	istringstream iss1(str_city);
-	string s_city;
-	while (getline(iss1, s_city, ';'))
-	{
-		size_t pos1 = s_city.find('=');
-		size_t pos2 = s_city.find(',');
-
-		string name = s_city.substr(0, pos1);
-		string ip1 = s_city.substr(pos1 + 1, pos2 - pos1);
-		string ip2 = s_city.substr(pos2 + 1);
-
-		city c1(name, ipToUl(ip1), ipToUl(ip2));
-		cities.push_back(c1);
-	}
-
-	istringstream iss2(str_query);
-	string s_ip;
-	while(getline(iss2, s_ip, ','))
-	{
-		quiries.push_back(ipToUl(s_ip));
-	}
-
-	// å¼€å§‹æŸ¥è¯¢
-	vector<string> res;
-	for (auto& i : quiries)
-	{
-		string name;
-		unsigned long gap = numeric_limits<unsigned long>::max();
-		for (auto& j : cities)
-		{
-			if (i >= j.start && i <= j.end)
-			{
-				if (j.end - j.start < gap)
-				{
-					name = j.name;
-					gap = j.end - j.start;
-				}
-			}
-		}
-		res.push_back(name);
-	}
-
-	for (int i = 0; i < res.size(); i++)
-	{
-		cout << res[i];
-		if (i != res.size() - 1)
-		{
-			cout << ',';
-		}
-	}
-}
+///*
+//457¡¢¸ù¾İIP²éÕÒ³ÇÊĞ
+//ÌâÄ¿ÃèÊö£º
+//Ä³ÒµÎñĞèÒª¸ù¾İÖÕ¶ËµÄIPµØÖ·»ñÈ¡¸ÃÖÕ¶Ë¹éÊôµÄ³ÇÊĞ£¬¿ÉÒÔ¸ù¾İ¹«¿ªµÄIPµØÖ·³ØĞÅÏ¢²éÑ¯¹éÊô³ÇÊĞ¡£µØÖ·³Ø¸ñÊ½ÈçÏÂ³ÇÊĞÃû=ÆğÊ¼IP,½áÊøIP£¬ÆğÊ¼ºÍ½áÊøµØÖ·°´ÕÕÓ¢ÎÄ¶ººÅ·Ö¸ô£¬¶à¸öµØÖ·¶Î²ÉÓÃÓ¢ÎÄ·ÖºÅ·Ö¸ô¡£
+//±ÈÈçCity1=1.1.1.1,1.1.1.2;City1=1.1.1.11,1.1.1.16;City2=3.3.3.3,4.4.4.4;City3=2.2.2.2,6.6.6.6¡£
+//Ò»¸ö³ÇÊĞ¿ÉÒÔÓĞ¶à¸öIP¶Î£¬±ÈÈçCity1ÓĞ2¸öIP¶Î¡£³ÇÊĞ¼äÒ²¿ÉÄÜ´æÔÚ°üº¬¹ØÏµ£¬ÈçCity3µÄIP¶Î·¶Î§°üº¬City2µÄIP¶Î·¶Î§¡£ÏÖÔÚÒª¸ù¾İÊäÈëµÄIPÁĞ±í£¬·µ»Ø×î¼ÑÆ¥ÅäµÄ³ÇÊĞÁĞ±í¡£
+//×¢£º×î¼ÑÆ¥Åä¼´°üº¬´ı²éÑ¯IPÇÒ³¤¶È×îĞ¡µÄIP¶Î£¬±ÈÈçÀı×ÓÖĞ3.4.4.4×î¼ÑÆ¥ÅäÊÇCity2=3.3.3.3,4.4.4.4£¬5.5.5.5µÄ×î¼ÑÆ¥ÅäÊÇCity3=2.2.2.2,6.6.6.6¡£
+//
+//ÊäÈëÃèÊö£º
+//ÊäÈë¹²2ĞĞ¡£
+//µÚÒ»ĞĞÎª³ÇÊĞµÄIP¶ÎÁĞ±í£¬¶à¸öIP¶Î²ÉÓÃÓ¢ÎÄ·ÖºÅ';'·Ö¸ô£¬IP¶ÎÁĞ±í×î´ó²»³¬¹ı500000¡£³ÇÊĞÃû³ÆÖ»°üº¬Ó¢ÎÄ×ÖÄ¸¡¢Êı×ÖºÍÏÂ»®Ïß£¬×î¶à²»³¬¹ı100000¸ö¡£IP¶Î°üº¬¹ØÏµ¿ÉÄÜÓĞ¶à²ã£¬µ«²»³¬¹ı100²ã¡£
+//µÚ¶şĞĞÎª²éÑ¯µÄIPÁĞ±í£¬¶à¸öIP²ÉÓÃÓ¢ÎÄ¶ººÅ¡®,¡¯·Ö¸ô£¬×î¶à²»³¬¹ı10000Ìõ¡£
+//
+//Êä³öÃèÊö£º
+//×î¼ÑÆ¥ÅäµÄ³ÇÊĞÃûÁĞ±í£¬²ÉÓÃÓ¢ÎÄ¶ººÅ¡®,¡¯·Ö¸ô£¬³ÇÊĞÁĞ±í³¤¶ÈÓ¦¸Ã¸ú²éÑ¯µÄIPÁĞ±í³¤¶ÈÒ»ÖÂ¡£
+//²¹³äËµÃ÷£º
+//1£©ÎŞÂÛÊÇ·ñ²éµ½Æ¥ÅäÕı³£¶¼ÒªÊä³ö·Ö¸ô·û¡£¾ÙÀı£º¼ÙÈçÊäÈëIPÁĞ±íÎªIPa,IPbÁ½¸öIP¾ùÎ´ÓĞÆ¥Åä³ÇÊĞ£¬´ËÊ±Êä³öÎª¡°,¡±£¬¼´Ö»ÓĞÒ»¸ö¶ººÅ·Ö¸ô·û£¬Á½¸ö³ÇÊĞ¾ùÎª¿Õ£»
+//2£©¿ÉÒÔ¼Ù¶¨ÓÃÀıÖĞµÄËùÓĞÊäÈë¾ùºÏ·¨£¬IPµØÖ·¾ùÎªºÏ·¨µÄipv4µØÖ·£¬Âú×ã£¨1~255£©.£¨0~255£©.£¨0~255£©.£¨0~255£©µÄ¸ñÊ½£¬ÇÒ¿ÉÒÔ¼Ù¶¨ÓÃÀıÖĞ²»»á³öÏÖ×é²¥ºÍ¹ã²¥µØÖ·£»
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//City1=1.1.1.1,1.1.1.2;City1=1.1.1.11,1.1.1.16;City2=3.3.3.3,4.4.4.4;City3=2.2.2.2,6.6.6.6
+//1.1.1.15,3.3.3.5,2.2.2.3
+//Êä³ö£º
+//City1,City2,City3
+//ËµÃ÷£º
+//1£©City1ÓĞ2¸öIP¶Î£¬City3µÄIP¶Î°üº¬City2µÄIP¶Î£»
+//2£©1.1.1.15½öÆ¥ÅäCity1=1.1.1.11,1.1.1.16£¬ËùÒÔCity1¾ÍÊÇ×î¼ÑÆ¥Åä£»2.2.2.3½öÆ¥ÅäCity3=2.2.2.2,6.6.6.6£¬ËùÒÔCity3ÊÇ×î¼ÑÆ¥Åä£»3.3.3.5Í¬Ê±Æ¥ÅäÎªCity2=3.3.3.3,4.4.4.4ºÍCity3=2.2.2.2,6.6.6.6£¬µ«ÊÇCity3=2.2.2.2,6.6.6.6µÄIP¶Î·¶Î§¸üĞ¡£¬ËùÒÔCity3Îª×î¼ÑÆ¥Åä£»
+//*/
+//#include<iostream>
+//#include<vector>
+//#include<string>
+//#include<sstream>
+//#include<limits>
+//
+//using namespace std;
+//
+//struct city
+//{
+//	string name;
+//	unsigned long start;
+//	unsigned long end;
+//
+//	city(string name, long start, long end) : name(name), start(start), end(end)
+//	{
+//
+//	}
+//};
+//
+//unsigned long ipToUl(string ip)
+//{
+//	istringstream iss(ip);
+//	unsigned long ulip = 0;
+//	string token;
+//	while (getline(iss, token, '.'))
+//	{
+//		ulip += stoul(token);
+//	}
+//	return ulip;
+//}
+//
+//int main()
+//{
+//	// ÊäÈë
+//	string str_city;	// ³ÇÊĞµÄIP¶ÎÁĞ±í
+//	getline(cin, str_city);
+//	string str_query;   // ²éÑ¯µÄIPÁĞ±í
+//	getline(cin, str_query);
+//
+//
+//	vector<city> cities;
+//	vector<unsigned long> quiries;
+//
+//	// ´¦ÀíÊäÈëÊı¾İ
+//	istringstream iss1(str_city);
+//	string s_city;
+//	while (getline(iss1, s_city, ';'))
+//	{
+//		size_t pos1 = s_city.find('=');
+//		size_t pos2 = s_city.find(',');
+//
+//		string name = s_city.substr(0, pos1);
+//		string ip1 = s_city.substr(pos1 + 1, pos2 - pos1);
+//		string ip2 = s_city.substr(pos2 + 1);
+//
+//		city c1(name, ipToUl(ip1), ipToUl(ip2));
+//		cities.push_back(c1);
+//	}
+//
+//	istringstream iss2(str_query);
+//	string s_ip;
+//	while(getline(iss2, s_ip, ','))
+//	{
+//		quiries.push_back(ipToUl(s_ip));
+//	}
+//
+//	// ¿ªÊ¼²éÑ¯
+//	vector<string> res;
+//	for (auto& i : quiries)
+//	{
+//		string name;
+//		unsigned long gap = numeric_limits<unsigned long>::max();
+//		for (auto& j : cities)
+//		{
+//			if (i >= j.start && i <= j.end)
+//			{
+//				if (j.end - j.start < gap)
+//				{
+//					name = j.name;
+//					gap = j.end - j.start;
+//				}
+//			}
+//		}
+//		res.push_back(name);
+//	}
+//
+//	for (int i = 0; i < res.size(); i++)
+//	{
+//		cout << res[i];
+//		if (i != res.size() - 1)
+//		{
+//			cout << ',';
+//		}
+//	}
+//}

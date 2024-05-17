@@ -1,82 +1,82 @@
-/*
-407ã€åˆ†é…åœŸåœ°
-é¢˜ç›®æè¿°ï¼š
-ä»Žå‰æœ‰ä¸ªæ‘åº„ï¼Œæ‘æ°‘ä»¬å–œæ¬¢åœ¨å„ç§ç”°åœ°ä¸Šæ’ä¸Šå°æ——å­ï¼Œæ——å­ä¸Šæ ‡è¯†äº†å„ç§ä¸åŒçš„æ•°å­—ã€‚æŸå¤©é›†ä½“æ‘æ°‘å†³å®šå°†è¦†ç›–ç›¸åŒæ•°å­—çš„æœ€å°çŸ©é˜µå½¢çš„åœŸåœ°çš„åˆ†é…ç»™ä¸ºæ‘é‡Œåšå‡ºå·¨å¤§è´¡çŒ®çš„æ‘æ°‘ï¼Œè¯·é—®ï¼Œæ­¤æ¬¡åˆ†é…åœŸåœ°ï¼Œåšå‡ºè´¡çŒ®çš„æ‘æ°‘ä¸­æœ€å¤§ä¼šåˆ†é…å¤šå¤§é¢ç§¯ï¼Ÿ
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬ä¸€è¡Œè¾“å…¥må’Œnï¼Œmä»£è¡¨æ‘å­çš„åœŸåœ°çš„é•¿ï¼Œnä»£è¡¨åœŸåœ°çš„å®½
-ç¬¬äºŒè¡Œå¼€å§‹è¾“å…¥åœ°å›¾ä¸Šçš„å…·ä½“æ ‡è¯†
-
-è¾“å‡ºæè¿°ï¼š
-è¾“å‡ºéœ€è¦åˆ†é…çš„åœŸåœ°é¢ç§¯ï¼Œå³åŒ…å«ç›¸åŒæ•°å­—æ——å­çš„æœ€å°çŸ©é˜µä¸­çš„æœ€å¤§é¢ç§¯ã€‚
-
-è¡¥å……è¯´æ˜Žï¼š
-æ——å­ä¸Šçš„æ•°å­—ä¸º1-500ï¼ŒåœŸåœ°è¾¹é•¿ä¸è¶…è¿‡500
-æœªæ’æ——å­çš„åœŸåœ°ç”¨0æ ‡è¯†
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-3 3
-1 0 1
-0 0 0
-0 1 0
-è¾“å‡ºï¼š
-9
-è¯´æ˜Žï¼š
-åœŸåœ°ä¸Šçš„æ——å­ä¸º1ï¼Œå…¶åæ ‡åˆ†åˆ«ä¸º(0,0)ï¼Œ(2,1)ä»¥åŠ(0,2)ï¼Œä¸ºäº†è¦†ç›–æ‰€æœ‰æ——å­ï¼ŒçŸ©é˜µéœ€è¦è¦†ç›–çš„æ¨ªåæ ‡ä¸º0å’Œ2ï¼Œçºµåæ ‡ä¸º0å’Œ2ï¼Œæ‰€ä»¥é¢ç§¯ä¸º9ï¼Œå³(2-0+1)*(2-0+1)=9ã€‚
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-3 3
-1 0 2
-0 0 0
-0 3 4
-è¾“å‡ºï¼š
-1
-è¯´æ˜Žï¼š
-ç”±äºŽä¸å­˜åœ¨æˆå¯¹çš„å°æ——å­ï¼Œæ•…è€Œè¿”å›ž1ï¼Œå³ä¸€å—åœŸåœ°çš„é¢ç§¯ã€‚
-
-
-*/
-
-#include<iostream>
-#include<vector>
-#include<map>
-
-using namespace std;
-
-void allocate_land() {
-    int a, b;
-    cin >> a >> b;
-    vector<int> nums(501, 0);
-    vector<int> max_row(501, 0);
-    vector<int> max_col(501, 0);
-    vector<int> min_row(501, 502);
-    vector<int> min_col(501, 502);
-
-    for (int i = 0; i < a; i++) {
-        for (int j = 0; j < b; j++) {
-            int c;
-            cin >> c;
-            nums[c] = 1;
-            max_row[c] = max(max_row[c], i);
-            max_col[c] = max(max_col[c], j);
-            min_row[c] = min(min_row[c], i);
-            min_col[c] = min(min_col[c], j);
-        }
-    }
-
-    int max_area = 0;
-    for (int i = 1; i <= 500; i++) {
-        if (nums[i] == 1) {
-            max_area = max(max_area, (max_row[i] - min_row[i] + 1) * (max_col[i] - min_col[i] + 1));
-        }
-    }
-
-    cout << max_area << endl;
-}
-
-int main() {
-    allocate_land();
-    return 0;
-}
+///*
+//407¡¢·ÖÅäÍÁµØ
+//ÌâÄ¿ÃèÊö£º
+//´ÓÇ°ÓÐ¸ö´å×¯£¬´åÃñÃÇÏ²»¶ÔÚ¸÷ÖÖÌïµØÉÏ²åÉÏÐ¡Æì×Ó£¬Æì×ÓÉÏ±êÊ¶ÁË¸÷ÖÖ²»Í¬µÄÊý×Ö¡£Ä³Ìì¼¯Ìå´åÃñ¾ö¶¨½«¸²¸ÇÏàÍ¬Êý×ÖµÄ×îÐ¡¾ØÕóÐÎµÄÍÁµØµÄ·ÖÅä¸øÎª´åÀï×ö³ö¾Þ´ó¹±Ï×µÄ´åÃñ£¬ÇëÎÊ£¬´Ë´Î·ÖÅäÍÁµØ£¬×ö³ö¹±Ï×µÄ´åÃñÖÐ×î´ó»á·ÖÅä¶à´óÃæ»ý£¿
+//
+//ÊäÈëÃèÊö£º
+//µÚÒ»ÐÐÊäÈëmºÍn£¬m´ú±í´å×ÓµÄÍÁµØµÄ³¤£¬n´ú±íÍÁµØµÄ¿í
+//µÚ¶þÐÐ¿ªÊ¼ÊäÈëµØÍ¼ÉÏµÄ¾ßÌå±êÊ¶
+//
+//Êä³öÃèÊö£º
+//Êä³öÐèÒª·ÖÅäµÄÍÁµØÃæ»ý£¬¼´°üº¬ÏàÍ¬Êý×ÖÆì×ÓµÄ×îÐ¡¾ØÕóÖÐµÄ×î´óÃæ»ý¡£
+//
+//²¹³äËµÃ÷£º
+//Æì×ÓÉÏµÄÊý×ÖÎª1-500£¬ÍÁµØ±ß³¤²»³¬¹ý500
+//Î´²åÆì×ÓµÄÍÁµØÓÃ0±êÊ¶
+//
+//Ê¾Àý1
+//ÊäÈë£º
+//3 3
+//1 0 1
+//0 0 0
+//0 1 0
+//Êä³ö£º
+//9
+//ËµÃ÷£º
+//ÍÁµØÉÏµÄÆì×ÓÎª1£¬Æä×ø±ê·Ö±ðÎª(0,0)£¬(2,1)ÒÔ¼°(0,2)£¬ÎªÁË¸²¸ÇËùÓÐÆì×Ó£¬¾ØÕóÐèÒª¸²¸ÇµÄºá×ø±êÎª0ºÍ2£¬×Ý×ø±êÎª0ºÍ2£¬ËùÒÔÃæ»ýÎª9£¬¼´(2-0+1)*(2-0+1)=9¡£
+//
+//Ê¾Àý2
+//ÊäÈë£º
+//3 3
+//1 0 2
+//0 0 0
+//0 3 4
+//Êä³ö£º
+//1
+//ËµÃ÷£º
+//ÓÉÓÚ²»´æÔÚ³É¶ÔµÄÐ¡Æì×Ó£¬¹Ê¶ø·µ»Ø1£¬¼´Ò»¿éÍÁµØµÄÃæ»ý¡£
+//
+//
+//*/
+//
+//#include<iostream>
+//#include<vector>
+//#include<map>
+//
+//using namespace std;
+//
+//void allocate_land() {
+//    int a, b;
+//    cin >> a >> b;
+//    vector<int> nums(501, 0);
+//    vector<int> max_row(501, 0);
+//    vector<int> max_col(501, 0);
+//    vector<int> min_row(501, 502);
+//    vector<int> min_col(501, 502);
+//
+//    for (int i = 0; i < a; i++) {
+//        for (int j = 0; j < b; j++) {
+//            int c;
+//            cin >> c;
+//            nums[c] = 1;
+//            max_row[c] = max(max_row[c], i);
+//            max_col[c] = max(max_col[c], j);
+//            min_row[c] = min(min_row[c], i);
+//            min_col[c] = min(min_col[c], j);
+//        }
+//    }
+//
+//    int max_area = 0;
+//    for (int i = 1; i <= 500; i++) {
+//        if (nums[i] == 1) {
+//            max_area = max(max_area, (max_row[i] - min_row[i] + 1) * (max_col[i] - min_col[i] + 1));
+//        }
+//    }
+//
+//    cout << max_area << endl;
+//}
+//
+//int main() {
+//    allocate_land();
+//    return 0;
+//}

@@ -1,89 +1,89 @@
-/*
-ç‰¹å®šå¤§å°çš„åœè½¦åœºï¼Œæ•°ç»„cars[]è¡¨ç¤ºï¼Œå…¶ä¸­1è¡¨ç¤ºæœ‰è½¦ï¼Œ0è¡¨ç¤ºæ²¡è½¦ã€‚
-è½¦è¾†å¤§å°ä¸ä¸€ï¼Œå°è½¦å ä¸€ä¸ªè½¦ä½ï¼ˆé•¿åº¦1ï¼‰ï¼Œè´§è½¦å ä¸¤ä¸ªè½¦ä½ï¼ˆé•¿åº¦2ï¼‰ï¼Œå¡è½¦å ä¸‰ä¸ªè½¦ä½ï¼ˆé•¿åº¦3ï¼‰ã€‚
-ç»Ÿè®¡åœè½¦åœºæœ€å°‘å¯ä»¥åœå¤šå°‘è¾†è½¦ï¼Œè¿”å›žå…·ä½“çš„æ•°ç›®
-
-è¾“å…¥
-æ•´åž‹å­—ç¬¦ä¸²æ•°ç»„cars[]ï¼Œå…¶ä¸­1è¡¨ç¤ºæœ‰è½¦ï¼Œ0è¡¨ç¤ºæ²¡è½¦ï¼Œæ•°ç»„é•¿åº¦å°äºŽ1000ã€‚
-
-è¾“å‡º
-æ•´åž‹æ•°å­—å­—ç¬¦ä¸²ï¼Œè¡¨ç¤ºæœ€å°‘åœè½¦æ•°ç›®
-
-è¾“å…¥
-1,0,1
-
-è¾“å‡º
-2
-
-è¯´æ˜Ž:
-1ä¸ªå°è½¦å ç¬¬1ä¸ªè½¦ä½ï¼Œç¬¬äºŒä¸ªè½¦ä½ç©ºï¼Œ1ä¸ªå°è½¦å ç¬¬3ä¸ªè½¦ä½ï¼Œæœ€å°‘æœ‰ä¸¤è¾†è½¦
-
-è¾“å…¥
-1,1,0,0,1,1,1,0,1
-
-
-è¾“å‡º
-3
-
-è¯´æ˜Ž:
-1ä¸ªè´§è½¦å ç¬¬1ã€2ä¸ªè½¦ä½ï¼Œç¬¬3ã€4ä¸ªè½¦ä½ç©ºï¼Œ1ä¸ªå¡è½¦å ç¬¬5ã€6ã€7ä¸ªè½¦ä½
-ç¬¬8ä¸ªè½¦ä½ç©ºï¼Œ1ä¸ªå°è½¦å ç¬¬9ä¸ªè½¦ä½ï¼Œæœ€å°‘3è¾†è½¦
-
-æ€è·¯ï¼š
-	åµŒå¥—ifè¯­å¥è§£å†³é—®é¢˜
-
-æ³¨æ„ï¼šifçš„è¾¹ç•Œæ¡ä»¶ï¼Œæ³¨æ„åˆ¤æ–­è¯­å¥ä¸­çš„ == ä¸è¦å†™æˆ =
-*/
-
-#include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
-
-using namespace std;
-
-int main()
-{
-	// è¾“å…¥
-	string input;
-	getline(cin, input);
-	vector<int> vec;
-	int start = 0;
-	for (int i = 0; i < input.size(); ++i)
-	{
-		if (input[i] == ',')
-		{
-			string str = input.substr(start, i - start);
-			int tmp = stoi(str);
-			vec.push_back(tmp);
-			start = i + 1;
-		}
-	}
-	vec.push_back(stoi(input.substr(start)));
-
-
-	// è®¡ç®—æœ€å°‘åœä¸‹çš„æ•°é‡
-	int count = 0;
-	int i = 0;
-	int size = vec.size();
-	while(i < size){
-		if (vec[i] == 1) {
-			if (i + 2 < size && vec[i + 2] == 1 && vec[i + 1] == 1) {
-				count++;
-				i = i + 3;
-			}
-			else if (i + 1 < size && vec[i + 1] == 1) {
-				count++;
-				i = i + 2;
-			}
-			else {
-				count++;
-				i = i + 1;
-			}
-		}
-		else {
-			i = i + 1;
-		}
-	}
-	cout << count << endl;
-}
+///*
+//ÌØ¶¨´óÐ¡µÄÍ£³µ³¡£¬Êý×écars[]±íÊ¾£¬ÆäÖÐ1±íÊ¾ÓÐ³µ£¬0±íÊ¾Ã»³µ¡£
+//³µÁ¾´óÐ¡²»Ò»£¬Ð¡³µÕ¼Ò»¸ö³µÎ»£¨³¤¶È1£©£¬»õ³µÕ¼Á½¸ö³µÎ»£¨³¤¶È2£©£¬¿¨³µÕ¼Èý¸ö³µÎ»£¨³¤¶È3£©¡£
+//Í³¼ÆÍ£³µ³¡×îÉÙ¿ÉÒÔÍ£¶àÉÙÁ¾³µ£¬·µ»Ø¾ßÌåµÄÊýÄ¿
+//
+//ÊäÈë
+//ÕûÐÍ×Ö·û´®Êý×écars[]£¬ÆäÖÐ1±íÊ¾ÓÐ³µ£¬0±íÊ¾Ã»³µ£¬Êý×é³¤¶ÈÐ¡ÓÚ1000¡£
+//
+//Êä³ö
+//ÕûÐÍÊý×Ö×Ö·û´®£¬±íÊ¾×îÉÙÍ£³µÊýÄ¿
+//
+//ÊäÈë
+//1,0,1
+//
+//Êä³ö
+//2
+//
+//ËµÃ÷:
+//1¸öÐ¡³µÕ¼µÚ1¸ö³µÎ»£¬µÚ¶þ¸ö³µÎ»¿Õ£¬1¸öÐ¡³µÕ¼µÚ3¸ö³µÎ»£¬×îÉÙÓÐÁ½Á¾³µ
+//
+//ÊäÈë
+//1,1,0,0,1,1,1,0,1
+//
+//
+//Êä³ö
+//3
+//
+//ËµÃ÷:
+//1¸ö»õ³µÕ¼µÚ1¡¢2¸ö³µÎ»£¬µÚ3¡¢4¸ö³µÎ»¿Õ£¬1¸ö¿¨³µÕ¼µÚ5¡¢6¡¢7¸ö³µÎ»
+//µÚ8¸ö³µÎ»¿Õ£¬1¸öÐ¡³µÕ¼µÚ9¸ö³µÎ»£¬×îÉÙ3Á¾³µ
+//
+//Ë¼Â·£º
+//	Ç¶Ì×ifÓï¾ä½â¾öÎÊÌâ
+//
+//×¢Òâ£ºifµÄ±ß½çÌõ¼þ£¬×¢ÒâÅÐ¶ÏÓï¾äÖÐµÄ == ²»ÒªÐ´³É =
+//*/
+//
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<algorithm>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	// ÊäÈë
+//	string input;
+//	getline(cin, input);
+//	vector<int> vec;
+//	int start = 0;
+//	for (int i = 0; i < input.size(); ++i)
+//	{
+//		if (input[i] == ',')
+//		{
+//			string str = input.substr(start, i - start);
+//			int tmp = stoi(str);
+//			vec.push_back(tmp);
+//			start = i + 1;
+//		}
+//	}
+//	vec.push_back(stoi(input.substr(start)));
+//
+//
+//	// ¼ÆËã×îÉÙÍ£ÏÂµÄÊýÁ¿
+//	int count = 0;
+//	int i = 0;
+//	int size = vec.size();
+//	while(i < size){
+//		if (vec[i] == 1) {
+//			if (i + 2 < size && vec[i + 2] == 1 && vec[i + 1] == 1) {
+//				count++;
+//				i = i + 3;
+//			}
+//			else if (i + 1 < size && vec[i + 1] == 1) {
+//				count++;
+//				i = i + 2;
+//			}
+//			else {
+//				count++;
+//				i = i + 1;
+//			}
+//		}
+//		else {
+//			i = i + 1;
+//		}
+//	}
+//	cout << count << endl;
+//}

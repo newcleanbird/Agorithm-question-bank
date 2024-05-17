@@ -1,213 +1,213 @@
-///*
-//441ã€ç¬¦å·è¿ç®—
-//é¢˜ç›®æè¿°ï¼š
-//ç»™å®šä¸€ä¸ªè¡¨è¾¾å¼ï¼Œæ±‚å…¶åˆ†æ•°è®¡ç®—ç»“æœ
-//è¡¨è¾¾å¼çš„é™åˆ¶å¦‚ä¸‹ï¼š
-//1. æ‰€æœ‰çš„è¾“å…¥æ•°å­—çš†ä¸ºæ­£æ•´æ•°(åŒ…æ‹¬0)
-//2. ä»…æ”¯æŒå››åˆ™è¿ç®—(+-* /)å’Œæ‹¬å·
-//3. ç»“æœä¸ºæ•´æ•°æˆ–åˆ†æ•°, åˆ†æ•°å¿…é¡»åŒ–ä¸ºæœ€ç®€æ ¼å¼(æ¯”å¦‚6, 3 / 4, 7 / 8, 90 / 7)
-//4. é™¤æ•°å¯èƒ½ä¸º0ï¼Œå¦‚æœé‡åˆ°è¿™ç§æƒ…å†µï¼Œç›´æ¥è¾“å‡º"ERROR"
-//5. è¾“å…¥å’Œæœ€ç»ˆè®¡ç®—ç»“æœä¸­çš„æ•°å­—éƒ½ä¸ä¼šè¶…å‡ºæ•´å‹èŒƒå›´
+/////*
+////441¡¢·ûºÅÔËËã
+////ÌâÄ¿ÃèÊö£º
+////¸ø¶¨Ò»¸ö±í´ïÊ½£¬ÇóÆä·ÖÊı¼ÆËã½á¹û
+////±í´ïÊ½µÄÏŞÖÆÈçÏÂ£º
+////1. ËùÓĞµÄÊäÈëÊı×Ö½ÔÎªÕıÕûÊı(°üÀ¨0)
+////2. ½öÖ§³ÖËÄÔòÔËËã(+-* /)ºÍÀ¨ºÅ
+////3. ½á¹ûÎªÕûÊı»ò·ÖÊı, ·ÖÊı±ØĞë»¯Îª×î¼ò¸ñÊ½(±ÈÈç6, 3 / 4, 7 / 8, 90 / 7)
+////4. ³ıÊı¿ÉÄÜÎª0£¬Èç¹ûÓöµ½ÕâÖÖÇé¿ö£¬Ö±½ÓÊä³ö"ERROR"
+////5. ÊäÈëºÍ×îÖÕ¼ÆËã½á¹ûÖĞµÄÊı×Ö¶¼²»»á³¬³öÕûĞÍ·¶Î§
+////
+////ÓÃÀıµÄÊäÈëÒ»¶¨ºÏ·¨, ²»»á³öÏÖÀ¨ºÅ²»Æ¥ÅäµÄÇé¿ö
+////ÊäÈëÃèÊö£º
+////×Ö·û´®¸ñÊ½µÄ±í´ïÊ½£¬½öÖ§³Ö + - * / £¬Êı×Ö¿ÉÄÜ³¬¹ıÁ½Î»£¬¿ÉÄÜ´øÓĞ¿Õ¸ñ£¬Ã»ÓĞ¸ºÊı
+////³¤¶ÈĞ¡ÓÚ200¸ö×Ö·û
+////
+////Êä³öÃèÊö£º
+////±í´ïÊ½½á¹û£¬ÒÔ×î¼ò¸ñÊ½±í´ï
+////Èç¹û½á¹ûÎªÕûÊı£¬ÄÇÃ´Ö±½ÓÊä³öÕûÊı
+////Èç¹û½á¹ûÎª·ÖÊı£¬ÄÇÃ´·Ö×Ó·ÖÄ¸²»¿ÉÔÙÔ¼·Ö£¬¿ÉÒÔÎª¼Ù·ÖÊı£¬²»¿É±í´ïÎª´ø·ÖÊı
+////½á¹û¿ÉÄÜÊÇ¸ºÊı, ¸ººÅ·ÅÔÚ×îÇ°Ãæ
+////
+////Ê¾Àı1
+////ÊäÈë£º
+////1 + 5 * 7 / 8
+////Êä³ö£º
+////43 / 8
+////ËµÃ÷£º
+////
+////Ê¾Àı2
+////ÊäÈë£º
+////1 / (0 - 5)
+////Êä³ö£º
+////- 1 / 5
+////ËµÃ÷£º
+////¸ººÅĞèÒªÌáµ½×îÇ°Ãæ
+////
+////Ê¾Àı3
+////ÊäÈë£º
+////1 * (3 * 4 / (8 - (7 + 0)))
+////Êä³ö£º
+////12
+////ËµÃ÷£º
+////×¢ÒâÀ¨ºÅ¿ÉÒÔ¶àÖØÇ¶Ì×
+////
+////Ë¼Â·£º¼ÆËãÖĞ×º±í´ïÊ½
+////1. ÀûÓÃÕ»À´ÊµÏÖ×ª»»
+////×ª»»¹ı³ÌĞèÒªÓÃµ½Õ»£¬ÕâÀïÊ¹ÓÃÁ½¸öÕ»£ºstack Õ»ÓÃÀ´´æ·ÅÔËËã·û£¬post Õ»ÓÃÀ´´æ·Å×îºóµÄºó×º±í´ïÊ½¡£¾ßÌå¹æÔòÈçÏÂ£º
+////´Ó×óµ½ÓÒÉ¨ÃèÖĞ×º±í´ïÊ½£º
+////ÈôÊÇ²Ù×÷Êı£¬Ö±½Ó´æÈë post Õ»£»
+////ÈôÊÇÔËËã·û£º
+////£¨1£©¸ÃÔËËã·ûÊÇ×óÀ¨ºÅ ( , ÔòÖ±½Ó´æÈë stack Õ»¡£
+////£¨2£©¸ÃÔËËã·ûÊÇÓÒÀ¨ºÅ )£¬Ôò½« stack Õ»ÖĞ ( Ç°µÄËùÓĞÔËËã·û³öÕ»£¬´æÈë post Õ»¡£
+////£¨3£©Èô¸ÃÔËËã·ûÎª·ÇÀ¨ºÅ£¬Ôò½«¸ÃÔËËã·ûºÍ stack Õ»¶¥ÔËËã·û×÷±È½Ï£ºÈô¸ßÓÚÕ»¶¥ÔËËã·û£¬ÔòÖ±½Ó´æÈë stack Õ»£¬·ñÔò½«Õ»¶¥ÔËËã·û³öÕ»£¨´ÓÕ»ÖĞµ¯³öÔªËØÖ±µ½Óöµ½·¢ÏÖ¸üµÍÓÅÏÈ¼¶µÄÔªËØ(»òÕßÕ»Îª¿Õ)ÎªÖ¹£©£¬´æÈë post Õ»¡£
+////£¨4£©µ±É¨ÃèÍêºó£¬stack Õ»ÖĞ»¹ÓĞÔËËã·ûÊ±£¬Ôò½«ËùÓĞÔËËã·û³öÕ»£¬´æÈë post Õ»¡£
+////
+////*/
+////
+//#include <iostream>
+//#include <stack>
+//#include <string>
+//#include <sstream>
 //
-//ç”¨ä¾‹çš„è¾“å…¥ä¸€å®šåˆæ³•, ä¸ä¼šå‡ºç°æ‹¬å·ä¸åŒ¹é…çš„æƒ…å†µ
-//è¾“å…¥æè¿°ï¼š
-//å­—ç¬¦ä¸²æ ¼å¼çš„è¡¨è¾¾å¼ï¼Œä»…æ”¯æŒ + - * / ï¼Œæ•°å­—å¯èƒ½è¶…è¿‡ä¸¤ä½ï¼Œå¯èƒ½å¸¦æœ‰ç©ºæ ¼ï¼Œæ²¡æœ‰è´Ÿæ•°
-//é•¿åº¦å°äº200ä¸ªå­—ç¬¦
+//using namespace std;
 //
-//è¾“å‡ºæè¿°ï¼š
-//è¡¨è¾¾å¼ç»“æœï¼Œä»¥æœ€ç®€æ ¼å¼è¡¨è¾¾
-//å¦‚æœç»“æœä¸ºæ•´æ•°ï¼Œé‚£ä¹ˆç›´æ¥è¾“å‡ºæ•´æ•°
-//å¦‚æœç»“æœä¸ºåˆ†æ•°ï¼Œé‚£ä¹ˆåˆ†å­åˆ†æ¯ä¸å¯å†çº¦åˆ†ï¼Œå¯ä»¥ä¸ºå‡åˆ†æ•°ï¼Œä¸å¯è¡¨è¾¾ä¸ºå¸¦åˆ†æ•°
-//ç»“æœå¯èƒ½æ˜¯è´Ÿæ•°, è´Ÿå·æ”¾åœ¨æœ€å‰é¢
 //
-//ç¤ºä¾‹1
-//è¾“å…¥ï¼š
-//1 + 5 * 7 / 8
-//è¾“å‡ºï¼š
-//43 / 8
-//è¯´æ˜ï¼š
+//int getPrecedence(char op) {
+//    if (op == '+' || op == '-')
+//        return 1;
+//    else if (op == '*' || op == '/')
+//        return 2;
+//    /*else if (op == '^')
+//        return 3;*/
+//    else
+//        return 0;
+//}
 //
-//ç¤ºä¾‹2
-//è¾“å…¥ï¼š
-//1 / (0 - 5)
-//è¾“å‡ºï¼š
-//- 1 / 5
-//è¯´æ˜ï¼š
-//è´Ÿå·éœ€è¦æåˆ°æœ€å‰é¢
+//string infixToPostfix(const string& infix) {
+//    stack<char> operators;
+//    string postfix;
+//    for (size_t i = 0; i < infix.length(); ++i) {
+//        if (isdigit(infix[i])) {
+//            // ´¦Àí¶àÎ»ÊıµÄÇé¿ö
+//            while (i + 1 < infix.length() && isdigit(infix[i + 1])) {
+//                postfix += infix[i];
+//                ++i;
+//            }
+//            postfix += infix[i]; // Ìí¼Ó×îºóÒ»¸öÊı×Ö
+//            postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+//        }
+//        else if (infix[i] == '(') {
+//            operators.push(infix[i]);
+//        }
+//        else if (infix[i] == ')') {
+//            while (!operators.empty() && operators.top() != '(') {
+//                postfix += operators.top();
+//                postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+//                operators.pop();
+//            }
+//            operators.pop(); // µ¯³ö×óÀ¨ºÅ
+//        }
+//        else {
+//            while (!operators.empty() && getPrecedence(infix[i]) <= getPrecedence(operators.top())) {
+//                postfix += operators.top();
+//                postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+//                operators.pop();
+//            }
+//            operators.push(infix[i]);
+//        }
+//    }
+//    while (!operators.empty()) {
+//        postfix += operators.top();
+//        postfix += ' '; // Ìí¼Ó¿Õ¸ñ·Ö¸ô·û
+//        operators.pop();
+//    }
+//    return postfix;
+//}
 //
-//ç¤ºä¾‹3
-//è¾“å…¥ï¼š
-//1 * (3 * 4 / (8 - (7 + 0)))
-//è¾“å‡ºï¼š
-//12
-//è¯´æ˜ï¼š
-//æ³¨æ„æ‹¬å·å¯ä»¥å¤šé‡åµŒå¥—
+///*¼ÆËãºó×º±í´ïÊ½£¬ÆäÖĞºó×º±í´ïÊ½µÄÊı×Ö¿ÉÄÜÓĞ¶àÎ»£¬Êı×ÖºÍ·ûºÅÖ®¼äÓÃ¿Õ¸ñ¼ä¸ô*/
+//int calculatePostfixExpression(const std::string& expression) {
+//    std::stack<int> numStack;
+//    std::istringstream iss(expression);
+//    std::string token;
 //
-//æ€è·¯ï¼šè®¡ç®—ä¸­ç¼€è¡¨è¾¾å¼
-//1. åˆ©ç”¨æ ˆæ¥å®ç°è½¬æ¢
-//è½¬æ¢è¿‡ç¨‹éœ€è¦ç”¨åˆ°æ ˆï¼Œè¿™é‡Œä½¿ç”¨ä¸¤ä¸ªæ ˆï¼šstack æ ˆç”¨æ¥å­˜æ”¾è¿ç®—ç¬¦ï¼Œpost æ ˆç”¨æ¥å­˜æ”¾æœ€åçš„åç¼€è¡¨è¾¾å¼ã€‚å…·ä½“è§„åˆ™å¦‚ä¸‹ï¼š
-//ä»å·¦åˆ°å³æ‰«æä¸­ç¼€è¡¨è¾¾å¼ï¼š
-//è‹¥æ˜¯æ“ä½œæ•°ï¼Œç›´æ¥å­˜å…¥ post æ ˆï¼›
-//è‹¥æ˜¯è¿ç®—ç¬¦ï¼š
-//ï¼ˆ1ï¼‰è¯¥è¿ç®—ç¬¦æ˜¯å·¦æ‹¬å· ( , åˆ™ç›´æ¥å­˜å…¥ stack æ ˆã€‚
-//ï¼ˆ2ï¼‰è¯¥è¿ç®—ç¬¦æ˜¯å³æ‹¬å· )ï¼Œåˆ™å°† stack æ ˆä¸­ ( å‰çš„æ‰€æœ‰è¿ç®—ç¬¦å‡ºæ ˆï¼Œå­˜å…¥ post æ ˆã€‚
-//ï¼ˆ3ï¼‰è‹¥è¯¥è¿ç®—ç¬¦ä¸ºéæ‹¬å·ï¼Œåˆ™å°†è¯¥è¿ç®—ç¬¦å’Œ stack æ ˆé¡¶è¿ç®—ç¬¦ä½œæ¯”è¾ƒï¼šè‹¥é«˜äºæ ˆé¡¶è¿ç®—ç¬¦ï¼Œåˆ™ç›´æ¥å­˜å…¥ stack æ ˆï¼Œå¦åˆ™å°†æ ˆé¡¶è¿ç®—ç¬¦å‡ºæ ˆï¼ˆä»æ ˆä¸­å¼¹å‡ºå…ƒç´ ç›´åˆ°é‡åˆ°å‘ç°æ›´ä½ä¼˜å…ˆçº§çš„å…ƒç´ (æˆ–è€…æ ˆä¸ºç©º)ä¸ºæ­¢ï¼‰ï¼Œå­˜å…¥ post æ ˆã€‚
-//ï¼ˆ4ï¼‰å½“æ‰«æå®Œåï¼Œstack æ ˆä¸­è¿˜æœ‰è¿ç®—ç¬¦æ—¶ï¼Œåˆ™å°†æ‰€æœ‰è¿ç®—ç¬¦å‡ºæ ˆï¼Œå­˜å…¥ post æ ˆã€‚
+//    while (iss >> token) {
+//        if (token == "+" || token == "-" || token == "*" || token == "/") {
+//            int num2 = numStack.top();
+//            numStack.pop();
+//            int num1 = numStack.top();
+//            numStack.pop();
 //
-//*/
+//            if (token == "+") {
+//                numStack.push(num1 + num2);
+//            }
+//            else if (token == "-") {
+//                numStack.push(num1 - num2);
+//            }
+//            else if (token == "*") {
+//                numStack.push(num1 * num2);
+//            }
+//            else if (token == "/") {
+//                numStack.push(num1 / num2);
+//            }
+//        }
+//        else {
+//            numStack.push(std::stoi(token));
+//        }
+//    }
 //
-#include <iostream>
-#include <stack>
-#include <string>
-#include <sstream>
-
-using namespace std;
-
-
-int getPrecedence(char op) {
-    if (op == '+' || op == '-')
-        return 1;
-    else if (op == '*' || op == '/')
-        return 2;
-    /*else if (op == '^')
-        return 3;*/
-    else
-        return 0;
-}
-
-string infixToPostfix(const string& infix) {
-    stack<char> operators;
-    string postfix;
-    for (size_t i = 0; i < infix.length(); ++i) {
-        if (isdigit(infix[i])) {
-            // å¤„ç†å¤šä½æ•°çš„æƒ…å†µ
-            while (i + 1 < infix.length() && isdigit(infix[i + 1])) {
-                postfix += infix[i];
-                ++i;
-            }
-            postfix += infix[i]; // æ·»åŠ æœ€åä¸€ä¸ªæ•°å­—
-            postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
-        }
-        else if (infix[i] == '(') {
-            operators.push(infix[i]);
-        }
-        else if (infix[i] == ')') {
-            while (!operators.empty() && operators.top() != '(') {
-                postfix += operators.top();
-                postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
-                operators.pop();
-            }
-            operators.pop(); // å¼¹å‡ºå·¦æ‹¬å·
-        }
-        else {
-            while (!operators.empty() && getPrecedence(infix[i]) <= getPrecedence(operators.top())) {
-                postfix += operators.top();
-                postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
-                operators.pop();
-            }
-            operators.push(infix[i]);
-        }
-    }
-    while (!operators.empty()) {
-        postfix += operators.top();
-        postfix += ' '; // æ·»åŠ ç©ºæ ¼åˆ†éš”ç¬¦
-        operators.pop();
-    }
-    return postfix;
-}
-
-/*è®¡ç®—åç¼€è¡¨è¾¾å¼ï¼Œå…¶ä¸­åç¼€è¡¨è¾¾å¼çš„æ•°å­—å¯èƒ½æœ‰å¤šä½ï¼Œæ•°å­—å’Œç¬¦å·ä¹‹é—´ç”¨ç©ºæ ¼é—´éš”*/
-int calculatePostfixExpression(const std::string& expression) {
-    std::stack<int> numStack;
-    std::istringstream iss(expression);
-    std::string token;
-
-    while (iss >> token) {
-        if (token == "+" || token == "-" || token == "*" || token == "/") {
-            int num2 = numStack.top();
-            numStack.pop();
-            int num1 = numStack.top();
-            numStack.pop();
-
-            if (token == "+") {
-                numStack.push(num1 + num2);
-            }
-            else if (token == "-") {
-                numStack.push(num1 - num2);
-            }
-            else if (token == "*") {
-                numStack.push(num1 * num2);
-            }
-            else if (token == "/") {
-                numStack.push(num1 / num2);
-            }
-        }
-        else {
-            numStack.push(std::stoi(token));
-        }
-    }
-
-    return numStack.top();
-}
-
-/*è®¡ç®—åç¼€è¡¨è¾¾å¼ï¼Œå…¶ä¸­åç¼€è¡¨è¾¾å¼çš„æ•°å­—å¯èƒ½æœ‰å¤šä½ï¼Œæ•°å­—å’Œç¬¦å·ä¹‹é—´ç”¨ç©ºæ ¼é—´éš”ï¼Œé™¤æ³•ç»“æœç”¨æœ€ç®€åˆ†æ•°çš„å½¢å¼è¡¨ç¤º*/
-int gcd(int a, int b) {
-    return b == 0 ? a : gcd(b, a % b);
-}
-
-std::pair<int, int> simplifyFraction(int numerator, int denominator) {
-    int g = gcd(numerator, denominator);
-    return std::make_pair(numerator / g, denominator / g);
-}
-
-int calculatePostfixExpression_1(const std::string& expression) {
-    std::stack<std::pair<int, int>> numStack;
-    std::istringstream iss(expression);
-    std::string token;
-
-    while (iss >> token) {
-        if (token == "+" || token == "-" || token == "*" || token == "/") {
-            int num2 = numStack.top().first;
-            int den2 = numStack.top().second;
-            numStack.pop();
-            int num1 = numStack.top().first;
-            int den1 = numStack.top().second;
-            numStack.pop();
-
-            if (token == "+") {
-                numStack.push(simplifyFraction(num1 * den2 + num2 * den1, den1 * den2));
-            }
-            else if (token == "-") {
-                numStack.push(simplifyFraction(num1 * den2 - num2 * den1, den1 * den2));
-            }
-            else if (token == "*") {
-                numStack.push(simplifyFraction(num1 * num2, den1 * den2));
-            }
-            else if (token == "/") {
-                numStack.push(simplifyFraction(num1 * den2, den1 * num2));
-            }
-        }
-        else {
-            std::istringstream issNum(token);
-            int numerator, denominator;
-            issNum >> numerator;
-            issNum.ignore();
-            issNum >> denominator;
-            numStack.push(std::make_pair(numerator, denominator));
-        }
-    }
-
-    return numStack.top().first;
-}
-
-int main() {
-    //string infixExpression = "3+45*67";
-    string infixExpression = "1+5*7/8";
-    string postfixExpression = infixToPostfix(infixExpression);
-    cout << "Infix expression: " << infixExpression << endl;
-    cout << "Postfix expression: " << postfixExpression << endl;
-    //cout << "è¡¨è¾¾å¼æ±‚å€¼ï¼š" << calculatePostfixExpression(postfixExpression) << endl;
-    cout << "è¡¨è¾¾å¼æ±‚å€¼ï¼š" << calculatePostfixExpression_1(postfixExpression) << endl;
-    return 0;
-}
-
+//    return numStack.top();
+//}
+//
+///*¼ÆËãºó×º±í´ïÊ½£¬ÆäÖĞºó×º±í´ïÊ½µÄÊı×Ö¿ÉÄÜÓĞ¶àÎ»£¬Êı×ÖºÍ·ûºÅÖ®¼äÓÃ¿Õ¸ñ¼ä¸ô£¬³ı·¨½á¹ûÓÃ×î¼ò·ÖÊıµÄĞÎÊ½±íÊ¾*/
+//int gcd(int a, int b) {
+//    return b == 0 ? a : gcd(b, a % b);
+//}
+//
+//std::pair<int, int> simplifyFraction(int numerator, int denominator) {
+//    int g = gcd(numerator, denominator);
+//    return std::make_pair(numerator / g, denominator / g);
+//}
+//
+//int calculatePostfixExpression_1(const std::string& expression) {
+//    std::stack<std::pair<int, int>> numStack;
+//    std::istringstream iss(expression);
+//    std::string token;
+//
+//    while (iss >> token) {
+//        if (token == "+" || token == "-" || token == "*" || token == "/") {
+//            int num2 = numStack.top().first;
+//            int den2 = numStack.top().second;
+//            numStack.pop();
+//            int num1 = numStack.top().first;
+//            int den1 = numStack.top().second;
+//            numStack.pop();
+//
+//            if (token == "+") {
+//                numStack.push(simplifyFraction(num1 * den2 + num2 * den1, den1 * den2));
+//            }
+//            else if (token == "-") {
+//                numStack.push(simplifyFraction(num1 * den2 - num2 * den1, den1 * den2));
+//            }
+//            else if (token == "*") {
+//                numStack.push(simplifyFraction(num1 * num2, den1 * den2));
+//            }
+//            else if (token == "/") {
+//                numStack.push(simplifyFraction(num1 * den2, den1 * num2));
+//            }
+//        }
+//        else {
+//            std::istringstream issNum(token);
+//            int numerator, denominator;
+//            issNum >> numerator;
+//            issNum.ignore();
+//            issNum >> denominator;
+//            numStack.push(std::make_pair(numerator, denominator));
+//        }
+//    }
+//
+//    return numStack.top().first;
+//}
+//
+//int main() {
+//    //string infixExpression = "3+45*67";
+//    string infixExpression = "1+5*7/8";
+//    string postfixExpression = infixToPostfix(infixExpression);
+//    cout << "Infix expression: " << infixExpression << endl;
+//    cout << "Postfix expression: " << postfixExpression << endl;
+//    //cout << "±í´ïÊ½ÇóÖµ£º" << calculatePostfixExpression(postfixExpression) << endl;
+//    cout << "±í´ïÊ½ÇóÖµ£º" << calculatePostfixExpression_1(postfixExpression) << endl;
+//    return 0;
+//}
+//

@@ -1,105 +1,105 @@
-/*
-406ã€å¼€æºé¡¹ç›®çƒ­åº¦æ¦œå•
-é¢˜ç›®æè¿°
-æŸä¸ªå¼€æºç¤¾åŒºå¸Œæœ›å°†æœ€è¿‘çƒ­åº¦æ¯”è¾ƒé«˜çš„å¼€æºé¡¹ç›®å‡ºä¸ªæ¦œå•ï¼Œæ¨èç»™ç¤¾åŒºé‡Œé¢çš„å¼€å‘è€…ã€‚
-
-å¯¹äºæ¯ä¸ªå¼€æºé¡¹ç›®ï¼Œå¼€å‘è€…å¯ä»¥è¿›è¡Œå…³æ³¨(watch)ï¼Œæ”¶è—(star)ã€forkã€æäº¤issueã€æäº¤åˆå¹¶è¯·æ±‚(MR)ç­‰
-
-æ•°æ®åº“é‡Œé¢ç»Ÿè®¡äº†æ¯ä¸ªå¼€æºé¡¹ç›®å…³æ³¨ã€æ”¶è—ã€forkã€issueã€MRçš„æ•°é‡ï¼Œå¼€æºé¡¹ç›®çš„çƒ­åº¦æ ¹æ®è€… 5 ä¸ªç»´åº¦çš„åŠ æƒæ±‚å’Œè¿›è¡Œæ’åºã€‚
-H = W(watch)x #watch + W(star)x #star + W(fork)x #star + W(issue)x #issue + W(mr)x #mr
-
-H è¡¨ç¤ºçƒ­åº¦å€¼
-W(watch)ã€W(star)ã€W(fork)ã€W(issue)ã€W(mr)åˆ†åˆ«è¡¨ç¤º 5 55 ä¸ªç»Ÿè®¡ç»´åº¦çš„æƒé‡
-#watchã€#starã€#starã€#issueã€#mråˆ†åˆ«è¡¨ç¤º 5 ä¸ªç»Ÿè®¡ç»´åº¦çš„ç»Ÿè®¡å€¼
-æ¦œå•æŒ‰ç…§çƒ­åº¦å€¼é™åºæ’åºï¼Œå¯¹äºçƒ­åº¦å€¼ç›¸ç­‰çš„ï¼ŒæŒ‰ç…§é¡¹ç›®åå­—è½¬æ¢ä¸ºå…¨å°å†™å­—æ¯åçš„å­—å…¸åºæ’åº('a','b','c',...,'x','y','z')
-
-è¾“å…¥æè¿°
-ç¬¬ä¸€è¡Œè¾“å…¥ä¸º N ï¼Œè¡¨ç¤ºå¼€æºé¡¹ç›®çš„ä¸ªæ•°ï¼Œ0 < N < 100
-ç¬¬äºŒè¡Œè¾“å…¥ä¸ºæƒé‡å€¼åˆ—è¡¨ï¼Œä¸€å…± 5 ä¸ªæ•´å‹å€¼ï¼Œåˆ†åˆ«å¯¹åº”å…³æ³¨ã€æ”¶è—ã€forkã€issueã€MR çš„æ•°é‡ï¼Œæ•°é‡çš„å–å€¼ 0 < n r â‰¤ 1000
-ç¬¬ä¸‰è¡Œå¼€å§‹æ¥ä¸‹æ¥çš„ N è¡Œä¸ºå¼€æºé¡¹ç›®çš„ç»Ÿè®¡ç»´åº¦ï¼Œæ¯ä¸€è¡Œçš„æ ¼å¼ä¸º
-name nr_watch nr_star nr_fork nr_issue nr_mr
-å…¶ä¸­ name ä¸ºå¼€æºé¡¹ç›®çš„åå­—ï¼Œç”±è‹±æ–‡å­—æ¯ç»„æˆï¼Œé•¿åº¦ â‰¤ 50,å…¶ä½™ 5 æ ¼æ•´å‹å€¼åˆ†åˆ«ä¸ºè¯¥å¼€æºé¡¹ç›®å…³æ³¨ã€æ”¶è—ã€forkã€issueã€MR çš„æ•°é‡ï¼Œæ•°é‡çš„å–å€¼ 0 < nr â‰¤ 1000ã€‚
-
-è¾“å‡ºæè¿°
-æŒ‰ç…§çƒ­åº¦é™åºï¼Œè¾“å‡ºå¼€æºé¡¹ç›®çš„åå­—ï¼Œç”±è‹±æ–‡å­—æ¯ç»„æˆï¼Œå¯¹äºçƒ­åº¦å€¼ç›¸ç­‰çš„ï¼ŒæŒ‰ç…§é¡¹ç›®åå­—è½¬æ¢ä¸ºå…¨å°å†™åçš„å­—å…¸æ’åº(â€˜aâ€™>â€˜bâ€™>â€˜câ€™>â€¦>â€˜xâ€™>â€˜yâ€™>â€˜zâ€™)ã€‚
-
-æ ·ä¾‹
-è¾“å…¥
-4
-8 6 2 8 6
-camila 66 70 46 158 80
-victoria 94 76 86 189 211
-anthony 29 17 83 21 48
-emily 53 97 1 19 218
-
-è¾“å‡º
-victoria
-camila
-emily
-anthony
-*/
-
-#include<iostream>
-#include<vector>
-#include<algorithm>
-
-using namespace std;
-
-struct project
-{
-	string name;
-	string lower_name;
-	int focus;
-	int selection;
-	int fork;
-	int issue;
-	int MR;
-	int H;
-};
-
-bool cmp(project& project1, project& project2)
-{
-	if (project1.H == project2.H)
-	{
-		return project1.lower_name < project2.lower_name;
-	} 
-	else {
-		return project1.H > project2.H;
-	}
-}
-
-int main()
-{
-	int n;
-	cin >> n;
-	vector<int> weight(5, 0);
-	int tmp;
-	for (int i = 0; i < 5; i++)
-	{
-		cin >> tmp;
-		weight[i] = tmp;
-	}
-	vector<project> projects;
-	string name;
-	int focus;
-	int selection;
-	int fork;
-	int issue;
-	int MR;
-	int H;
-	while (n--)
-	{
-		cin >> name >> focus >> selection >> fork >> issue >> MR;
-		string lower_name = name;
-		transform(lower_name.begin(), lower_name.end(), lower_name.begin(), ::tolower);  // å°†èŠ‚ç‚¹åç§°è½¬æ¢ä¸ºå°å†™å½¢å¼
-
-		H = focus * weight[0] + selection * weight[1] + fork * weight[2] + issue * weight[3] + MR * weight[4];
-		projects.push_back({ name, lower_name, focus, selection, fork, issue, MR, H});
-	}
-	sort(projects.begin(), projects.end(), cmp);
-	for (auto i : projects)
-	{
-		//cout << i.name << endl;
-		cout << "name:" << i.name << " H = " << i.H << endl;
-	}
-}
+///*
+//406¡¢¿ªÔ´ÏîÄ¿ÈÈ¶È°ñµ¥
+//ÌâÄ¿ÃèÊö
+//Ä³¸ö¿ªÔ´ÉçÇøÏ£Íû½«×î½üÈÈ¶È±È½Ï¸ßµÄ¿ªÔ´ÏîÄ¿³ö¸ö°ñµ¥£¬ÍÆ¼ö¸øÉçÇøÀïÃæµÄ¿ª·¢Õß¡£
+//
+//¶ÔÓÚÃ¿¸ö¿ªÔ´ÏîÄ¿£¬¿ª·¢Õß¿ÉÒÔ½øĞĞ¹Ø×¢(watch)£¬ÊÕ²Ø(star)¡¢fork¡¢Ìá½»issue¡¢Ìá½»ºÏ²¢ÇëÇó(MR)µÈ
+//
+//Êı¾İ¿âÀïÃæÍ³¼ÆÁËÃ¿¸ö¿ªÔ´ÏîÄ¿¹Ø×¢¡¢ÊÕ²Ø¡¢fork¡¢issue¡¢MRµÄÊıÁ¿£¬¿ªÔ´ÏîÄ¿µÄÈÈ¶È¸ù¾İÕß 5 ¸öÎ¬¶ÈµÄ¼ÓÈ¨ÇóºÍ½øĞĞÅÅĞò¡£
+//H = W(watch)x #watch + W(star)x #star + W(fork)x #star + W(issue)x #issue + W(mr)x #mr
+//
+//H ±íÊ¾ÈÈ¶ÈÖµ
+//W(watch)¡¢W(star)¡¢W(fork)¡¢W(issue)¡¢W(mr)·Ö±ğ±íÊ¾ 5 55 ¸öÍ³¼ÆÎ¬¶ÈµÄÈ¨ÖØ
+//#watch¡¢#star¡¢#star¡¢#issue¡¢#mr·Ö±ğ±íÊ¾ 5 ¸öÍ³¼ÆÎ¬¶ÈµÄÍ³¼ÆÖµ
+//°ñµ¥°´ÕÕÈÈ¶ÈÖµ½µĞòÅÅĞò£¬¶ÔÓÚÈÈ¶ÈÖµÏàµÈµÄ£¬°´ÕÕÏîÄ¿Ãû×Ö×ª»»ÎªÈ«Ğ¡Ğ´×ÖÄ¸ºóµÄ×ÖµäĞòÅÅĞò('a','b','c',...,'x','y','z')
+//
+//ÊäÈëÃèÊö
+//µÚÒ»ĞĞÊäÈëÎª N £¬±íÊ¾¿ªÔ´ÏîÄ¿µÄ¸öÊı£¬0 < N < 100
+//µÚ¶şĞĞÊäÈëÎªÈ¨ÖØÖµÁĞ±í£¬Ò»¹² 5 ¸öÕûĞÍÖµ£¬·Ö±ğ¶ÔÓ¦¹Ø×¢¡¢ÊÕ²Ø¡¢fork¡¢issue¡¢MR µÄÊıÁ¿£¬ÊıÁ¿µÄÈ¡Öµ 0 < n r ¡Ü 1000
+//µÚÈıĞĞ¿ªÊ¼½ÓÏÂÀ´µÄ N ĞĞÎª¿ªÔ´ÏîÄ¿µÄÍ³¼ÆÎ¬¶È£¬Ã¿Ò»ĞĞµÄ¸ñÊ½Îª
+//name nr_watch nr_star nr_fork nr_issue nr_mr
+//ÆäÖĞ name Îª¿ªÔ´ÏîÄ¿µÄÃû×Ö£¬ÓÉÓ¢ÎÄ×ÖÄ¸×é³É£¬³¤¶È ¡Ü 50,ÆäÓà 5 ¸ñÕûĞÍÖµ·Ö±ğÎª¸Ã¿ªÔ´ÏîÄ¿¹Ø×¢¡¢ÊÕ²Ø¡¢fork¡¢issue¡¢MR µÄÊıÁ¿£¬ÊıÁ¿µÄÈ¡Öµ 0 < nr ¡Ü 1000¡£
+//
+//Êä³öÃèÊö
+//°´ÕÕÈÈ¶È½µĞò£¬Êä³ö¿ªÔ´ÏîÄ¿µÄÃû×Ö£¬ÓÉÓ¢ÎÄ×ÖÄ¸×é³É£¬¶ÔÓÚÈÈ¶ÈÖµÏàµÈµÄ£¬°´ÕÕÏîÄ¿Ãû×Ö×ª»»ÎªÈ«Ğ¡Ğ´ºóµÄ×ÖµäÅÅĞò(¡®a¡¯>¡®b¡¯>¡®c¡¯>¡­>¡®x¡¯>¡®y¡¯>¡®z¡¯)¡£
+//
+//ÑùÀı
+//ÊäÈë
+//4
+//8 6 2 8 6
+//camila 66 70 46 158 80
+//victoria 94 76 86 189 211
+//anthony 29 17 83 21 48
+//emily 53 97 1 19 218
+//
+//Êä³ö
+//victoria
+//camila
+//emily
+//anthony
+//*/
+//
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//
+//using namespace std;
+//
+//struct project
+//{
+//	string name;
+//	string lower_name;
+//	int focus;
+//	int selection;
+//	int fork;
+//	int issue;
+//	int MR;
+//	int H;
+//};
+//
+//bool cmp(project& project1, project& project2)
+//{
+//	if (project1.H == project2.H)
+//	{
+//		return project1.lower_name < project2.lower_name;
+//	} 
+//	else {
+//		return project1.H > project2.H;
+//	}
+//}
+//
+//int main()
+//{
+//	int n;
+//	cin >> n;
+//	vector<int> weight(5, 0);
+//	int tmp;
+//	for (int i = 0; i < 5; i++)
+//	{
+//		cin >> tmp;
+//		weight[i] = tmp;
+//	}
+//	vector<project> projects;
+//	string name;
+//	int focus;
+//	int selection;
+//	int fork;
+//	int issue;
+//	int MR;
+//	int H;
+//	while (n--)
+//	{
+//		cin >> name >> focus >> selection >> fork >> issue >> MR;
+//		string lower_name = name;
+//		transform(lower_name.begin(), lower_name.end(), lower_name.begin(), ::tolower);  // ½«½ÚµãÃû³Æ×ª»»ÎªĞ¡Ğ´ĞÎÊ½
+//
+//		H = focus * weight[0] + selection * weight[1] + fork * weight[2] + issue * weight[3] + MR * weight[4];
+//		projects.push_back({ name, lower_name, focus, selection, fork, issue, MR, H});
+//	}
+//	sort(projects.begin(), projects.end(), cmp);
+//	for (auto i : projects)
+//	{
+//		//cout << i.name << endl;
+//		cout << "name:" << i.name << " H = " << i.H << endl;
+//	}
+//}

@@ -1,116 +1,116 @@
-/*
-226ã€è€ƒå¤å­¦å®¶è€ƒå¤é—®é¢˜
-
-é¢˜ç›®æè¿°ï¼š
-æœ‰ä¸€ä¸ªè€ƒå¤å­¦å®¶å‘ç°ä¸€ä¸ªçŸ³ç¢‘ï¼Œä½†æ˜¯å¾ˆå¯æƒœï¼Œå‘ç°æ—¶å…¶å·²ç»æ–­æˆå¤šæ®µï¼ŒåŸåœ°å‘ç°nä¸ªæ–­å£æ•´é½çš„çŸ³ç¢‘ç¢ç‰‡ã€‚ä¸ºäº†ç ´è§£çŸ³ç¢‘å†…å®¹ï¼Œè€ƒå¤å­¦å®¶å¸Œæœ›æœ‰ç¨‹åºèƒ½å¸®å¿™è®¡ç®—å¤åŸåçš„çŸ³ç¢‘æ–‡å­—ç»„åˆæ•°ï¼Œä½ èƒ½å¸®å¿™å—ï¼Ÿ
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬ä¸€è¡Œè¾“å…¥nï¼Œnè¡¨ç¤ºçŸ³ç¢‘ç¢ç‰‡çš„ä¸ªæ•°ã€‚
-ç¬¬äºŒè¡Œä¾æ¬¡è¾“å…¥çŸ³ç¢‘ç¢ç‰‡ä¸Šçš„æ–‡å­—å†…å®¹sï¼Œå…±æœ‰nç»„ã€‚
-
-è¾“å‡ºæè¿°ï¼š
-è¾“å‡ºçŸ³ç¢‘æ–‡å­—çš„ç»„åˆï¼ˆæŒ‰ç…§å‡åºæ’åˆ—ï¼‰ï¼Œè¡Œæœ«æ— å¤šä½™ç©ºæ ¼ã€‚
-
-è¡¥å……è¯´æ˜ï¼š
-å¦‚æœå­˜åœ¨çŸ³ç¢‘ç¢ç‰‡å†…å®¹å®Œå…¨ç›¸åŒï¼Œåˆ™ç”±äºç¢ç‰‡é—´çš„é¡ºåºå˜æ¢ä¸å½±å“å¤åŸåçš„ç¢‘æ–‡å†…å®¹ï¼Œå³ç›¸åŒç¢ç‰‡é—´çš„ä½ç½®å˜æ¢ä¸å½±å“ç»„åˆã€‚
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-3
-a b c
-è¾“å‡ºï¼š
-abc
-acb
-bac
-bca
-cab
-cba
-è¯´æ˜ï¼š
-å½“çŸ³ç¢‘ç¢ç‰‡ä¸Šçš„å†…å®¹ä¸ºâ€œaâ€ï¼Œâ€œbâ€ï¼Œâ€œcâ€æ—¶ï¼Œåˆ™ç»„åˆæœ‰â€œabcâ€ï¼Œâ€œacbâ€ï¼Œâ€œbacâ€ï¼Œâ€œbcaâ€ï¼Œâ€œcabâ€ï¼Œâ€œcbaâ€
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-3
-a b a
-è¾“å‡ºï¼š
-aab
-aba
-baa
-è¯´æ˜ï¼š
-å½“çŸ³ç¢‘ç¢ç‰‡ä¸Šçš„å†…å®¹ä¸ºâ€œaâ€ï¼Œâ€œbâ€ï¼Œâ€œaâ€æ—¶ï¼Œåˆ™å¯èƒ½çš„ç»„åˆæœ‰â€œaabâ€ï¼Œâ€œabaâ€ï¼Œâ€œbaaâ€
-
-ç¤ºä¾‹3
-è¾“å…¥ï¼š
-3
-a b ab
-è¾“å‡ºï¼š
-aabb
-abab
-abba
-baab
-baba
-è¯´æ˜ï¼š
-å½“çŸ³ç¢‘ç¢ç‰‡ä¸Šçš„å†…å®¹ä¸ºâ€œaâ€ï¼Œâ€œbâ€ï¼Œâ€œabâ€æ—¶ï¼Œåˆ™å¯èƒ½çš„ç»„åˆæœ‰â€œaabbâ€ï¼Œâ€œababâ€ï¼Œâ€œabbaâ€ï¼Œâ€œbaabâ€ï¼Œâ€œbabaâ€
-
-
-// æ’åˆ—é—®é¢˜
-é‡‡ç”¨å›æº¯æ³•(dfs)ï¼Œæ’åˆ—é—®é¢˜æ¯æ¬¡æœç´¢éƒ½ä»æœç´¢ç©ºé—´èµ·å§‹æœç´¢ï¼Œå½“æœç´¢è·¯å¾„é•¿åº¦æ»¡è¶³è¦æ±‚æ—¶åœæ­¢ã€‚
-*/
-
-#include<iostream>
-#include<string>
-#include<set>
-#include<vector>
-#include<algorithm>
-#include<sstream>
-
-using namespace std;
-
-int length_data;
-vector<string> vec;
-
-void backtrack(vector<bool>& used, set<string>& s_res, vector<string>& path) {
-	if (path.size() == length_data)
-	{
-		string result;
-		for (auto i : path)
-		{
-			result += i;
-		}
-		s_res.insert(result);
-		return;
-	}
-	for (int i = 0; i < vec.size(); i++)
-	{
-		if (used[i]) continue;
-		path.push_back(vec[i]);
-		used[i] = true;
-		backtrack(used, s_res, path);
-		path.pop_back();
-		used[i] = false;
-	}
-}
-
-int main()
-{
-	// è¾“å…¥æ•°æ®
-	cin >> length_data;
-	cin.get();
-	string str;
-	getline(cin, str);
-	istringstream ss(str);
-	string temp;
-	while (ss >> temp)
-	{
-		vec.push_back(temp);
-	}
-	// dfs
-	vector<bool> used(vec.size(), false);
-	set<string> s_res;
-	vector<string> path;
-	backtrack(used, s_res, path);
-	for (auto i : s_res)
-	{
-		cout << i << endl;
-	}
-}
+///*
+//226¡¢¿¼¹ÅÑ§¼Ò¿¼¹ÅÎÊÌâ
+//
+//ÌâÄ¿ÃèÊö£º
+//ÓĞÒ»¸ö¿¼¹ÅÑ§¼Ò·¢ÏÖÒ»¸öÊ¯±®£¬µ«ÊÇºÜ¿ÉÏ§£¬·¢ÏÖÊ±ÆäÒÑ¾­¶Ï³É¶à¶Î£¬Ô­µØ·¢ÏÖn¸ö¶Ï¿ÚÕûÆëµÄÊ¯±®ËéÆ¬¡£ÎªÁËÆÆ½âÊ¯±®ÄÚÈİ£¬¿¼¹ÅÑ§¼ÒÏ£ÍûÓĞ³ÌĞòÄÜ°ïÃ¦¼ÆËã¸´Ô­ºóµÄÊ¯±®ÎÄ×Ö×éºÏÊı£¬ÄãÄÜ°ïÃ¦Âğ£¿
+//
+//ÊäÈëÃèÊö£º
+//µÚÒ»ĞĞÊäÈën£¬n±íÊ¾Ê¯±®ËéÆ¬µÄ¸öÊı¡£
+//µÚ¶şĞĞÒÀ´ÎÊäÈëÊ¯±®ËéÆ¬ÉÏµÄÎÄ×ÖÄÚÈİs£¬¹²ÓĞn×é¡£
+//
+//Êä³öÃèÊö£º
+//Êä³öÊ¯±®ÎÄ×ÖµÄ×éºÏ£¨°´ÕÕÉıĞòÅÅÁĞ£©£¬ĞĞÄ©ÎŞ¶àÓà¿Õ¸ñ¡£
+//
+//²¹³äËµÃ÷£º
+//Èç¹û´æÔÚÊ¯±®ËéÆ¬ÄÚÈİÍêÈ«ÏàÍ¬£¬ÔòÓÉÓÚËéÆ¬¼äµÄË³Ğò±ä»»²»Ó°Ïì¸´Ô­ºóµÄ±®ÎÄÄÚÈİ£¬¼´ÏàÍ¬ËéÆ¬¼äµÄÎ»ÖÃ±ä»»²»Ó°Ïì×éºÏ¡£
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//3
+//a b c
+//Êä³ö£º
+//abc
+//acb
+//bac
+//bca
+//cab
+//cba
+//ËµÃ÷£º
+//µ±Ê¯±®ËéÆ¬ÉÏµÄÄÚÈİÎª¡°a¡±£¬¡°b¡±£¬¡°c¡±Ê±£¬Ôò×éºÏÓĞ¡°abc¡±£¬¡°acb¡±£¬¡°bac¡±£¬¡°bca¡±£¬¡°cab¡±£¬¡°cba¡±
+//
+//Ê¾Àı2
+//ÊäÈë£º
+//3
+//a b a
+//Êä³ö£º
+//aab
+//aba
+//baa
+//ËµÃ÷£º
+//µ±Ê¯±®ËéÆ¬ÉÏµÄÄÚÈİÎª¡°a¡±£¬¡°b¡±£¬¡°a¡±Ê±£¬Ôò¿ÉÄÜµÄ×éºÏÓĞ¡°aab¡±£¬¡°aba¡±£¬¡°baa¡±
+//
+//Ê¾Àı3
+//ÊäÈë£º
+//3
+//a b ab
+//Êä³ö£º
+//aabb
+//abab
+//abba
+//baab
+//baba
+//ËµÃ÷£º
+//µ±Ê¯±®ËéÆ¬ÉÏµÄÄÚÈİÎª¡°a¡±£¬¡°b¡±£¬¡°ab¡±Ê±£¬Ôò¿ÉÄÜµÄ×éºÏÓĞ¡°aabb¡±£¬¡°abab¡±£¬¡°abba¡±£¬¡°baab¡±£¬¡°baba¡±
+//
+//
+//// ÅÅÁĞÎÊÌâ
+//²ÉÓÃ»ØËİ·¨(dfs)£¬ÅÅÁĞÎÊÌâÃ¿´ÎËÑË÷¶¼´ÓËÑË÷¿Õ¼äÆğÊ¼ËÑË÷£¬µ±ËÑË÷Â·¾¶³¤¶ÈÂú×ãÒªÇóÊ±Í£Ö¹¡£
+//*/
+//
+//#include<iostream>
+//#include<string>
+//#include<set>
+//#include<vector>
+//#include<algorithm>
+//#include<sstream>
+//
+//using namespace std;
+//
+//int length_data;
+//vector<string> vec;
+//
+//void backtrack(vector<bool>& used, set<string>& s_res, vector<string>& path) {
+//	if (path.size() == length_data)
+//	{
+//		string result;
+//		for (auto i : path)
+//		{
+//			result += i;
+//		}
+//		s_res.insert(result);
+//		return;
+//	}
+//	for (int i = 0; i < vec.size(); i++)
+//	{
+//		if (used[i]) continue;
+//		path.push_back(vec[i]);
+//		used[i] = true;
+//		backtrack(used, s_res, path);
+//		path.pop_back();
+//		used[i] = false;
+//	}
+//}
+//
+//int main()
+//{
+//	// ÊäÈëÊı¾İ
+//	cin >> length_data;
+//	cin.get();
+//	string str;
+//	getline(cin, str);
+//	istringstream ss(str);
+//	string temp;
+//	while (ss >> temp)
+//	{
+//		vec.push_back(temp);
+//	}
+//	// dfs
+//	vector<bool> used(vec.size(), false);
+//	set<string> s_res;
+//	vector<string> path;
+//	backtrack(used, s_res, path);
+//	for (auto i : s_res)
+//	{
+//		cout << i << endl;
+//	}
+//}

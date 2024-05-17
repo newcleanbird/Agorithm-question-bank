@@ -1,110 +1,110 @@
-/*
-æœ€é•¿çš„æŒ‡å®šç‘•ç–µåº¦çš„å…ƒéŸ³å­ä¸²
-
-é¢˜ç›®æè¿°ï¼š
-å¼€å¤´å’Œç»“å°¾éƒ½æ˜¯å…ƒéŸ³å­—æ¯ï¼ˆaeiouAEIOUï¼‰çš„å­—ç¬¦ä¸²ä¸º å…ƒéŸ³å­—ç¬¦ä¸² ï¼Œå…¶ä¸­æ··æ‚çš„éžå…ƒéŸ³å­—æ¯æ•°é‡ä¸ºå…¶ ç‘•ç–µåº¦ ã€‚æ¯”å¦‚:
-Â·         â€œaâ€ ã€ â€œaaâ€æ˜¯å…ƒéŸ³å­—ç¬¦ä¸²ï¼Œå…¶ç‘•ç–µåº¦éƒ½ä¸º0
-Â·         â€œaiurâ€ä¸æ˜¯å…ƒéŸ³å­—ç¬¦ä¸²ï¼ˆç»“å°¾ä¸æ˜¯å…ƒéŸ³å­—ç¬¦ï¼‰
-Â·         â€œabiraâ€æ˜¯å…ƒéŸ³å­—ç¬¦ä¸²ï¼Œå…¶ç‘•ç–µåº¦ä¸º2
-ç»™å®šä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¯·æ‰¾å‡ºæŒ‡å®šç‘•ç–µåº¦çš„æœ€é•¿å…ƒéŸ³å­—ç¬¦å­ä¸²ï¼Œå¹¶è¾“å‡ºå…¶é•¿åº¦ï¼Œå¦‚æžœæ‰¾ä¸åˆ°æ»¡è¶³æ¡ä»¶çš„å…ƒéŸ³å­—ç¬¦å­ä¸²ï¼Œè¾“å‡º0ã€‚
-å­ä¸²ï¼šå­—ç¬¦ä¸²ä¸­ä»»æ„ä¸ªè¿žç»­çš„å­—ç¬¦ç»„æˆçš„å­åºåˆ—ç§°ä¸ºè¯¥å­—ç¬¦ä¸²çš„å­ä¸²ã€‚
-
-è¾“å…¥æè¿°ï¼š
-é¦–è¡Œè¾“å…¥æ˜¯ä¸€ä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºé¢„æœŸçš„ç‘•ç–µåº¦flawï¼Œå–å€¼èŒƒå›´[0, 65535]ã€‚
-æŽ¥ä¸‹æ¥ä¸€è¡Œæ˜¯ä¸€ä¸ªä»…ç”±å­—ç¬¦a-zå’ŒA-Zç»„æˆçš„å­—ç¬¦ä¸²ï¼Œå­—ç¬¦ä¸²é•¿åº¦(0, 65535]ã€‚
-
-è¾“å‡ºæè¿°ï¼š
-è¾“å‡ºä¸ºä¸€ä¸ªæ•´æ•°ï¼Œä»£è¡¨æ»¡è¶³æ¡ä»¶çš„å…ƒéŸ³å­—ç¬¦å­ä¸²çš„é•¿åº¦ã€‚
-
-è¡¥å……è¯´æ˜Žï¼š
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-0
-asdbuiodevauufgh
-è¾“å‡ºï¼š
-3
-è¯´æ˜Žï¼š
-æ»¡è¶³æ¡ä»¶çš„æœ€é•¿å…ƒéŸ³å­—ç¬¦å­ä¸²æœ‰ä¸¤ä¸ªï¼Œåˆ†åˆ«ä¸ºuioå’Œauuï¼Œé•¿åº¦ä¸º3ã€‚
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-2
-aeueo
-è¾“å‡ºï¼š
-0
-è¯´æ˜Žï¼š
-æ²¡æœ‰æ»¡è¶³æ¡ä»¶çš„å…ƒéŸ³å­—ç¬¦å­ä¸²ï¼Œè¾“å‡º0
-
-ç¤ºä¾‹3
-è¾“å…¥ï¼š
-1
-aabeebuu
-è¾“å‡ºï¼š
-5
-è¯´æ˜Žï¼š
-æ»¡è¶³æ¡ä»¶çš„æœ€é•¿å…ƒéŸ³å­—ç¬¦å­ä¸²æœ‰ä¸¤ä¸ªï¼Œåˆ†åˆ«ä¸ºaabeeå’Œeebuuï¼Œé•¿åº¦ä¸º5
-
-æ€è·¯ï¼šç›´æŽ¥ä¸¤å±‚forå¾ªçŽ¯æš´åŠ›è§£å†³
-*/
-
-#include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
-
-using namespace std;
-
-bool is_vowel(char ch)
-{
-	vector<int> vowel{ 'a','e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
-	if (find(vowel.begin(), vowel.end(), ch) != vowel.end())
-	{
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-int main()
-{
-	int flaw;	// æ··ä¹±åº¦
-	string str;	// è¾“å…¥å­—ç¬¦ä¸²
-	cin >> flaw;
-	cin.get();
-	getline(cin, str);
-	vector<int> vec(str.size());
-	for (int i = 0; i < str.size(); i++)
-	{
-		if (is_vowel(str[i]))
-		{
-			vec[i] = 0;
-		}
-		else {
-			vec[i] = 1;
-		}
-	}
-	int max = 0;
-	int left = 0;
-	int right = 0;
-	for (int i = 0; i < vec.size(); i++)
-	{
-		if (vec[i] == 0)
-		{
-			int count = 0;
-			for (int j = i + 1; j < vec.size(); j++)
-			{
-				if (vec[j] == 1)
-				{
-					count++;
-				}
-				if (count == flaw)
-				{
-					max = max < (j - i + 1) ? (j - i + 1) : max;
-				}
-			}
-		}
-	}
-	cout << max;
-}
+///*
+//×î³¤µÄÖ¸¶¨è¦´Ã¶ÈµÄÔªÒô×Ó´®
+//
+//ÌâÄ¿ÃèÊö£º
+//¿ªÍ·ºÍ½áÎ²¶¼ÊÇÔªÒô×ÖÄ¸£¨aeiouAEIOU£©µÄ×Ö·û´®Îª ÔªÒô×Ö·û´® £¬ÆäÖÐ»ìÔÓµÄ·ÇÔªÒô×ÖÄ¸ÊýÁ¿ÎªÆä è¦´Ã¶È ¡£±ÈÈç:
+//¡¤         ¡°a¡± ¡¢ ¡°aa¡±ÊÇÔªÒô×Ö·û´®£¬Æäè¦´Ã¶È¶¼Îª0
+//¡¤         ¡°aiur¡±²»ÊÇÔªÒô×Ö·û´®£¨½áÎ²²»ÊÇÔªÒô×Ö·û£©
+//¡¤         ¡°abira¡±ÊÇÔªÒô×Ö·û´®£¬Æäè¦´Ã¶ÈÎª2
+//¸ø¶¨Ò»¸ö×Ö·û´®£¬ÇëÕÒ³öÖ¸¶¨è¦´Ã¶ÈµÄ×î³¤ÔªÒô×Ö·û×Ó´®£¬²¢Êä³öÆä³¤¶È£¬Èç¹ûÕÒ²»µ½Âú×ãÌõ¼þµÄÔªÒô×Ö·û×Ó´®£¬Êä³ö0¡£
+//×Ó´®£º×Ö·û´®ÖÐÈÎÒâ¸öÁ¬ÐøµÄ×Ö·û×é³ÉµÄ×ÓÐòÁÐ³ÆÎª¸Ã×Ö·û´®µÄ×Ó´®¡£
+//
+//ÊäÈëÃèÊö£º
+//Ê×ÐÐÊäÈëÊÇÒ»¸öÕûÊý£¬±íÊ¾Ô¤ÆÚµÄè¦´Ã¶Èflaw£¬È¡Öµ·¶Î§[0, 65535]¡£
+//½ÓÏÂÀ´Ò»ÐÐÊÇÒ»¸ö½öÓÉ×Ö·ûa-zºÍA-Z×é³ÉµÄ×Ö·û´®£¬×Ö·û´®³¤¶È(0, 65535]¡£
+//
+//Êä³öÃèÊö£º
+//Êä³öÎªÒ»¸öÕûÊý£¬´ú±íÂú×ãÌõ¼þµÄÔªÒô×Ö·û×Ó´®µÄ³¤¶È¡£
+//
+//²¹³äËµÃ÷£º
+//
+//Ê¾Àý1
+//ÊäÈë£º
+//0
+//asdbuiodevauufgh
+//Êä³ö£º
+//3
+//ËµÃ÷£º
+//Âú×ãÌõ¼þµÄ×î³¤ÔªÒô×Ö·û×Ó´®ÓÐÁ½¸ö£¬·Ö±ðÎªuioºÍauu£¬³¤¶ÈÎª3¡£
+//
+//Ê¾Àý2
+//ÊäÈë£º
+//2
+//aeueo
+//Êä³ö£º
+//0
+//ËµÃ÷£º
+//Ã»ÓÐÂú×ãÌõ¼þµÄÔªÒô×Ö·û×Ó´®£¬Êä³ö0
+//
+//Ê¾Àý3
+//ÊäÈë£º
+//1
+//aabeebuu
+//Êä³ö£º
+//5
+//ËµÃ÷£º
+//Âú×ãÌõ¼þµÄ×î³¤ÔªÒô×Ö·û×Ó´®ÓÐÁ½¸ö£¬·Ö±ðÎªaabeeºÍeebuu£¬³¤¶ÈÎª5
+//
+//Ë¼Â·£ºÖ±½ÓÁ½²ãforÑ­»·±©Á¦½â¾ö
+//*/
+//
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<algorithm>
+//
+//using namespace std;
+//
+//bool is_vowel(char ch)
+//{
+//	vector<int> vowel{ 'a','e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+//	if (find(vowel.begin(), vowel.end(), ch) != vowel.end())
+//	{
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//}
+//
+//int main()
+//{
+//	int flaw;	// »ìÂÒ¶È
+//	string str;	// ÊäÈë×Ö·û´®
+//	cin >> flaw;
+//	cin.get();
+//	getline(cin, str);
+//	vector<int> vec(str.size());
+//	for (int i = 0; i < str.size(); i++)
+//	{
+//		if (is_vowel(str[i]))
+//		{
+//			vec[i] = 0;
+//		}
+//		else {
+//			vec[i] = 1;
+//		}
+//	}
+//	int max = 0;
+//	int left = 0;
+//	int right = 0;
+//	for (int i = 0; i < vec.size(); i++)
+//	{
+//		if (vec[i] == 0)
+//		{
+//			int count = 0;
+//			for (int j = i + 1; j < vec.size(); j++)
+//			{
+//				if (vec[j] == 1)
+//				{
+//					count++;
+//				}
+//				if (count == flaw)
+//				{
+//					max = max < (j - i + 1) ? (j - i + 1) : max;
+//				}
+//			}
+//		}
+//	}
+//	cout << max;
+//}

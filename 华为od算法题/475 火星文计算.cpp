@@ -1,123 +1,123 @@
-/*
-475ã€ç«æ˜Ÿæ–‡è®¡ç®—
-é¢˜ç›®æè¿°ï¼š
-å·²çŸ¥ç«æ˜Ÿäººä½¿ç”¨çš„è¿ç®—ç¬¦ä¸º#ã€$ï¼Œå…¶ä¸Žåœ°çƒäººçš„ç­‰ä»·å…¬å¼å¦‚ä¸‹ï¼š
-x#y = 4*x+3*y+2
-x$y = 2*x+y+3
-1ã€å…¶ä¸­xã€yæ˜¯æ— ç¬¦å·æ•´æ•°
-2ã€åœ°çƒäººå…¬å¼æŒ‰Cè¯­è¨€è§„åˆ™è®¡ç®—
-3ã€ç«æ˜Ÿäººå…¬å¼ä¸­ï¼Œ#çš„ä¼˜å…ˆçº§é«˜äºŽ$ï¼Œç›¸åŒçš„è¿ç®—ç¬¦ï¼ŒæŒ‰ä»Žå·¦åˆ°å³çš„é¡ºåºè®¡ç®—
-çŽ°æœ‰ä¸€æ®µç«æ˜Ÿäººçš„å­—ç¬¦ä¸²æŠ¥æ–‡ï¼Œè¯·ä½ æ¥ç¿»è¯‘å¹¶è®¡ç®—ç»“æžœã€‚
-
-è¾“å…¥æè¿°ï¼š
-ç«æ˜Ÿäººå­—ç¬¦ä¸²è¡¨è¾¾å¼ï¼ˆç»“å°¾ä¸å¸¦å›žè½¦æ¢è¡Œï¼‰
-è¾“å…¥çš„å­—ç¬¦ä¸²è¯´æ˜Žï¼š  å­—ç¬¦ä¸²ä¸ºä»…ç”±æ— ç¬¦å·æ•´æ•°å’Œæ“ä½œç¬¦ï¼ˆ#ã€$ï¼‰ç»„æˆçš„è®¡ç®—è¡¨è¾¾å¼ã€‚ä¾‹å¦‚ï¼š123#4$5#67$78ã€‚
-1ã€ç”¨ä¾‹ä¿è¯å­—ç¬¦ä¸²ä¸­ï¼Œæ“ä½œæ•°ä¸Žæ“ä½œç¬¦ä¹‹é—´æ²¡æœ‰ä»»ä½•åˆ†éš”ç¬¦ã€‚
-2ã€ç”¨ä¾‹ä¿è¯æ“ä½œæ•°å–å€¼èŒƒå›´ä¸º32ä½æ— ç¬¦å·æ•´æ•°ã€‚
-3ã€ä¿è¯è¾“å…¥ä»¥åŠè®¡ç®—ç»“æžœä¸ä¼šå‡ºçŽ°æ•´åž‹æº¢å‡ºã€‚
-4ã€ä¿è¯è¾“å…¥çš„å­—ç¬¦ä¸²ä¸ºåˆæ³•çš„æ±‚å€¼æŠ¥æ–‡ï¼Œä¾‹å¦‚ï¼š123#4$5#67$78
-5ã€ä¿è¯ä¸ä¼šå‡ºçŽ°éžæ³•çš„æ±‚å€¼æŠ¥æ–‡ï¼Œä¾‹å¦‚ç±»ä¼¼è¿™æ ·å­—ç¬¦ä¸²ï¼š
-#4$5 //ç¼ºå°‘æ“ä½œæ•°
-4$5# //ç¼ºå°‘æ“ä½œæ•°
-4#$5 //ç¼ºå°‘æ“ä½œæ•°
-4 $5 //æœ‰ç©ºæ ¼
-3+4-5*6/7 //æœ‰å…¶å®ƒæ“ä½œç¬¦
-12345678987654321$54321 //32ä½æ•´æ•°è®¡ç®—æº¢å‡º
-
-è¾“å‡ºæè¿°ï¼š
-æ ¹æ®è¾“å…¥çš„ç«æ˜Ÿäººå­—ç¬¦ä¸²è¾“å‡ºè®¡ç®—ç»“æžœï¼ˆç»“å°¾ä¸å¸¦å›žè½¦æ¢è¡Œï¼‰
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-7#6$5#12
-è¾“å‡ºï¼š
-157
-è¯´æ˜Žï¼š
-ç¤ºä¾‹ï¼š
-7#6$5#12
-=(4*7+3*6+2)$5#12
-=48$5#12
-=48$(4*5+3*12+2)
-=48$58
-=2*48+58+3
-=157
-*/
-
-#include<iostream>
-#include<string>
-#include<vector>
-#include<stack>
-#include<map>
-
-using namespace std;
-
-map<char, int> op_prior = { {'#', 2}, {'$', 1} };
-
-int mars_operator(int x, int y, char op)
-{
-	if (op == '#')
-	{
-		return 4 * x + 3 * y + 2;
-	}
-	else {
-		return 2 * x + y + 3;
-	}
-}
-
-int main()
-{
-	string expression;	// é¢„ç®—å¼		// 7#6$5#12
-	getline(cin, expression);
-	stack<int> nums; // æ ˆï¼šå­˜å‚¨æ“ä½œæ•°	
-	stack<char> ops; // æ ˆï¼šå­˜å‚¨è¿ç®—ç¬¦	#çš„ä¼˜å…ˆçº§é«˜äºŽ$
-	// è®¡ç®—
-	string t;
-	for (int i = 0; i < expression.size(); i++)
-	{
-		if (isdigit(expression[i]))
-		{
-			t += expression[i];
-			if (i == expression.size() - 1)
-			{
-				nums.push(stoi(t));// å°†æ“ä½œæ•°åŽ‹å…¥æ ˆ
-				t.clear();// é‡ç½®str
-			}
-			else if(!isdigit(expression[i+1])){
-				nums.push(stoi(t));// å°†æ“ä½œæ•°åŽ‹å…¥æ ˆ
-				t.clear();// é‡ç½®str
-			}
-		}
-		else {	// å½“å‰æ˜¯è¿ç®—ç¬¦å·
-			// è¿›è¡Œè¿ç®—
-			if (ops.empty())
-			{
-				ops.push(expression[i]);
-			}
-			else {
-				if (op_prior[expression[i]] > op_prior[ops.top()])
-				{
-					ops.push(expression[i]);
-				}
-				else {
-					while (!ops.empty() && op_prior[expression[i]] <= op_prior[ops.top()])
-					{
-						int b = nums.top(); nums.pop();
-						int a = nums.top(); nums.pop();
-						char op = ops.top(); ops.pop();
-						nums.push(mars_operator(a, b, op));
-					}
-					ops.push(expression[i]);
-				}
-			}
-		}
-	}
-	while (!ops.empty())
-	{
-		int b = nums.top(); nums.pop();
-		int a = nums.top(); nums.pop();
-		char op = ops.top(); ops.pop();
-		nums.push(mars_operator(a, b, op));
-	}
-	cout << nums.top();
-	
-}
+///*
+//475¡¢»ðÐÇÎÄ¼ÆËã
+//ÌâÄ¿ÃèÊö£º
+//ÒÑÖª»ðÐÇÈËÊ¹ÓÃµÄÔËËã·ûÎª#¡¢$£¬ÆäÓëµØÇòÈËµÄµÈ¼Û¹«Ê½ÈçÏÂ£º
+//x#y = 4*x+3*y+2
+//x$y = 2*x+y+3
+//1¡¢ÆäÖÐx¡¢yÊÇÎÞ·ûºÅÕûÊý
+//2¡¢µØÇòÈË¹«Ê½°´CÓïÑÔ¹æÔò¼ÆËã
+//3¡¢»ðÐÇÈË¹«Ê½ÖÐ£¬#µÄÓÅÏÈ¼¶¸ßÓÚ$£¬ÏàÍ¬µÄÔËËã·û£¬°´´Ó×óµ½ÓÒµÄË³Ðò¼ÆËã
+//ÏÖÓÐÒ»¶Î»ðÐÇÈËµÄ×Ö·û´®±¨ÎÄ£¬ÇëÄãÀ´·­Òë²¢¼ÆËã½á¹û¡£
+//
+//ÊäÈëÃèÊö£º
+//»ðÐÇÈË×Ö·û´®±í´ïÊ½£¨½áÎ²²»´ø»Ø³µ»»ÐÐ£©
+//ÊäÈëµÄ×Ö·û´®ËµÃ÷£º  ×Ö·û´®Îª½öÓÉÎÞ·ûºÅÕûÊýºÍ²Ù×÷·û£¨#¡¢$£©×é³ÉµÄ¼ÆËã±í´ïÊ½¡£ÀýÈç£º123#4$5#67$78¡£
+//1¡¢ÓÃÀý±£Ö¤×Ö·û´®ÖÐ£¬²Ù×÷ÊýÓë²Ù×÷·ûÖ®¼äÃ»ÓÐÈÎºÎ·Ö¸ô·û¡£
+//2¡¢ÓÃÀý±£Ö¤²Ù×÷ÊýÈ¡Öµ·¶Î§Îª32Î»ÎÞ·ûºÅÕûÊý¡£
+//3¡¢±£Ö¤ÊäÈëÒÔ¼°¼ÆËã½á¹û²»»á³öÏÖÕûÐÍÒç³ö¡£
+//4¡¢±£Ö¤ÊäÈëµÄ×Ö·û´®ÎªºÏ·¨µÄÇóÖµ±¨ÎÄ£¬ÀýÈç£º123#4$5#67$78
+//5¡¢±£Ö¤²»»á³öÏÖ·Ç·¨µÄÇóÖµ±¨ÎÄ£¬ÀýÈçÀàËÆÕâÑù×Ö·û´®£º
+//#4$5 //È±ÉÙ²Ù×÷Êý
+//4$5# //È±ÉÙ²Ù×÷Êý
+//4#$5 //È±ÉÙ²Ù×÷Êý
+//4 $5 //ÓÐ¿Õ¸ñ
+//3+4-5*6/7 //ÓÐÆäËü²Ù×÷·û
+//12345678987654321$54321 //32Î»ÕûÊý¼ÆËãÒç³ö
+//
+//Êä³öÃèÊö£º
+//¸ù¾ÝÊäÈëµÄ»ðÐÇÈË×Ö·û´®Êä³ö¼ÆËã½á¹û£¨½áÎ²²»´ø»Ø³µ»»ÐÐ£©
+//
+//Ê¾Àý1
+//ÊäÈë£º
+//7#6$5#12
+//Êä³ö£º
+//157
+//ËµÃ÷£º
+//Ê¾Àý£º
+//7#6$5#12
+//=(4*7+3*6+2)$5#12
+//=48$5#12
+//=48$(4*5+3*12+2)
+//=48$58
+//=2*48+58+3
+//=157
+//*/
+//
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<stack>
+//#include<map>
+//
+//using namespace std;
+//
+//map<char, int> op_prior = { {'#', 2}, {'$', 1} };
+//
+//int mars_operator(int x, int y, char op)
+//{
+//	if (op == '#')
+//	{
+//		return 4 * x + 3 * y + 2;
+//	}
+//	else {
+//		return 2 * x + y + 3;
+//	}
+//}
+//
+//int main()
+//{
+//	string expression;	// Ô¤ËãÊ½		// 7#6$5#12
+//	getline(cin, expression);
+//	stack<int> nums; // Õ»£º´æ´¢²Ù×÷Êý	
+//	stack<char> ops; // Õ»£º´æ´¢ÔËËã·û	#µÄÓÅÏÈ¼¶¸ßÓÚ$
+//	// ¼ÆËã
+//	string t;
+//	for (int i = 0; i < expression.size(); i++)
+//	{
+//		if (isdigit(expression[i]))
+//		{
+//			t += expression[i];
+//			if (i == expression.size() - 1)
+//			{
+//				nums.push(stoi(t));// ½«²Ù×÷ÊýÑ¹ÈëÕ»
+//				t.clear();// ÖØÖÃstr
+//			}
+//			else if(!isdigit(expression[i+1])){
+//				nums.push(stoi(t));// ½«²Ù×÷ÊýÑ¹ÈëÕ»
+//				t.clear();// ÖØÖÃstr
+//			}
+//		}
+//		else {	// µ±Ç°ÊÇÔËËã·ûºÅ
+//			// ½øÐÐÔËËã
+//			if (ops.empty())
+//			{
+//				ops.push(expression[i]);
+//			}
+//			else {
+//				if (op_prior[expression[i]] > op_prior[ops.top()])
+//				{
+//					ops.push(expression[i]);
+//				}
+//				else {
+//					while (!ops.empty() && op_prior[expression[i]] <= op_prior[ops.top()])
+//					{
+//						int b = nums.top(); nums.pop();
+//						int a = nums.top(); nums.pop();
+//						char op = ops.top(); ops.pop();
+//						nums.push(mars_operator(a, b, op));
+//					}
+//					ops.push(expression[i]);
+//				}
+//			}
+//		}
+//	}
+//	while (!ops.empty())
+//	{
+//		int b = nums.top(); nums.pop();
+//		int a = nums.top(); nums.pop();
+//		char op = ops.top(); ops.pop();
+//		nums.push(mars_operator(a, b, op));
+//	}
+//	cout << nums.top();
+//	
+//}

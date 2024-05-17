@@ -1,67 +1,67 @@
-/*
-445ã€å‘˜å·¥æ´¾é£
-é¢˜ç›®æè¿°ï¼š
-æŸå…¬å¸éƒ¨é—¨éœ€è¦æ´¾é£å‘˜å·¥åŽ»å›½å¤–åšé¡¹ç›®ã€‚çŽ°åœ¨ï¼Œä»£å·ä¸ºxçš„å›½å®¶å’Œä»£å·ä¸ºyçš„å›½å®¶åˆ†åˆ«éœ€è¦cntxåå’Œcntyåå‘˜å·¥ã€‚éƒ¨é—¨æ¯ä¸ªå‘˜å·¥æœ‰ä¸€ä¸ªå‘˜å·¥å·(1,2,3â€¦â€¦)ï¼Œå·¥å·è¿žç»­ï¼Œä»Ž1å¼€å§‹ã€‚
-éƒ¨é•¿æ´¾é£å‘˜å·¥çš„è§„åˆ™ï¼š
-è§„åˆ™1ã€ä»Ž[1,k]ä¸­é€‰æ‹©å‘˜å·¥æ´¾é£å‡ºåŽ»
-è§„åˆ™2ã€ç¼–å·ä¸ºxçš„å€æ•°çš„å‘˜å·¥ä¸èƒ½åŽ»xå›½ï¼Œç¼–å·ä¸ºyçš„å€æ•°çš„å‘˜å·¥ä¸èƒ½åŽ»yå›½
-é—®é¢˜ï¼š
-æ‰¾åˆ°æœ€å°çš„kï¼Œä½¿å¾—å¯ä»¥å°†ç¼–å·åœ¨[1,k]ä¸­çš„å‘˜å·¥åˆ†é…ç»™xå›½å’Œyå›½ï¼Œä¸”æ»¡è¶³xå›½å’Œyå›½çš„éœ€æ±‚
-
-è¾“å…¥æè¿°ï¼š
-å››ä¸ªæ•´æ•° x, y, cntx, cntyã€‚(2<=x<y<=30000; xå’Œyä¸€å®šæ˜¯è´¨æ•°;1<=cntx,cnty<10^9; cntx+cnty<=10^9ï¼‰
-
-è¾“å‡ºæè¿°ï¼š
-æ»¡è¶³æ¡ä»¶çš„æœ€å°çš„kã€‚
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-2 3 3 1
-è¾“å‡ºï¼š
-5
-è¯´æ˜Žï¼š
-è¾“å…¥è¯´æ˜Žï¼š
-2 -è¡¨ç¤ºå›½å®¶ä»£å·2
-3 -è¡¨ç¤ºå›½å®¶ä»£å·3
-3 -è¡¨ç¤ºå›½å®¶2éœ€è¦3ä¸ªäºº
-1 -è¡¨ç¤ºå›½å®¶3éœ€è¦1ä¸ªäºº
-
-2 3 3 1
-x:3 4
-y:2
-s:1 5
-*/
-#include<iostream>
-#include<vector>
-
-using namespace std;
-
-int main()
-{
-	int x, y, cntx, cnty;	// ä»£å·ä¸ºxçš„å›½å®¶å’Œä»£å·ä¸ºyçš„å›½å®¶åˆ†åˆ«éœ€è¦cntxåå’Œcntyåå‘˜å·¥
-	cin >> x >> y >> cntx >> cnty;
-	int res;
-	for (int i = 1, cx = 0, cy = 0, cs = 0; ; i++)
-	{
-		int a = i % x;
-		int b = i % y;
-		if (a != 0 && b != 0)
-		{
-			cs++;
-		}
-		else if (a == 0 && b != 0)
-		{
-			cy++;
-		}
-		else if (a != 0 && b == 0)
-		{
-			cx++;
-		}
-		if (cx + cs >= cntx && cy + cs >= cnty && cx + cy + cs >= cntx + cnty)
-		{
-			res = i;
-			break;
-		}
-	}
-	cout << res;
-}
+///*
+//445¡¢Ô±¹¤ÅÉÇ²
+//ÌâÄ¿ÃèÊö£º
+//Ä³¹«Ë¾²¿ÃÅÐèÒªÅÉÇ²Ô±¹¤È¥¹úÍâ×öÏîÄ¿¡£ÏÖÔÚ£¬´úºÅÎªxµÄ¹ú¼ÒºÍ´úºÅÎªyµÄ¹ú¼Ò·Ö±ðÐèÒªcntxÃûºÍcntyÃûÔ±¹¤¡£²¿ÃÅÃ¿¸öÔ±¹¤ÓÐÒ»¸öÔ±¹¤ºÅ(1,2,3¡­¡­)£¬¹¤ºÅÁ¬Ðø£¬´Ó1¿ªÊ¼¡£
+//²¿³¤ÅÉÇ²Ô±¹¤µÄ¹æÔò£º
+//¹æÔò1¡¢´Ó[1,k]ÖÐÑ¡ÔñÔ±¹¤ÅÉÇ²³öÈ¥
+//¹æÔò2¡¢±àºÅÎªxµÄ±¶ÊýµÄÔ±¹¤²»ÄÜÈ¥x¹ú£¬±àºÅÎªyµÄ±¶ÊýµÄÔ±¹¤²»ÄÜÈ¥y¹ú
+//ÎÊÌâ£º
+//ÕÒµ½×îÐ¡µÄk£¬Ê¹µÃ¿ÉÒÔ½«±àºÅÔÚ[1,k]ÖÐµÄÔ±¹¤·ÖÅä¸øx¹úºÍy¹ú£¬ÇÒÂú×ãx¹úºÍy¹úµÄÐèÇó
+//
+//ÊäÈëÃèÊö£º
+//ËÄ¸öÕûÊý x, y, cntx, cnty¡£(2<=x<y<=30000; xºÍyÒ»¶¨ÊÇÖÊÊý;1<=cntx,cnty<10^9; cntx+cnty<=10^9£©
+//
+//Êä³öÃèÊö£º
+//Âú×ãÌõ¼þµÄ×îÐ¡µÄk¡£
+//
+//Ê¾Àý1
+//ÊäÈë£º
+//2 3 3 1
+//Êä³ö£º
+//5
+//ËµÃ÷£º
+//ÊäÈëËµÃ÷£º
+//2 -±íÊ¾¹ú¼Ò´úºÅ2
+//3 -±íÊ¾¹ú¼Ò´úºÅ3
+//3 -±íÊ¾¹ú¼Ò2ÐèÒª3¸öÈË
+//1 -±íÊ¾¹ú¼Ò3ÐèÒª1¸öÈË
+//
+//2 3 3 1
+//x:3 4
+//y:2
+//s:1 5
+//*/
+//#include<iostream>
+//#include<vector>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	int x, y, cntx, cnty;	// ´úºÅÎªxµÄ¹ú¼ÒºÍ´úºÅÎªyµÄ¹ú¼Ò·Ö±ðÐèÒªcntxÃûºÍcntyÃûÔ±¹¤
+//	cin >> x >> y >> cntx >> cnty;
+//	int res;
+//	for (int i = 1, cx = 0, cy = 0, cs = 0; ; i++)
+//	{
+//		int a = i % x;
+//		int b = i % y;
+//		if (a != 0 && b != 0)
+//		{
+//			cs++;
+//		}
+//		else if (a == 0 && b != 0)
+//		{
+//			cy++;
+//		}
+//		else if (a != 0 && b == 0)
+//		{
+//			cx++;
+//		}
+//		if (cx + cs >= cntx && cy + cs >= cnty && cx + cy + cs >= cntx + cnty)
+//		{
+//			res = i;
+//			break;
+//		}
+//	}
+//	cout << res;
+//}

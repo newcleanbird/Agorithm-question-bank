@@ -1,170 +1,170 @@
-/*
-446ã€æŸ¥æ‰¾ä¸€ä¸ªæœ‰å‘ç½‘ç»œçš„å¤´èŠ‚ç‚¹å’Œå°¾èŠ‚ç‚¹
-é¢˜ç›®æè¿°ï¼š
-ç»™å®šä¸€ä¸ªæœ‰å‘å›¾ï¼Œå›¾ä¸­å¯èƒ½åŒ…å«æœ‰ç¯ï¼Œå›¾ä½¿ç”¨äºŒç»´çŸ©é˜µè¡¨ç¤ºï¼Œæ¯ä¸€è¡Œçš„ç¬¬ä¸€åˆ—è¡¨ç¤ºèµ·å§‹èŠ‚ç‚¹ï¼Œç¬¬äºŒåˆ—è¡¨ç¤ºç»ˆæ­¢èŠ‚ç‚¹ï¼Œå¦‚[0, 1]è¡¨ç¤ºä»0åˆ°1çš„è·¯å¾„ã€‚æ¯ä¸ªèŠ‚ç‚¹ç”¨æ­£æ•´æ•°è¡¨ç¤ºã€‚æ±‚è¿™ä¸ªæ•°æ®çš„é¦–èŠ‚ç‚¹ä¸å°¾èŠ‚ç‚¹ï¼Œé¢˜ç›®ç»™çš„ç”¨ä¾‹ä¼šæ˜¯ä¸€ä¸ªé¦–èŠ‚ç‚¹ï¼Œä½†å¯èƒ½å­˜åœ¨å¤šä¸ªå°¾èŠ‚ç‚¹ã€‚åŒæ—¶ï¼Œå›¾ä¸­å¯èƒ½å«æœ‰ç¯ã€‚å¦‚æœå›¾ä¸­å«æœ‰ç¯ï¼Œè¿”å›[-1]ã€‚
-
-è¯´æ˜ï¼šå…¥åº¦ä¸º0æ˜¯é¦–èŠ‚ç‚¹ï¼Œå‡ºåº¦ä¸º0æ˜¯å°¾èŠ‚ç‚¹ã€‚
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬ä¸€è¡Œä¸ºåç»­è¾“å…¥çš„é”®å€¼å¯¹æ•°é‡N>=0ï¼Œç¬¬äºŒè¡Œä¸º2Nä¸ªæ•°å­—ã€‚æ¯ä¸¤ä¸ªä¸ºä¸€ä¸ªèµ·ç‚¹ï¼Œä¸€ä¸ªç»ˆç‚¹ã€‚å¦‚ï¼š
-
-è¾“å‡ºæè¿°ï¼š
-è¾“å‡ºä¸€è¡Œå¤´èŠ‚ç‚¹å’Œå°¾èŠ‚ç‚¹ã€‚å¦‚æœæœ‰å¤šä¸ªå°¾èŠ‚ç‚¹ï¼ŒæŒ‰ä»å¤§åˆ°å°çš„é¡ºåºè¾“å‡ºã€‚
-
-è¡¥å……è¯´æ˜ï¼š
-å¦‚æœå›¾æœ‰ç¯ï¼Œè¾“å‡ºä¸º-1.
-æ‰€æœ‰è¾“å…¥å‡åˆæ³•ï¼Œä¸ä¼šå‡ºç°ä¸é…å¯¹çš„æ•°æ®
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-4
-0 1 0 2 1 2 2 3
-è¾“å‡ºï¼š
-0 3
-è¯´æ˜ï¼š
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-2
-0 1 0 2
-è¾“å‡ºï¼š
-0 1 2
-è¯´æ˜ï¼š
-*/
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
-
-using namespace std;
-
-class Graph
-{
-private:
-	vector<vector<int>> m;	// (adjMatrix)é‚»æ¥çŸ©é˜µï¼Œå­˜å‚¨æƒå€¼
-	int v; // numVertices é¡¶ç‚¹æ•°
-	vector<int> topologicalOrder; // å­˜å‚¨æ‹“æ‰‘æ’åºæ¬¡åº
-public:
-	Graph(int v) : v(v)
-	{
-		m.resize(v, vector<int>(v, 0));
-	}
-
-	void addEdge(int x, int y)
-	{
-		m[x][y] = 1;
-	}
-
-	void kahn()
-	{
-		// åˆå§‹åŒ–å…¥åº¦æ•°ç»„:
-		vector<int> in_degree(v, 0);
-		// è®¡ç®—æ¯ä¸ªé¡¶ç‚¹çš„å…¥åº¦:
-		for (int i = 0; i < v; i++)
-		{
-			for (int j = 0; j < v; j++)
-			{
-				if (m[j][i] != 0)
-				{
-					in_degree[i]++;
-				}
-			}
-		}
-
-		// å°†å…¥åº¦ä¸º0çš„é¡¶ç‚¹åŠ å…¥åˆ°q
-		queue<int> q; // å­˜å‚¨æ‰€æœ‰å…¥åº¦ä¸º0çš„é¡¶ç‚¹
-		for (int i = 0; i < v; i++)
-		{
-			if (in_degree[i] == 0) q.push(i);
-		}
-
-		// æ‹“æ‰‘æ’åº
-		while (!q.empty())
-		{
-			int cur = q.front(); q.pop();// å¼¹å‡ºé˜Ÿé¦–é¡¶ç‚¹ curï¼Œå¹¶è¾“å‡ºï¼Œè¡¨ç¤ºé¡¶ç‚¹ cur åœ¨æ‹“æ‰‘æ’åºä¸­çš„ä½ç½®ã€‚
-			topologicalOrder.push_back(cur);
-
-			// æ›´æ–°å…¥è¯»è¡¨
-			for (int i = 0; i < v; i++)
-			{
-				if (m[cur][i] != 0)	// æ‰¾åˆ°é‚»æ¥ç‚¹
-				{
-					in_degree[i]--;
-					if (in_degree[i] == 0) q.push(i);
-				}
-			}
-		}
-	}
-
-	void print_topologicalOrder()
-	{
-		for (auto i : topologicalOrder)
-		{
-			cout << i << " ";
-		}
-	}
-
-	int size_topologicalOrder()
-	{
-		return topologicalOrder.size();
-	}
-
-	void get_result()
-	{
-		vector<int> res;
-		res.push_back(topologicalOrder[0]);
-
-		// æ‰¾åˆ°æ‰€æœ‰å‡ºåº¦ä¸º0çš„ç‚¹
-		vector<int> out_degree(v);
-		for (int i = 0; i < v; i++)
-		{
-			for (int j = 0; j < v; j++)
-			{
-				if (m[i][j] != 0) out_degree[i]++;
-			}
-		}
-		for (int i = 0; i < v; i++)
-		{
-			if (out_degree[i] == 0)
-			{
-				res.push_back(i);
-			}
-		}
-		
-		// è¾“å‡ºç»“æœ
-		for (auto i : res)
-		{
-			cout << i << " ";
-		}
-	}
-};
-
-
-int main()
-{
-	int n;// ä¸€å…±næ¡æ•°æ®,å…¶å®æ²¡æœ‰ç”¨
-	cin >> n;
-	vector<int> nums;	// å­˜å‚¨æ‰€æœ‰è¾“å…¥çš„æ•°æ®
-	int tmp;
-	while (cin >> tmp)
-	{
-		nums.push_back(tmp);
-		if (cin.get() == '\n') break;
-	}
-	int v = 0;
-	for (auto i : nums) v = max(v, i);
-	v++;	// å®é™…èŠ‚ç‚¹æ•°ç›®æ˜¯æœ€å¤§åºå·+1
-	Graph g(v);
-	for (int i = 0; i < nums.size(); i = i + 2)
-	{
-		g.addEdge(nums[i], nums[i + 1]);
-	}
-	g.kahn();
-	if (g.size_topologicalOrder() != v)
-	{
-		cout << -1;
-	}
-	else {
-		g.get_result();
-	}
-}
+///*
+//446¡¢²éÕÒÒ»¸öÓĞÏòÍøÂçµÄÍ·½ÚµãºÍÎ²½Úµã
+//ÌâÄ¿ÃèÊö£º
+//¸ø¶¨Ò»¸öÓĞÏòÍ¼£¬Í¼ÖĞ¿ÉÄÜ°üº¬ÓĞ»·£¬Í¼Ê¹ÓÃ¶şÎ¬¾ØÕó±íÊ¾£¬Ã¿Ò»ĞĞµÄµÚÒ»ÁĞ±íÊ¾ÆğÊ¼½Úµã£¬µÚ¶şÁĞ±íÊ¾ÖÕÖ¹½Úµã£¬Èç[0, 1]±íÊ¾´Ó0µ½1µÄÂ·¾¶¡£Ã¿¸ö½ÚµãÓÃÕıÕûÊı±íÊ¾¡£ÇóÕâ¸öÊı¾İµÄÊ×½ÚµãÓëÎ²½Úµã£¬ÌâÄ¿¸øµÄÓÃÀı»áÊÇÒ»¸öÊ×½Úµã£¬µ«¿ÉÄÜ´æÔÚ¶à¸öÎ²½Úµã¡£Í¬Ê±£¬Í¼ÖĞ¿ÉÄÜº¬ÓĞ»·¡£Èç¹ûÍ¼ÖĞº¬ÓĞ»·£¬·µ»Ø[-1]¡£
+//
+//ËµÃ÷£ºÈë¶ÈÎª0ÊÇÊ×½Úµã£¬³ö¶ÈÎª0ÊÇÎ²½Úµã¡£
+//
+//ÊäÈëÃèÊö£º
+//µÚÒ»ĞĞÎªºóĞøÊäÈëµÄ¼üÖµ¶ÔÊıÁ¿N>=0£¬µÚ¶şĞĞÎª2N¸öÊı×Ö¡£Ã¿Á½¸öÎªÒ»¸öÆğµã£¬Ò»¸öÖÕµã¡£Èç£º
+//
+//Êä³öÃèÊö£º
+//Êä³öÒ»ĞĞÍ·½ÚµãºÍÎ²½Úµã¡£Èç¹ûÓĞ¶à¸öÎ²½Úµã£¬°´´Ó´óµ½Ğ¡µÄË³ĞòÊä³ö¡£
+//
+//²¹³äËµÃ÷£º
+//Èç¹ûÍ¼ÓĞ»·£¬Êä³öÎª-1.
+//ËùÓĞÊäÈë¾ùºÏ·¨£¬²»»á³öÏÖ²»Åä¶ÔµÄÊı¾İ
+//
+//Ê¾Àı1
+//ÊäÈë£º
+//4
+//0 1 0 2 1 2 2 3
+//Êä³ö£º
+//0 3
+//ËµÃ÷£º
+//
+//Ê¾Àı2
+//ÊäÈë£º
+//2
+//0 1 0 2
+//Êä³ö£º
+//0 1 2
+//ËµÃ÷£º
+//*/
+//#include <iostream>
+//#include <vector>
+//#include <queue>
+//#include <algorithm>
+//
+//using namespace std;
+//
+//class Graph
+//{
+//private:
+//	vector<vector<int>> m;	// (adjMatrix)ÁÚ½Ó¾ØÕó£¬´æ´¢È¨Öµ
+//	int v; // numVertices ¶¥µãÊı
+//	vector<int> topologicalOrder; // ´æ´¢ÍØÆËÅÅĞò´ÎĞò
+//public:
+//	Graph(int v) : v(v)
+//	{
+//		m.resize(v, vector<int>(v, 0));
+//	}
+//
+//	void addEdge(int x, int y)
+//	{
+//		m[x][y] = 1;
+//	}
+//
+//	void kahn()
+//	{
+//		// ³õÊ¼»¯Èë¶ÈÊı×é:
+//		vector<int> in_degree(v, 0);
+//		// ¼ÆËãÃ¿¸ö¶¥µãµÄÈë¶È:
+//		for (int i = 0; i < v; i++)
+//		{
+//			for (int j = 0; j < v; j++)
+//			{
+//				if (m[j][i] != 0)
+//				{
+//					in_degree[i]++;
+//				}
+//			}
+//		}
+//
+//		// ½«Èë¶ÈÎª0µÄ¶¥µã¼ÓÈëµ½q
+//		queue<int> q; // ´æ´¢ËùÓĞÈë¶ÈÎª0µÄ¶¥µã
+//		for (int i = 0; i < v; i++)
+//		{
+//			if (in_degree[i] == 0) q.push(i);
+//		}
+//
+//		// ÍØÆËÅÅĞò
+//		while (!q.empty())
+//		{
+//			int cur = q.front(); q.pop();// µ¯³ö¶ÓÊ×¶¥µã cur£¬²¢Êä³ö£¬±íÊ¾¶¥µã cur ÔÚÍØÆËÅÅĞòÖĞµÄÎ»ÖÃ¡£
+//			topologicalOrder.push_back(cur);
+//
+//			// ¸üĞÂÈë¶Á±í
+//			for (int i = 0; i < v; i++)
+//			{
+//				if (m[cur][i] != 0)	// ÕÒµ½ÁÚ½Óµã
+//				{
+//					in_degree[i]--;
+//					if (in_degree[i] == 0) q.push(i);
+//				}
+//			}
+//		}
+//	}
+//
+//	void print_topologicalOrder()
+//	{
+//		for (auto i : topologicalOrder)
+//		{
+//			cout << i << " ";
+//		}
+//	}
+//
+//	int size_topologicalOrder()
+//	{
+//		return topologicalOrder.size();
+//	}
+//
+//	void get_result()
+//	{
+//		vector<int> res;
+//		res.push_back(topologicalOrder[0]);
+//
+//		// ÕÒµ½ËùÓĞ³ö¶ÈÎª0µÄµã
+//		vector<int> out_degree(v);
+//		for (int i = 0; i < v; i++)
+//		{
+//			for (int j = 0; j < v; j++)
+//			{
+//				if (m[i][j] != 0) out_degree[i]++;
+//			}
+//		}
+//		for (int i = 0; i < v; i++)
+//		{
+//			if (out_degree[i] == 0)
+//			{
+//				res.push_back(i);
+//			}
+//		}
+//		
+//		// Êä³ö½á¹û
+//		for (auto i : res)
+//		{
+//			cout << i << " ";
+//		}
+//	}
+//};
+//
+//
+//int main()
+//{
+//	int n;// Ò»¹²nÌõÊı¾İ,ÆäÊµÃ»ÓĞÓÃ
+//	cin >> n;
+//	vector<int> nums;	// ´æ´¢ËùÓĞÊäÈëµÄÊı¾İ
+//	int tmp;
+//	while (cin >> tmp)
+//	{
+//		nums.push_back(tmp);
+//		if (cin.get() == '\n') break;
+//	}
+//	int v = 0;
+//	for (auto i : nums) v = max(v, i);
+//	v++;	// Êµ¼Ê½ÚµãÊıÄ¿ÊÇ×î´óĞòºÅ+1
+//	Graph g(v);
+//	for (int i = 0; i < nums.size(); i = i + 2)
+//	{
+//		g.addEdge(nums[i], nums[i + 1]);
+//	}
+//	g.kahn();
+//	if (g.size_topologicalOrder() != v)
+//	{
+//		cout << -1;
+//	}
+//	else {
+//		g.get_result();
+//	}
+//}

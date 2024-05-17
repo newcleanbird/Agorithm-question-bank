@@ -1,87 +1,87 @@
-/*
-358ã€å­™æ‚Ÿç©ºåƒèŸ æ¡ƒã€çŒ´å­åƒæ¡ƒ
-é¢˜ç›®æè¿°ï¼š
-å­™æ‚Ÿç©ºçˆ±åƒèŸ æ¡ƒï¼Œæœ‰ä¸€å¤©è¶ç€èŸ æ¡ƒå›­å®ˆå«ä¸åœ¨æ¥å·åƒã€‚å·²çŸ¥èŸ æ¡ƒå›­æœ‰Né¢—æ¡ƒæ ‘ï¼Œæ¯é¢—æ ‘ä¸Šéƒ½æœ‰æ¡ƒå­ï¼Œå®ˆå«å°†åœ¨Hå°æ—¶åŽå›žæ¥ã€‚
-å­™æ‚Ÿç©ºå¯ä»¥å†³å®šä»–åƒèŸ æ¡ƒçš„é€Ÿåº¦Kï¼ˆä¸ª/å°æ—¶ï¼‰ï¼Œæ¯ä¸ªå°æ—¶é€‰ä¸€é¢—æ¡ƒæ ‘ï¼Œå¹¶ä»Žæ ‘ä¸ŠåƒæŽ‰Kä¸ªï¼Œå¦‚æžœæ ‘ä¸Šçš„æ¡ƒå­å°‘äºŽKä¸ªï¼Œåˆ™å…¨éƒ¨åƒæŽ‰ï¼Œå¹¶ä¸”è¿™ä¸€å°æ—¶å‰©ä½™çš„æ—¶é—´é‡Œä¸å†åƒæ¡ƒã€‚
-å­™æ‚Ÿç©ºå–œæ¬¢æ…¢æ…¢åƒï¼Œä½†åˆæƒ³åœ¨å®ˆå«å›žæ¥å‰åƒå®Œæ¡ƒå­ã€‚
-è¯·è¿”å›žå­™æ‚Ÿç©ºå¯ä»¥åœ¨Hå°æ—¶å†…åƒæŽ‰æ‰€æœ‰æ¡ƒå­çš„æœ€å°é€Ÿåº¦Kï¼ˆKä¸ºæ•´æ•°ï¼‰ã€‚å¦‚æžœä»¥ä»»ä½•é€Ÿåº¦éƒ½åƒä¸å®Œæ‰€æœ‰æ¡ƒå­ï¼Œåˆ™è¿”å›ž0ã€‚
-
-è¾“å…¥æè¿°ï¼š
-ç¬¬ä¸€è¡Œè¾“å…¥ä¸ºNä¸ªæ•°å­—ï¼ŒNè¡¨ç¤ºæ¡ƒæ ‘çš„æ•°é‡ï¼Œè¿™Nä¸ªæ•°å­—è¡¨ç¤ºæ¯æ£µæ¡ƒæ ‘ä¸ŠèŸ æ¡ƒçš„æ•°é‡ã€‚
-ç¬¬äºŒè¡Œè¾“å…¥ä¸ºä¸€ä¸ªæ•°å­—ï¼Œè¡¨ç¤ºå®ˆå«ç¦»å¼€çš„æ—¶é—´Hã€‚
-å…¶ä¸­æ•°å­—é€šè¿‡ç©ºæ ¼åˆ†å‰²ï¼ŒNã€Hä¸ºæ­£æ•´æ•°ï¼Œæ¯æ£µæ ‘ä¸Šéƒ½æœ‰èŸ æ¡ƒï¼Œä¸”0<N<10000ï¼Œ0<H<10000ã€‚
-
-è¾“å‡ºæè¿°ï¼š
-åƒæŽ‰æ‰€æœ‰èŸ æ¡ƒçš„æœ€å°é€Ÿåº¦Kï¼Œæ— è§£æˆ–è¾“å…¥å¼‚å¸¸æ—¶è¾“å‡º0ã€‚
-
-ç¤ºä¾‹1
-è¾“å…¥ï¼š
-2 3 4 5
-4
-è¾“å‡ºï¼š
-5
-è¯´æ˜Žï¼š
-
-ç¤ºä¾‹2
-è¾“å…¥ï¼š
-2 3 4 5
-3
-è¾“å‡ºï¼š
-0
-è¯´æ˜Žï¼š
-
-ç¤ºä¾‹3
-è¾“å…¥ï¼š
-30 11 23 4 20
-6
-è¾“å‡ºï¼š
-23
-è¯´æ˜Žï¼š
-*/
-#include<iostream>
-#include<vector>
-#include<algorithm>
-
-using namespace std;
-
-int solution(vector<int>& p, int H)
-{
-	if (H < p.size()) return 0;
-	int speed = 1;
-	while(speed++)
-	{
-		int count = 0;
-		for (int i = 0; i < p.size(); i++)
-		{
-			count += ceil((double)p[i] / speed);
-			// cout << "speed" << speed << " " << "p[i]:" << p[i] << " " << ceil((double)p[i] / speed) << endl;
-		}
-		if (count <= H)
-		{
-			return speed;
-			break;
-		}
-	}
-
-}
-
-
-int main()
-{
-	vector<int> p;		// æ¡ƒå­
-	int tmp;
-	while (cin >> tmp)
-	{
-		p.push_back(tmp);
-		if (cin.get() == '\n') break;
- 	}
-	int H; 
-	cin >> H; // å®ˆå«ç¦»å¼€çš„æ—¶é—´
-	int res = 0;
-	sort(p.begin(), p.end(), less<int>());
-	res = solution(p, H);
-	cout << res << endl;
-
-
-	//cout << ceil((double)2 / 3);
-}
+///*
+//358¡¢ËïÎò¿Õ³Ôó´ÌÒ¡¢ºï×Ó³ÔÌÒ
+//ÌâÄ¿ÃèÊö£º
+//ËïÎò¿Õ°®³Ôó´ÌÒ£¬ÓÐÒ»Ìì³Ã×Åó´ÌÒÔ°ÊØÎÀ²»ÔÚÀ´Íµ³Ô¡£ÒÑÖªó´ÌÒÔ°ÓÐN¿ÅÌÒÊ÷£¬Ã¿¿ÅÊ÷ÉÏ¶¼ÓÐÌÒ×Ó£¬ÊØÎÀ½«ÔÚHÐ¡Ê±ºó»ØÀ´¡£
+//ËïÎò¿Õ¿ÉÒÔ¾ö¶¨Ëû³Ôó´ÌÒµÄËÙ¶ÈK£¨¸ö/Ð¡Ê±£©£¬Ã¿¸öÐ¡Ê±Ñ¡Ò»¿ÅÌÒÊ÷£¬²¢´ÓÊ÷ÉÏ³ÔµôK¸ö£¬Èç¹ûÊ÷ÉÏµÄÌÒ×ÓÉÙÓÚK¸ö£¬ÔòÈ«²¿³Ôµô£¬²¢ÇÒÕâÒ»Ð¡Ê±Ê£ÓàµÄÊ±¼äÀï²»ÔÙ³ÔÌÒ¡£
+//ËïÎò¿ÕÏ²»¶ÂýÂý³Ô£¬µ«ÓÖÏëÔÚÊØÎÀ»ØÀ´Ç°³ÔÍêÌÒ×Ó¡£
+//Çë·µ»ØËïÎò¿Õ¿ÉÒÔÔÚHÐ¡Ê±ÄÚ³ÔµôËùÓÐÌÒ×ÓµÄ×îÐ¡ËÙ¶ÈK£¨KÎªÕûÊý£©¡£Èç¹ûÒÔÈÎºÎËÙ¶È¶¼³Ô²»ÍêËùÓÐÌÒ×Ó£¬Ôò·µ»Ø0¡£
+//
+//ÊäÈëÃèÊö£º
+//µÚÒ»ÐÐÊäÈëÎªN¸öÊý×Ö£¬N±íÊ¾ÌÒÊ÷µÄÊýÁ¿£¬ÕâN¸öÊý×Ö±íÊ¾Ã¿¿ÃÌÒÊ÷ÉÏó´ÌÒµÄÊýÁ¿¡£
+//µÚ¶þÐÐÊäÈëÎªÒ»¸öÊý×Ö£¬±íÊ¾ÊØÎÀÀë¿ªµÄÊ±¼äH¡£
+//ÆäÖÐÊý×ÖÍ¨¹ý¿Õ¸ñ·Ö¸î£¬N¡¢HÎªÕýÕûÊý£¬Ã¿¿ÃÊ÷ÉÏ¶¼ÓÐó´ÌÒ£¬ÇÒ0<N<10000£¬0<H<10000¡£
+//
+//Êä³öÃèÊö£º
+//³ÔµôËùÓÐó´ÌÒµÄ×îÐ¡ËÙ¶ÈK£¬ÎÞ½â»òÊäÈëÒì³£Ê±Êä³ö0¡£
+//
+//Ê¾Àý1
+//ÊäÈë£º
+//2 3 4 5
+//4
+//Êä³ö£º
+//5
+//ËµÃ÷£º
+//
+//Ê¾Àý2
+//ÊäÈë£º
+//2 3 4 5
+//3
+//Êä³ö£º
+//0
+//ËµÃ÷£º
+//
+//Ê¾Àý3
+//ÊäÈë£º
+//30 11 23 4 20
+//6
+//Êä³ö£º
+//23
+//ËµÃ÷£º
+//*/
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//
+//using namespace std;
+//
+//int solution(vector<int>& p, int H)
+//{
+//	if (H < p.size()) return 0;
+//	int speed = 1;
+//	while(speed++)
+//	{
+//		int count = 0;
+//		for (int i = 0; i < p.size(); i++)
+//		{
+//			count += ceil((double)p[i] / speed);
+//			// cout << "speed" << speed << " " << "p[i]:" << p[i] << " " << ceil((double)p[i] / speed) << endl;
+//		}
+//		if (count <= H)
+//		{
+//			return speed;
+//			break;
+//		}
+//	}
+//
+//}
+//
+//
+//int main()
+//{
+//	vector<int> p;		// ÌÒ×Ó
+//	int tmp;
+//	while (cin >> tmp)
+//	{
+//		p.push_back(tmp);
+//		if (cin.get() == '\n') break;
+// 	}
+//	int H; 
+//	cin >> H; // ÊØÎÀÀë¿ªµÄÊ±¼ä
+//	int res = 0;
+//	sort(p.begin(), p.end(), less<int>());
+//	res = solution(p, H);
+//	cout << res << endl;
+//
+//
+//	//cout << ceil((double)2 / 3);
+//}
